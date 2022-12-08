@@ -457,7 +457,7 @@
   <span class="marker"></span>
 
   <div id="myModal" class="lskymodal">
-    <div class="lskymodal-content">
+    <div class="modal-content">
       <p><i class="fa fa-check" aria-hidden="true"></i> {{ massege }}</p>
     </div>
   </div>
@@ -746,7 +746,7 @@ export default {
     messagebox() {
       var modal = document.getElementById("myModal");
       modal.style.display = "block";
-       setTimeout(() => modal.style.display = "none", 1500);
+      setTimeout(() => modal.style.display = "none", 1500);
     },
   },
   startCountdown: function () {
