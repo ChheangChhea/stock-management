@@ -23,10 +23,8 @@
           <div id="user-info">
             <span class="icon"></span>
             <p id="userName">
-              システム
-              <a href="/login/logout" id="btnlogout" title="ログアウト"
-                >ログアウト</a
-              >
+              Admin
+              <a href="/login/logout" id="btnlogout" title="logout"></a>
             </p>
           </div>
         </div>
@@ -35,7 +33,7 @@
 
     <div class="search-box">
       <div id="product">
-        <div class="search-box mb-4">
+        <div class="search-box">
           <h2 class="search-box-title">Search</h2>
           <input id="search" name="search" type="hidden" value="1" />
           <div class="search-box-content">

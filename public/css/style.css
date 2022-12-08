@@ -2989,7 +2989,7 @@ th {
 }
 
 .tbl_list thead tr:first-child th {
-	border-top: 1px solid #6eb3bf;
+	/* border-top: 1px solid #6eb3bf; */
 }
 
 .bnt-02 {
@@ -3737,7 +3737,7 @@ h2.box-title,
 }
 
 .modal-dialog {
-	max-width: 80% !important;
+	max-width: 50% !important;
 	margin: 1.75rem auto !important;
 }
 
