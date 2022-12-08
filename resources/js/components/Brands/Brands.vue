@@ -6,7 +6,7 @@
                     <div id="logo">
                         <img alt="Healthbook" height="44" src="img/logo.png" width="70"/>
                     </div>
-                    <h1 id="title">メニュー</h1>
+                    <h1 id="title">Healthbook</h1>
                 </div>
                 <ol id="topicPath">
                     <li id="tpHome">
@@ -48,7 +48,6 @@
                                         <input class="string_zen_kana clear_text text" @change="serchdata()" v-model="serchform.brand_name" id="brand_name" maxlength="50" name="brand_name" size="50" type="text" tabindex="10001"/>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <th width="10%">Brand Name 2</th>
                                     <td width="90%">
