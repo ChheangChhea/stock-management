@@ -22,6 +22,7 @@ import MenuClinic from './components/MenuClinic.vue'
 import MenuMedical from './components/MenuMedical.vue'
 import Receptorder from './components/Recept/Recept-order.vue'
 import viewRecept from './components/Recept/view-Recept.vue'
+import unitcode from './components/unitcode/unitcode.vue'
 
 const app = createApp({})
 const routes = [
@@ -43,6 +44,7 @@ const routes = [
   { path: '/menumedical', component: MenuMedical},
   { path: '/receptorder', component: Receptorder},
   { path: '/viewrecept', component: viewRecept},
+  { path: '/unitcode', component: unitcode},
 ]
 const router = createRouter({
   mode: 'history',

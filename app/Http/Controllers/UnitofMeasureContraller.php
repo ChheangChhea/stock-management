@@ -18,7 +18,6 @@ class UnitofMeasureContraller extends Controller
         $unitofmeasure = unitofmeasure::get();
         return $unitofmeasure;
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -37,7 +36,17 @@ class UnitofMeasureContraller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return unitofmeasure::create([
+            'id' => $request-> code,
+            'code' => $request-> code,
+            'unit_code' => $request->unit_code,
+            'unit_of_measure' => $request->unit_of_measure,
+            'type' => $request->type,
+            'bom_no' => $request->bom_no,
+            'quantity' => $request->quantity,
+            'inactived' => "yes",
+            'created_by' => "Chin Pov",
+        ]);
     }
 
     /**
@@ -72,6 +81,22 @@ class UnitofMeasureContraller extends Controller
     public function update(Request $request, $id)
     {
         //
+        $unitcode = unitofmeasure::find($id)->first();
+        $unitcode -> unit_code = $request -> unit_code;
+        $unitcode -> unit_of_measure = $request -> unit_of_measure;
+        $unitcode -> type = $request -> type;
+        $unitcode -> bom_no = $request -> bom_no;
+        $unitcode -> quantity = $request -> quantity;
+        $unitcode -> inactivated = "yes";
+        $unitcode -> is_deleted = null;
+        $unitcode -> created_by = "Chin Pov";
+        $unitcode -> update_by = "Chin Pov";
+        $unitcode->save();
+        if($unitcode){
+            return ['statue :'=>"SUCCESSE"];
+       }else{
+                  return ['statue :'=>"Note Date"];
+       }
     }
 
     /**
@@ -83,5 +108,8 @@ class UnitofMeasureContraller extends Controller
     public function destroy($id)
     {
         //
+        $unitcode = unitofmeasure::find($id);
+        $unitcode->delete();
+        return response()->json(['message' => 'Unitcode deleted successfully']);
     }
 }

@@ -8,7 +8,44 @@
 /* -------------------------------------------------------------------------
  *	reset
  * -------------------------------------------------------------------------*/
- 
+ /* message popup */
+ .lskymodal {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	right: 15px;
+	top: 13px;
+	background-color: rgb(0, 0, 0);
+	background-color: rgb(0 0 0 / 0%);
+	position: absolute;
+  }
+
+  .modal-content {
+    background-color: #199609;
+    border: 1px solid #022506c7;
+    top: 0;
+    width: 270px;
+    right: 0;
+    position: absolute;
+    color: #3ccf45;
+    border-radius: 3px;
+    font-weight: bold;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 2px #58555561;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+  }
+  .modal-content p {
+    font-size: 14px;
+    padding-left: 7px;
+    padding-right: 30px;
+    text-shadow: 1px 1px black;
+    color: white;
+  }
+
+
+
  .scrollable-menu {
     height: auto;
     max-height: 350px;
@@ -649,6 +686,7 @@ body {
 	text-indent: -99999px;
 	overflow: hidden;
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
 
 

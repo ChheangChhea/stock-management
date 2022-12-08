@@ -362,7 +362,7 @@ export default {
         }) 
    },
    getCat(){
-    axios.get('/api/v1/category/getcat').then(res => {
+    axios.get('api/v1/category/getCatName').then(res => {
                 this.Cats = res.data
         }) 
    },

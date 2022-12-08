@@ -85,6 +85,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('categorys/store', [CategorysController::class, 'store']);
     Route::post('categorys/update/{category}', [CategorysController::class, 'updates']);
     Route::post('category/delete/{category}', [CategorysController::class, 'destroy']);
+    Route::get('category/getCatName', [CategorysController::class, 'getCatName']);
 
     //Brands
     Route::get('brands/', [BrandsController::class, 'index']);
@@ -98,6 +99,12 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('suppliyers/store/', [SuppliyerController::class, 'store']);
     Route::post('suppliyers/update/{suppliyers}', [SuppliyerController::class, 'update']);
     Route::post('suppliyers/delete/{suppliyers}', [SuppliyerController::class, 'destroy']);
+
+    //Units code
+    Route::get('units/',[UnitofMeasureContraller::class,'index']);
+    Route::post('units/store',[UnitofMeasureContraller::class,'store']);
+    Route::post('units/update/{units}',[UnitofMeasureContraller::class,'update']);
+    Route::post('units/delete/{units}',[UnitofMeasureContraller::class,'destroy']);
 
     Route::get('serail/', [SerailController::class, 'index']);
     Route::post('serail/store/', [SerailController::class, 'store']);

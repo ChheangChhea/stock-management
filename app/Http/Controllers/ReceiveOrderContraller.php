@@ -117,12 +117,12 @@ class ReceiveOrderContraller extends Controller
                    }
                 
                    if(!$check){
-                        $statue ="close";
+                        $statue ="open";
                         $purchealines = purchealine::find($purchealine->id);
                         $purchealines->statue = $statue;
                         $purchealines->save();
                    }else{
-                        $statue ="open";
+                        $statue ="close";
                         $purchealines = purchealine::find($purchealine->id);
                         $purchealines->statue = $statue;
                         $purchealines->inventory = $inventorynew;
@@ -151,7 +151,7 @@ class ReceiveOrderContraller extends Controller
         }
     }
 
-  /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -159,7 +159,7 @@ class ReceiveOrderContraller extends Controller
      */
     public function getshowpurchea(Request $request)
     {
-        $purcheas_order_view = purcheas_order_view::orderBy('document_no', 'asc')->paginate(10);
+        $purcheas_order_view = purcheaorder::where('statue', '=',"open")->get();
         if ($purcheas_order_view) {
             return $purcheas_order_view;
         } else {

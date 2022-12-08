@@ -44,4 +44,10 @@ class CategorysController extends Controller
         $category->delete();
         return response()->json(['message' => 'category deleted successfully']);
     }
+
+    public function getCatName()
+    {
+        $category =  category::orderBy('cat_code')->get();
+        return $category;
+    }
 }

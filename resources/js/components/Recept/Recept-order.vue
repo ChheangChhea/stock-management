@@ -233,10 +233,10 @@
                     <input :disabled="true" v-model="purchaseLine.total_amount" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code" type="text" tabindex="10008"  style="width: 7em"/>
                   </th>
                   <th style="padding: 10px">
-                    <input :disabled="false" type="date" v-model="purchaseLine.issu_date" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code"  tabindex="10008" >
+                    <input :disabled="false" type="date" v-model="(purchaseLine.issu_date)" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code"  tabindex="10008" >
                   </th>
                   <th style="padding: 10px">
-                      <input :disabled="false" type="date" v-model="purchaseLine.exprit_date" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code"  tabindex="10008"/>
+                      <input :disabled="false" type="date" v-model="purchaseLine.exprit_date" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code" tabindex="10008"/>
                   </th>
                   
                 </tr>
@@ -416,27 +416,10 @@ export default {
     this.getsuppliyer();
   },
   methods: {
-    getPurchase(page = 1) {
-      if (page > 0 && page <= this.last_page) {
-        axios
-          .get("api/v1/receive/getpurchea")
-          .then(({ data }) => {
-            this.links = data.links;
-            this.last_page = data.last_page;
-            this.links.forEach((element) => {
-              if (element.label == page) {
-                this.perPage = "api/v1/purchase/purchaseorder/view?page=" + page;
-                axios.get(this.perPage).then(({ data }) => {
-                  this.currentPage = data.current_page;
-                  this.purchases = data.data;
-                });
-              }
-            });
-          })
-          .catch(({ response }) => {
-            console.error(response);
+    getPurchase() {
+          axios.get("api/v1/receive/getpurchea").then((response) => {
+            this.purchases = response.data;
           });
-      }
     },
     getsuppliyer() {
       axios.get("/api/v1/suppliyers/getdatasub").then((response) => {
@@ -453,7 +436,7 @@ export default {
           axios
             .get("api/v1/purchase/edit/purchaseline/" + id)
             .then((response) => {
-              this.purchases_lines= response.data;
+              this.purchases_lines = response.data;
               this.sumtotal();
       })
      }

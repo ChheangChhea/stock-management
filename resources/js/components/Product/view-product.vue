@@ -62,67 +62,93 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
               <tbody>
-                <tr >
+                <tr>
                   <th width="10%"> No</th>
-                  <td width="90%">
-                    <input   v-model="form.product_no" class="string_zen_kana clear_text text" maxlength="50" size="50" type="text">
-                  </td>
-                </tr>
-                <tr>
-                  <th width="10%"> Barcode</th>
-                  <td width="90%">
-                    <input  v-model="form.product_barcode" class="string_zen_kana clear_text text" maxlength="50" size="50"
-                      type="text">
-                  </td>
-                </tr>
-                <tr>
-                  <th width="10%">Description1</th>
-                  <td width="90%">
-                    <input  v-model="form.description" class="string_zen clear_text text" size="50" type="text">
-                  </td>
-                </tr>
-                <tr>
-                  <th width="10%">Description2</th>
-                  <td width="90%">
-                    <input  v-model="form.description_2" class="string_zen clear_text text" size="50" type="text">
+                  <td width="50%">
+                    <input :disabled="true" @change="autoUpdateProduct(form)" v-model="form.product_no"
+                      class="string_zen_kana clear_text text input_text" maxlength="50" size="50" type="text">
 
                   </td>
                 </tr>
                 <tr>
+                  <th width="10%"> Barcode</th>
+                  <td width="50%">
+                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.product_barcode"
+                      class="string_zen_kana clear_text text input_text" maxlength="50" size="50" type="text">
+                  </td>
+
+                </tr>
+                <tr>
+                  <th width="10%">Description1</th>
+                  <td width="50%">
+                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.description"
+                      class="string_zen clear_text text input_text" size="50" type="text">
+                  </td>
+
+                </tr>
+                <tr>
+                  <th width="10%">Description2</th>
+                  <td width="50%">
+                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" :v-model="form.description_2"
+                      class="string_zen clear_text text input_text" size="50" type="text">
+
+                  </td>
+
+                </tr>
+                <tr>
                   <th width="10%">Stock Unit</th>
-                  <td width="90%">
-                    <select  class="form" style="width:396px;">
-                      <option>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                  <td width="50%">
+                    <select :disabled="isDisabled" @change="autoUpdateProduct(form)"
+                      v-model="form.stock_unit_of_measure_code" class="form" style="width:362px;">
+                      <option v-for="uint in uints" :value='uint.unit_code'>{{ uint.unit_of_measure }}</option>
                     </select>
                   </td>
+
                 </tr>
                 <tr>
                   <th width="10%">Purche Unit</th>
-                  <td width="90%">
-                    <select  class="form" style="width:396px;">
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                  <td width="50%">
+                    <select :disabled="isDisabled" @change="autoUpdateProduct(form)"
+                      v-model="form.purche_unit_of_measure_code" class="form" style="width:362px;">
+                      <option v-for="uint in uints" :value='uint.unit_code'>{{ uint.unit_of_measure }}</option>
+                    </select>
+                  </td>
+
+                </tr>
+                <tr>
+                  <th width="10%">Suppliyer</th>
+                  <td width="50%">
+                    <select :disabled="isDisabled" v-model="form.sup_code" @change="autoUpdateProduct(form)"
+                      class="form" style="width:362px;">
+                      <option value="">Selete Suppliyer</option>
+                      <option v-for="suppliyer in suppliyers" :value='suppliyer.sup_code'>{{ suppliyer.sup_name }}
+                      </option>
+                    </select>
+                  </td>
+
+                </tr>
+                <tr>
+                  <th width="10%">Group Product </th>
+                  <td width="50%">
+                    <select :disabled="isDisabled" class="form" @change="autoUpdateProduct(form)" style="width:362px;">
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
                     </select>
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Sup Code </th>
-                  <td width="90%">
-                    <select  class="form" style="width:396px;">
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                  <th width="10%">Category</th>
+                  <td width="50%">
+                    <select :disabled="isDisabled" class="form" @change="autoUpdateProduct(form)" style="width:362px;">
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
                     </select>
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Varaiant Code </th>
-                  <td width="90%">
-                    <select  class="form" style="width:396px;">
+                  <th width="10%">Brand Name </th>
+                  <td width="50%">
+                    <select :disabled="isDisabled" class="form" @change="autoUpdateProduct(form)" style="width:362px;">
                       <option value="No">No</option>
                       <option value="Yes">Yes</option>
                     </select>
@@ -130,32 +156,31 @@
                 </tr>
                 <tr>
                   <th width="10%">Unit Price</th>
-                  <td width="90%">
-                    <input  v-model="form.unit_price" class="string_zen clear_text text" size="50" type="text">
-
+                  <td width="50%">
+                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.unit_price"
+                      class="string_zen clear_text text input_text" size="50" type="text">
                   </td>
+
                 </tr>
+             
                 <tr>
-                  <th width="10%">Is active</th>
+                  <th>Inactived </th>
                   <td width="90%">
-                    <select  class="form" style="width:396px;">
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
-                    </select>
+                    <div class="selector" id="inactivced"><span>{{ form.inactived }}</span>
+                      <select id="inactivced" name="inactivced" tabindex="10003" v-model="form.inactived"
+                        style="min-width: 51px; opacity: 0; width: 80px;">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
                   </td>
                 </tr>
-
               </tbody>
             </table>
            <div class="search-box-footer">
               <div class="button type2" id="uniform-undefined"><span><input @click="save()" type="button"
-                    value="display" class="type2" style="opacity: 0; width: 54px;" tabindex="10025"> Save</span>
+                    value="display" class="type2" style="opacity: 0; width: 54px;" tabindex="10025"><i class="fa fa-search" aria-hidden="true"></i>  Search</span>
               </div>
-              <div class="button type2" id="uniform-undefined"><span>clear <input type="button" value="clear"
-                    class="type2" style="opacity: 0; width: 63px;" tabindex="10026"></span></div>
-              <div class="button type2" id="uniform-undefined"><span>CSV <input type="button" value="outputCSV output"
-                    class="type2" style="opacity: 0; width: 76px;" tabindex="10027"></span></div>
-              <span class="marker"></span>
             </div>
           </div>
         </div>
@@ -178,13 +203,16 @@
           
             <th width="5%" >Image</th>
             <th width="9%"  style=" text-align: left;">Product No</th>
-            <th width="15%" style=" text-align: left;">product_barcode</th>
-            <th width="15%" style=" text-align: left;">Description</th>
-            <th width="15%" style=" text-align: left;">Description2</th>
+            <th width="9%" style=" text-align: left;">Barcode</th>
+            <th width="13%" style=" text-align: left;">Description</th>
+            <th width="13%" style=" text-align: left;">Description2</th>
+            <th width="9%">Group</th>
+            <th width="9%">Categrory</th>
+            <th width="9%">Brand</th>
             <th width="9%">Stock Unit</th>
             <th width="9%">Purche Unit</th>
             <th width="9%">Inactived</th>
-            <th width="100"> </th>
+            <th width="9%"></th>
         </tr>
     </thead>
     <tbody>
@@ -199,25 +227,30 @@
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;">{{product.product_barcode}}</td>   <td v-else style="border: medium none; text-align: left;">{{product.product_barcode}}</td>
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;">{{product.description}}</td>   <td v-else style="border: medium none; text-align: left;">{{product.description}}</td>
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;">{{product.description_2}}</td>   <td v-else style="border: medium none; text-align: left;">{{product.description_2}}</td>
+
+            <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;">{{product.group_code}}</td>   <td v-else style="border: medium none; text-align: left;">{{product.group_code}}</td>
+            <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none;">{{product.cat_code}}</td>   <td v-else style="border: medium none;">{{product.cat_code}}</td>
+            <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none;">{{product.brand_code}}</td>   <td v-else style="border: medium none;">{{product.brand_code}}</td>
+
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none;">{{product.stock_unit_of_measure_code}}</td>   <td v-else style="border: medium none;">{{product.stock_unit_of_measure_code}}</td>
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none;">{{product.purche_unit_of_measure_code}}</td>   <td v-else style="border: medium none;">{{product.purche_unit_of_measure_code}}</td>
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none;">{{product.inactived}}</td>   <td v-else style="border: medium none;">{{product.inactived}}</td>
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: center;">
-              <div class="">
+              <div style=" display: flex; flex-direction: row;justify-content: space-around;align-items: center;">
                  <div class="button type2" id="uniform-undefined"><span><input  @click="getEdit(product.product_no)" type="button"
-                    value="display" class="type2" style="opacity: 0; width: 54px;" tabindex="10025"><i class="fa fa-edit"></i> Update</span>
+                    value="display" class="type2" style="opacity: 0; width: 54px;" tabindex="10025"><i class="fa fa-edit"></i>Update</span>
                  </div>
-                 <div class="button type2" id="uniform-undefined"><span><i class="fa fa-trash" aria-hidden="true"></i> Delete <input type="button" value="clear"
+                 <div class="button type2" id="uniform-undefined"><span><i class="fa fa-trash" aria-hidden="true"></i>Delete <input type="button" value="clear"
                     class="type2" style="opacity: 0; width: 63px;" tabindex="10026"></span>
                   </div>
                 </div>
             </td>
             <td  v-else style="border: medium none; text-align: center;">
-                <div class="">
+                <div style=" display: flex; flex-direction: row;justify-content: space-around;align-items: center;">
                  <div class="button type2" id="uniform-undefined"><span><input  @click="getEdit(product.product_no)" type="button"
-                    value="display" class="type2" style="opacity: 0; width: 54px;" tabindex="10025"><i class="fa fa-edit"></i> Update</span>
+                    value="display" class="type2" style="opacity: 0; width: 54px;" tabindex="10025"><i class="fa fa-edit"></i>Update</span>
                  </div>
-                  <div class="button type2" id="uniform-undefined" to="product"><span><i class="fa fa-trash" aria-hidden="true"></i> Delete <input type="button" value="clear"
+                  <div class="button type2" id="uniform-undefined" to="product"><span><i class="fa fa-trash" aria-hidden="true"></i>Delete <input type="button" value="clear"
                     class="type2" style="opacity: 0; width: 63px;" tabindex="10026"></span>
                   </div>
                 </div>

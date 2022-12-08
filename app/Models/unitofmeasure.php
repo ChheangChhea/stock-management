@@ -11,6 +11,7 @@ class unitofmeasure extends Model
     protected $table = "product_unit_of_measure";
     protected $fillable = [
         'id',
+        'code',
         'unit_code',
         'unit_of_measure',
         'type',

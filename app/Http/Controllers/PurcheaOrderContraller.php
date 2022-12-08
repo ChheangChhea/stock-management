@@ -42,10 +42,10 @@ class PurcheaOrderContraller extends Controller
                 'document_no' => $serail_no,
                 'description' => $request->description,
                 'total_amount' => '1',
-                'inventory' => '1',
+                'inventory'  => '1',
                 'unit_price' => '1',
                 'created_by' => 'Chhin Pov', 
-                'statue'       => 'open',
+                'statue'     => 'open',
             ]);
             if ($purline) {
                 $serilano = Serail::where('id', '=', 'Purchases')->first();
@@ -90,6 +90,7 @@ class PurcheaOrderContraller extends Controller
     //         return ['statue :' => "Note Date"];
     //     }
     // }
+
     public function savelink($id)
     {
         $purline = purchealine::where('id', '=', $id)->get();
@@ -141,8 +142,8 @@ class PurcheaOrderContraller extends Controller
         $purOrder->is_deleted = 'chhin pov';
         $purOrder->created_by = 'chhin pov';
         $purOrder->delete_by = 'chhin pov';
-
         $purOrder->save();
+
         if ($purOrder) {
             return ['statue :' => "success full"];
         } else {
@@ -171,6 +172,7 @@ class PurcheaOrderContraller extends Controller
         $purline->created_by = 'chhin pov';
         $purline->delete_by = 'chhin pov';
         $purline->save();
+
         if ($purline) {
             $purline = purchealine::where('document_no', '=', $x)->get();
             return $purline;

@@ -204,9 +204,12 @@ class ProductContraller extends Controller
             $product->stock_unit_of_measure_code = $request->stock_unit_of_measure_code;
             $product->purche_unit_of_measure_code = $request->purche_unit_of_measure_code;
             $product->sup_code = $request->sup_code;
-            $product->variant_code = $request->variant_code;
+            $product->brand_code = $request->brand_code;
+            $product->group_code = $request->group_code;
+            $product->cat_code = $request->cat_code;
             $product->unit_price = $request->unit_price;
             $product->inactived = $request->inactived;
+            $product->variant_code = 'Yes';
             $product->updete_by = 'chhin pov';
             $product->save();
           if($product){
