@@ -3,17 +3,12 @@
     <div class="container">
       <div id="header">
         <div id="headTitle">
-          <div id="logo">
-            <img alt="Healthbook" height="44" src="img/logo.png" width="70" />
-          </div>
-          <h1 id="title">Healthbook</h1>
+          <div id="logo"><img alt="Healthbook" height="44" src="img/logo.png" width="70" /></div>
+          <h1 id="title">メニュー</h1>
         </div>
         <ol id="topicPath">
-          <li id="tpHome">
-            <a href="/" title="メニューへ移動する"
-              ><img alt="" height="28" src="img/topicPath_home.png" width="28"
-            /></a>
-          </li>
+          <li id="tpHome"><a href="/" title="メニューへ移動する"><img alt="" height="28" src="img/topicPath_home.png"
+                width="28" /></a></li>
         </ol>
         <div id="headInfo">
           <div id="date-info">
@@ -22,11 +17,8 @@
           </div>
           <div id="user-info">
             <span class="icon"></span>
-            <p id="userName">
-              システム
-              <a href="/login/logout" id="btnlogout" title="ログアウト"
-                >ログアウト</a
-              >
+            <p id="userName">システム
+              <a href="/login/logout" id="btnlogout" title="ログアウト">ログアウト</a>
             </p>
           </div>
         </div>
@@ -39,12 +31,7 @@
             <dl>
               <dt>
                 <router-link to="/brands">
-                  <img
-                    alt="タックシール印刷"
-                    height="168"
-                    src="img/tuck_seal.png"
-                    width="168"
-                  />
+                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
                 </router-link>
               </dt>
               <dd>
@@ -56,12 +43,7 @@
             <dl>
               <dt>
                 <router-link to="/supplies">
-                  <img
-                    alt="タックシール印刷"
-                    height="168"
-                    src="img/tuck_seal.png"
-                    width="168"
-                  />
+                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
                 </router-link>
               </dt>
               <dd>
@@ -72,13 +54,20 @@
           <li>
             <dl>
               <dt>
+                <router-link to="/unitcode">
+                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                </router-link>
+              </dt>
+              <dd>
+                <span>Unit Of Mesoure</span>
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>
                 <router-link to="/group">
-                  <img
-                    alt="タックシール印刷"
-                    height="168"
-                    src="img/tuck_seal.png"
-                    width="168"
-                  />
+                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
                 </router-link>
               </dt>
               <dd>
@@ -89,13 +78,20 @@
           <li>
             <dl>
               <dt>
+                <router-link to="/category">
+                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                </router-link>
+              </dt>
+              <dd>
+                <span>Category</span>
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>
                 <router-link to="/serailcode">
-                  <img
-                    alt="タックシール印刷"
-                    height="168"
-                    src="img/tuck_seal.png"
-                    width="168"
-                  />
+                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
                 </router-link>
               </dt>
               <dd>
@@ -106,6 +102,8 @@
         </ul>
       </div>
     </div>
+
   </div>
+
 </template>
 
