@@ -7,6 +7,7 @@
                         <img alt="Healthbook" height="44" src="img/logo.png" width="70"/>
                     </div>
                     <h1 id="title">Healthbook</h1>
+                    
                 </div>
                 <ol id="topicPath">
                     <li id="tpHome">
