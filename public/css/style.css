@@ -8,57 +8,8 @@
 /* -------------------------------------------------------------------------
  *	reset
  * -------------------------------------------------------------------------*/
- /* message popup */
- .lskymodal {
-	display: none;
-	position: fixed;
-	z-index: 100;
-	right: 15px;
-	top: 13px;
-	background-color: rgb(0, 0, 0);
-	background-color: rgb(0 0 0 / 0%);
-	position: absolute;
-  }
-
-  .modal-content {
-    background-color: #199609;
-    border: 1px solid #022506c7;
-    top: 0;
-    width: 270px;
-    right: 0;
-    position: absolute;
-    color: #3ccf45;
-    border-radius: 3px;
-    font-weight: bold;
-    box-sizing: border-box;
-    box-shadow: 0 0 0 2px #58555561;
-    display: flex;
-    align-items: center;
-    padding: 6px;
-  }
-  .modal-content p {
-    font-size: 14px;
-    padding-left: 7px;
-    padding-right: 30px;
-    text-shadow: 1px 1px black;
-    color: white;
-  }
 
 
-
- .scrollable-menu {
-    height: auto;
-    max-height: 350px;
-    overflow-x: hidden;
-	-ms-overflow-style: none;  
-	scrollbar-width: none;
-}
-.menu-item:hover {
-	background-color: #6dB7bf;
-}
-.menu-item{
-	background-color: azure; padding: 5px; border-radius: 5px;border: 1px black solid;margin-top: 5px;
-}
 h1,
 h2,
 h3,
@@ -228,14 +179,11 @@ html {
 }
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
-    /* font-family: Verdana,Arial,sans-serif; */
-    background: url(image/bgimg_body_gradation_texture_.png) repeat-x center top;
-    line-height: 1.6;
-    letter-spacing: 1;
-    /* font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; */
-    font-size: 13px;
-    color: #333;
+	background: url(image/bgimg_body_gradation_texture_.png) repeat-x center top;
+	line-height: 1.6;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size: 13px;
+	color: #333;
 }
 
 a:link {
@@ -686,7 +634,6 @@ body {
 	text-indent: -99999px;
 	overflow: hidden;
 	background-repeat: no-repeat;
-	cursor: pointer;
 }
 
 
@@ -869,36 +816,7 @@ body {
 	filter: Alpha(Opacity=35);
 	background-image: none;
 }
-.ui-dialog-title {
-    float: left;
-    margin: 0.1em 16px 0.1em 0;
-}
-.ui-dialog-titlebar {
-    cursor: move;
-}
- .ui-dialog-titlebar-close {
-    position: absolute;
-    right: 0.3em;
-    top: 50%;
-    width: 19px;
-    margin: -10px 0 0 0;
-    padding: 1px;
-    height: 18px;
-}
-.ui-dialog{
-	padding: 0.2em;
-	overflow: hidden;
-}
-.ui-modal{
-	top:100px!important;
-}
-.ui-helper-clearfix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
+
 /* Icons
 ----------------------------------*/
 
@@ -906,15 +824,15 @@ body {
 .ui-icon {
 	width: 16px;
 	height: 16px;
-	background-image: url(../css/image/ui-icons_ffffff_256x240.png);
+	background-image: url(images/ui-icons_222222_256x240.png);
 }
 
 .ui-widget-content .ui-icon {
-	background-image: url(../css/image/ui-icons_ffffff_256x240.png);
+	background-image: url(images/ui-icons_222222_256x240.png);
 }
 
 .ui-widget-header .ui-icon {
-	background-image: url(../css/image/ui-icons_ffffff_256x240.png);
+	background-image: url(images/ui-icons_ffffff_256x240.png);
 }
 
 .ui-state-default .ui-icon {
@@ -1227,6 +1145,7 @@ body {
 .ui-icon-transferthick-e-w {
 	background-position: -112px -80px;
 }
+
 .ui-icon-folder-collapsed {
 	background-position: 0 -96px;
 }
@@ -2069,6 +1988,7 @@ button.ui-button::-moz-focus-inner {
 .ui-dialog {
 	position: absolute;
 	padding: .2em;
+	width: 300px;
 	overflow: hidden;
 }
 
@@ -2079,20 +1999,17 @@ button.ui-button::-moz-focus-inner {
 
 .ui-dialog .ui-dialog-title {
 	float: left;
-	margin: .1em 16px .1em 1em;
+	margin: .1em 16px .1em 0;
 }
 
 .ui-dialog .ui-dialog-titlebar-close {
 	position: absolute;
-    right: 1em;
-    top: 12%;
-    width: 19px;
-    margin: -10px 0 0 0;
-    padding: 1px;
-    height: 18px;
-}
-.h5, h5{
-	font-size: 1.1rem;
+	right: .3em;
+	top: 50%;
+	width: 19px;
+	margin: -10px 0 0 0;
+	padding: 1px;
+	height: 18px;
 }
 
 .ui-dialog .ui-dialog-titlebar-close span {
@@ -2113,25 +2030,7 @@ button.ui-button::-moz-focus-inner {
 	overflow: auto;
 	zoom: 1;
 }
-.modal-footer{
-	clear: both;
-    position: relative;
-    padding: 5px 10px;
-    background: #2e6c7b;
-    text-align: center;
-	display: block!important;
-}
- .ui-dialog-content {
-    position: relative;
-    border: 0;
-    padding: 0.5em 1em;
-    background: none;
-    overflow: auto;
-    zoom: 1;
-}
-.modal-body{
-	padding: 1rem 0rem!important;
-}
+
 .ui-dialog .ui-dialog-buttonpane {
 	text-align: left;
 	border-width: 1px 0 0 0;
@@ -2984,29 +2883,19 @@ th {
 }
 
 .tbl_list thead th {
-	padding: 5px 4px 10px 4px;
+	padding: 4px 4px 2px;
 	background: #326d7a url(image/bgimg_td_border_asagi2.png) no-repeat 0 0;
-	border: 1px solid #6eb3bf;
+	border: 1px solid #2c7c89;
 	border-width: 0 0 1px 1px;
 	vertical-align: bottom;
 	text-align: center;
 	color: #f8f5b4;
 }
-.img-upload{
-	border: none!important;
-}
-.search-box02{
-	padding: 0px !important;
-}
+
 .tbl_list thead tr:first-child th {
-	border-top: 1px solid #6eb3bf;
+	border-top: 1px solid #2c7c89;
 }
-.bnt-02{
-	padding: 5px 10px!important;
-}
-.flo02{
-	float: left;
-}
+
 .tbl_list tbody td {
 	padding: 2px 8px;
 	background-color: #fff;
@@ -3669,28 +3558,16 @@ input[class*="btn_ir_"] {
  * ボックス全体
  *--------------------------------------------------------*/
 /*影*/
-
 .box,
 .form-box,
 .search-box,
 .fixing-box {
-	background-color: #fff;
-	display: flow-root;
 	border: 1px solid #ddedeb;
 	-moz-box-shadow: 0 0 6px #147f7c;
 	-webkit-box-shadow: 0 0 6px #147f7c;
 	box-shadow: 0 0 6px #147f7c;
 }
-.box-img02{
-	text-align: center;
-    padding: 1.9em 5em;
-    margin: 0.5em 50px;
-    background: #fff;
-    border: dashed 2px #dee2e6;
-}
-.box-img02 img{
-	width: 40%;
-}
+
 /*タイトル*/
 .box-title {
 	position: relative;
@@ -3761,7 +3638,7 @@ h2.box-title,
 /*ボックスフッター（ページング）*/
 .box-footer-pagination {
 	clear: both;
-	/* padding: 5px 10px 0; */
+	padding: 5px 10px 0;
 	background: #2e6c7b;
 	text-align: right;
 }
@@ -3892,15 +3769,7 @@ h2.box-title,
 	background: #fff;
 	border: 1px solid #fff;
 }
-.text-upload{
-	line-height: 1.5;
-    font-size: 20px;
-	color: #969b9f!important;
-}
-.text-upload a{
-	text-decoration: underline;
-	color: #969b9f!important;
-}
+
 /*左カラム*/
 .fixing-box .box-data {
 	float: left;
@@ -6645,9 +6514,7 @@ http://pixelmatrixdesign.com/uniform/themer.html
 
 /* Global Declaration */
 
-.dropdown-toggle::after {
-	border-top: 0 !important;
-}
+
 div.selector,
 div.selector span,
 div.checker span,
@@ -6717,6 +6584,7 @@ textarea.uniform {
 	font-weight: normal;
 	color: #777;
 }
+
 input.text,
 input.email,
 input.password {
@@ -6813,13 +6681,7 @@ div.selector.disabled span {
 }
 
 /* Checkbox */
-.dropdown button{
-	width: 90% !important; padding-left: 11px;padding-right: 19px; border: none; border-radius: 5px; height: 20px;
-	min-width: 70px;
-}
-.dropdown i{
-	float: right;
-}
+
 div.checker {
 	width: 20px;
 	height: 20px;
@@ -8534,63 +8396,4 @@ input[name="nav-item"] {
 }
 .modal-header{
 	background-color:#4397ab!important;
-	color: white;
-}
-.tbl_search tbody th {
-    color: #FFFFFF!important;
-}
-.bg_img{
-	background-color: white!important;
-}
-.selector {
-	background-image: url(image/sprite-healthbook.png);
-	background-repeat: no-repeat;
-	-webkit-font-smoothing: antialiased;
-}
-.input_text{
-	color: #212529!important;
-}
-.modal-contents {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 1000px;
-    pointer-events: auto;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1pxsolidrgba(0,0,0,.2);
-    border-radius: 0.3rem;
-    box-shadow: 0 .25rem .5remrgba(0,0,0,.5);
-    outline: 0;
-    margin-left: -230px;
-    /* width: auto; */
-}
-.table td, .table th {
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
-    text-align: center;
-}	
-.box-img_porder img{
-    text-align: center;
-    padding: 0.5em 1em;
-    margin: 0.5em 184px;
-    background: #fff;
-    border: dashed 2px #dee2e6;
-    width: 15%;
-
-}
-.text-upload01 {
-    line-height: 1.5;
-    font-size: 20px;
-    color: #969b9f!important;
-    padding-left: 145px;
-}
-#purchase {
-    clear: both;
-    padding: 10px;
-    /* min-height: 360px; */
-    background: url(image/bgimg_cloud.jpg);
 }
