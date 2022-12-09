@@ -1,6 +1,9 @@
 require('./bootstrap');
+require('alpinejs');
+import Alpine from 'alpinejs'
+window.Alpine = Alpine
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import router from './router/router';
 import { Form } from 'vform'
 window.Form = Form;
 import axios from 'axios';
@@ -24,33 +27,30 @@ import Receptorder from './components/Recept/Recept-order.vue'
 import viewRecept from './components/Recept/view-Recept.vue'
 import unitcode from './components/unitcode/unitcode.vue'
 
-const app = createApp({})
-const routes = [
-  { path: '/', component: App },
-  { path: '/brands', component: Brands },
-  { path: '/Product', component: Product, name:'Product'},
-  { path: '/viewproduct', component: Viewproduct},
-  { path: '/category', component: Category},
-  { path: '/supplies', component: Supplies},
-  { path: '/group', component: Group},
-  { path: '/serailcode', component: Serailcode},
-  { path: '/purchase', component: Purchase,name:'Purchase'},
-  { path: '/Purchasview', component: Purchasview},
-  { path: '/productsetting', component: MenuProductSetting},
-  { path: '/menupurchase', component: MenuPurchase},
-  { path: '/menustock', component: MenuStock},
-  { path: '/stockalert', component: Stockalert},
-  { path: '/menuclinic', component: MenuClinic},
-  { path: '/menumedical', component: MenuMedical},
-  { path: '/receptorder', component: Receptorder},
-  { path: '/viewrecept', component: viewRecept},
-  { path: '/unitcode', component: unitcode},
-]
-const router = createRouter({
-  mode: 'history',
-  history: createWebHistory(),
-  routes: routes
+const app = createApp({
+  components:{
+    App,
+    Brands,
+    Product,
+    Viewproduct,
+    Category,
+    Supplies,
+    Group,
+    Serailcode,
+    Purchase,
+    Purchasview,
+    MenuProductSetting,
+    MenuPurchase,
+    MenuStock,
+    Stockalert,
+    MenuClinic,
+    MenuMedical,
+    Receptorder,
+    viewRecept,
+    unitcode,
+  }
 })
+Alpine.start()
 app.use(router, axios)
 app.mount('#app')
 

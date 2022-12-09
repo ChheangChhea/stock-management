@@ -18,15 +18,13 @@
         <div id="headInfo">
           <div id="date-info">
             <span class="icon"></span>
-            <p id="todays" title="PM 4:45">2022/08/19</p>
+            <p id="todays">{{ currentTime.toLocaleDateString() }}</p>
           </div>
           <div id="user-info">
             <span class="icon"></span>
             <p id="userName">
-              システム
-              <a href="/login/logout" id="btnlogout" title="ログアウト"
-                >ログアウト</a
-              >
+              Admin
+              <a href="/login/logout" id="btnlogout" title="logout"></a>
             </p>
           </div>
         </div>
@@ -91,4 +89,13 @@
     </div>
   </div>
 </template>
+<script>
+import { useCurrentTime } from "../componentJS/date";
+export default {
+  setup() {
+    const { currentTime } = useCurrentTime();
+    return { currentTime };
+  },
+};
+</script>
 

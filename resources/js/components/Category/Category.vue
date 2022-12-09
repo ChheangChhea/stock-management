@@ -7,14 +7,9 @@
           <div id="logo">
             <img alt="Healthbook" height="44" src="img/logo.png" width="70" />
           </div>
-          <h1 id="title">メニュー</h1>
+          <h1 id="title">Healthbook</h1>
         </div>
         <ol id="topicPath">
-          <li id="tpHome">
-            <a href="/" title="メニューへ移動する"
-              ><img alt="" height="28" src="img/topicPath_home.png" width="28"
-            /></a>
-          </li>
           <ol id="topicPath">
             <li id="tpHome">
               <a href="#" title="go to menu"
@@ -46,7 +41,7 @@
         <div id="headInfo">
           <div id="date-info">
             <span class="icon"></span>
-            <p id="todays" title="PM 4:45">2022/08/19</p>
+            <p id="todays">{{ currentTime.toLocaleDateString() }}</p>
           </div>
           <div id="user-info">
             <span class="icon"></span>
@@ -64,112 +59,8 @@
       <div id="product">
         <!--#contents -->
         <div class="search-box mb-4">
-          <router-link to="/login"
-            ><h2 class="search-box-title">Search</h2></router-link
-          >
+          <h2 class="search-box-title">Search</h2>
           <input id="search" name="search" type="hidden" value="1" />
-          <div class="search-box-content">
-            <table
-              width="100%"
-              border="0"
-              cellpadding="0"
-              cellspacing="0"
-              class="tbl_search"
-            >
-              <tbody>
-                <tr>
-                  <th width="20%">Category Code</th>
-                  <td width="80%">
-                    <input
-                      class="string_zen_kana clear_text text"
-                      v-model="form.cat_code"
-                      maxlength="8"
-                      size="50"
-                      type="text"
-                      tabindex="10000"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th width="20%">Category Name</th>
-                  <td width="80%">
-                    <input
-                      class="string_zen_kana clear_text text"
-                      name="category_name"
-                      maxlength="50"
-                      v-model="form.cat_name"
-                      size="50"
-                      type="text"
-                      tabindex="10001"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <th width="20%">Category Name 2</th>
-                  <td width="80%">
-                    <input
-                      class="string_zen_kana clear_text text"
-                      maxlength="50"
-                      name="category_name_2"
-                      v-model="form.cat_name_2"
-                      size="50"
-                      type="text"
-                      tabindex="10001"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <th width="20%">Inactived</th>
-                  <td width="80%">
-                    <div class="selector" id="inactivced">
-                      <span>Yes</span>
-                      <select
-                        id="inactivced"
-                        name="inactivced"
-                        v-model="form.inactived"
-                        tabindex="10003"
-                        style="min-width: 51px; opacity: 0; width: 80px"
-                      >
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                      </select>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div class="search-box-footer">
-              <div class="button type2" id="uniform-undefined">
-                <span>Save</span>
-                <input
-                  type="button"
-                  value="save"
-                  class="type2"
-                  @click="save()"
-                  style="opacity: 0; width: 63px"
-                  tabindex="10026"
-                />
-              </div>
-
-              <div class="button type2" id="uniform-undefined">
-                <span>Clear</span>
-                <input
-                  type="button"
-                  value="clear"
-                  class="type2"
-                  @click="clear()"
-                  style="opacity: 0; width: 63px"
-                  tabindex="10026"
-                />
-
-                <span class="marker"></span>
-              </div>
-            </div>
-          </div>
-
           <div class="box">
             <table
               width="100%"
@@ -187,7 +78,6 @@
                   <th width="12%">Inactivced</th>
                   <th width="12%">Create By</th>
                   <th width="12%">Update By</th>
-                  <!-- <th width="9%">Last Update</th> -->
                   <th width="12%">
                     <div class="button" id="uniform-undefined">
                       <span
@@ -375,8 +265,6 @@
                   </table>
                 </div>
                 <div class="modal-footer">
-                  <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save</button> -->
                   <div class="button type2" id="uniform-undefined">
                     <span> Save</span>
                     <input
@@ -426,8 +314,14 @@
 
 <script>
 import axios from "axios";
+import { useCurrentTime } from "../../componentJS/date";
 
 export default {
+  setup() {
+    const { currentTime } = useCurrentTime();
+    return { currentTime };
+  },
+
   data() {
     return {
       Categories: {},
