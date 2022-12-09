@@ -3686,7 +3686,7 @@ input[class*="btn_ir_"] {
 .box-img02 {
 	text-align: center;
 	padding: 1.9em 5em;
-	margin: 0.5em 50px;
+	margin: 1.8em 50px 0em;
 	background: #fff;
 	border: dashed 2px #dee2e6;
 }
@@ -8540,12 +8540,13 @@ input[name="nav-item"] {
 	clear: both;
 	padding: 10px;
 	min-height: 100%;
-	background: url(image/bgimg_cloud.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-
+.mb-4, .my-4 {
+    background-color: #fff;
+}
 .modal-header {
 	background-color: #4397ab !important;
 	color: white;
