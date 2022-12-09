@@ -386,9 +386,9 @@ a:active {}
 #userName {
 	position: relative;
 	right: -14px;
-	height: 32px;
+	height: 40px;
 	/*44px*/
-	padding: 12px 16px 0 34px;
+	padding: 13px 16px 0 34px;
 	background-position: right -47px;
 }
 
@@ -398,8 +398,8 @@ a:active {}
 
 #btnlogout {
 	position: absolute;
-	top: 4px;
-	right: 5px;
+	top: 7px;
+	right: 10px;
 	display: block;
 	width: 32px;
 	height: 30px;
@@ -3676,7 +3676,6 @@ input[class*="btn_ir_"] {
 }
 
 .search-box {
-	/* background-color: #fff; */
 	display: flow-root;
 	border: 1px solid #ddedeb;
 	-moz-box-shadow: 0 0 6px #147f7c;
@@ -5722,7 +5721,7 @@ tbody td.tokkijiko_ari {
 }
 
 #inspection_call_statusdisplay .main.status_tested tbody th {
-	background-color: #86c4ee;
+	background-color: #4397ab;
 	border-color: #d7edfc;
 	border-bottom-color: #fff;
 }
@@ -8638,12 +8637,14 @@ input[name="nav-item"] {
 	line-height: 1.5;
 	font-size: 20px;
 	color: #969b9f !important;
-	padding-left: 145px;
+	text-align: center;
 }
-
+.box-img_porder{
+	text-align: center;
+}
 #purchase {
 	clear: both;
 	padding: 10px;
 	/* min-height: 360px; */
-	background: url(image/bgimg_cloud.jpg);
+	background: url(image/bgimg_cloud.jpg) no-repeat 50% -44px;
 }

@@ -1,46 +1,33 @@
 <template >
   <div class="wrapper" style="overflow: hidden">
     <div id="header">
-      <div id="headTitle">
-        <div id="logo">
-          <img alt="Healthbook" height="44" src="/assets/image/logo.png" width="70" />
+        <div id="headTitle">
+          <div id="logo"><img alt="Healthbook" height="44" src="img/logo.png" width="70"></div>
+          <h1 id="title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Patient master</font></font></h1>
         </div>
-        <h1 id="title">
-          <font style="vertical-align: inherit">
-            <font style="vertical-align: inherit">menu</font>
-          </font>
-        </h1>
-      </div>
-      <ol id="topicPath">
-        <li id="tpHome">
-          <a href="/menu/index" title="go to menu"><img alt="" height="28" src="/assets/image/topicPath_home.png"
-              width="28" /> </a>
-        </li>
-      </ol>
-      <div id="headInfo">
-        <div id="date-info">
-          <span class="icon"></span>
-          <p id="todays" original-title="AM11:17">
-             <font style="vertical-align: inherit">
-               <font style="vertical-align: inherit">2022/10/11</font>
-             </font>
-          </p>
+        <ol id="topicPath">
+          <li id="tpHome"><a href="index" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png" width="28"></a></li>              
+              <li>
+                  <a href="dashbaord"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Master Admin</font></font></a>
+              </li>
+              <li>
+                  <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                    Recept-order
+                  </font></font></span>
+              </li>
+        </ol>
+        <div id="headInfo">
+          <div id="date-info">
+            <span class="icon"></span>
+            <p id="todays" original-title="PM12:13"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2022/08/25</font></font></p>
+          </div>
+          <div id="user-info">
+            <span class="icon"></span>
+            <p id="userName"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">system 
+              </font></font><a href="/login/logout" id="btnlogout" original-title="logout"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">logout</font></font></a></p>
+          </div>
         </div>
-        <div id="user-info">
-          <span class="icon"></span>
-          <p id="userName">
-            <font style="vertical-align: inherit">
-              <font style="vertical-align: inherit">system </font>
-            </font><a href="/login/logout" id="btnlogout" title="logout">
-              <font style="vertical-align: inherit">
-                <font style="vertical-align: inherit">logout</font>
-              </font>
-            </a>
-          </p>
-        </div>
-      </div>
-      <!-- / #header -->
-    </div>
+        <!-- / #header --></div>
     <div class="search-box">
       <div id="purchase">
         <!--#contents -->
@@ -112,33 +99,33 @@
               </div>
             </div>
           </div>
-          <div class="search-box-content col-md-8 search-box02 flo02">
+          <div class="search-box-content  search-box02">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
               <tbody>
                 <tr>
-                  <th width="10%">Document Number</th>
-                  <td width="50%">
+                  <th width="20%">Document Number</th>
+                  <td width="80%">
                     <input :disabled="true" @change="autoUpdateProduct(form)" v-model="form.document_no"
                       class="string_zen_kana clear_text text input_text" maxlength="50" size="50" type="text" />
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Document Type</th>
-                  <td width="50%">
+                  <th width="20%">Document Type</th>
+                  <td width="80%">
                     <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.document_type"
                       class="string_zen_kana clear_text text input_text" maxlength="50" size="50" type="text" />
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Description</th>
-                  <td width="50%">
+                  <th width="20%">Description</th>
+                  <td width="80%">
                     <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.description"
                       class="string_zen clear_text text input_text" size="50" type="text" />
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Suppliyer</th>
-                  <td width="50%">
+                  <th width="20%">Suppliyer</th>
+                  <td width="80%">
                     <select :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.suppliyer_code"
                       class="form" style="width: 362px">
                       <option value="">Selete Suppliyer</option>
@@ -150,15 +137,15 @@
                 </tr>
 
                 <tr>
-                  <th width="10%">Curency Code</th>
-                  <td width="50%">
+                  <th width="20%">Curency Code</th>
+                  <td width="80%">
                     <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.curency_code"
                       class="string_zen clear_text text input_text" size="50" type="text" />
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Inactive</th>
-                  <td width="50%">
+                  <th width="20%">Inactive</th>
+                  <td width="80%">
                     <select @change="autoUpdateProduct(form)" v-model="form.inactived" :disabled="isDisabled"
                       class="form" style="width: 362px">
                       <option value="No">No</option>
@@ -169,14 +156,7 @@
               </tbody>
             </table>
           </div>
-          <div class="col-md-4 search-box02 flo02">
-            <div class="box-img_porder">
-              <img alt="upload" src="img/icon-img_upload.png" />
-              <p class="text-upload01">
-                Drop an image or<br /><span><a href="#">upload file</a></span>
-              </p>
-            </div>
-          </div>
+         
         </div>
         <div class="box">
           <div class="box-content">
