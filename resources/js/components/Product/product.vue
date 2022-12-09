@@ -157,7 +157,7 @@
                 <tr>
                   <th width="10%">Description.2</th>
                   <td width="50%">
-                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" :v-model="form.description_2"
+                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.description_2"
                       class="string_zen clear_text text input_text" size="50" type="text">
 
                   </td>
@@ -200,7 +200,7 @@
                   <td width="50%">
                     <select :disabled="isDisabled" v-model="form.group_code" @change="autoUpdateProduct(form)" class="form" style="width:362px;">
                       <option value="">Selete Suppliyer</option>
-                      <option v-for="suppliyer in suppliyers" :value='suppliyer.sup_code'>{{ suppliyer.sup_name }}
+                      <option v-for="graoup in graoups" :value='graoup.group_code'>{{ graoup.group_name }}
                       </option>
                     </select>
                   </td>
@@ -211,7 +211,7 @@
                     <select :disabled="isDisabled" v-model="form.cat_code" @change="autoUpdateProduct(form)"
                       class="form" style="width:362px;">
                       <option value="">Selete Suppliyer</option>
-                      <option v-for="suppliyer in suppliyers" :value='suppliyer.sup_code'>{{ suppliyer.sup_name }}
+                      <option v-for="categor in category" :value='categor.cat_code'>{{ categor.cat_name }}
                       </option>
                     </select>
                   </td>
@@ -222,7 +222,7 @@
                     <select :disabled="isDisabled" v-model="form.brand_code" @change="autoUpdateProduct(form)"
                       class="form" style="width:362px;">
                       <option value="">Selete Suppliyer</option>
-                      <option v-for="suppliyer in suppliyers" :value='suppliyer.sup_code'>{{ suppliyer.sup_name }}
+                      <option v-for="brand in brands" :value='brand.brand_code'>{{ brand.brand_name }}
                       </option>
                     </select>
                   </td>
@@ -238,7 +238,7 @@
                   <th>Inactived </th>
                   <td width="90%">
                     <div class="selector" id="inactivced"><span>{{ form.inactived }}</span>
-                      <select id="inactivced" name="inactivced" tabindex="10003" v-model="form.inactived"
+                      <select id="inactivced" name="inactivced" tabindex="10003" v-model="form.inactived" @change="autoUpdateProduct(form)"
                         style="min-width: 51px; opacity: 0; width: 80px;">
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -278,7 +278,6 @@
                   <th width="9%">Curency</th>
                   <th width="9%">Inactived</th>
                   <th width="9%"></th>
-                  <th width="9%"></th>
                 </tr>
                 <tr v-for="form_line in form_lines">
                   <th class="bg_img" style=" justify-content: center;">
@@ -286,10 +285,8 @@
                     <!-- This is a beautiful animation -->
                     <img alt="upload" src="img/icon-img_upload.png" width="20" />
                   </th>
-                  <th><input :disabled="true" v-model="form_line.product_no" @change="autoUpdate(form_line)"
-                      class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
-                  <th><input :disabled="isDisabled" v-model="form_line.description" @change="autoUpdate(form_line)"
-                      class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
+                  <th><input :disabled="true" v-model="form_line.product_no" @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
+                  <th><input :disabled="isDisabled" v-model="form_line.description" @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
                   <th>
                     <div class="dropdown">
                       <button @click="getunit(form_line.product_no)" @onmouseout="prooductboom(form_line)"
@@ -313,15 +310,10 @@
                       </div>
                     </div>
                   </th>
-                  <th><input :disabled="isDisabled" v-model="form_line.quantity_per_unit"
-                      @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text"
+                  <th><input :disabled="isDisabled" v-model="form_line.quantity_per_unit" @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text"
                       style="width:80% !important;"></th>
-                  <th><input :disabled="isDisabled" v-model="form_line.unit_price" @change="autoUpdate(form_line)"
-                      class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
-                  <th><input :disabled="isDisabled" v-model="form_line.curency_code" @change="autoUpdate(form_line)"
-                      class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
-                  <th><input :disabled="isDisabled" v-model="form_line.varaiant" @change="autoUpdate(form_line)"
-                      class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
+                  <th><input :disabled="isDisabled" v-model="form_line.unit_price" @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
+                  <th><input :disabled="isDisabled" v-model="form_line.curency_code" @change="autoUpdate(form_line)"  class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
                   <th> <select :disabled="isDisabled" @change="autoUpdate(form_line)" class="form" style="width:80%;">
                       <option value="No">No</option>
                       <option value="Yes">Yes</option>
@@ -468,6 +460,9 @@ import { exportDefaultSpecifier } from '@babel/types';
 export default {
   data() {
     return {
+      brands:[],
+      graoups:[],
+      category:[],
       massege: '',
       pending: false,
       img: '',
@@ -521,9 +516,12 @@ export default {
     } catch (error) {
       this.products = "undefined"
     }
-    this.getunit()
-    this.getsuppliyer()
-    this.getEdite()
+    this.getunite();
+    this.getdatagroup();
+    this.getCatName();
+    this.getbrands();
+    this.getsuppliyer();
+    this.getEdite();
     this.form_lines = null;
     this.prooductboom();
     this.massege = "save successful.";
@@ -543,13 +541,26 @@ export default {
       }
     },
 
-    getunit() {
-      axios.get('/api/v1/units')
-        .then((response) => {
+    getunite() {
+      axios.get('/api/v1/units').then((response) => {
           this.uints = response.data;
         })
     },
-
+    getbrands() {
+      axios.get('/api/v1/brands/getdata').then((response) => {
+          this.brands = response.data;
+        })
+    },
+    getdatagroup() {
+      axios.get('/api/v1/progroups/getdatagroup').then((response) => {
+          this.graoups = response.data;
+        })
+    },
+    getCatName() {
+      axios.get('/api/v1/category/getCatName').then((response) => {
+          this.category = response.data;
+        })
+    },
     getsuppliyer() {
       axios.get('/api/v1/suppliyers/getdatasub')
         .then((response) => {

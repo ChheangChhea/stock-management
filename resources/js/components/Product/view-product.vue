@@ -63,33 +63,25 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
               <tbody>
                 <tr>
-                  <th width="10%"> No</th>
-                  <td width="50%">
-                    <input :disabled="true" @change="autoUpdateProduct(form)" v-model="form.product_no"
-                      class="string_zen_kana clear_text text input_text" maxlength="50" size="50" type="text">
-
-                  </td>
-                </tr>
-                <tr>
                   <th width="10%"> Barcode</th>
                   <td width="50%">
-                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.product_barcode"
+                    <input :disabled="isDisabled"  v-model="form.product_barcode"
                       class="string_zen_kana clear_text text input_text" maxlength="50" size="50" type="text">
                   </td>
 
                 </tr>
                 <tr>
-                  <th width="10%">Description1</th>
+                  <th width="10%">Description.1</th>
                   <td width="50%">
-                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.description"
+                    <input :disabled="isDisabled"  v-model="form.description"
                       class="string_zen clear_text text input_text" size="50" type="text">
                   </td>
 
                 </tr>
                 <tr>
-                  <th width="10%">Description2</th>
+                  <th width="10%">Description.2</th>
                   <td width="50%">
-                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" :v-model="form.description_2"
+                    <input :disabled="isDisabled"  v-model="form.description_2"
                       class="string_zen clear_text text input_text" size="50" type="text">
 
                   </td>
@@ -98,8 +90,9 @@
                 <tr>
                   <th width="10%">Stock Unit</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" @change="autoUpdateProduct(form)"
+                    <select :disabled="isDisabled" 
                       v-model="form.stock_unit_of_measure_code" class="form" style="width:362px;">
+                      <option value=""></option>
                       <option v-for="uint in uints" :value='uint.unit_code'>{{ uint.unit_of_measure }}</option>
                     </select>
                   </td>
@@ -108,8 +101,9 @@
                 <tr>
                   <th width="10%">Purche Unit</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" @change="autoUpdateProduct(form)"
+                    <select :disabled="isDisabled" 
                       v-model="form.purche_unit_of_measure_code" class="form" style="width:362px;">
+                      <option value=""></option>
                       <option v-for="uint in uints" :value='uint.unit_code'>{{ uint.unit_of_measure }}</option>
                     </select>
                   </td>
@@ -118,9 +112,9 @@
                 <tr>
                   <th width="10%">Suppliyer</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" v-model="form.sup_code" @change="autoUpdateProduct(form)"
+                    <select :disabled="isDisabled" v-model="form.sup_code" 
                       class="form" style="width:362px;">
-                      <option value="">Selete Suppliyer</option>
+                      <option value=""></option>
                       <option v-for="suppliyer in suppliyers" :value='suppliyer.sup_code'>{{ suppliyer.sup_name }}
                       </option>
                     </select>
@@ -130,44 +124,47 @@
                 <tr>
                   <th width="10%">Group Product </th>
                   <td width="50%">
-                    <select :disabled="isDisabled" class="form" @change="autoUpdateProduct(form)" style="width:362px;">
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
+                    <select :disabled="isDisabled" v-model="form.group_code"  class="form" style="width:362px;">
+                      <option value=""></option>
+                      <option v-for="graoup in graoups" :value='graoup.group_code'>{{ graoup.group_name }}
+                      </option>
                     </select>
                   </td>
                 </tr>
                 <tr>
                   <th width="10%">Category</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" class="form" @change="autoUpdateProduct(form)" style="width:362px;">
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
+                    <select :disabled="isDisabled" v-model="form.cat_code" 
+                      class="form" style="width:362px;">
+                      <option value=""></option>
+                      <option v-for="categor in category" :value='categor.cat_code'>{{ categor.cat_name }}
+                      </option>
                     </select>
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Brand Name </th>
+                  <th width="10%">Brand Name</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" class="form" @change="autoUpdateProduct(form)" style="width:362px;">
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
+                    <select :disabled="isDisabled" v-model="form.brand_code" 
+                      class="form" style="width:362px;">
+                      <option value=""></option>
+                      <option v-for="brand in brands" :value='brand.brand_code'>{{ brand.brand_name }}
+                      </option>
                     </select>
                   </td>
                 </tr>
                 <tr>
                   <th width="10%">Unit Price</th>
                   <td width="50%">
-                    <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.unit_price"
+                    <input :disabled="isDisabled"  v-model="form.unit_price"
                       class="string_zen clear_text text input_text" size="50" type="text">
                   </td>
-
                 </tr>
-             
                 <tr>
                   <th>Inactived </th>
                   <td width="90%">
                     <div class="selector" id="inactivced"><span>{{ form.inactived }}</span>
-                      <select id="inactivced" name="inactivced" tabindex="10003" v-model="form.inactived"
+                      <select id="inactivced" name="inactivced" tabindex="10003" v-model="form.inactived" 
                         style="min-width: 51px; opacity: 0; width: 80px;">
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -178,7 +175,7 @@
               </tbody>
             </table>
            <div class="search-box-footer">
-              <div class="button type2" id="uniform-undefined"><span><input @click="save()" type="button"
+              <div class="button type2" id="uniform-undefined"><span><input @click="searchProduct()" type="button"
                     value="display" class="type2" style="opacity: 0; width: 54px;" tabindex="10025"><i class="fa fa-search" aria-hidden="true"></i>  Search</span>
               </div>
             </div>
@@ -278,12 +275,15 @@
 </template>
 
 <script>
-import {exportDefaultSpecifier} from '@babel/types';
-import pagination from 'laravel-vue-pagination'
-import axios, { Axios } from 'axios';
+import { exportDefaultSpecifier } from '@babel/types';
   export default {
     data() {
       return {
+        brands:[],
+        graoups:[],
+        category:[],
+        suppliyers: [],
+        uints: [],
         links:[],
         products:[],
         perPage: '',
@@ -297,15 +297,22 @@ import axios, { Axios } from 'axios';
           image_url: '',
           stock_unit_of_measure_code: '',
           purche_unit_of_measure_code: '',
-          bom_no: '',
+          brand_code: '',
+          group_code: '',
+          cat_code: '',
           sup_code: '',
           unit_price: '',
           inactived: '',
-        }
+       },
       }
     },
-    mounted(){
-      this.getproduct()
+    async mounted(){
+      this.getproduct();
+      this.getunite();
+      this.getdatagroup();
+      this.getCatName();
+      this.getbrands();
+      this.getsuppliyer();
     },
     methods: {
        getproduct(page=1) {
@@ -329,16 +336,61 @@ import axios, { Axios } from 'axios';
             })
                }
           },
-          getEdit(ProductID){
+          
+     getunite() {
+        axios.get('/api/v1/units').then((response) => {
+            this.uints = response.data;
+          })
+      },
+      getbrands() {
+        axios.get('/api/v1/brands/getdata').then((response) => {
+            this.brands = response.data;
+          })
+      },
+      getdatagroup() {
+        axios.get('/api/v1/progroups/getdatagroup').then((response) => {
+            this.graoups = response.data;
+          })
+      },
+      getCatName() {
+        axios.get('/api/v1/category/getCatName').then((response) => {
+            this.category = response.data;
+          })
+      },
+      getsuppliyer() {
+        axios.get('/api/v1/suppliyers/getdatasub')
+          .then((response) => {
+            this.suppliyers = response.data;
+          })
+      },
+
+        getEdit(ProductID){
             if(ProductID!=""){
               this.$router.push({name:'Product', query: {id:ProductID }});
             }
           },
-       },
-     computed: {
-      rows() {
-        return this.items.length
-      }
+
+         async searchProduct(page=1) {
+               if(page > 0 && page <= this.last_page){
+              axios.post('/api/v1/products/productsearch/',this.form).then(({data})=>{
+              console.log(data.links);
+              this.links = data.links
+              this.products=data.data;
+              this.last_page = data.last_page       
+              this.links.forEach(element => {
+                 if(element.label == page){
+                   this.perPage = "/api/v1/products/productsearch?page="+page
+                   axios.post(this.perPage).then(({data})=>{
+                    this.currentPage = data.current_page
+                  })
+                 }
+              });
+
+            }).catch(({ response })=>{
+                console.error(response)
+            })
+               }
+          },
     },
   }
   </script>

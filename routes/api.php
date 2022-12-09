@@ -59,8 +59,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('progroups/updete/{progroups}',[ProductgroupController::class,'update']);
     Route::get('progroups/delete/{progroups}',[ProductgroupController::class,'destroy']);
     Route::get('progroups/',[ProductgroupController::class,'index']);
+    Route::get('progroups/getdatagroup',[ProductgroupController::class,'getdatagroup']);
 
-
+    
 
     Route::get('units/',[UnitofMeasureContraller::class,'index']);
 
@@ -78,6 +79,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('products/updateProductLinke/{product}',[ProductContraller::class,'updateProductLinke']);
     Route::post('products/getlinkunit/{product}',[ProductContraller::class,'getlinkunit']);
     Route::post('products/getboomline/{product}',[ProductContraller::class,'getboomline']);
+    Route::post('products/productsearch/',[ProductContraller::class,'productsearch']);
 
 
 
