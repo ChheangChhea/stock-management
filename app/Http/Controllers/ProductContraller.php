@@ -332,4 +332,14 @@ class ProductContraller extends Controller
         ->get())->paginate(9);
         return $product_view;
     }
+
+    public function getProductCAt($id)
+    {
+        $productvariantcode = cat_produc::where('product_no','=',$id)->first();  
+        if($productvariantcode){
+            return $productvariantcode;
+        }else{
+            return ['statue :'=>"Note Date"];
+        }
+    }
 }

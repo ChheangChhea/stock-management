@@ -80,7 +80,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('products/getlinkunit/{product}',[ProductContraller::class,'getlinkunit']);
     Route::post('products/getboomline/{product}',[ProductContraller::class,'getboomline']);
     Route::post('products/productsearch/',[ProductContraller::class,'productsearch']);
-
+    Route::post('purchase/delete/getPrulinkUnit/{purchase}', [PurcheaOrderContraller::class, 'getPrulinkUnit']);
 
 
     Route::get('category/', [CategorysController::class, 'index']);

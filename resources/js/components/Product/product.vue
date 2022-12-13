@@ -71,7 +71,11 @@
           <ul class="dropdown-menu">
             <li>
               <a @click="getproductboom()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#staticBackdropss" tabindex="10028">Boom Product</a>
+                data-bs-target="#staticBackdropss" tabindex="10028"><i class="fa-solid fa-circle-b"></i> Boom Product</a>
+            </li>
+            <li>
+              <a @click="getsuppliyerview()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#staticboomId" tabindex="10028"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
             </li>
           </ul>
           <div class="search-box-title" style="height: 36px;">
@@ -101,8 +105,7 @@
           </div>
           <!-- Button trigger modal -->
           <!-- Modal -->
-          <div class="modal fade ui-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal fade ui-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content ui-dialog">
                 <div class="ui-widget-header">
@@ -281,9 +284,7 @@
                 </tr>
                 <tr v-for="form_line in form_lines">
                   <th class="bg_img" style=" justify-content: center;">
-                    <img class="loading" v-if="pending" alt="image" @click="created()" />
-                    <!-- This is a beautiful animation -->
-                    <img alt="upload" src="img/icon-img_upload.png" width="20" />
+                    <img class="loading" v-if="pending" alt="image" @click="created()" /><img alt="upload" src="img/icon-img_upload.png" width="20" />
                   </th>
                   <th><input :disabled="true" v-model="form_line.product_no" @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
                   <th><input :disabled="isDisabled" v-model="form_line.description" @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
@@ -345,15 +346,12 @@
       </div>
     </div>
   </div>
-
-  <div class="modal fade" id="staticBackdropss" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="staticBackdropss" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropss" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-contents">
-        <div class="modal-header" style="display: block;">
-          <h5 class="modal-title" id="staticBackdropLabel">Boom Products : {{ form.product_no }} , {{ form.description }}
-          </h5>
-          <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Boom Products : {{ form.product_no }} , {{ form.description }}</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
         </div>
         <div class="box-content">
           <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_list tbl_stripe" id="myTable">
@@ -446,6 +444,134 @@
       </div>
     </div>
   </div>
+
+    <div class="modal fade ui-modal" id="staticboomId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticboomId" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content ui-dialog">
+                <div class="ui-widget-header">
+                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
+                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
+                    <span class="ui-icon ui-icon-closethick">close</span></a>
+                </div>
+                <div class="ui-dialog-content" id="invoiceholder"> <!----set size for A4-->
+                  <div id="invoice" class="effect2">
+                    <div id="invoice-top" style="display: none;">
+                      <div class="logo"><img src="https://www.almonature.com/wp-content/uploads/2018/01/logo_footer_v2.png" alt="Logo" /></div>
+                      <div class="title">
+                        <h1>Invoice #<span class="invoiceVal invoice_num">tst-inv-23</span></h1>
+                        <p>
+                          Invoice Date: <span id="invoice_date">01 Feb 2018</span><br />
+                          GL Date: <span id="gl_date">23 Feb 2018</span>
+                        </p>
+                      </div>
+                      <!--End Title-->
+                    </div>
+                    <!--End InvoiceTop-->
+                    <div id="invoice-mid">
+                      <div class="cta-group mobile-btn-group"><a href="javascript:void(0);" class="btn-primary">Approve</a><a href="javascript:void(0);" class="btn-default">Reject</a></div>
+                      <div class="clearfix">
+                        <div class="col-left">
+                          <div class="clientlogo"><img src="pichture/para.png" alt="Sup" /></div>
+                          <div class="clientinfo">
+                            <h4 id="supplier">{{form.description}}</h4>
+                            <table>
+                              <tr>
+                                <th>No</th>
+                                <td>: {{form.product_no}}</td>
+                              </tr>
+                              <tr>
+                                <th>Barcode</th>
+                                <td>: {{form.brand_code}}</td>
+                              </tr>
+                              <tr>
+                                <th>Stock Unite</th>
+                                <td>: {{form.stock_unit_of_measure_code}}</td>
+                              </tr>
+                              <tr>
+                                <th>Purche Unite</th>
+                                <td>: {{form.purche_unit_of_measure_code}}</td>
+                              </tr>
+                              <tr>
+                                <th>Reorder</th>
+                                <td>: {{form.reorder_point}}</td>
+                              </tr>
+                              <tr>
+                                <th>Unit Price</th>
+                                <td>: {{form.unit_price}}$ / {{form.stock_unit_of_measure_code}}</td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="col-right">
+                          <h4 id="supplier">Suppliyer name : {{getsuppliyerviews.sup_name}}</h4>
+                          <table class="table">
+                            <tbody>
+                              <tr class="border">
+                                <td><span>Company Address : </span><span> {{ getsuppliyerviews.address}}</span></td>
+                              </tr>
+                              <tr class="border">
+                                <td><span>Phone:</span><span> {{ getsuppliyerviews.phone_no}}/{{ getsuppliyerviews.phone_no_2}}</span></td>
+                                <td><span>Email: </span><span> {{ getsuppliyerviews.email}}</span></td>
+                                <td><span>Fax: </span><span> {{ getsuppliyerviews.fax_no}}</span></td>
+                              </tr>
+                              <tr class="border">
+                                <td><span>Contact name:</span><label id="payment_term">{{ getsuppliyerviews.contact_name}}</label></td>
+                                <td><span>Contact Phone:</span><label id="invoice_type">{{ getsuppliyerviews.contact_phone}}</label></td>
+                              </tr>
+                              <tr class="border">
+                                <td colspan="2"><span>Note</span>#<label id="note">{{getsuppliyerviews.status}}</label></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <!--End Invoice Mid-->
+                    <div id="invoice-bot">
+                      <div id="table">
+                        <table class="table-main">
+                          <thead  class="inv-hd-table">
+                            <tr class="tabletitle">
+                              <th width="5%" style="padding-left:5px">Image</th>
+                              <th width="10%">Product Code</th>
+                              <th width="20%">Description</th>
+                              <th width="9%">Quantity</th>
+                              <th width="9%">Price</th>
+                              <th width="9%">Inactived</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr v-for="form_line in form_lines" class="list-item">
+                              <th class="bg_img" style=" justify-content: center;"><img class="loading" v-if="pending" alt="image" @click="created()" /><img alt="upload" src="pichture/para.png" width="30" /></th>
+                              <td data-label="Type" class="tableitem">{{form_line.product_no}}</td>
+                              <td data-label="Description" class="tableitem">{{form_line.description}}</td>
+                              <td data-label="Quantity" class="tableitem">{{form_line.quantity_per_unit}}{{form.stock_unit_of_measure_code}} / {{form_line.variant_unit_of_measure_code}}</td>
+                              <td data-label="Unit Price" class="tableitem">{{form_line.unit_price}} {{form_line.curency_code}}</td>
+                              <td data-label="%" class="tableitem">{{form_line.inactived}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!--End InvoiceBot-->
+                    <footer>
+                      <div id="legalcopy" class="clearfix">
+                        <p class="col-right">
+                          Our mailing address is: <span class="email"><a href="mailto:supplier.portal@almonature.com">supplier.portal@almonature.com</a></span>
+                        </p>
+                      </div>
+                    </footer>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
+                    <div class="button type2" @click="print()" :value="G_code" data-bs-dismiss="modal"><span>Yes</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<!-- ===================================== -->
+
   <span class="marker"></span>
 
   <div id="myModal" class="lskymodal">
@@ -478,6 +604,7 @@ export default {
       boomproducts: [],
       txtsearch: '',
       suppliyers: [],
+      getsuppliyerviews:[],
       uints: [],
       boompro: [],
       form: {
@@ -494,6 +621,7 @@ export default {
         sup_code: '',
         unit_price: '',
         inactived: '',
+        reorder_point:'',
       },
 
       form_lines: {
@@ -525,6 +653,7 @@ export default {
     this.form_lines = null;
     this.prooductboom();
     this.massege = "save successful.";
+    this.getsuppliyerview();
   },
   methods: {
     btnGenerate_code($status) {
@@ -567,7 +696,13 @@ export default {
           this.suppliyers = response.data;
         })
     },
-
+    getsuppliyerview() {
+      axios.get('/api/v1/products/getProductCAt/'+this.form.product_no)
+        .then((response) => {
+          this.getsuppliyerviews = response.data;
+          console.log(response.data);
+        })
+    },
     crateNewsProduct() {
       axios.post('/api/v1/products/create')
         .then((response) => {
@@ -759,6 +894,15 @@ export default {
       modal.style.display = "block";
        setTimeout(() => modal.style.display = "none", 1500);
     },
+    print() {
+      var prtContent = document.getElementById("invoice");
+      var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+      WinPrint.document.write(prtContent.innerHTML);
+      WinPrint.document.close();
+      WinPrint.focus();
+      WinPrint.print();
+      WinPrint.close();
+    }
   },
   startCountdown: function () {
     this.counting = true;
