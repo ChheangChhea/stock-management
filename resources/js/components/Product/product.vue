@@ -272,15 +272,15 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_list tbl_stripe" id="myTable">
               <thead>
                 <tr>
-                  <th width="5%">Image</th>
-                  <th width="10%">Product Code</th>
-                  <th width="20%">Description</th>
-                  <th width="10%">Unit Code</th>
-                  <th width="9%">Quantity</th>
-                  <th width="9%">Price</th>
-                  <th width="9%">Curency</th>
-                  <th width="9%">Inactived</th>
-                  <th width="9%"></th>
+                  <th width="5%" class="tb-pro-th">Image</th>
+                  <th width="10%" class="tb-pro-th">Product Code</th>
+                  <th width="20%" class="tb-pro-th">Description</th>
+                  <th width="10%" class="tb-pro-th">Unit Code</th>
+                  <th width="9%" class="tb-pro-th">Quantity</th>
+                  <th width="9%" class="tb-pro-th">Price</th>
+                  <th width="9%" class="tb-pro-th">Curency</th>
+                  <th width="9%" class="tb-pro-th">Inactived</th>
+                  <th width="9%" class="tb-pro-th"></th>
                 </tr>
                 <tr v-for="form_line in form_lines">
                   <th class="bg_img" style=" justify-content: center;">

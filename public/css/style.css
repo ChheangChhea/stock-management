@@ -8,6 +8,11 @@
 /* -------------------------------------------------------------------------
  *	reset
  * -------------------------------------------------------------------------*/
+.tb-pro-th{
+	padding: 13px 0 !important;
+}
+
+ 
 .clearfix::after {
     content: "";
     clear: both;
@@ -3296,11 +3301,11 @@ th {
 }
 
 .tbl_list thead th {
-	padding: 5px 4px 10px 4px;
+	padding: 5px 4px 5px 4px;
 	background: #326d7a url(image/bgimg_td_border_asagi2.png) no-repeat 0 0;
 	border: 1px solid #6eb3bf;
 	border-width: 0 0 1px 1px;
-	vertical-align: bottom;
+	vertical-align: middle;
 	text-align: center;
 	color: #f8f5b4;
 }
@@ -3999,26 +4004,34 @@ input[class*="btn_ir_"] {
 	-webkit-box-shadow: 0 0 6px #147f7c;
 	box-shadow: 0 0 6px #147f7c;
 }
-
+body{
+    min-width: 1500px !important;
+}
+.wrapper{
+	min-width: 1480px !important;
+}
 .search-box {
 	display: flow-root;
-	border: 1px solid #ddedeb;
-	-moz-box-shadow: 0 0 6px #147f7c;
-	-webkit-box-shadow: 0 0 6px #147f7c;
-	box-shadow: 0 0 6px #147f7c;
+    border: 1px solid #ddedeb;
+    -moz-box-shadow: 0 0 6px #147f7c;
+    -webkit-box-shadow: 0 0 6px #147f7c;
+    box-shadow: 0 0 6px #147f7c;
+    margin-left: auto;
+    height: auto;
+    min-width: 1468px;
 }
 
 .box-img02 {
 	text-align: center;
 	padding: 1.9em 5em;
 	margin: 1.8em 50px 0em;
-	background: #fff;
 	border: dashed 2px #dee2e6;
+	position: relative;
 }
 
-.box-img02 img {
+/* .box-img02 img {
 	width: 40%;
-}
+} */
 
 /*タイトル*/
 .box-title {
@@ -8863,11 +8876,12 @@ input[name="nav-item"] {
 
 #product {
 	clear: both;
-	padding: 10px;
-	min-height: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+    padding: 10px;
+    min-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 1148px;
 }
 .mb-4, .my-4 {
     background-color: #fff;
@@ -8882,7 +8896,7 @@ input[name="nav-item"] {
 }
 
 .bg_img {
-	background-color: white !important;
+	background-color: white;
 }
 
 .selector {
@@ -8938,13 +8952,11 @@ input[name="nav-item"] {
 
 .box-img02 {
 	text-align: center;
-    padding: 1.9em 3em;
-    margin: 0.5em 63px;
-    background: #f0f8ffa3;
+	padding: 1.9em 0;
+    margin: 0.5em auto;
     height: 293px;
     border: dashed 2px #dee2e6f2;
     border-radius: 20px;
-    box-shadow: 0 0 13px 5px #151414;
 }
 
 .box-img02 img {
