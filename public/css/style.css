@@ -15,6 +15,7 @@
 }
 .col-right {
     float: right;
+	width: 42%;
 }
 .col-left {
     float: left;
@@ -29,17 +30,41 @@
   background: #FFF;
   border: #000 1px solid;
 }
+.pro-td{
+	font-size: 12px !important;
+	border: 1px solid black !important;
+	
+}
+.pro-td p{
+	line-height: 1.3;
+}
+.pro-details-footer{
+	background-color: #dbdee1;
+	 border: medium none; 
+	 text-align: left;
+}
+
 
 #invoice{
 	height: 595px;
-	width: 842px;
+	width: 880px ; 
+	
+	
 }
-
+.border{
+	width: 400px;
+}
 .in-header{
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 63px;
 }
+/* inv-hd-table */
+.inv-hd-table{
+	height: 30px;
+	background-color: cadetblue;
+}
+
 #supplier{
 	margin-bottom: 20px;
 }
@@ -51,7 +76,6 @@
 
 #invoice-top{border-bottom: 2px solid #00a63f;}
 #invoice-mid{min-height: 110px;}
-#invoice-bot{ min-height: 240px;}
 
 .logo{
     display: inline-block;
@@ -77,7 +101,6 @@
 .clientinfo {
     display: inline-block;
     vertical-align: middle;
-	margin-left: 20px;
 }
 .title{
   float: right;
@@ -93,6 +116,7 @@ h2 {
     padding: 5px 8px;
     border: 0;
     font-size: 0.75em;
+	line-height:1.5;
    
 }
 .col-right td label {
@@ -122,7 +146,7 @@ table{
   border-collapse: collapse;
 }
 #invoiceholder td{
-    border-bottom: 1px solid #cccaca;
+    border-bottom: 1px solid black;
     text-align: left;
 }
 .bornon{
@@ -140,11 +164,7 @@ table{
     padding: 10px 0px;
 	
 }
-/* inv-hd-table */
-.inv-hd-table{
-	height: 30px;
-	background-color: #326d7a;
-}
+
 
 
 #invoice-mid .border{
@@ -864,7 +884,21 @@ body {
 #login .buttons input:focus {
 	background-position: 0 -78px;
 }
-
+#image{
+	position: absolute;
+    width: 68px;
+    height: 40px;
+    opacity: 0.01;
+    left: 10px;
+}
+#form_line .text{
+    margin-right: 5px;
+    margin-left: 11px;
+    padding-left: 16px;
+    padding-top: 8px;
+    margin-bottom: -2px;
+    padding-bottom: 8px;
+}
 /*
  * jQuery UI CSS Framework 1.8.16
  *
@@ -8902,6 +8936,31 @@ input[name="nav-item"] {
 	font-weight: bold;
 }
 
+.box-img02 {
+	text-align: center;
+    padding: 1.9em 3em;
+    margin: 0.5em 63px;
+    background: #f0f8ffa3;
+    height: 293px;
+    border: dashed 2px #dee2e6f2;
+    border-radius: 20px;
+    box-shadow: 0 0 13px 5px #151414;
+}
+
+.box-img02 img {
+	width: 350px;
+    height: 240px;
+    box-shadow: 0px 0px 0px 1px #00000087;
+    border-radius: 10px;
+}
+#flo02 input{
+	left: 50px;
+    position: absolute;
+    width: 444px;
+    height: 290px;
+    opacity: 0.01;
+	top: 7px;
+}
 
 .table {
 	margin: 0px !important;

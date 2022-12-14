@@ -252,10 +252,10 @@
               </tbody>
             </table>
           </div>
-          <div class="col-md-4 search-box02 flo02">
+          <div class="col-md-4 search-box02 flo02" id="flo02">
             <div class="box-img02">
-              <img alt="upload" src="img/icon-img_upload.png">
-              <p class="text-upload">Drop an image or<br><span><a href="#">upload file</a></span></p>
+              <img alt="Upload Image ..." :src="photo_path + form.image_url" @click="choosePhoto">
+              <input  ref="choose" name="image" type="file" tabindex="10029" @change="imgUplaod($event,form)"/>
             </div>
           </div>
 
@@ -284,7 +284,8 @@
                 </tr>
                 <tr v-for="form_line in form_lines">
                   <th class="bg_img" style=" justify-content: center;">
-                    <img class="loading" v-if="pending" alt="image" @click="created()" /><img alt="upload" src="img/icon-img_upload.png" width="20" />
+                    <img :src="photo_path + form_line.image_url" style="width: 60px; height: 40px" @click="choosePhoto"/>
+                    <input id="image" ref="choose" name="image" type="file" tabindex="10029" @change="imgUplaod($event,form_line)" /> 
                   </th>
                   <th><input :disabled="true" v-model="form_line.product_no" @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
                   <th><input :disabled="isDisabled" v-model="form_line.description" @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
@@ -503,25 +504,25 @@
                           </div>
                         </div>
                         <div class="col-right">
-                          <h4 id="supplier">Suppliyer name : {{getsuppliyerviews.sup_name}}</h4>
+                          <h4 id="supplier">Supplier : {{getsuppliyerviews.sup_name}}</h4>
                           <table class="table">
-                            <tbody>
                               <tr class="border">
-                                <td><span>Company Address : </span><span> {{ getsuppliyerviews.address}}</span></td>
+                                <td class="pro-td">
+                                <p>Email<span style="margin-left:2.2cm">:</span> <label id=" note">{{ getsuppliyerviews.email}}</label></p>
+                                <p >Phone<span style="margin-left:2.07cm">:</span> <label id=" note">{{ getsuppliyerviews.phone_no}} / {{ getsuppliyerviews.phone_no_2}}</label></p>
+                                <p >Fax<span style="margin-left:2.52cm">:</span> <label id=" note">{{ getsuppliyerviews.fax_no}}</label></p>
+                                <p>Company Address<span style="margin-left:5px">:</span> <label id=" note">{{ getsuppliyerviews.address}}</label></p>
+                              </td>
+                              </tr>
+
+                              <tr class="border">
+                                <td class="pro-td">
+                                <p >Contact Name<span style="margin-left:0.8cm">: </span> <label id=" note">{{ getsuppliyerviews.contact_name}}</label></p>
+                                <p >Contact Phone<span style="margin-left:0.66cm">: </span><label id=" note">{{ getsuppliyerviews.contact_phone}}</label></p></td>
                               </tr>
                               <tr class="border">
-                                <td><span>Phone:</span><span> {{ getsuppliyerviews.phone_no}}/{{ getsuppliyerviews.phone_no_2}}</span></td>
-                                <td><span>Email: </span><span> {{ getsuppliyerviews.email}}</span></td>
-                                <td><span>Fax: </span><span> {{ getsuppliyerviews.fax_no}}</span></td>
+                                <td colspan="2" class="pro-td">Note<span style="margin-left:5px">: </span><label id="note">{{getsuppliyerviews.status}}</label></td>
                               </tr>
-                              <tr class="border">
-                                <td><span>Contact name:</span><label id="payment_term">{{ getsuppliyerviews.contact_name}}</label></td>
-                                <td><span>Contact Phone:</span><label id="invoice_type">{{ getsuppliyerviews.contact_phone}}</label></td>
-                              </tr>
-                              <tr class="border">
-                                <td colspan="2"><span>Note</span>#<label id="note">{{getsuppliyerviews.status}}</label></td>
-                              </tr>
-                            </tbody>
                           </table>
                         </div>
                       </div>
@@ -534,33 +535,39 @@
                             <tr class="tabletitle">
                               <th width="5%" style="padding-left:5px">Image</th>
                               <th width="10%">Product Code</th>
-                              <th width="20%">Description</th>
-                              <th width="9%">Quantity</th>
+                              <th width="15%">Description</th>
+                              <th width="15%">Quantity</th>
                               <th width="9%">Price</th>
                               <th width="9%">Inactived</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="form_line in form_lines" class="list-item">
-                              <th class="bg_img" style=" justify-content: center;"><img class="loading" v-if="pending" alt="image" @click="created()" /><img alt="upload" src="pichture/para.png" width="30" /></th>
-                              <td data-label="Type" class="tableitem">{{form_line.product_no}}</td>
-                              <td data-label="Description" class="tableitem">{{form_line.description}}</td>
-                              <td data-label="Quantity" class="tableitem">{{form_line.quantity_per_unit}}{{form.stock_unit_of_measure_code}} / {{form_line.variant_unit_of_measure_code}}</td>
-                              <td data-label="Unit Price" class="tableitem">{{form_line.unit_price}} {{form_line.curency_code}}</td>
-                              <td data-label="%" class="tableitem">{{form_line.inactived}}</td>
-                            </tr>
-                          </tbody>
+                            <tr v-for="(form_line,index) in form_lines" :key="index" >
+                              <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none;">
+                                <img alt="タックシール印刷" height="35" src="pichture/para.png" width="35" style="box-shadow: 1px 1px 1px 1px #b08b8b; padding:1px 0;">
+                              </td>
+                               <td v-else style="border: medium none;">
+                                <img alt="タックシール印刷" height="35" src="pichture/para.png" width="35" style="box-shadow: 1px 1px 1px 1px #b08b8b; padding:1px 0;">
+                              </td> 
+                              <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;vertical-align: middle;">{{form_line.product_no}}</td>   <td v-else style="border: medium none; text-align: left;vertical-align: middle;">{{form_line.product_no}}</td>
+                              <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;vertical-align: middle;">{{form_line.description}}</td>   <td v-else style="border: medium none; text-align: left;vertical-align: middle;">{{form_line.description}}</td>
+                              <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;vertical-align: middle;">{{form_line.quantity_per_unit}} {{form.stock_unit_of_measure_code}}/{{form_line.variant_unit_of_measure_code}}</td> 
+                              <td v-else style="border: medium none; text-align: left;vertical-align: middle;">{{form_line.quantity_per_unit}} {{form.stock_unit_of_measure_code}}/{{form_line.variant_unit_of_measure_code}}</td>
+                              <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;vertical-align: middle;">{{form_line.unit_price}}</td>   <td v-else style="border: medium none; text-align: left;vertical-align: middle;">{{form_line.unit_price}}</td>
+                              <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;vertical-align: middle;">{{form_line.inactived}}</td>   <td v-else style="border: medium none; text-align: left;vertical-align: middle;">{{form_line.inactived}}</td>
+                              </tr>
+                        </tbody>
                         </table>
                       </div>
                     </div>
                     <!--End InvoiceBot-->
-                    <footer>
+                    <!-- <footer>
                       <div id="legalcopy" class="clearfix">
-                        <p class="col-right">
-                          Our mailing address is: <span class="email"><a href="mailto:supplier.portal@almonature.com">supplier.portal@almonature.com</a></span>
+                        <p style="text-align:end">
+                         Product: {{form.description}},<span class="email"><a href="mailto:supplier.{{getsuppliyerviews.email}}">Supplier:{{getsuppliyerviews.email}}</a></span>
                         </p>
                       </div>
-                    </footer>
+                    </footer> -->
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -569,7 +576,7 @@
                 </div>
               </div>
             </div>
-          </div>
+    </div>
 <!-- ===================================== -->
 
   <span class="marker"></span>
@@ -590,6 +597,7 @@ export default {
       graoups:[],
       category:[],
       massege: '',
+      photo_path: "",
       pending: false,
       img: '',
       code: '',
@@ -820,7 +828,7 @@ export default {
         axios.post('/api/v1/boomproduct/' + this.products)
           .then((response) => {
             this.boomproducts = response.data;
-            if (this.boomproducts.length > 0) {
+            if (this.length > 0) {
 
             } else {
               axios.post('/api/v1/boomcreate/' + this.products)
@@ -895,14 +903,24 @@ export default {
        setTimeout(() => modal.style.display = "none", 1500);
     },
     print() {
-      var prtContent = document.getElementById("invoice");
-      var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-      WinPrint.document.write(prtContent.innerHTML);
-      WinPrint.document.close();
-      WinPrint.focus();
-      WinPrint.print();
-      WinPrint.close();
-    }
+      var printContents = document.getElementById("invoiceholder").outerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        window.location.reload();
+    },
+    imgUplaod($event, form_line) {
+      const image = $event.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = (event) => {
+        (this.photo_path = ""), (form_line.image_url = event.target.result);
+      };
+      this.autoUpdateProduct(form_line)
+      this.autoUpdate(form_line)
+    },
+    choosePhoto() {
+      this.$refs.choose.click();
+    },
   },
   startCountdown: function () {
     this.counting = true;

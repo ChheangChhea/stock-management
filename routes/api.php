@@ -75,6 +75,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('products/edite/{product}',[ProductContraller::class,'edit']);
     Route::get('products/editlink/{product}',[ProductContraller::class,'editlink']);
     Route::get('products/destLink/{product}',[ProductContraller::class,'destLink']);
+    Route::get('products/getProductCAt/{product}',[ProductContraller::class,'getProductCAt']);
     Route::post('products/update/{product}',[ProductContraller::class,'update']);  
     Route::post('products/updateProductLinke/{product}',[ProductContraller::class,'updateProductLinke']);
     Route::post('products/getlinkunit/{product}',[ProductContraller::class,'getlinkunit']);

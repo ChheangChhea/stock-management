@@ -10,6 +10,7 @@ use App\Models\productbom;
 use App\Models\Serail;
 use App\Models\product_view;
 use App\Models\unitofmeasure;
+use App\Models\cat_produc;
 
 class ProductContraller extends Controller
 {
