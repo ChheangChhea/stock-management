@@ -5,6 +5,7 @@
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <link rel="stylesheet" href="{{mix('css/app.css')}}">
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/pstyle.css">
       <title>Stock</title>
    </head>
    <body >
