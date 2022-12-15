@@ -1,0 +1,58 @@
+#invoiceholder th {
+    text-align: left;
+    padding: 8px 8px;
+    /* border: 1px solid #000; */
+}
+#invoiceholder td {
+    text-align: left;
+    border: 0px solid;
+    padding: 8px 8px;
+  }
+.title-purchase{
+    color: #326c7a;
+    margin-bottom: 20px;
+}
+.title-pur-sup{
+   font-size: 18px;
+   /* background-color: #84b0ca; */
+}
+.supplier-padding{
+    padding-left: 10px;
+}
+.table-padding-bot{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.table-none-bor{
+    border: none!important;
+}
+.th-font-bold{
+    font-weight: bold;
+    font-size: 13px;
+      padding: 7px 7px!important;
+}
+.table-th-width{
+width: 125px;
+}
+.text--color{
+color: #5d9fc5;
+}
+.text-right{
+    text-align: right;
+}
+.text-padd-top{
+    padding-top: 10px!important;
+}
+.btn-purchase{
+    display: inline-block;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    font-weight: 400;
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.card {
+    box-shadow: 0 0 0px rgb(0 0 0 / 0%), 0 1px 3px rgb(0 0 0 / 0%);
+    margin-bottom: 1rem;
+}
