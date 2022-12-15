@@ -7,7 +7,7 @@
           <h1 id="title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Patient master</font></font></h1>
         </div>
         <ol id="topicPath">
-          <li id="tpHome"><a href="#" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png" width="28"></a></li>              
+          <li id="tpHome"><a href="/" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png" width="28"></a></li>              
               <li>
                   <a href="dashbaord"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Master Admin</font></font></a>
               </li>
@@ -215,10 +215,10 @@
     <tbody>
       <tr v-for="(product, index) in products" :key="index" >
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none;">
-               <img alt="タックシール印刷" height="40" src="pichture/para.png" width="40" style="box-shadow: 1px 1px 1px 1px #b08b8b;">
+               <img alt="タックシール印刷" height="40" src="pichture/para.png" width="40" >
             </td>
             <td v-else style="border: medium none;">
-              <img alt="タックシール印刷" height="40" src="pichture/Paracetamol.jpg" width="40" style="box-shadow: 1px 1px 1px 1px #b08b8b;">
+              <img alt="タックシール印刷" height="40" src="pichture/Paracetamol.jpg" width="40" >
             </td>
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;">{{product.product_no}}</td>   <td v-else style="border: medium none; text-align: left;">{{product.product_no}}</td>
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;">{{product.product_barcode}}</td>   <td v-else style="border: medium none; text-align: left;">{{product.product_barcode}}</td>

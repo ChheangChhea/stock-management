@@ -11,7 +11,7 @@
           </h1>
         </div>
         <ol id="topicPath">
-          <li id="tpHome"><a href="#" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png"
+          <li id="tpHome"><a href="/" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png"
                 width="28"></a></li>
           <li>
             <a href="dashbaord">
@@ -122,7 +122,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Group Code</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
                                         </div>
                                         <div style="margin:0;padding:10px;display:inline">
                                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">

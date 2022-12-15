@@ -14,7 +14,7 @@
         </div>
         <ol id="topicPath">
           <li id="tpHome">
-            <a href="#" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png" width="28" /></a>
+            <a href="/" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png" width="28" /></a>
           </li>
           <li>
             <a href="dashbaord">

@@ -14,7 +14,7 @@
         </div>
         <ol id="topicPath">
           <li id="tpHome">
-            <a href="#" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png" width="28" /></a>
+            <a href="/" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png" width="28" /></a>
           </li>
           <li>
             <a href="dashbaord">
@@ -189,12 +189,7 @@
                         Brand
                       </h5>
                       <!-- <span class="ui-dialog-title" id="ui-dialog-title-dialog-modal">Brand</span> -->
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
+                      <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
                     </div>
                     <div style="margin: 0; padding: 10px; display: inline">
                       <table

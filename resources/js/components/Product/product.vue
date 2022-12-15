@@ -11,7 +11,7 @@
           </h1>
         </div>
         <ol id="topicPath">
-          <li id="tpHome"><a href="#" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png"
+          <li id="tpHome"><a href="/" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png"
                 width="28"></a></li>
           <li>
             <a href="dashbaord">
@@ -71,7 +71,7 @@
           <ul class="dropdown-menu">
             <li>
               <a @click="getproductboom()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#staticBackdropss" tabindex="10028"><i class="fa-solid fa-circle-b"></i> Boom Product</a>
+                data-bs-target="#staticboomId" tabindex="10028"><i class="fa-solid fa-circle-b"></i> Boom Product</a>
             </li>
             <li>
               <a @click="getsuppliyerview()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
@@ -252,7 +252,14 @@
               </tbody>
             </table>
           </div>
-          <div class="col-md-4 search-box02 flo02" id="flo02">
+          <div v-if="form.image_url==null" class="col-md-4 search-box02 flo02 outline-input-img" id="flo02">
+            <div class="box-img02">
+              <img src="img/icon-img_upload.png" alt="Upload Image.." style="width:240px; height:180px" @click="choosePhoto"/>
+              <p class="text-upload">Drop an image or <br/><span style="text-decoration:underline">Upload file</span></p>
+              <input  ref="choose" name="image" type="file" tabindex="10029" @change="imgUplaod($event,form)"/>
+            </div>
+          </div>
+             <div v-else class="col-md-4 search-box02 flo02 outline-input-img" id="flo02">
             <div class="box-img02">
               <img alt="Upload Image ..." :src="photo_path + form.image_url" @click="choosePhoto">
               <input  ref="choose" name="image" type="file" tabindex="10029" @change="imgUplaod($event,form)"/>
@@ -283,8 +290,9 @@
                   <th width="9%" class="tb-pro-th"></th>
                 </tr>
                 <tr v-for="form_line in form_lines">
-                  <th class="bg_img" style=" justify-content: center;">
-                    <img :src="photo_path + form_line.image_url" style="width: 60px; height: 40px" @click="choosePhoto"/>
+                  <th class="bg_img" style=" justify-content: center; background-color: white;">
+                    <img v-if="form_line.image_url==null" src="img/icon-img_upload.png" style="width:50px; height:40px" @click="choosePhoto"/>
+                    <img v-else :src="photo_path + form_line.image_url" style="width: 60px; height: 40px" @click="choosePhoto"/>
                     <input id="image" ref="choose" name="image" type="file" tabindex="10029" @change="imgUplaod($event,form_line)" /> 
                   </th>
                   <th><input :disabled="true" v-model="form_line.product_no" @change="autoUpdate(form_line)" class="string_zen clear_text text" size="50" type="text" style="width:80% !important;"></th>
@@ -505,19 +513,19 @@
                         </div>
                         <div class="col-right">
                           <h4 id="supplier">Supplier : {{getsuppliyerviews.sup_name}}</h4>
-                          <table class="table">
+                          <table class="table" id="sup-table">
                               <tr class="border">
                                 <td class="pro-td">
-                                <p>Email<span style="margin-left:2.2cm">:</span> <label id=" note">{{ getsuppliyerviews.email}}</label></p>
-                                <p >Phone<span style="margin-left:2.07cm">:</span> <label id=" note">{{ getsuppliyerviews.phone_no}} / {{ getsuppliyerviews.phone_no_2}}</label></p>
-                                <p >Fax<span style="margin-left:2.52cm">:</span> <label id=" note">{{ getsuppliyerviews.fax_no}}</label></p>
-                                <p>Company Address<span style="margin-left:5px">:</span> <label id=" note">{{ getsuppliyerviews.address}}</label></p>
+                                <p>Email<span style="margin-left:2.2cm">:</span> <label id=" note">{{ getsuppliyerviews.email}}</label>
+                                <br/>Phone<span style="margin-left:2.07cm">:</span> <label id=" note" style="margin-bottom:0">{{ getsuppliyerviews.phone_no}} / {{ getsuppliyerviews.phone_no_2}}</label>
+                                <br/>Fax<span style="margin-left:2.52cm">:</span> <label id=" note">{{ getsuppliyerviews.fax_no}}</label>
+                                <br/>Company Address<span style="margin-left:5px;" >:</span> <label id=" note">{{ getsuppliyerviews.address}}</label></p>
                               </td>
                               </tr>
 
                               <tr class="border">
                                 <td class="pro-td">
-                                <p >Contact Name<span style="margin-left:0.8cm">: </span> <label id=" note">{{ getsuppliyerviews.contact_name}}</label></p>
+                                <p >Contact Name<span style="margin-left:0.76cm">: </span> <label id=" note">{{ getsuppliyerviews.contact_name}}</label></p>
                                 <p >Contact Phone<span style="margin-left:0.66cm">: </span><label id=" note">{{ getsuppliyerviews.contact_phone}}</label></p></td>
                               </tr>
                               <tr class="border">
@@ -542,12 +550,12 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="(form_line,index) in form_lines" :key="index" >
+                            <tr v-for="(form_line,index) in form_lines" :key="index" id="pro-tr">
                               <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none;">
-                                <img alt="タックシール印刷" height="35" src="pichture/para.png" width="35" style="box-shadow: 1px 1px 1px 1px #b08b8b; padding:1px 0;">
+                                <img alt="タックシール印刷" height="35" src="pichture/para.png" width="35" >
                               </td>
                                <td v-else style="border: medium none;">
-                                <img alt="タックシール印刷" height="35" src="pichture/para.png" width="35" style="box-shadow: 1px 1px 1px 1px #b08b8b; padding:1px 0;">
+                                <img alt="タックシール印刷" height="35" src="pichture/para.png" width="35" >
                               </td> 
                               <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;vertical-align: middle;">{{form_line.product_no}}</td>   <td v-else style="border: medium none; text-align: left;vertical-align: middle;">{{form_line.product_no}}</td>
                               <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none; text-align: left;vertical-align: middle;">{{form_line.description}}</td>   <td v-else style="border: medium none; text-align: left;vertical-align: middle;">{{form_line.description}}</td>
@@ -560,14 +568,6 @@
                         </table>
                       </div>
                     </div>
-                    <!--End InvoiceBot-->
-                    <!-- <footer>
-                      <div id="legalcopy" class="clearfix">
-                        <p style="text-align:end">
-                         Product: {{form.description}},<span class="email"><a href="mailto:supplier.{{getsuppliyerviews.email}}">Supplier:{{getsuppliyerviews.email}}</a></span>
-                        </p>
-                      </div>
-                    </footer> -->
                   </div>
                 </div>
                 <div class="modal-footer">
