@@ -491,7 +491,7 @@
                 <div class="modal-footer">
                   <a class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i
               class="far fa fa-times-circle text-danger"></i> Close</a>
-                  <a class="btn-purchase btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
+                  <a class="btn-purchase btn-light text-capitalize border-0" data-mdb-ripple-color="dark" @click="print()"><i
               class="fas fa-print text-primary"></i> Print</a>        
                     <!-- <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
                     <div class="button type2" @click="print()" :value="G_code" data-bs-dismiss="modal"><span>Yes</span></div> -->
