@@ -1053,6 +1053,7 @@ body {
 	background: #326c7a url(images/ui-bg_flat_75_326c7a_40x100.png) 50% 50% repeat-x;
 	color: #ffffff;
 	font-weight: bold;
+	padding: 12px 0;
 }
 
 .ui-widget-header a {
@@ -2425,7 +2426,7 @@ h5 {
 	position: relative;
 	border: 0;
 	/* padding: .5em 1em; */
-	padding: 30px 0px;
+	
 	background: none;
 	overflow: auto;
 	zoom: 1;
@@ -2443,7 +2444,7 @@ h5 {
 .ui-dialog-content {
 	position: relative;
 	border: 0;
-	padding: 0.5em 1em;
+	
 	background: none;
 	overflow: auto;
 	zoom: 1;
@@ -4008,9 +4009,7 @@ input[class*="btn_ir_"] {
 	-webkit-box-shadow: 0 0 6px #147f7c;
 	box-shadow: 0 0 6px #147f7c;
 }
-body{
-    min-width: 1500px !important;
-}
+
 .search-box {
 	display: flow-root;
     border: 1px solid #ddedeb;
@@ -4018,8 +4017,8 @@ body{
     -webkit-box-shadow: 0 0 6px #147f7c;
     box-shadow: 0 0 6px #147f7c;
     margin-left: auto;
-    height: auto;
-    min-width: 1468px;
+    /* height: auto; */
+    
 }
 
 .box-img02 {
@@ -8882,7 +8881,7 @@ input[name="nav-item"] {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-width: 1148px;
+    /* min-width: 1148px; */
 }
 .mb-4, .my-4 {
     background-color: #fff;
