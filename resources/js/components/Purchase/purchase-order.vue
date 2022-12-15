@@ -60,7 +60,7 @@
                 href="#"> <i class="fas fa-save"></i> Booking</a>
             </li>
             <li>
-              <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropss" tabindex="10028"
+              <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticboomId" tabindex="10028"
                 href="#"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
             </li>
             <li>
@@ -363,7 +363,142 @@
       </div>
     </div>
   </div>
+  <div class="modal fade ui-modal" id="staticboomId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticboomId" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content ui-dialog">
+                <div class="ui-widget-header">
+                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
+                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
+                    <span class="ui-icon ui-icon-closethick">close</span></a>
+                </div>
+                <div id="invoiceholder">
+                  <div class="card">
+  <div class="card-body">
+    <div class="container mb-5 mt-3">
+      <div class="row d-flex align-items-baseline">
+        <div class="col-xl-9">
+        </div>
+          <hr>
+      </div>
 
+      <div class="container">
+        <div class="col-md-12">
+          <div class="text-center">
+            <h3 class="title-purchase">PURCHASE ORDER</h3>
+            <!-- <p class="pt-0">MDBootstrap.com</p> -->
+          </div>
+
+        </div>
+
+
+        <div class="row">
+          <div class="col-xl-6 supplier-padding">
+            <p class="text-muted title-pur-sup">COMPANY NAME</p>
+            <ul class="list-unstyled">
+              <li class="text-muted">To: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+            </ul>
+          </div>
+          <div class="col-xl-6 supplier-padding">
+            <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
+            <ul class="list-unstyled">
+              <li class="text-muted">To: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row my-2 mx-1 justify-content-center table-padding-bot">
+          <table class="table table-striped table-borderless">
+            <thead style="background-color:#84B0CA ;" class="text-white">
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">1</td>
+                <td>Pro Package</td>
+                <td>For Protect Hand</td>
+                <td>4</td>
+                <td>Can</td>
+                <td>$200</td>
+                <td>$800</td>
+              </tr>
+              <tr>
+                <td scope="row">2</td>
+                <td>Web hosting</td>
+                <td>For Protect Hand</td>
+                <td>1</td>
+                <td>Can</td>
+                <td>$10</td>
+                <td>$10</td>
+              </tr>
+              <tr>
+                <td scope="row">3</td>
+                <td>Consulting</td>
+                <td>For Protect Hand</td>
+                <td>1</td>
+                <td>Can</td>
+                <td>$300</td>
+                <td>$300</td>
+              </tr>
+              <tr>
+                <td scope="row" colspan="5" rowspan="3" class="th-font-bold text-padd-top">Remark: </td>
+                <td class="th-font-bold text-right">Total :</td>
+                <td class="th-font-bold">$800</td>
+              </tr>
+              <tr>
+                <td class="th-font-bold text-right" >Tax : </td>
+                <td class="th-font-bold">$80</td>
+              </tr>
+              <tr>
+                <td class="th-font-bold table-th-width text-right">Total Amount : </td>
+                <td class="th-font-bold">$880</td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-xl-8 supplier-padding">
+            <p class="ms-3">Payment Information</p>
+            <ul class="list-unstyled">
+              <li class="text-muted">Bank Name:<span class="text--color">Mr. Master</span></li>
+              <li class="text-muted">Bank Account Number: <span class="text--color">001 025 025</span></li>
+                        </ul>
+
+          </div>
+        </div>
+        <hr>
+     
+
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
+                <div class="modal-footer">
+                  <a class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+              class="far fa fa-times-circle text-danger"></i> Close</a>
+                  <a class="btn-purchase btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
+              class="fas fa-print text-primary"></i> Print</a>        
+                    <!-- <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
+                    <div class="button type2" @click="print()" :value="G_code" data-bs-dismiss="modal"><span>Yes</span></div> -->
+                </div>
+              </div>
+            </div>
+    </div>
 </template>
 <script>
 import axios from "axios";
@@ -597,7 +732,13 @@ export default {
                   .then((response)=>{        
                      this.boomunits = response.data;
            })
-    }
+    },
+    print() {
+      var printContents = document.getElementById("invoiceholder").outerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        window.location.reload();
+    },
   },
   startCountdown: function () {
     this.counting = true;
