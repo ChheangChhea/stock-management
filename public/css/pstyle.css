@@ -1,9 +1,9 @@
-#invoiceholder th {
+#purchaseorder th {
     text-align: left;
     padding: 8px 8px;
     /* border: 1px solid #000; */
 }
-#invoiceholder td {
+#purchaseorder td {
     text-align: left;
     border: 0px solid;
     padding: 8px 8px;
