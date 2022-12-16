@@ -56,3 +56,13 @@ color: #5d9fc5;
     box-shadow: 0 0 0px rgb(0 0 0 / 0%), 0 1px 3px rgb(0 0 0 / 0%);
     margin-bottom: 1rem;
 }
+
+#purchaseorder .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: nowrap;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+}
+
