@@ -79,3 +79,8 @@ color: #5d9fc5;
     padding: 1.25rem;
 margin-bottom: -50px!important;
 }
+
+.smallpopup {
+    max-width: 62vh !important;
+    margin: 1.75rem auto !important;
+}
