@@ -70,7 +70,7 @@
 /* inv-hd-table */
 .inv-hd-table{
 	height: 30px;
-	background-color: cadetblue;
+	background-color: #84B0CA;
 }
 
 #supplier{
@@ -8965,9 +8965,10 @@ input[name="nav-item"] {
    
 }
 #flo02 input{
-	left: 50px;
+	 left: 40px;
     position: absolute;
-    width: 350px;
+ 	/* width: 350px; */
+	width:86%;
     height: 250px;
     opacity: 0.01;
 	top: 20px;

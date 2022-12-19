@@ -90,16 +90,15 @@
                                         <input class="string_zen_kana clear_text text" id="cat_code" maxlength="50" name="cat_code" size="50" type="text" tabindex="10001"/>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <th width="10%">Inactived</th>
-                                    <td width="90%">
-                                        <div class="selector" id="inactivced"><span>Yes</span>
-                                            <select id="inactivced" name="inactivced"  tabindex="10003" style="min-width: 51px; opacity: 0; width: 80px;">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                     <td width="90%">
+                                         <div class="selector" id="inactivced"><span>{{form.inactived}}</span>
+                                            <select id="inactivced" name="inactivced" v-model="form.inactived" tabindex="10003" style="min-width: 51px; opacity: 0; width: 80px;">
+                                                <option value="Yes" >Yes</option>
+                                                    <option value="No">No</option>
                                             </select>
-                                        </div>
+                                         </div>
                                     </td>
                                 </tr>
                                 
@@ -149,7 +148,7 @@
                                                     <tr>   
                                                         <th>Brand Code</th>
                                                         <td width="89%">
-                                                                <select :disabled="isDisabled"  @change="autoUpdateProduct(form)"  v-model="form.brand_code" class="form" style="width:88%;">
+                                                                <select :disabled="isDisabled"  @change="autoUpdateProduct(form)"  v-model="form.brand_code" class="form" style="width:25%;">
                                                                 <option v-for="brand in brands" :value='brand.brand_code'>{{ brand.brand_name}}</option>
                                                                 </select>
                                                          </td>
@@ -157,7 +156,7 @@
                                                     <tr>   
                                                         <th>Category Code</th>
                                                         <td width="89%">
-                                                                <select :disabled="isDisabled"  @change="autoUpdateProduct(form)"  v-model="form.cat_code" class="form" style="width:88%;">
+                                                                <select :disabled="isDisabled"  @change="autoUpdateProduct(form)"  v-model="form.cat_code" class="form" style="width:25%;">
                                                                 <option v-for="Cat in Cats" :value='Cat.cat_code'>{{Cat.cat_name }}</option>
                                                                 </select>
                                                          </td>

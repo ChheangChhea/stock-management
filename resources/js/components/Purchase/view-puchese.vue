@@ -14,7 +14,7 @@
         </div>
         <ol id="topicPath">
           <li id="tpHome">
-            <a href="/" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png" width="28" /></a>
+            <a href="/" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png" width="28"/></a>
           </li>
           <li>
             <a href="dashbaord">
@@ -27,7 +27,7 @@
             <span>
               <font style="vertical-align: inherit">
                 <font style="vertical-align: inherit">
-                  View-Product
+                  View-Puchase
                 </font>
               </font>
             </span>
@@ -108,7 +108,7 @@
                       type="text" />
                   </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                   <th width="10%">Inactive</th>
                   <td width="50%">
                     <select v-model="form.inactived" class="form" style="width: 362px">
@@ -116,6 +116,17 @@
                       <option value="Yes">Yes</option>
                     </select>
                   </td>
+                </tr> -->
+                <tr>
+                    <th width="10%">Inactived</th>
+                        <td width="50%">
+                         <div class="selector" id="inactivced"><span>{{form.inactived}}</span>
+                             <select id="inactivced" name="inactivced" v-model="form.inactived" tabindex="10003" style="min-width: 51px; opacity: 0; width: 80px;">
+                              <option value="Yes" >Yes</option>
+                                  <option value="No">No</option>
+                              </select>
+                         </div>
+                      </td>
                 </tr>
               </tbody>
             </table>
@@ -157,37 +168,13 @@
                   <th width="20%">Description</th>
                   <th width="10%">Suppliyer</th>
                   <th width="10%">Curency Code</th>
-                  <th width="9%">Inactived</th>
-                  <th width="9%"></th>
+                  <th width="7%">Inactived</th>
+                  <th width="11%"></th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="(purchase, index) in purchases" :key="index">
-                  <!-- <td
-                    v-if="index % 2 == 0"
-                    style="
-                      background-color: #dbdee1;
-                      border: medium none;
-                      text-align: center;
-                    "
-                  >
-                    <img
-                      alt="タックシール印刷"
-                      height="40"
-                      src="pichture/para.png"
-                      width="40"
-                      style="box-shadow: 1px 1px 1px 1px #b08b8b"
-                    />
-                  </td> -->
-                  <!-- <td v-else style="border: medium none; text-align: center">
-                    <img
-                      alt="タックシール印刷"
-                      height="40"
-                      src="pichture/Paracetamol.jpg"
-                      width="40"
-                      style="box-shadow: 1px 1px 1px 1px #b08b8b"
-                    />
-                  </td> -->
+             
                   <td v-if="index % 2 == 0" style="
                       background-color: #dbdee1;
                       border: medium none;

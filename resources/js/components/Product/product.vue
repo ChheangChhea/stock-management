@@ -170,7 +170,7 @@
                   <th width="10%">Stock Unit</th>
                   <td width="50%">
                     <select :disabled="isDisabled" @change="autoUpdateProduct(form)"
-                      v-model="form.stock_unit_of_measure_code" class="form" style="width:362px;">
+                      v-model="form.stock_unit_of_measure_code" class="form" style="width:385px;">
                       <option v-for="uint in uints" :value='uint.unit_code'>{{ uint.unit_of_measure }}</option>
                     </select>
                   </td>
@@ -180,7 +180,7 @@
                   <th width="10%">Purche Unit</th>
                   <td width="50%">
                     <select :disabled="isDisabled" @change="autoUpdateProduct(form)"
-                      v-model="form.purche_unit_of_measure_code" class="form" style="width:362px;">
+                      v-model="form.purche_unit_of_measure_code" class="form" style="width:385px;">
                       <option v-for="uint in uints" :value='uint.unit_code'>{{ uint.unit_of_measure }}</option>
                     </select>
                   </td>
@@ -190,7 +190,7 @@
                   <th width="10%">Suppliyer</th>
                   <td width="50%">
                     <select :disabled="isDisabled" v-model="form.sup_code" @change="autoUpdateProduct(form)"
-                      class="form" style="width:362px;">
+                      class="form" style="width:385px;">
                       <option value="">Selete Suppliyer</option>
                       <option v-for="suppliyer in suppliyers" :value='suppliyer.sup_code'>{{ suppliyer.sup_name }}
                       </option>
@@ -201,7 +201,7 @@
                 <tr>
                   <th width="10%">Group Product </th>
                   <td width="50%">
-                    <select :disabled="isDisabled" v-model="form.group_code" @change="autoUpdateProduct(form)" class="form" style="width:362px;">
+                    <select :disabled="isDisabled" v-model="form.group_code" @change="autoUpdateProduct(form)" class="form" style="width:385px;">
                       <option value="">Selete Suppliyer</option>
                       <option v-for="graoup in graoups" :value='graoup.group_code'>{{ graoup.group_name }}
                       </option>
@@ -212,7 +212,7 @@
                   <th width="10%">Category</th>
                   <td width="50%">
                     <select :disabled="isDisabled" v-model="form.cat_code" @change="autoUpdateProduct(form)"
-                      class="form" style="width:362px;">
+                      class="form" style="width:385px;">
                       <option value="">Selete Suppliyer</option>
                       <option v-for="categor in category" :value='categor.cat_code'>{{ categor.cat_name }}
                       </option>
@@ -223,7 +223,7 @@
                   <th width="10%">Brand Name</th>
                   <td width="50%">
                     <select :disabled="isDisabled" v-model="form.brand_code" @change="autoUpdateProduct(form)"
-                      class="form" style="width:362px;">
+                      class="form" style="width:385px;">
                       <option value="">Selete Suppliyer</option>
                       <option v-for="brand in brands" :value='brand.brand_code'>{{ brand.brand_name }}
                       </option>
@@ -261,7 +261,7 @@
           </div>
              <div v-else class="col-md-4 search-box02 flo02 outline-input-img" id="flo02">
             <div class="box-img02">
-              <img alt="Upload Image ..." :src="photo_path + form.image_url" @click="choosePhoto">
+              <img alt="Upload Image ..." :src="photo_path + form.image_url" @click="choosePhoto" style="width:80% !important">
               <input  ref="choose" name="image" type="file" tabindex="10029" @change="imgUplaod($event,form)"/>
             </div>
           </div>
@@ -479,60 +479,44 @@
                     <div id="invoice-mid">
                       <div class="cta-group mobile-btn-group"><a href="javascript:void(0);" class="btn-primary">Approve</a><a href="javascript:void(0);" class="btn-default">Reject</a></div>
                       <div class="clearfix">
-                        <div class="col-left">
-                          <div class="clientlogo"><img src="pichture/para.png" alt="Sup" /></div>
-                          <div class="clientinfo">
-                            <h4 id="supplier">{{form.description}}</h4>
-                            <table>
-                              <tr>
-                                <th>No</th>
-                                <td>: {{form.product_no}}</td>
-                              </tr>
-                              <tr>
-                                <th>Barcode</th>
-                                <td>: {{form.brand_code}}</td>
-                              </tr>
-                              <tr>
-                                <th>Stock Unite</th>
-                                <td>: {{form.stock_unit_of_measure_code}}</td>
-                              </tr>
-                              <tr>
-                                <th>Purche Unite</th>
-                                <td>: {{form.purche_unit_of_measure_code}}</td>
-                              </tr>
-                              <tr>
-                                <th>Reorder</th>
-                                <td>: {{form.reorder_point}}</td>
-                              </tr>
-                              <tr>
-                                <th>Unit Price</th>
-                                <td>: {{form.unit_price}}$ / {{form.stock_unit_of_measure_code}}</td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>
-                        <div class="col-right">
-                          <h4 id="supplier">Supplier : {{getsuppliyerviews.sup_name}}</h4>
-                          <table class="table" id="sup-table">
-                              <tr class="border">
-                                <td class="pro-td">
-                                <p>Email<span style="margin-left:2.2cm">:</span> <label id=" note">{{ getsuppliyerviews.email}}</label>
-                                <br/>Phone<span style="margin-left:2.07cm">:</span> <label id=" note" style="margin-bottom:0">{{ getsuppliyerviews.phone_no}} / {{ getsuppliyerviews.phone_no_2}}</label>
-                                <br/>Fax<span style="margin-left:2.52cm">:</span> <label id=" note">{{ getsuppliyerviews.fax_no}}</label>
-                                <br/>Company Address<span style="margin-left:5px;" >:</span> <label id=" note">{{ getsuppliyerviews.address}}</label></p>
-                              </td>
-                              </tr>
+                        
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <h3 class="title-purchase" style="color:#84B0CA !important">PRODUCT DETAILS</h3>
+                            </div>
+                      </div>
+                        <div class="row" style="flex-wrap:inherit">
+                            <div class="col-xl-6 supplier-padding">
+                              <div style="display:flex">
+                                <div class="clientlogo"><img src="pichture/para.png" alt="Sup" /></div>
+                                <div>
+                                  <p class="text-muted title-pur-sup" >{{form.description}}</p>
+                                  <ul class="list-unstyled">
+                                    <li class="text-muted">No: <span style="color:#5d9fc5 ;">{{form.product_no}}</span></li>
+                                    <li class="text-muted">Barcode: <span style="color:#5d9fc5 ;">{{form.brand_code}}</span></li>
+                                    <li class="text-muted">Stock Unite: <span style="color:#5d9fc5 ;">{{form.stock_unit_of_measure_code}}</span></li>
+                                    <li class="text-muted">Purche Unite: <span style="color:#5d9fc5 ;">{{form.purche_unit_of_measure_code}}</span></li>
+                                    <li class="text-muted">Reorder: <span style="color:#5d9fc5 ;">{{form.reorder_point}}</span></li>
+                                    <li class="text-muted">Unit Price: <span style="color:#5d9fc5 ;">{{form.unit_price}}$ / {{form.stock_unit_of_measure_code}}</span></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-xl-6 supplier-padding" style="padding-left:90px">
+                              <p class="text-muted title-pur-sup">Supplier Name: {{getsuppliyerviews.sup_name}}</p>
+                              <ul class="list-unstyled">
+                                <li class="text-muted">Email: <span style="color:#5d9fc5 ;">{{ getsuppliyerviews.email}}</span></li>
+                                <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">{{ getsuppliyerviews.phone_no}} / {{ getsuppliyerviews.phone_no_2}}</span></li>
+                                <li class="text-muted">Company Address: <span style="color:#5d9fc5 ;">{{ getsuppliyerviews.address}}</span></li>
+                                <li class="text-muted">Fax: <span style="color:#5d9fc5 ;">{{ getsuppliyerviews.fax_no}}</span></li>
 
-                              <tr class="border">
-                                <td class="pro-td">
-                                <p >Contact Name<span style="margin-left:0.76cm">: </span> <label id=" note">{{ getsuppliyerviews.contact_name}}</label></p>
-                                <p >Contact Phone<span style="margin-left:0.66cm">: </span><label id=" note">{{ getsuppliyerviews.contact_phone}}</label></p></td>
-                              </tr>
-                              <tr class="border">
-                                <td colspan="2" class="pro-td">Note<span style="margin-left:5px">: </span><label id="note">{{getsuppliyerviews.status}}</label></td>
-                              </tr>
-                          </table>
-                        </div>
+                                <li class="text-muted">Contact Name: <span style="color:#5d9fc5 ;">{{ getsuppliyerviews.contact_name}}</span></li>
+                                <li class="text-muted">Contact Phone: <span style="color:#5d9fc5 ;">{{ getsuppliyerviews.contact_phone}}</span></li>
+                                <li class="text-muted">Note: <span style="color:#5d9fc5 ;">{{getsuppliyerviews.status}}</span></li>
+
+                              </ul>
+                            </div>
+                          </div>
                       </div>
                     </div>
                     <!--End Invoice Mid-->

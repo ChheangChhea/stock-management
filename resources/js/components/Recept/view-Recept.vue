@@ -29,7 +29,7 @@
             <span
               ><font style="vertical-align: inherit"
                 ><font style="vertical-align: inherit">
-                  View-Product
+                  View-Recept
                 </font></font
               ></span
             >
@@ -143,17 +143,17 @@
                     />
                   </td>
                 </tr>
+             
                 <tr>
-                  <th width="10%">Inactive</th>
+                  <th>Inactived </th>
                   <td width="50%">
-                    <select
-                      v-model="form.inactived"
-                      class="form"
-                      style="width: 362px"
-                    >
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
-                    </select>
+                    <div class="selector" id="inactivced"><span>{{ form.inactived }}</span>
+                      <select id="inactivced" name="inactivced" tabindex="10003" v-model="form.inactived" @change="autoUpdateProduct(form)"
+                        style="min-width: 51px; opacity: 0; width: 80px;">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -222,37 +222,13 @@
                   <th width="20%">Description</th>
                   <th width="10%">Suppliyer</th>
                   <th width="10%">Curency Code</th>
-                  <th width="9%">Inactived</th>
-                  <th width="9%"></th>
+                  <th width="7%">Inactived</th>
+                  <th width="11%"></th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="(purchase, index) in purchases" :key="index">
-                  <!-- <td
-                    v-if="index % 2 == 0"
-                    style="
-                      background-color: #dbdee1;
-                      border: medium none;
-                      text-align: center;
-                    "
-                  >
-                    <img
-                      alt="タックシール印刷"
-                      height="40"
-                      src="pichture/para.png"
-                      width="40"
-                      style="box-shadow: 1px 1px 1px 1px #b08b8b"
-                    />
-                  </td> -->
-                  <!-- <td v-else style="border: medium none; text-align: center">
-                    <img
-                      alt="タックシール印刷"
-                      height="40"
-                      src="pichture/Paracetamol.jpg"
-                      width="40"
-                      style="box-shadow: 1px 1px 1px 1px #b08b8b"
-                    />
-                  </td> -->
+      
                   <td
                     v-if="index % 2 == 0"
                     style="

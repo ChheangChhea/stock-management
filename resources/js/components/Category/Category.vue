@@ -117,7 +117,7 @@
                     <td width="12%">{{ Category.inactived }}</td>
                     <td width="12%">{{ Category.created_by }}</td>
                     <td width="12%">{{ Category.updete_by }}</td>
-                    <td width="12%">
+                    <td width="12%" style="padding:0px">
                       <div class="button" id="uniform-undefined">
                         <span
                           >Edit<input
@@ -246,7 +246,7 @@
                           />
                         </td>
                       </tr>
-                      <tr>
+                      <!-- <tr>
                         <th>Inactive</th>
                         <td>
                           <select
@@ -258,7 +258,19 @@
                             <option value="No">No</option>
                           </select>
                         </td>
-                      </tr>
+                      </tr> -->
+                      <tr>
+                  <th>Inactived </th>
+                  <td width="90%">
+                    <div class="selector" id="inactivced"><span>{{ form.inactived }}</span>
+                      <select id="inactivced" name="inactivced" tabindex="10003" v-model="form.inactived" @change="autoUpdateProduct(form)"
+                        style="min-width: 51px; opacity: 0; width: 80px;">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                  </td>
+                </tr>
                     </tbody>
                   </table>
                 </div>

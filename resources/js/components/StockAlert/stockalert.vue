@@ -54,7 +54,7 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Brand</h5>
                                             <!-- <span class="ui-dialog-title" id="ui-dialog-title-dialog-modal">Brand</span> -->
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
                                         </div>
                                         <div style="margin:0;padding:10px;display:inline">
                                             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
@@ -128,9 +128,9 @@
                                 <th width="13%">Brand Name</th>
                                 <th width="13%">Brand Name 2</th>
                                 <th width="6%">Inactived</th>
-                                <th width="19%">Create By</th>
+                                <th width="14%">Create By</th>
                                 <th width="9%">Update By</th>
-                                <th width="7%">
+                                <th width="12%">
                                 <div class="button" id="uniform-undefined"  @click="checkActionForm('save','Save','Close')">
                                     <span>Add New<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
                                 </div>
@@ -148,9 +148,9 @@
                                     <td width="13%">{{item.brand_name}}</td>
                                     <td width="13%">{{item.brand_name_2}}</td>
                                     <td width="6%">{{item.inactived}}</td>
-                                    <td width="19%">{{item.created_by}}</td>
+                                    <td width="14%">{{item.created_by}}</td>
                                     <td width="9%">{{item.updete_by}}</td>
-                                    <td width="7%">
+                                    <td width="12%" style="padding:0">
                                     <div class="button" @click="checkActionForm('update','Update','Close',item)" id="uniform-undefined">
                                         <span><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
                                     </div>

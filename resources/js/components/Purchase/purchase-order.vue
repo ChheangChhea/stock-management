@@ -1,45 +1,60 @@
 <template >
   <div class="wrapper" style="overflow: hidden">
-    <div id="header">
-      <div id="headTitle">
-        <div id="logo">
-          <img alt="Healthbook" height="44" src="/assets/image/logo.png" width="70" />
-        </div>
-        <h1 id="title">
-          <font style="vertical-align: inherit">
-            <font style="vertical-align: inherit">menu</font>
-          </font>
-        </h1>
-      </div>
-      <ol id="topicPath">
-        <li id="tpHome">
-          <a href="/menu/index" title="go to menu"><img alt="" height="28" src="/assets/image/topicPath_home.png"
-              width="28" /></a>
-        </li>
-      </ol>
-      <div id="headInfo">
-        <div id="date-info">
-          <span class="icon"></span>
-          <p id="todays" original-title="AM11:17">
-            <font style="vertical-align: inherit">
-              <font style="vertical-align: inherit">2022/10/11</font>
+    <div class="container-fuild">
+      <div id="header">
+        <div id="headTitle">
+          <div id="logo"><img alt="Healthbook" height="44" src="img/logo.png" width="70"></div>
+          <h1 id="title">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">Patient master</font>
             </font>
-          </p>
+          </h1>
         </div>
-        <div id="user-info">
-          <span class="icon"></span>
-          <p id="userName">
-            <font style="vertical-align: inherit">
-              <font style="vertical-align: inherit">system </font>
-            </font><a href="/login/logout" id="btnlogout" title="logout">
-              <font style="vertical-align: inherit">
-                <font style="vertical-align: inherit">logout</font>
+        <ol id="topicPath">
+          <li id="tpHome"><a href="/" title="go to menu"><img alt="" height="28" src="img/topicPath_home.png"
+                width="28"></a></li>
+          <li>
+            <a href="dashbaord">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Master Admin</font>
               </font>
             </a>
-          </p>
+          </li>
+          <li>
+            <span>
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                  Purchase-Order
+                </font>
+              </font>
+            </span>
+          </li>
+        </ol>
+        <div id="headInfo">
+          <div id="date-info">
+            <span class="icon"></span>
+            <p id="todays" original-title="PM12:13">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">2022/08/25</font>
+              </font>
+            </p>
+          </div>
+          <div id="user-info">
+            <span class="icon"></span>
+            <p id="userName">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">system
+                </font>
+              </font><a href="/login/logout" id="btnlogout" original-title="logout">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">logout</font>
+                </font>
+              </a>
+            </p>
+          </div>
         </div>
+        <!-- / #header -->
       </div>
-      <!-- / #header -->
     </div>
     <div class="search-box">
       <div id="purchase">
@@ -173,7 +188,7 @@
                       class="string_zen clear_text text input_text" size="50" type="text" />
                   </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                   <th width="10%">Inactive</th>
                   <td width="50%">
                     <select @change="autoUpdateProduct(form)" v-model="form.inactived" :disabled="isDisabled"
@@ -182,6 +197,17 @@
                       <option value="Yes">Yes</option>
                     </select>
                   </td>
+                </tr> -->
+                <tr>
+                  <th width="10%">Inactived</th>
+                   <td width="50%">
+                       <div class="selector" id="inactivced"><span>{{form.inactived}}</span>
+                          <select id="inactivced" name="inactivced" v-model="form.inactived" tabindex="10003" style="min-width: 51px; opacity: 0; width: 80px;">
+                            <option value="Yes" >Yes</option>
+                            <option value="No">No</option>
+                          </select>
+                       </div>
+                   </td>
                 </tr>
               </tbody>
             </table>

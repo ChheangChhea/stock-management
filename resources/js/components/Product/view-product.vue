@@ -91,7 +91,7 @@
                   <th width="10%">Stock Unit</th>
                   <td width="50%">
                     <select :disabled="isDisabled" 
-                      v-model="form.stock_unit_of_measure_code" class="form" style="width:362px;">
+                      v-model="form.stock_unit_of_measure_code" class="form" style="width:385px;">
                       <option value=""></option>
                       <option v-for="uint in uints" :value='uint.unit_code'>{{ uint.unit_of_measure }}</option>
                     </select>
@@ -102,7 +102,7 @@
                   <th width="10%">Purche Unit</th>
                   <td width="50%">
                     <select :disabled="isDisabled" 
-                      v-model="form.purche_unit_of_measure_code" class="form" style="width:362px;">
+                      v-model="form.purche_unit_of_measure_code" class="form" style="width:385px;">
                       <option value=""></option>
                       <option v-for="uint in uints" :value='uint.unit_code'>{{ uint.unit_of_measure }}</option>
                     </select>
@@ -113,7 +113,7 @@
                   <th width="10%">Suppliyer</th>
                   <td width="50%">
                     <select :disabled="isDisabled" v-model="form.sup_code" 
-                      class="form" style="width:362px;">
+                      class="form" style="width:385px;">
                       <option value=""></option>
                       <option v-for="suppliyer in suppliyers" :value='suppliyer.sup_code'>{{ suppliyer.sup_name }}
                       </option>
@@ -124,7 +124,7 @@
                 <tr>
                   <th width="10%">Group Product </th>
                   <td width="50%">
-                    <select :disabled="isDisabled" v-model="form.group_code"  class="form" style="width:362px;">
+                    <select :disabled="isDisabled" v-model="form.group_code"  class="form" style="width:385px;">
                       <option value=""></option>
                       <option v-for="graoup in graoups" :value='graoup.group_code'>{{ graoup.group_name }}
                       </option>
@@ -135,7 +135,7 @@
                   <th width="10%">Category</th>
                   <td width="50%">
                     <select :disabled="isDisabled" v-model="form.cat_code" 
-                      class="form" style="width:362px;">
+                      class="form" style="width:385px;">
                       <option value=""></option>
                       <option v-for="categor in category" :value='categor.cat_code'>{{ categor.cat_name }}
                       </option>
@@ -146,7 +146,7 @@
                   <th width="10%">Brand Name</th>
                   <td width="50%">
                     <select :disabled="isDisabled" v-model="form.brand_code" 
-                      class="form" style="width:362px;">
+                      class="form" style="width:385px;">
                       <option value=""></option>
                       <option v-for="brand in brands" :value='brand.brand_code'>{{ brand.brand_name }}
                       </option>
@@ -186,9 +186,7 @@
 <div class="pagination">
   <div class="pagination">
     <div class="overflow-auto">
-       <!-- <b-pagination  v-model="currentPage" :total-rows="rows" :per-page="perPage" aria-controls="my-table"></b-pagination>
-       <p class="mt-3">Current Page: {{ currentPage }}</p>
-       <b-table id="my-table" :items="products" :per-page="perPage" :current-page="currentPage"  small ></b-table> -->
+       
     </div>
  </div>
 </div>
