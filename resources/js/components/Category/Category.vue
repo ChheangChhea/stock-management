@@ -88,7 +88,7 @@
           </ul>
           <h2 class="search-box-title">Search</h2>
           <input id="search" name="search" type="hidden" value="1" />
-          <div>
+          <div class="box">
             <table
               width="100%"
               border="0"
