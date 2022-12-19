@@ -143,16 +143,7 @@
                       class="string_zen clear_text text input_text" size="50" type="text" />
                   </td>
                 </tr>
-                <!-- <tr>
-                  <th width="20%">Inactive</th>
-                  <td width="80%">
-                    <select @change="autoUpdateProduct(form)" v-model="form.inactived" :disabled="isDisabled"
-                      class="form" style="width: 362px">
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
-                    </select>
-                  </td>
-                </tr> -->
+              
                 <tr>
                      <th width="20%">Inactived</th>
                          <td width="80%">
