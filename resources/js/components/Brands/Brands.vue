@@ -60,119 +60,40 @@
     </div>
     <div class="search-box">
       <div id="product">
+        
         <!--#contents -->
         <div class="search-box">
-          <router-link to=""
-            ><h2 class="search-box-title">Search</h2></router-link
-          >
+          <a class="btn-radius bt-pn btn btn-sm" data-bs-toggle="dropdown" aria-expanded="false"
+            style="float:right; color: #f8f5b4;">
+            <i class="fas fa-plus" style="padding-right:5px;">
+            </i>
+            Menu
+          </a>
+             <ul class="dropdown-menu">
+            <li>
+              <a @click="getproductboom()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#staticboomId" tabindex="10028"><i class="fa-solid fa-circle-b"></i> Boom Product</a>
+            </li>
+            <li>
+              <a @click="getsuppliyerview()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#staticboomId" tabindex="10028"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
+            </li>
+            <li>
+              <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropss" tabindex="10028"
+                href="#"><i class="fas fa-file-excel"></i> To Excel</a>
+            </li>
+            <li>
+              <a class="dropdown-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropss"
+                tabindex="10028"><i class="fas fa-edit"></i> Release</a>
+            </li>
+          </ul>
+         
+          <router-link to=""><h2 class="search-box-title">Search</h2></router-link>
           <input id="search" name="search" type="hidden" value="1" />
           <div class="search-box-content">
-            <!-- <table
-              width="100%"
-              border="0"
-              cellpadding="0"
-              cellspacing="0"
-              class="tbl_search"
-            >
-              <tbody>
-                <tr>
-                  <th width="10%">Brand Code</th>
-                  <td width="90%">
-                    <input
-                      class="string_zen_kana clear_text text"
-                      @change="serchdata()"
-                      v-model="serchform.brand_code"
-                      :key="index"
-                      id="brand_code"
-                      maxlength="8"
-                      name="brand_code"
-                      size="50"
-                      type="text"
-                      tabindex="10000"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th width="10%">Brand Name</th>
-                  <td width="90%">
-                    <input
-                      class="string_zen_kana clear_text text"
-                      @change="serchdata()"
-                      v-model="serchform.brand_name"
-                      id="brand_name"
-                      maxlength="50"
-                      name="brand_name"
-                      size="50"
-                      type="text"
-                      tabindex="10001"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <th width="10%">Brand Name 2</th>
-                  <td width="90%">
-                    <input
-                      class="string_zen_kana clear_text text"
-                      @change="serchdata()"
-                      v-model="serchform.brand_name_2"
-                      id="brand_name_2"
-                      maxlength="50"
-                      name="brand_name_2"
-                      size="50"
-                      type="text"
-                      tabindex="10001"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <th width="10%">Inactived</th>
-                  <td width="90%">
-                    <div class="selector" id="inactivced">
-                      <span>{{ serchform.inactived }}</span>
-                      <select
-                        id="inactivced"
-                        name="inactivced"
-                        @change="serchdata()"
-                        v-model="serchform.inactived"
-                        tabindex="10003"
-                        style="min-width: 51px; opacity: 0; width: 80px"
-                      >
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                      </select>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table> -->
 
             <div class="search-box-footer">
-              <!-- <div class="button type2" id="uniform-undefined">
-                <span> Search</span>
-                <input
-                  type="button"
-                  value="save"
-                  class="type2"
-                  @click="save()"
-                  style="opacity: 0; width: 63px"
-                  tabindex="10026"
-                />
-              </div>
-
-              <div class="button type2" id="uniform-undefined">
-                <span>Clear</span>
-                <input
-                  type="button"
-                  value="clear"
-                  class="type2"
-                  @click="clear()"
-                  style="opacity: 0; width: 63px"
-                  tabindex="10026"
-                />
-              </div> -->
-              <!-- Modal -->
+             
               <div
                 class="modal fade"
                 id="staticBackdrop"
@@ -446,6 +367,114 @@
       </div>
     </div>
   </div>
+  <div class="modal fade ui-modal" id="staticboomId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticboomId" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content ui-dialog">
+                <div class="ui-widget-header">
+                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
+                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"></a>
+                </div>
+                <div class="ui-dialog-content" id="invoiceholder"> <!----set size for A4-->
+                  
+                <div id="purchaseorder">
+                  <div class="card">
+                  <div class="card-body">
+                    <div class="container mb-5 mt-3">
+                      <div class="row d-flex align-items-baseline">
+                        <div class="col-xl-9">
+                        </div>
+                          <hr>
+                      </div>
+
+                      <div class="container">
+                        <div class="col-md-12">
+                          <div class="text-center">
+                            <h3 class="title-purchase">BRAND DETIALS</h3>
+                            <!-- <p class="pt-0">MDBootstrap.com</p> -->
+                          </div>
+
+                        </div>
+
+
+                        <div class="row">
+                          <div class="col-xl-6 supplier-padding">
+                            <p class="text-muted title-pur-sup">COMPANY NAME</p>
+                            <ul class="list-unstyled">
+                              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                            </ul>
+                          </div>
+                          <div class="col-xl-6 supplier-padding">
+                            <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
+                            <ul class="list-unstyled">
+                              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-xl-6 supplier-padding">
+                            <p class="text-muted title-pur-sup">Order Person</p>
+                            <ul class="list-unstyled">
+                              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                            </ul>
+                          </div>
+                          <div class="col-xl-6 supplier-padding">
+                            <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
+                            <ul class="list-unstyled">
+                              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div class="row my-2 mx-1 justify-content-center table-padding-bot">
+                          <table class="table table-striped table-borderless">
+                            <thead style="background-color:#84B0CA ;" class="text-white">
+                              <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Brand Code</th>
+                                <th scope="col">Brand Name</th>
+                                <th scope="col">Brand Name 2</th>
+                                <th scope="col">Inactived</th>
+                                <th scope="col">Create By</th>
+                                <th scope="col">Update By</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr v-for="(item, index) in items" :key="index">
+                                <td width="3%">{{ index + 1 }}</td>
+                                <td width="13%">{{ item.brand_code }}</td>
+                                <td width="13%">{{ item.brand_name }}</td>
+                                <td width="13%">{{ item.brand_name_2 }}</td>
+                                <td width="6%">{{ item.inactived }}</td>
+                                <td width="19%">{{ item.created_by }}</td>
+                                <td width="9%">{{ item.updete_by }}</td>
+                            </tr> 
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
+                    <div class="button type2" @click="print()" :value="G_code" data-bs-dismiss="modal"><span>Yes</span></div>
+                </div>
+              </div>
+            </div>
+    </div>
+  
 </template>
 
 <script>
