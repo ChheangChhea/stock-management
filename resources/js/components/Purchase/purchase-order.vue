@@ -395,8 +395,7 @@
           <div class="col-xl-6 supplier-padding">
             <p class="text-muted title-pur-sup">COMPANY NAME</p>
             <ul class="list-unstyled">
-              <li class="text-muted">To: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+               <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
               <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
               <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
             </ul>
@@ -404,8 +403,26 @@
           <div class="col-xl-6 supplier-padding">
             <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
             <ul class="list-unstyled">
-              <li class="text-muted">To: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+               <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-6 supplier-padding">
+            <p class="text-muted title-pur-sup">Order Person</p>
+            <ul class="list-unstyled">
+               <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+            </ul>
+          </div>
+          <div class="col-xl-6 supplier-padding">
+            <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
+            <ul class="list-unstyled">
+               <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
               <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
               <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
             </ul>
@@ -466,6 +483,7 @@
                 <td class="th-font-bold table-th-width text-right">Total Amount : </td>
                 <td class="th-font-bold">$880</td>
               </tr>
+              
             </tbody>
 
           </table>
@@ -474,6 +492,7 @@
           <div class="col-xl-8 supplier-padding">
             <p class="ms-3">Payment Information</p>
             <ul class="list-unstyled">
+              <li class="text-muted">ABA BANK<span class="text--color">Mr. Master</span></li>
               <li class="text-muted">Bank Name:<span class="text--color">Mr. Master</span></li>
               <li class="text-muted">Bank Account Number: <span class="text--color">001 025 025</span></li>
                         </ul>
@@ -501,6 +520,7 @@
     </div>
 </template>
 <script>
+
 import axios from "axios";
 export default {
   data() {

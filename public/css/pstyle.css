@@ -23,6 +23,10 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.text-footer-page{
+    padding-top: 50px;
+    text-align: center;
+}
 .table-none-bor{
     border: none!important;
 }
@@ -66,3 +70,12 @@ color: #5d9fc5;
     margin-left: -7.5px;
 }
 
+.ruler-foot{
+	border-top: 1px solid #8c8b8b;
+}
+.card-body{
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+margin-bottom: -50px!important;
+}
