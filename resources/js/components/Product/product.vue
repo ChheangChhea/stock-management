@@ -459,11 +459,10 @@
               <div class="modal-content ui-dialog">
                 <div class="ui-widget-header">
                   <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
-                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
-                    <span class="ui-icon ui-icon-closethick">close</span></a>
+                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"></a>
                 </div>
                 <div class="ui-dialog-content" id="invoiceholder"> <!----set size for A4-->
-                  <div id="invoice" class="effect2">
+                  <div id="invoice" class="effect2 card-body">
                     <div id="invoice-top" style="display: none;">
                       <div class="logo"><img src="https://www.almonature.com/wp-content/uploads/2018/01/logo_footer_v2.png" alt="Logo" /></div>
                       <div class="title">
