@@ -24,7 +24,7 @@
             <span>
               <font style="vertical-align: inherit;">
                 <font style="vertical-align: inherit;">
-                    Group Product
+                    Product Group
                 </font>
               </font>
             </span>
@@ -60,6 +60,31 @@
             <div id="product">
                 <!--#contents -->
                 <div class="search-box mb-4">
+                    <a class="btn-radius bt-pn btn btn-sm" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="float:right; color: #f8f5b4;">
+                        <i class="fas fa-plus" style="padding-right:5px;">
+                        </i>
+                        Menu
+                    </a>
+                        <ul class="dropdown-menu">
+                        <li>
+                        <a @click="getproductboom()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticboomId" tabindex="10028"><i class="fa-solid fa-circle-b"></i> Boom Product</a>
+                        </li>
+                        <li>
+                        <a @click="getsuppliyerview()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticboomId" tabindex="10028"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
+                        </li>
+                        <li>
+                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropss" tabindex="10028"
+                            href="#"><i class="fas fa-file-excel"></i> To Excel</a>
+                        </li>
+                        <li>
+                        <a class="dropdown-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropss"
+                            tabindex="10028"><i class="fas fa-edit"></i> Release</a>
+                        </li>
+                    </ul>
+
                     <router-link to="/login"><h2 class="search-box-title">Search</h2></router-link>
                     <input id="search" name="search" type="hidden" value="1"/>
                     <div class="search-box-content">
@@ -267,6 +292,79 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="modal fade ui-modal" id="staticboomId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticboomId" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content ui-dialog">
+                <div class="ui-widget-header">
+                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
+                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"></a>
+                </div>
+                <div class="ui-dialog-content height-modal" id="invoiceholder"> <!----set size for A4-->
+                  
+                <div id="purchaseorder">
+                  <div class="card">
+                  <div class="card-body">
+                    <div class=" mb-5 mt-3" >
+                      <div class="row d-flex align-items-baseline">
+                        <div class="col-xl-9">
+                        </div>
+                          <hr>
+                      </div>
+
+                      <div class="container" style="max-width:100%">
+                        <div class="col-md-12">
+                          <div class="text-center">
+                            <h3 class="title-purchase">PRODUCT GROUP</h3>
+                          </div>
+                        </div>
+                        <div class="row my-2 mx-1 justify-content-center table-padding-bot">
+                          <table class="table table-striped table-borderless">
+                            <thead style="background-color:#84B0CA ;" class="text-white">
+                              <tr>
+                                <th scope="col">Image</th>
+                                <th scope="col">Group Code</th>
+                                <th scope="col">Group Name</th>
+                                <th scope="col">Brand Name 2</th>
+                                <th scope="col">Brand Code</th>
+                                <th scope="col">Cat Code</th>
+                                <th scope="col">Inactived</th>
+                                <th scope="col">Create By</th>
+                                <th scope="col">Update By</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr v-for="item,index in items" :key="index">
+                                    <td>{{item.image_url}}</td>
+                                    <td>{{item.group_code}}</td>
+                                    <td>{{item.group_name}}</td>
+                                    <td>{{item.group_name_2}}</td>
+                                    <td>{{item.brand_code}}</td>
+                                    <td>{{item.cat_code}}</td>
+                                    <td>{{item.inactived}}</td>
+                                    <td>{{item.created_by}}</td>
+                                    <td>{{item.updete_by}}</td>
+                                    
+                                </tr>
+
+                           
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
+                    <div class="button type2" @click="print()" :value="G_code" data-bs-dismiss="modal"><span>Yes</span></div>
+                </div>
+              </div>
+            </div>
     </div>
 </template>
 

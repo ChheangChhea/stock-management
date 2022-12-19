@@ -36,7 +36,7 @@
 #invoice{
   position: relative;
   margin: 0 auto;
-  width: 80%;
+
   background: #FFF;
 }
 .pro-td{
@@ -53,10 +53,7 @@
 
 
 #invoice{
-	height: 595px;
-	width: 880px ; 
-	
-	
+	height: 75%;
 }
 .border{
 	width: 400px;
@@ -1197,10 +1194,10 @@ body {
 	overflow: hidden;
 }
 
-.ui-modal {
-	/* top: 100px !important; */
-	top: 50px !important;
-}
+/* .ui-modal {
+	 top: 100px !important; 
+	
+} */
 
 .ui-helper-clearfix:after {
 	content: ".";
@@ -9025,4 +9022,12 @@ input[name="nav-item"] {
 	padding-bottom: 0px !important;
 	padding-left: 30px !important;
 	padding-right: 30px !important;
+}
+
+.height-modal{
+	height: 595px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgb(219, 222, 225) !important;
 }

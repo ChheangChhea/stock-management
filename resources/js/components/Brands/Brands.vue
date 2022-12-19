@@ -374,66 +374,24 @@
                   <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
                   <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"></a>
                 </div>
-                <div class="ui-dialog-content" id="invoiceholder"> <!----set size for A4-->
+                <div class="ui-dialog-content height-modal" id="invoiceholder"> <!----set size for A4-->
                   
                 <div id="purchaseorder">
                   <div class="card">
                   <div class="card-body">
-                    <div class="container mb-5 mt-3">
+                    <div class=" mb-5 mt-3" >
                       <div class="row d-flex align-items-baseline">
                         <div class="col-xl-9">
                         </div>
                           <hr>
                       </div>
 
-                      <div class="container">
+                      <div class="container" style="max-width:100%">
                         <div class="col-md-12">
                           <div class="text-center">
-                            <h3 class="title-purchase">BRAND DETIALS</h3>
-                            <!-- <p class="pt-0">MDBootstrap.com</p> -->
-                          </div>
-
-                        </div>
-
-
-                        <div class="row">
-                          <div class="col-xl-6 supplier-padding">
-                            <p class="text-muted title-pur-sup">COMPANY NAME</p>
-                            <ul class="list-unstyled">
-                              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                            </ul>
-                          </div>
-                          <div class="col-xl-6 supplier-padding">
-                            <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
-                            <ul class="list-unstyled">
-                              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                            </ul>
+                            <h3 class="title-purchase">BRAND REPORT</h3>
                           </div>
                         </div>
-
-                        <div class="row">
-                          <div class="col-xl-6 supplier-padding">
-                            <p class="text-muted title-pur-sup">Order Person</p>
-                            <ul class="list-unstyled">
-                              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                            </ul>
-                          </div>
-                          <div class="col-xl-6 supplier-padding">
-                            <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
-                            <ul class="list-unstyled">
-                              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                            </ul>
-                          </div>
-                        </div>
-
                         <div class="row my-2 mx-1 justify-content-center table-padding-bot">
                           <table class="table table-striped table-borderless">
                             <thead style="background-color:#84B0CA ;" class="text-white">
@@ -457,14 +415,13 @@
                                 <td width="19%">{{ item.created_by }}</td>
                                 <td width="9%">{{ item.updete_by }}</td>
                             </tr> 
-            </tbody>
-
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 </div>
                 </div>
                 <div class="modal-footer">
