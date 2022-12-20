@@ -284,47 +284,7 @@
                             </table>
                         </div>
                         <div class="box-footer-pagination">
-                            <div class="pagination">
-                                <span
-                                    v-for="(link, index) in links"
-                                    :key="index"
-                                >
-                                    <div
-                                        v-if="index == 0"
-                                        @click="getSerail(this.currentPage - 1)"
-                                    >
-                                        <i
-                                            class="fa fa-arrow-left"
-                                            aria-hidden="true"
-                                            style="padding-top: 11"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        v-else-if="index - 1 == this.last_page"
-                                        @click="getSerail(this.currentPage + 1)"
-                                    >
-                                        <i
-                                            class="fa fa-arrow-right"
-                                            aria-hidden="true"
-                                            style="padding-top: 11"
-                                        ></i>
-                                    </div>
-                                    <div
-                                        v-else-if="this.currentPage == index"
-                                        class="page current"
-                                        @click="getSerail(index)"
-                                    >
-                                        {{ index }}
-                                    </div>
-                                    <div
-                                        v-else
-                                        class="page"
-                                        @click="getSerail(index)"
-                                    >
-                                        {{ index }}
-                                    </div>
-                                </span>
-                            </div>
+                            <pagination :data="serails" @pagination-change-page="getSerail" />
                         </div>
                     </div>
 
@@ -564,8 +524,10 @@
 
 <script>
 import axios from "axios";
+import pagination from "laravel-vue-pagination";
 
 export default {
+    components: { pagination },
     data() {
         return {
             serails: "",
