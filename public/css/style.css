@@ -4374,7 +4374,7 @@ a {
 	padding: 0;
 	outline: none;
 	overflow: hidden;
-	background: url(image/sprite-healthbook.png) no-repeat -309px -106px;
+	/* background: url(image/sprite-healthbook.png) no-repeat -309px -106px; */
 	line-height: 34px;
 	text-decoration: none;
 	text-align: center;
@@ -9031,3 +9031,23 @@ input[name="nav-item"] {
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgb(219, 222, 225) !important;
 }
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0;
+    margin-left: 0;
+    line-height:inherit;
+    color: black;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+	overflow: hidden;
+	top: -1px;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: white !important;
+     background: url(image/sprite-healthbook.png) no-repeat -309px -170px !important; 
+	 background-position: -309px -170px;
+    border-color: #fff;
+}
+
