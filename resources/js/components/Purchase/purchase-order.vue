@@ -172,7 +172,8 @@
                   <th width="10%">Suppliyer</th>
                   <td width="50%">
                     <select :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.suppliyer_code"
-                      class="form" style="width: 362px">
+                      class="form"   style="width: 370px" > 
+                      
                       <option value="">Selete Suppliyer</option>
                       <option v-for="suppliye in suppliyer" :value="suppliye.sup_code" :key="suppliye.id">
                         {{ suppliye.sup_name }}
@@ -228,7 +229,7 @@
                   <th style="width: 7%"></th>
                 </tr>
                 <tr v-for="purchaseLine in purchases_lines" :key="purchaseLine.index">
-                  <th style="padding: 10px">
+                  <th >
                     <div class="dropdown">
                       <button @onmouseout="prooductboom(purchaseLine)"
                         class="dropdown-toggle string_zen clear_text text" type="button" id="dropdownMenuButton1"
@@ -251,22 +252,22 @@
                       </div>
                     </div>
                   </th>
-                  <th style="padding: 10px">
+                  <th >
                     <input :disabled="isDisabled" v-model="purchaseLine.description"
                       @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"
-                      name="jusinsya_code" type="text" tabindex="10008" style="width: auto" />
+                      name="jusinsya_code" type="text" tabindex="10008" style="min-width: 10em; width:95%" />
                   </th>
-                  <th style="padding: 10px">
+                  <th >
                     <input :disabled="isDisabled" v-model="purchaseLine.unit_price"
                       @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"
-                      name="jusinsya_code" type="text" tabindex="10008" style="width: 7em" />
+                      name="jusinsya_code" type="text" tabindex="10008" style="min-width: 4em; width:90%" />
                   </th>
-                  <th style="padding: 10px">
+                  <th >
                     <input v-model="purchaseLine.inventory" @change="autoUpdatePurline(purchaseLine)"
                       class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008"
-                      style="width: 7em" />
+                      style="min-width: 4em; width:90%" />
                   </th>
-                  <th style="padding: 10px">
+                  <th >
                     <div class="dropdown">
                       <button @click="getunit(purchaseLine.product_no)" @onmouseout="prooductboom(purchaseLine)"
                         class="dropdown-toggle string_zen clear_text text" type="button" id="dropdownMenuButton1"
@@ -288,23 +289,23 @@
                       </div>
                     </div>
                   </th>
-                  <th style="padding: 10px">
+                  <th >
                     <input :disabled="true" v-model="purchaseLine.total_amount"
                       @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"
-                      name="jusinsya_code" type="text" tabindex="10008" style="width: 7em" />
+                      name="jusinsya_code" type="text" tabindex="10008" style="width: 95%; margin-left: 0px !important;" />
                   </th>
                   
-                  <th style="padding: 10px">
+                  <th >
                     <input :disabled="isDisabled" v-model="purchaseLine.curency_code"
                       @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"
-                      name="jusinsya_code" type="text" tabindex="10008" style="width: 7em" />
+                      name="jusinsya_code" type="text" tabindex="10008" style="width: 95%" />
                   </th>
-                  <th style="padding: 10px">
+                  <th >
                     <input :disabled="isDisabled" v-model="purchaseLine.remark"
                       @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"
-                      name="jusinsya_code" type="text" tabindex="10008" style="width: auto" />
+                      name="jusinsya_code" type="text" tabindex="10008" style="width: 95%" />
                   </th>
-                  <th class="bnt-02">
+                  <th style="padding:5px 0px !important">
                     <div class="button type2" id="uniform-undefined" data-bs-toggle="modal"
                       data-bs-target="#staticBackdrop" @click="
                         getMessage(

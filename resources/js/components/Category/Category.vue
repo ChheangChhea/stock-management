@@ -148,10 +148,10 @@
                             border="0"
                             cellpadding="0"
                             cellspacing="0"
-                            class="tbl_list tbl_stripe"
+                            class="table table-striped br-table"
                         >
                             <thead>
-                                <tr>
+                                <tr class="header-table">
                                     <th width="12%">id</th>
                                     <th width="12%">Category_code</th>
                                     <th width="12%">Category Name</th>
@@ -180,15 +180,85 @@
                                     </th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                    <tr
+                                        v-for="(
+                                            Category, index
+                                        ) in Categories.data"
+                                        :key="Category.index" class="cate-td">
+                                        <td width="12%">
+                                            {{ index + 1 + "." }}
+                                        </td>
+                                        <td width="12%">
+                                            {{ Category.cat_code }}
+                                        </td>
+                                        <td width="12%">
+                                            {{ Category.cat_name }}
+                                        </td>
+                                        <td width="12%">
+                                            {{ Category.cat_name_2 }}
+                                        </td>
+                                        <td width="12%">
+                                            {{ Category.inactived }}
+                                        </td>
+                                        <td width="12%">
+                                            {{ Category.created_by }}
+                                        </td>
+                                        <td width="12%">
+                                            {{ Category.updete_by }}
+                                        </td>
+                                        <td width="12%" style="padding-right:0 !important; padding-left:0 !important">
+                                            
+                                            <div
+                                                class="button"
+                                                id="uniform-undefined"
+                                            >
+                                                <span
+                                                    >Edit<input
+                                                        type="button"
+                                                        @click="
+                                                            btnEdit(Category)
+                                                        "
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#staticBackdrop"
+                                                        tabindex="10028"
+                                                        style="
+                                                            opacity: 0;
+                                                            width: 76px;
+                                                        "
+                                                /></span>
+                                            </div>
+                                            <div
+                                                class="button"
+                                                id="uniform-undefined"
+                                            >
+                                                <span
+                                                    >Delete<input
+                                                        type="button"
+                                                        @click="
+                                                            btnDelete(
+                                                                Category.cat_code
+                                                            )
+                                                        "
+                                                        tabindex="10028"
+                                                        style="
+                                                            opacity: 0;
+                                                            width: 76px;
+                                                        "
+                                                /></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
                         </table>
 
-                        <div class="box-content">
+                        <!-- <div class="box-content">
                             <table
                                 width="100%"
                                 border="0"
                                 cellpadding="0"
                                 cellspacing="0"
-                                class="table table-striped table-bordered"
+                                class="table table-striped br-table"
                             >
                                 <tbody>
                                     <tr
@@ -261,7 +331,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div> -->
                         <div class="box-footer-pagination">
                             <pagination
                                 :data="Categories"

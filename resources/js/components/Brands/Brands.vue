@@ -177,8 +177,7 @@
                                   name="inactivced"
                                   v-model="form.inactived"
                                   tabindex="10003"
-                                  style="
-                                    min-width: 51px;
+                                  style="min-width: 51px;
                                     opacity: 0;
                                     width: 80px;
                                   "
@@ -230,29 +229,24 @@
         </div>
 
         <div class="box">
-          <div class="box-footer-pagination">
-            <div class="pagination">
-              <div class="pagination"></div>
-            </div>
-          </div>
 
           <table
             width="100%"
             border="0"
             cellpadding="0"
             cellspacing="0"
-            class="tbl_list tbl_stripe"
+            class="table table-striped br-table"
           >
             <thead>
-              <tr>
+              <tr class="header-table">
                 <th width="3%">No</th>
-                <th width="13%">Brand Code</th>
-                <th width="13%">Brand Name</th>
-                <th width="13%">Brand Name 2</th>
-                <th width="6%">Inactived</th>
-                <th width="19%">Create By</th>
-                <th width="9%">Update By</th>
-                <th width="7%">
+                <th width="10%">Brand Code</th>
+                <th width="14%">Brand Name</th>
+                <th width="14%">Brand Name 2</th>
+                <th width="11%">Inactived</th>
+                <th width="11%">Create By</th>
+                <th width="11%">Update By</th>
+                <th width="13%">
                   <div
                     class="button"
                     id="uniform-undefined"
@@ -270,26 +264,16 @@
                 </th>
               </tr>
             </thead>
-          </table>
-
-          <div class="box-content">
-            <table
-              width="100%"
-              border="0"
-              cellpadding="0"
-              cellspacing="0"
-              class="tbl_list tbl_stripe"
-            >
-              <tbody>
-                <tr v-for="(item, index) in items" :key="index">
+            <tbody>
+                <tr v-for="(item, index) in items.data" :key="index">
                   <td width="3%">{{ index + 1 }}</td>
-                  <td width="13%">{{ item.brand_code }}</td>
-                  <td width="13%">{{ item.brand_name }}</td>
-                  <td width="13%">{{ item.brand_name_2 }}</td>
-                  <td width="6%">{{ item.inactived }}</td>
-                  <td width="19%">{{ item.created_by }}</td>
-                  <td width="9%">{{ item.updete_by }}</td>
-                  <td width="7%">
+                  <td width="10%">{{ item.brand_code }}</td>
+                  <td width="14%">{{ item.brand_name }}</td>
+                  <td width="14%">{{ item.brand_name_2 }}</td>
+                  <td width="11%">{{ item.inactived }}</td>
+                  <td width="11%">{{ item.created_by }}</td>
+                  <td width="11%">{{ item.updete_by }}</td>
+                  <td width="13%">
                     <div
                       class="button"
                       @click="
@@ -325,43 +309,11 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
-          </div>
+          </table>
 
           <div class="box-footer-pagination">
-            <div class="pagination">
-              <div class="pagination">
-                <span v-for="(link, index) in links" :key="index">
-                  <div v-if="index == 0" @click="">
-                    <i
-                      class="fa fa-arrow-left"
-                      aria-hidden="true"
-                      style="padding-top: 11"
-                    ></i>
-                  </div>
-                  <div
-                    v-else-if="index - 1 == this.last_page"
-                    @click="getBrands(this.currentPage + 1)"
-                  >
-                    <i
-                      class="fa fa-arrow-right"
-                      aria-hidden="true"
-                      style="padding-top: 11"
-                    ></i>
-                  </div>
-                  <div
-                    v-else-if="this.currentPage == index"
-                    class="page current"
-                    @click="getBrands(index)"
-                  >
-                    {{ index }}
-                  </div>
-                  <div v-else class="page" @click="getBrands(index)">
-                    {{ index }}
-                  </div>
-                </span>
-              </div>
-            </div>
+            <pagination :data="items" @pagination-change-page="getBrands" />
+           
           </div>
         </div>
       </div>
@@ -406,7 +358,7 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr v-for="(item, index) in items" :key="index">
+                              <tr v-for="(item, index) in items.data" :key="index">
                                 <td width="3%">{{ index + 1 }}</td>
                                 <td width="13%">{{ item.brand_code }}</td>
                                 <td width="13%">{{ item.brand_name }}</td>
@@ -437,7 +389,9 @@
 <script>
 import { exportDefaultSpecifier } from "@babel/types";
 import axios from "axios";
+import pagination from "laravel-vue-pagination";
 export default {
+  components : {pagination},
   data() {
     return {
       issave: "",
@@ -493,7 +447,7 @@ export default {
                 this.perPage = "api/v1/brands?page=" + page;
                 axios.get(this.perPage).then(({ data }) => {
                   this.currentPage = data.current_page;
-                  this.items = data.data;
+                  this.items = data;
                 });
               }
             });

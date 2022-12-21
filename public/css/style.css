@@ -8976,7 +8976,7 @@ input[name="nav-item"] {
 
 .table td,
 .table th {
-	padding: 0.75rem;
+	padding: 7px;
 	vertical-align: top;
 	border-top: 1px solid #dee2e6;
 	text-align: center;
@@ -9049,5 +9049,26 @@ input[name="nav-item"] {
      background: url(image/sprite-healthbook.png) no-repeat -309px -170px !important; 
 	 background-position: -309px -170px;
     border-color: #fff;
+}
+.header-table{
+	background: #326d7a url(image/bgimg_td_border_asagi2.png) no-repeat 0 0;
+	color: #f8f5b4;
+	
+}
+.header-table th{
+	border: 1px solid #6eb3bf;
+}
+.br-table th,td{
+	vertical-align: middle !important;
+}
+
+a img {
+	opacity: 0.8;
+}
+a img:hover{
+	opacity: 1;
+}
+.cate-td td {
+	padding: 7px ;
 }
 

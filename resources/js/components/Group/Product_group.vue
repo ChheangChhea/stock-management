@@ -227,13 +227,6 @@
                 </div>
             </div>
             <div class="box">
-                    <div class="box-footer-pagination">
-                        <div class="pagination">
-                            <div class="pagination">
-                            </div>
-                        </div>
-                    </div>
-
                     <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_list tbl_stripe">
                         <thead>
                             <tr>                              
@@ -254,7 +247,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                          <tr v-for="item,index in items" :key="index">
+                          <tr v-for="item,index in items.data" :key="index">
                                     <td>{{item.image_url}}</td>
                                     <td>{{item.group_code}}</td>
                                     <td>{{item.group_name}}</td>
@@ -276,18 +269,7 @@
                         </tbody>
                     </table>
                     <div class="box-footer-pagination">
-                        <div class="pagination">
-                            <div class="pagination">
-                            <div class="pagination">
-                                <span v-for="(link, index) in links" :key="index">
-                                <div v-if="index==0" @click=" "><i class="fa fa-arrow-left" aria-hidden="true" style="padding-top: 11;"></i></div>
-                                <div v-else-if="(index-1) == this.last_page" @click="showdata(this.currentPage +1)"><i class="fa fa-arrow-right" aria-hidden="true" style="padding-top: 11;"></i></div>
-                                <div v-else-if="this.currentPage == index" class="page current" @click="showdata(index)">{{index}}</div>
-                                <div v-else class="page" @click="showdata(index)">{{index}}</div>
-                            </span>
-                          </div>
-                        </div>
-                        </div>
+                      <pagination :data="items" @pagination-change-page="showdata"/>
                     </div>
                 </div>
             </div>
@@ -336,7 +318,7 @@
                             </thead>
                             <tbody>
 
-                                <tr v-for="item,index in items" :key="index">
+                                <tr v-for="item,index in items.data" :key="index">
                                     <td>{{item.image_url}}</td>
                                     <td>{{item.group_code}}</td>
                                     <td>{{item.group_name}}</td>
@@ -348,8 +330,6 @@
                                     <td>{{item.updete_by}}</td>
                                     
                                 </tr>
-
-                           
                             </tbody>
                           </table>
                         </div>
@@ -371,7 +351,9 @@
 <script>
 import axios from "axios";
 import {exportDefaultSpecifier} from '@babel/types';
+import pagination from "laravel-vue-pagination";
 export default {
+  components: {pagination},
     data() {
         return {
             issave:'save',
@@ -386,7 +368,6 @@ export default {
             currentPage: 0,
             last_page:1,
             imagePreviewURL:[],
-            items:{},
             form: {
                 id: "",
                 group_code: "",
@@ -467,7 +448,7 @@ export default {
                     this.perPage = "api/v1/progroups?page="+page
                     axios.get(this.perPage).then(({data})=>{
                     this.currentPage = data.current_page
-                    this.items = data.data
+                    this.items = data
                   })
                  }
               });

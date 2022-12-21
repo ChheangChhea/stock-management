@@ -15,7 +15,7 @@ class UnitofMeasureContraller extends Controller
      */
     public function index()
     {
-        $unitofmeasure = unitofmeasure::get();
+        $unitofmeasure = unitofmeasure::orderBy('id')->paginate(5);
         return $unitofmeasure;
     }
     /**

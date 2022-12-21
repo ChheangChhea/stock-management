@@ -167,7 +167,7 @@
               <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-bordered"
                 style="margin-bottom: 0 !important;">
                 <tbody>
-                  <tr v-for="(Serail, index) in serails" :key="index">
+                  <tr v-for="(Serail, index) in serails.data" :key="index">
                     <td width="12%">{{ index + 1 + "." }}</td>
                     <td width="12%">{{ Serail.unit_code }}</td>
                     <td width="12%">{{ Serail.unit_of_measure }}</td>
@@ -185,22 +185,7 @@
               </table>
             </div>
             <div class="box-footer-pagination">
-              <div class="pagination">
-                <span v-for="(link, index) in links" :key="index">
-                  <div v-if="index == 0" @click="getSerail(this.currentPage - 1)">
-                    <i class="fa fa-arrow-left" aria-hidden="true" style="padding-top: 11"></i>
-                  </div>
-                  <div v-else-if="index - 1 == this.last_page" @click="getSerail(this.currentPage + 1)">
-                    <i class="fa fa-arrow-right" aria-hidden="true" style="padding-top: 11"></i>
-                  </div>
-                  <div v-else-if="this.currentPage == index" class="page current" @click="getSerail(index)">
-                    {{ index }}
-                  </div>
-                  <div v-else class="page" @click="getSerail(index)">
-                    {{ index }}
-                  </div>
-                </span>
-              </div>
+              <pagination :data="serails" @pagination-change-page="getSerail" />
             </div>
           </div>
 
@@ -310,7 +295,7 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr v-for="(Serail, index) in serails" :key="index">
+                              <tr v-for="(Serail, index) in serails.data" :key="index">
                                 <td width="6%">{{index + 1 +"."}}</td>
                                 <td width="13%">{{ Serail.unit_code }}</td>
                                 <td width="13%">{{ Serail.unit_of_measure }}</td>
@@ -339,8 +324,10 @@
   
 <script>
 import axios from "axios";
+import pagination from "laravel-vue-pagination";
 
 export default {
+  components : {pagination},
   data() {
     return {
       serails: [],
@@ -374,10 +361,24 @@ export default {
       if (page > 0 && page <= this.last_page) {
         axios
           .get("api/v1/units")
+          // .then(({ data }) => {
+          //   this.serails = data;
+          //   console.log(data);
+          // })
           .then(({ data }) => {
-            this.serails = data;
-            console.log(data);
-          })
+                        this.links = data.links;
+                        this.last_page = data.last_page;
+                        this.links.forEach((element) => {
+                            if (element.label == page) {
+                                this.perPage = "api/v1/units?page=" + page;
+                                axios.get(this.perPage).then(({ data }) => {
+                                    this.currentPage = data.current_page;
+                                    this.serails = data;
+                                });
+                            }
+                        });
+                    })
+
           .catch(({ response }) => {
             console.error(response);
           });
