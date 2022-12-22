@@ -548,7 +548,7 @@
             <div class="modal-dialog">
               <div class="modal-content ui-dialog">
                 <div class="ui-widget-header">
-                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> {{ exefile }} to Docutment: {{ form.document_no }} , {{ form.description }}</h5>
+                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> {{ excel }} to Docutment: {{ form.document_no }} , {{ form.description }}</h5>
                   <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
                     <span class="ui-icon ui-icon-closethick">close</span></a>
                 </div>
@@ -565,7 +565,7 @@
                         <div class="container">
                           <div class="col-md-12">
                             <div class="text-center">
-                              <h3 v-if="excel=='Import'" class="title-purchase">{{excel}} from Excel</h3>
+                              <h3 v-if="excel=='Import'" class="title-purchase">{{excel}} {{ exefile }} from Excel</h3>
                               <h3 v-else class="title-purchase">{{excel}} To Excel</h3>
                             </div>
                           </div>
@@ -671,7 +671,7 @@ export default {
       title: "",
       message: "",
       purchases: "",
-      exefile:'Import ',
+      exefile:'',
       purchasesCode: "",
       suppliyer: [],
       purchases_lines: [],
@@ -917,6 +917,7 @@ export default {
         window.location.reload();
     },
     getExcelData(event){
+      this.exefile='';
       let xlsxfile = event.target.files ? event.target.files[0] : null;
       readXlsxFile(xlsxfile).then((rows) => {
         var x=0;
@@ -938,25 +939,16 @@ export default {
                             total_amount: element[6], 
                             curency_code: this.form.curency_code,
                         });
-                       
                     }else{
-                      this.message='Excel';
+                      this.exefile=' fail data ';
                     }
                 }
             } 
             x++;
-            if(this.message!='Excel'){
-            console.log(this.checkexcel);
-            this.sumTotal(this.items);
-           }
         });
       })
-      if(this.message=='Excel'){
-        this.message='Excell not allow'
-        var modal = document.getElementById("myModalauto");
-        modal.style.display = "block";
-        if(this.items.length > 0){ setTimeout(() =>  modal.style.display = "none", 500);}
-      }
+      this.exefile='';
+      this.sumTotal(this.items);
     },
     saveprulink(){
       if(this.items.length > 0){ setTimeout(() => this.savepru(), 500);}
