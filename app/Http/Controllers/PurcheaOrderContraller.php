@@ -243,6 +243,7 @@ class PurcheaOrderContraller extends Controller
             'document_type' => $request['document_type'],
             'description' => $request['description'],
             'unit_of_measure_code' => $request['unit_of_measure_code'],
+            'inventory_order' => $request['inventory'],
             'inventory' => $request['inventory'],
             'unit_price' => $request['unit_price'],
             'total_amount' => $request['total_amount'],

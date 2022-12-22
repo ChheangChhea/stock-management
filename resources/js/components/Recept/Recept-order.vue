@@ -68,8 +68,6 @@
                 View
               </a></router-link>
           </div>
-          <!-- Button trigger modal -->
-          <!-- Modal -->
           <div class="modal fade ui-modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -281,11 +279,10 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="staticBackdropss" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade ui-modal" id="staticBackdropss" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropss" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-contents">
-        <div class="modal-header">
+      <div class="modal-content ui-dialog">
+         <div class="ui-widget-header">
           <h5 class="modal-title" id="staticBackdropLabel">Boom Products : {{ form.product_no }} , {{ form.description }} </h5>
           <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.description" class="string_zen clear_text text input_text" size="50" type="text">
         </div>
@@ -338,192 +335,194 @@
       </div>
     </div>
   </div>
-  <div class="modal fade ui-modal" id="staticboomId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticboomId" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content ui-dialog">
-                <div class="ui-widget-header">
-                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
-                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
-                    <span class="ui-icon ui-icon-closethick">close</span></a>
+  <div class="modal fade ui-modal" id="staticboomId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticboomId" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content ui-dialog">
+        <div class="ui-widget-header">
+          <h5 class="modal-title in-header" id="staticBackdropLabel"><i class="fa fa-print" aria-hidden="true"></i> Print
+            : {{ form.product_no }} , {{ form.description }}</h5>
+          <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
+            <span class="ui-icon ui-icon-closethick">close</span></a>
+        </div>
+        <div class="ui-dialog-content" id="purchaseorder">
+          <div class="card">
+            <div class="card-body">
+              <div class="container mb-5 mt-3">
+                <div class="row d-flex align-items-baseline">
+                  <div class="col-xl-9">
+                  </div>
+                  <hr>
                 </div>
-                   <div class="ui-dialog-content" id="purchaseorder">
-                  <div class="card">
-  <div class="card-body">
-    <div class="container mb-5 mt-3">
-      <div class="row d-flex align-items-baseline">
-        <div class="col-xl-9">
-        </div>
-          <hr>
-      </div>
-
-      <div class="container">
-        <div class="col-md-12">
-          <div class="text-center">
-            <h3 class="title-purchase">ORDER RECEPT</h3>
-            <!-- <p class="pt-0">MDBootstrap.com</p> -->
-          </div>
-
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <ul class="list-unstyled">
-              <li class="text-muted text-right">Date:<span>15-Dec-2022</span></li>
-              <li class="text-muted text-right">Receipt No:<span>000001</span></li>
-              </ul>
-          </div></div>
-
-        <div class="row">
-          <div class="col-xl-6 supplier-padding">
-            <p class="text-muted title-pur-sup">COMPANY NAME</p>
-            <ul class="list-unstyled">
-              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">012 233 333</span></li>
-              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">john@gmail.com</span></li>
-              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">#12, St.444, Sangkat Svay Pak, Phnom Penh</span></li>
-            </ul>
-          </div>
-          <div class="col-xl-6 supplier-padding">
-            <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
-            <ul class="list-unstyled">
-              <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-              <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-              <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row my-2 mx-1 justify-content-center table-padding-bot">
-          <table class="table table-striped table-borderless">
-            <thead style="background-color:#84B0CA ;" class="text-white">
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Qty Order</th>
-                <th scope="col">Qty Recept</th>
-                <th scope="col">Unit Code</th>
-                <th scope="col">Unit Price</th>
-                <th scope="col">Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td scope="row">1</td>
-                <td>Pro Package</td>
-                <td>For Protect Hand</td>
-                <td>4</td>
-                <td>2</td>
-                <td>Can</td>
-                <td>$200</td>
-                <td>$800</td>
-              </tr>
-              <tr>
-                <td scope="row">2</td>
-                <td>Web hosting</td>
-                <td>For Protect Hand</td>
-                <td>1</td>
-                <td>1</td>
-                <td>Can</td>
-                <td>$10</td>
-                <td>$10</td>
-              </tr>
-              <tr>
-                <td scope="row">3</td>
-                <td>Consulting</td>
-                <td>For Protect Hand</td>
-                <td>4</td>
-                <td>1</td>
-                <td>Can</td>
-                <td>$300</td>
-                <td>$300</td>
-              </tr>
-              <tr>
-                <td scope="row" colspan="6" rowspan="4" class="th-font-bold text-padd-top">Remark: </td>
-                <td class="th-font-bold text-right">Total :</td>
-                <td class="th-font-bold">$800</td>
-              </tr>
-              <tr>
-                <td class="th-font-bold text-right">Tax : </td>
-                <td class="th-font-bold">$80</td>
-              </tr>
-              <tr>
-                <td class="th-font-bold table-th-width text-right">Other : </td>
-                <td class="th-font-bold">$00</td>
-              </tr>
-              <tr>
-                <td class="th-font-bold table-th-width text-right">Total Amount : </td>
-                <td class="th-font-bold">$880</td>
-              </tr>
-            </tbody>
-
-          </table>
-        </div>
-        <div class="row">
-          <div class="col-xl-8 supplier-padding">
-            <p class="ms-3">Payment Information</p>
-           <!-- Default inline 1-->
-<div class="custom-control custom-checkbox custom-control-inline">
-  <input type="checkbox" class="custom-control-input" id="defaultInline1">
-  <label class="custom-control-label" for="defaultInline1">CASE</label>
-</div>
-
-<!-- Default inline 2-->
-<div class="custom-control custom-checkbox custom-control-inline">
-  <input type="checkbox" class="custom-control-input" id="defaultInline2">
-  <label class="custom-control-label" for="defaultInline2">CREDIT CARD</label>
-</div>
-
-<!-- Default inline 3-->
-<div class="custom-control custom-checkbox custom-control-inline">
-  <input type="checkbox" class="custom-control-input" id="defaultInline3">
-  <label class="custom-control-label" for="defaultInline3">BANK TRANSWER</label>
-</div>
-            <ul class="list-unstyled">
-              <li class="text-muted">Bank Name:<span class="text--color">Mr. Master</span></li>
-              <li class="text-muted">Bank Account Number: <span class="text--color">001 025 025</span></li>
+  
+                <div class="container">
+                  <div class="col-md-12">
+                    <div class="text-center">
+                      <h3 class="title-purchase">ORDER RECEPT</h3>
+                      <!-- <p class="pt-0">MDBootstrap.com</p> -->
+                    </div>
+  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <ul class="list-unstyled">
+                        <li class="text-muted text-right">Date:<span>15-Dec-2022</span></li>
+                        <li class="text-muted text-right">Receipt No:<span>000001</span></li>
+                      </ul>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-xl-6 supplier-padding">
+                      <p class="text-muted title-pur-sup">COMPANY NAME</p>
+                      <ul class="list-unstyled">
+                        <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">012 233 333</span></li>
+                        <li class="text-muted">Email: <span style="color:#5d9fc5 ;">john@gmail.com</span></li>
+                        <li class="text-muted">Address: <span style="color:#5d9fc5 ;">#12, St.444, Sangkat Svay Pak, Phnom
+                            Penh</span></li>
+                      </ul>
+                    </div>
+                    <div class="col-xl-6 supplier-padding">
+                      <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
+                      <ul class="list-unstyled">
+                        <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                        <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                        <li class="text-muted">Address: <span style="color:#5d9fc5 ;">John Lorem</span></li>
+                      </ul>
+                    </div>
+                  </div>
+  
+                  <div class="row my-2 mx-1 justify-content-center table-padding-bot">
+                    <table class="table table-striped table-borderless">
+                      <thead style="background-color:#84B0CA ;" class="text-white">
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col">Product Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Qty Order</th>
+                          <th scope="col">Qty Recept</th>
+                          <th scope="col">Unit Code</th>
+                          <th scope="col">Unit Price</th>
+                          <th scope="col">Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td scope="row">1</td>
+                          <td>Pro Package</td>
+                          <td>For Protect Hand</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>Can</td>
+                          <td>$200</td>
+                          <td>$800</td>
+                        </tr>
+                        <tr>
+                          <td scope="row">2</td>
+                          <td>Web hosting</td>
+                          <td>For Protect Hand</td>
+                          <td>1</td>
+                          <td>1</td>
+                          <td>Can</td>
+                          <td>$10</td>
+                          <td>$10</td>
+                        </tr>
+                        <tr>
+                          <td scope="row">3</td>
+                          <td>Consulting</td>
+                          <td>For Protect Hand</td>
+                          <td>4</td>
+                          <td>1</td>
+                          <td>Can</td>
+                          <td>$300</td>
+                          <td>$300</td>
+                        </tr>
+                        <tr>
+                          <td scope="row" colspan="6" rowspan="4" class="th-font-bold text-padd-top">Remark: </td>
+                          <td class="th-font-bold text-right">Total :</td>
+                          <td class="th-font-bold">$800</td>
+                        </tr>
+                        <tr>
+                          <td class="th-font-bold text-right">Tax : </td>
+                          <td class="th-font-bold">$80</td>
+                        </tr>
+                        <tr>
+                          <td class="th-font-bold table-th-width text-right">Other : </td>
+                          <td class="th-font-bold">$00</td>
+                        </tr>
+                        <tr>
+                          <td class="th-font-bold table-th-width text-right">Total Amount : </td>
+                          <td class="th-font-bold">$880</td>
+                        </tr>
+                      </tbody>
+  
+                    </table>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-8 supplier-padding">
+                      <p class="ms-3">Payment Information</p>
+                      <!-- Default inline 1-->
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline1">
+                        <label class="custom-control-label" for="defaultInline1">CASE</label>
+                      </div>
+  
+                      <!-- Default inline 2-->
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline2">
+                        <label class="custom-control-label" for="defaultInline2">CREDIT CARD</label>
+                      </div>
+  
+                      <!-- Default inline 3-->
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline3">
+                        <label class="custom-control-label" for="defaultInline3">BANK TRANSWER</label>
+                      </div>
+                      <ul class="list-unstyled">
+                        <li class="text-muted">Bank Name:<span class="text--color">Mr. Master</span></li>
+                        <li class="text-muted">Bank Account Number: <span class="text--color">001 025 025</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="text-footer-page">
+                    <div class="row ruler-foot">
+                      <div class="col-xl-4 supplier-padding">
+                        <ul class="list-unstyled">
+                          <li class="text-muted">John Lorem</li>
+                          <li class="text-muted">012 233 333</li>
                         </ul>
-          </div>
-        </div>
-        <div class="text-footer-page">
-         <div class="row ruler-foot">
-              <div class="col-xl-4 supplier-padding">
-              <ul class="list-unstyled">
-              <li class="text-muted">John Lorem</li>
-              <li class="text-muted">012 233 333</li>
-              </ul>
-          </div>
-          <div class="col-xl-4 supplier-padding">
-              <ul class="list-unstyled">
-              <li class="text-muted">St.333, Sangkat</li>
-              <li class="text-muted">Phnom Penh</li>
-              </ul>
-          </div>
-          <div class="col-xl-4 supplier-padding">
-              <ul class="list-unstyled">
-              <li class="text-muted">john@gmail.com</li>
-              <li class="text-muted">www.aaaaa.com</li>
-              </ul>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-                
-                <div class="modal-footer">
-                  <a class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i
-              class="far fa fa-times-circle text-danger"></i> Close</a>
-                  <a class="btn-purchase btn-light text-capitalize border-0" data-mdb-ripple-color="dark" @click="print()"><i
-              class="fas fa-print text-primary"></i> Print</a>        
-                    <!-- <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
-                    <div class="button type2" @click="print()" :value="G_code" data-bs-dismiss="modal"><span>Yes</span></div> -->
+                      </div>
+                      <div class="col-xl-4 supplier-padding">
+                        <ul class="list-unstyled">
+                          <li class="text-muted">St.333, Sangkat</li>
+                          <li class="text-muted">Phnom Penh</li>
+                        </ul>
+                      </div>
+                      <div class="col-xl-4 supplier-padding">
+                        <ul class="list-unstyled">
+                          <li class="text-muted">john@gmail.com</li>
+                          <li class="text-muted">www.aaaaa.com</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+  
+        <div class="modal-footer">
+          <a class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+              class="far fa fa-times-circle text-danger"></i> Close</a>
+          <a class="btn-purchase btn-light text-capitalize border-0" data-mdb-ripple-color="dark" @click="print()"><i
+              class="fas fa-print text-primary"></i> Print</a>
+          <!-- <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
+                      <div class="button type2" @click="print()" :value="G_code" data-bs-dismiss="modal"><span>Yes</span></div> -->
+        </div>
+      </div>
+    </div>
   </div>
-
-
 </template>
 
 <script>

@@ -21,6 +21,7 @@ class purchealine extends Model
         'unit_of_measure_code',
         'unit_price',
         'inventory',
+        'inventory_order',
         'total_amount',
         'curency_code',
         'remark',
