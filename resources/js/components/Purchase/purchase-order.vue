@@ -939,15 +939,24 @@ export default {
                             curency_code: this.form.curency_code,
                         });
                        
+                    }else{
+                      this.message='Excel';
                     }
                 }
             } 
             x++;
+            if(this.message!='Excel'){
             console.log(this.checkexcel);
             this.sumTotal(this.items);
+           }
         });
       })
-      
+      if(this.message=='Excel'){
+        this.message='Excell not allow'
+        var modal = document.getElementById("myModalauto");
+        modal.style.display = "block";
+        if(this.items.length > 0){ setTimeout(() =>  modal.style.display = "none", 500);}
+      }
     },
     saveprulink(){
       if(this.items.length > 0){ setTimeout(() => this.savepru(), 500);}
