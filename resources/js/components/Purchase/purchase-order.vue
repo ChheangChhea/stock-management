@@ -945,10 +945,10 @@ export default {
                 }
             } 
             x++;
+            this.sumTotal(this.items);
         });
       })
       this.exefile='';
-      this.sumTotal(this.items);
     },
     saveprulink(){
       if(this.items.length > 0){ setTimeout(() => this.savepru(), 500);}

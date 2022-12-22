@@ -604,6 +604,13 @@ export default {
             .get("api/v1/purchase/edit/purchaseline/" + id)
             .then((response) => {
               this.purchases_lines = response.data;
+              this.purchases_lines.forEach(element => {
+                element.inventory = element.inventory +'.00';
+                element.unit_price = element.unit_price +'.00';
+                element.inventory_order = element.inventory_order+'.00';
+                element.total_amount = element.total_amount+'.00';
+                element.inventory_recetive = element.inventory_order;
+              });
               this.sumtotal();
       })
      }
@@ -638,6 +645,10 @@ export default {
          ProLink.qty_balance = parseFloat(ProLink.inventory_order) - parseFloat(ProLink.inventory_recetive);
          ProLink.total_amount = parseFloat(ProLink.unit_price)* parseFloat(ProLink.inventory_recetive);
          ProLink.amount_balance = parseFloat(ProLink.unit_price)*parseFloat( ProLink.qty_balance);
+        //  const formatter = new Intl.NumberFormat('en-US', {style: 'currency',currency: ProLink.curency_code, });
+         ProLink.total_amount =  formatter.format(ProLink.total_amount);
+         ProLink.amount_balance =  formatter.format(ProLink.amount_balance );
+         ProLink.unit_price = formatter.format(ProLink.unit_price);
          this.sumtotal();
        }
   },

@@ -22,6 +22,7 @@ class purchealine extends Model
         'unit_price',
         'inventory',
         'inventory_order',
+        'inventory_recetive',
         'total_amount',
         'curency_code',
         'remark',
