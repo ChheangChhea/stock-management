@@ -252,86 +252,6 @@
                                 </tbody>
                         </table>
 
-                        <!-- <div class="box-content">
-                            <table
-                                width="100%"
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                class="table table-striped br-table"
-                            >
-                                <tbody>
-                                    <tr
-                                        v-for="(
-                                            Category, index
-                                        ) in Categories.data"
-                                        :key="Category.index"
-                                    >
-                                        <td width="12%">
-                                            {{ index + 1 + "." }}
-                                        </td>
-                                        <td width="12%">
-                                            {{ Category.cat_code }}
-                                        </td>
-                                        <td width="12%">
-                                            {{ Category.cat_name }}
-                                        </td>
-                                        <td width="12%">
-                                            {{ Category.cat_name_2 }}
-                                        </td>
-                                        <td width="12%">
-                                            {{ Category.inactived }}
-                                        </td>
-                                        <td width="12%">
-                                            {{ Category.created_by }}
-                                        </td>
-                                        <td width="12%">
-                                            {{ Category.updete_by }}
-                                        </td>
-                                        <td width="12%" style="padding: 0px">
-                                            <div
-                                                class="button"
-                                                id="uniform-undefined"
-                                            >
-                                                <span
-                                                    >Edit<input
-                                                        type="button"
-                                                        @click="
-                                                            btnEdit(Category)
-                                                        "
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#staticBackdrop"
-                                                        tabindex="10028"
-                                                        style="
-                                                            opacity: 0;
-                                                            width: 76px;
-                                                        "
-                                                /></span>
-                                            </div>
-                                            <div
-                                                class="button"
-                                                id="uniform-undefined"
-                                            >
-                                                <span
-                                                    >Delete<input
-                                                        type="button"
-                                                        @click="
-                                                            btnDelete(
-                                                                Category.cat_code
-                                                            )
-                                                        "
-                                                        tabindex="10028"
-                                                        style="
-                                                            opacity: 0;
-                                                            width: 76px;
-                                                        "
-                                                /></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> -->
                         <div class="box-footer-pagination">
                             <pagination
                                 :data="Categories"
@@ -358,7 +278,6 @@
                                     >
                                         Category
                                     </h5>
-                                    <!-- <span class="ui-dialog-title" id="ui-dialog-title-dialog-modal">Brand</span> -->
                                     <span
                                         class="ui-icon ui-icon-closethick"
                                         data-bs-dismiss="modal"

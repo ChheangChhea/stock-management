@@ -108,15 +108,6 @@
                       type="text" />
                   </td>
                 </tr>
-                <!-- <tr>
-                  <th width="10%">Inactive</th>
-                  <td width="50%">
-                    <select v-model="form.inactived" class="form" style="width: 362px">
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
-                    </select>
-                  </td>
-                </tr> -->
                 <tr>
                     <th width="10%">Inactived</th>
                         <td width="50%">
