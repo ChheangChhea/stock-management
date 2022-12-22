@@ -53,3 +53,7 @@ Tutorial - How to run this project :
 <!-- run command on terminal to open project -->
 
 9. php artisan serve
+
+clear check
+
+10. php artisan optimize
