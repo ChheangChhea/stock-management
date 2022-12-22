@@ -83,6 +83,7 @@ margin-bottom: -50px!important;
 .smallpopup {
     max-width: 62vh !important;
     margin: 1.75rem auto !important;
+    width: 600px;
 }
 
 .ui-dialog .ui-dialog-content {

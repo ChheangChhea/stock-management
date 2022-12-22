@@ -173,7 +173,7 @@
                                                     <tr>   
                                                         <th>Brand Code</th>
                                                         <td width="89%">
-                                                                <select :disabled="isDisabled"  @change="autoUpdateProduct(form)"  v-model="form.brand_code" class="form" style="width:25%;">
+                                                                <select :disabled="isDisabled"  @change="autoUpdateProduct(form)"  v-model="form.brand_code" class="form" style="width:176px;">
                                                                 <option v-for="brand in brands" :value='brand.brand_code'>{{ brand.brand_name}}</option>
                                                                 </select>
                                                          </td>
@@ -181,7 +181,7 @@
                                                     <tr>   
                                                         <th>Category Code</th>
                                                         <td width="89%">
-                                                                <select :disabled="isDisabled"  @change="autoUpdateProduct(form)"  v-model="form.cat_code" class="form" style="width:25%;">
+                                                                <select :disabled="isDisabled"  @change="autoUpdateProduct(form)"  v-model="form.cat_code" class="form" style="width:176px;">
                                                                 <option v-for="Cat in Cats" :value='Cat.cat_code'>{{Cat.cat_name }}</option>
                                                                 </select>
                                                          </td>

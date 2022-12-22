@@ -32,7 +32,7 @@
             <dl>
               <dt>
                 <router-link to="/brands">
-                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                  <img alt="タックシール印刷" height="168" src="img/icon-brand.png" width="168">
                 </router-link>
               </dt>
               <dd>
@@ -44,7 +44,7 @@
             <dl>
               <dt>
                 <router-link to="/supplies">
-                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                  <img alt="タックシール印刷" height="168" src="img/icon-supply.png" width="168">
                 </router-link>
               </dt>
               <dd>
@@ -68,7 +68,7 @@
             <dl>
               <dt>
                 <router-link to="/group">
-                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                  <img alt="タックシール印刷" height="168" src="img/icon-product.png" width="168">
                 </router-link>
               </dt>
               <dd>
@@ -80,7 +80,7 @@
             <dl>
               <dt>
                 <router-link to="/category">
-                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                  <img alt="タックシール印刷" height="168" src="img/icon-category.png" width="168">
                 </router-link>
               </dt>
               <dd>

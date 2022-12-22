@@ -87,124 +87,60 @@
                     <router-link to="/login"><h2 class="search-box-title">Search</h2></router-link>
                     <input id="search" name="search" type="hidden" value="1" />
                     <div class="search-box-content">
-                        <table
-                            width="100%"
-                            border="0"
-                            cellpadding="0"
-                            cellspacing="0"
-                            class="tbl_search"
-                        >
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
                             <tbody>
                                 <tr>
                                     <th width="20%">SerailCode</th>
                                     <td width="80%">
-                                        <input
-                                            class="string_zen_kana clear_text text"
-                                            v-model="form.serail_code"
-                                            maxlength="8"
-                                            size="50"
-                                            type="text"
-                                            tabindex="10000"
-                                        />
+                                        <input class="string_zen_kana clear_text text" v-model="form.serail_code"
+                                            maxlength="8" size="50" type="text" tabindex="10000"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="20%">PrefixCode</th>
                                     <td width="80%">
-                                        <input
-                                            class="string_zen_kana clear_text text"
-                                            name="PrefixCode"
-                                            maxlength="50"
-                                            v-model="form.prefix_code"
-                                            size="50"
-                                            type="text"
-                                            tabindex="10001"
-                                        />
+                                        <input class="string_zen_kana clear_text text" name="PrefixCode" maxlength="50"
+                                            v-model="form.prefix_code" size="50" type="text" tabindex="10001"/>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <th width="20%">QtyCode</th>
                                     <td width="80%">
-                                        <input
-                                            class="string_zen_kana clear_text text"
-                                            maxlength="50"
-                                            name="QtyCode"
-                                            v-model="form.qty_code"
-                                            size="50"
-                                            type="text"
-                                            tabindex="10001"
-                                        />
+                                        <input class="string_zen_kana clear_text text" maxlength="50" name="QtyCode"
+                                            v-model="form.qty_code" size="50" type="text" tabindex="10001"/>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <th width="20%">StartCode</th>
                                     <td width="80%">
-                                        <input
-                                            class="string_zen_kana clear_text text"
-                                            maxlength="50"
-                                            name="StartCode"
-                                            v-model="form.start_code"
-                                            size="50"
-                                            type="text"
-                                            tabindex="10001"
-                                        />
+                                        <input class="string_zen_kana clear_text text" maxlength="50" name="StartCode"
+                                            v-model="form.start_code" size="50" type="text" tabindex="10001"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="20%">EndCode</th>
                                     <td width="80%">
-                                        <input
-                                            class="string_zen_kana clear_text text"
-                                            maxlength="50"
-                                            name="StartCode"
-                                            v-model="form.end_code"
-                                            size="50"
-                                            type="text"
-                                            tabindex="10001"
-                                        />
+                                        <input class="string_zen_kana clear_text text" maxlength="50" name="StartCode" v-model="form.end_code"
+                                            size="50" type="text" tabindex="10001"/>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-
                         <div class="search-box-footer">
                             <div class="button type2" id="uniform-undefined">
                                 <span>Save</span>
-                                <input
-                                    type="button"
-                                    value="save"
-                                    class="type2"
-                                    @click="save()"
-                                    style="opacity: 0; width: 63px"
-                                    tabindex="10026"
-                                />
+                                <input type="button" value="save" class="type2" @click="save()"
+                                    style="opacity: 0; width: 63px" tabindex="10026" />
                             </div>
-
                             <div class="button type2" id="uniform-undefined">
                                 <span>Clear</span>
-                                <input
-                                    type="button"
-                                    value="clear"
-                                    class="type2"
-                                    @click="clear()"
-                                    style="opacity: 0; width: 63px"
-                                    tabindex="10026"
-                                />
-                                <!-- <span class="marker"></span> -->
+                                <input type="button" value="clear" class="type2" @click="clear()" style="opacity: 0; width: 63px"  tabindex="10026" />
                             </div>
                         </div>
                     </div>
 
                     <div class="box">
-                        <table
-                            width="100%"
-                            border="0"
-                            cellpadding="0"
-                            cellspacing="0"
-                            class="tbl_list tbl_stripe"
-                        >
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_list tbl_stripe">
                             <thead>
                                 <tr>
                                     <th width="12%">id</th>
@@ -214,41 +150,19 @@
                                     <th width="12%">StartCode</th>
                                     <th width="12%">EndCode</th>
                                     <th width="12%">
-                                        <div
-                                            class="button"
-                                            id="uniform-undefined"
-                                        >
-                                            <span
-                                                ><i
-                                                    class="fa fa-plus"
-                                                    aria-hidden="true"
-                                                ></i>
-                                                Add New<input
-                                                    @click="btnAdd()"
-                                                    type="button"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#staticBackdrop"
-                                                    tabindex="10028"
-                                                    style="
-                                                        opacity: 0;
-                                                        width: 76px;
-                                                    "
-                                            /></span>
+                                        <div class="button" id="uniform-undefined">
+                                            <span><i class="fa fa-plus" aria-hidden="true"></i>
+                                                Add New<input  @click="btnAdd()" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                    tabindex="10028" style=" opacity: 0;width: 76px;"/>
+                                            </span>
                                         </div>
                                     </th>
                                 </tr>
                             </thead>
                         </table>
-
                         <div class="box-content">
-                            <table
-                                width="100%"
-                                border="0"
-                                cellpadding="0"
-                                cellspacing="0"
-                                class="table table-striped table-bordered"
-                                style="margin-bottom: 0 !important"
-                            >
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table table-striped table-bordered"
+                                style="margin-bottom: 0 !important">
                                 <tbody>
                                     <tr
                                         v-for="(Serail, index) in serails.data" :key="index" >
@@ -259,23 +173,12 @@
                                         <td width="12%">{{ Serail.start_code }}</td>
                                         <td width="12%">{{ Serail.end_code }}</td>
                                         <td width="12%">
-                                            <div
-                                                class="button"
-                                                id="uniform-undefined"
-                                            >
-                                                <span
-                                                    ><i class="fa fa-edit"></i>
-                                                    Edit SerailCode<input
-                                                        type="button"
-                                                        @click="btnEdit(Serail)"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#staticBackdrop"
-                                                        tabindex="10028"
-                                                        style="
-                                                            opacity: 0;
-                                                            width: 76px;
-                                                        "
-                                                    />
+                                            <div class="button" id="uniform-undefined">
+                                                <span>
+                                                    <i class="fa fa-edit"></i>
+                                                    Edit SerailCode
+                                                    <input type="button" @click="btnEdit(Serail)" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                        tabindex="10028" style="opacity: 0;width: 76px;"/>
                                                 </span>
                                             </div>
                                         </td>
@@ -287,167 +190,72 @@
                             <pagination :data="serails" @pagination-change-page="getSerail" />
                         </div>
                     </div>
-
-                    <div
-                        class="modal fade"
-                        id="staticBackdrop"
-                        data-bs-backdrop="static"
-                        data-bs-keyboard="false"
-                        tabindex="-1"
-                        aria-labelledby="staticBackdropLabel"
-                        aria-hidden="true"
-                    >
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog smallpopup">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5
-                                        class="modal-title"
-                                        id="staticBackdropLabel"
-                                    >
-                                        SerailCode
-                                    </h5>
-                                    <span
-                                        class="ui-icon ui-icon-closethick"
-                                        data-bs-dismiss="modal"
-                                        aria-label="Close"
-                                    ></span>
+                                    <h5 class="modal-title" id="staticBackdropLabel">SerailCode</h5>
+                                    <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close">
+                                    </span>
                                 </div>
-                                <div
-                                    style="
-                                        margin: 0;
-                                        padding: 10px;
-                                        display: inline;
-                                    "
-                                >
-                                    <table
-                                        width="100%"
-                                        border="0"
-                                        cellpadding="0"
-                                        cellspacing="0"
-                                        class="tbl_search"
-                                    >
+                                <div style="margin: 0;padding: 10px;display: inline;">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
                                         <tbody>
                                             <tr>
                                                 <th width="30%">SerailCode</th>
                                                 <td>
-                                                    <input
-                                                        id="serailcode"
-                                                        name="serailcode"
-                                                        v-model="
-                                                            form.serail_code
-                                                        "
-                                                        type="text"
-                                                        class="text"
-                                                        tabindex="10028"
-                                                    />
+                                                    <input id="serailcode" name="serailcode" v-model="form.serail_code"
+                                                        type="text" class="text" tabindex="10028"/>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>PrefixCode</th>
                                                 <td>
-                                                    <input
-                                                        id="prefixcode"
-                                                        name="prefixcode"
-                                                        v-model="
-                                                            form.prefix_code
-                                                        "
-                                                        type="text"
-                                                        class="text"
-                                                        tabindex="10029"
-                                                    />
+                                                    <input id="prefixcode" name="prefixcode" v-model="form.prefix_code"
+                                                        type="text" class="text" tabindex="10029"/>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>QtyCode</th>
                                                 <td>
-                                                    <input
-                                                        id="qtycode"
-                                                        name="qtycode"
-                                                        v-model="form.qty_code"
-                                                        type="number"
-                                                        class="text"
-                                                        tabindex="10029"
-                                                    />
+                                                    <input id="qtycode" name="qtycode" v-model="form.qty_code"
+                                                        type="number" class="text" tabindex="10029"/>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>StartCode</th>
                                                 <td>
-                                                    <input
-                                                        id="startcode"
-                                                        name="startcode"
-                                                        v-model="
-                                                            form.start_code
-                                                        "
-                                                        type="number"
-                                                        class="text"
-                                                        tabindex="10029"
-                                                    />
+                                                    <input id="startcode" name="startcode" v-model="form.start_code"
+                                                        type="number" class="text" tabindex="10029"/>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>EndCode</th>
                                                 <td>
-                                                    <input
-                                                        id="endcode"
-                                                        name="endcode"
-                                                        v-model="form.end_code"
-                                                        type="number"
-                                                        class="text"
-                                                        tabindex="10029"
-                                                    />
+                                                    <input id="endcode" name="endcode" v-model="form.end_code" type="number"
+                                                        class="text" tabindex="10029"/>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="modal-footer">
-                                    <div
-                                        class="button type2"
-                                        id="uniform-undefined"
-                                    >
+                                    <div class="button type2" id="uniform-undefined">
                                         <span> Save</span>
-                                        <input
-                                            type="button"
-                                            value="save"
-                                            class="type2"
-                                            @click="btnSave()"
-                                            style="opacity: 0; width: 63px"
-                                            tabindex="10026"
-                                            data-bs-dismiss="modal"
-                                            aria-label="Close"
+                                        <input type="button" value="save" class="type2" @click="btnSave()" style="opacity: 0; width: 63px"
+                                            tabindex="10026" data-bs-dismiss="modal" aria-label="Close"
                                         />
                                     </div>
-                                    <div
-                                        class="button type2"
-                                        id="uniform-undefined"
-                                    >
+                                    <div class="button type2" id="uniform-undefined">
                                         <span> Update</span>
-                                        <input
-                                            type="button"
-                                            value="edit"
-                                            @click="btnUpdate()"
-                                            class="type2"
-                                            style="opacity: 0; width: 63px"
-                                            tabindex="10026"
-                                            data-bs-dismiss="modal"
-                                        />
+                                        <input type="button" value="edit" @click="btnUpdate()" class="type2"
+                                            style="opacity: 0; width: 63px" tabindex="10026" data-bs-dismiss="modal"/>
                                     </div>
-                                    <div
-                                        class="button type2"
-                                        id="uniform-undefined"
-                                    >
+                                    <div class="button type2" id="uniform-undefined">
                                         <span>Close</span>
-                                        <input
-                                            type="button"
-                                            value="clear"
-                                            class="type2"
-                                            data-bs-dismiss="modal"
-                                            aria-label="Close"
-                                            @click="btnClear()"
-                                            style="opacity: 0; width: 63px"
-                                            tabindex="10026"
-                                        />
+                                        <input type="button" value="clear" class="type2" data-bs-dismiss="modal"
+                                            aria-label="Close" @click="btnClear()" style="opacity: 0; width: 63px" tabindex="10026"/>
                                     </div>
                                 </div>
                             </div>

@@ -52,7 +52,7 @@
                   <img
                     alt="タックシール印刷"
                     height="168"
-                    src="img/icon-category.png"
+                    src="img/icon-pharmacy.png"
                     width="168"
                   />
                 </router-link>
@@ -69,7 +69,7 @@
                   <img
                     alt="タックシール印刷"
                     height="168"
-                    src="img/icon-brand.png"
+                    src="img/icon-clinic.png"
                     width="168"
                   />
                 </router-link>
