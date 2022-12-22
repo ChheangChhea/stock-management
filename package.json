@@ -30,9 +30,17 @@
         "admin-lte": "^3.2.0",
         "alpinejs": "^3.10.5",
         "axios": "^0.27.2",
+        "export-excel-sheet-vue-js": "^1.0.2",
+        "export-from-json": "^1.7.0",
+        "file-saver": "^2.0.5",
         "font-awesome": "^4.7.0",
         "laravel-vue-pagination": "^3.0.0",
+        "msexcel-builder": "^0.0.2",
+        "read-excel-file": "^5.5.3",
         "vform": "^2.1.2",
-        "vue-router": "^4.0.12"
+        "vue-router": "^4.0.12",
+        "vue-socket.io": "^3.0.10",
+        "vue-table-to-excel": "^1.0.6",
+        "xlsx": "^0.18.5"
     }
 }
