@@ -325,9 +325,8 @@ import { exportDefaultSpecifier } from '@babel/types';
                    this.perPage = "/api/v1/products/viewpro?page="+page
                    axios.get(this.perPage).then(({data})=>{
                     this.currentPage = data.current_page
-                    console.log(data.data);
-                    this.products = data 
-                   
+                    console.log(data);
+                    this.products = data                   
                   })
                  }
               });

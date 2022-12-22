@@ -657,6 +657,7 @@
 </template>
 <script>
 import readXlsxFile from 'read-excel-file';
+import * as XLSX from 'xlsx/xlsx.mjs';
 import axios from "axios";
 export default {
   data() {
@@ -996,12 +997,25 @@ export default {
         this.excel = 'Export';
       },
       exportdataExcel(){
-                var tbl = document.getElementById('exceldata');
-                var ws = XLSX.utils.json_to_sheet(tbl);
-                console.log(ws);
-                // var wb = XLSX.utils.book_new();
-                // XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
-                // XLSX.writeFile(wb,"sheetjs.xlsx");
+              const invoices = this.items.reduce((ac, element) => { 
+                    ac.push({ 
+                      id:element.id,
+                      document_no: element.document_no,
+                      document_type: element.document_type,
+                      product_no: element.product_no,
+                      description: element.description,
+                      unit_of_measure_code: element.unit_of_measure_code,
+                      inventory: element.inventory,
+                      unit_price: element.unit_price,
+                      total_amount: element.total_amount, 
+                      curency_code: element.curency_code,
+                    }); 
+                    return ac;
+                }, []);
+                var invoicesWS = XLSX.utils.json_to_sheet(invoices)
+                var wb = XLSX.utils.book_new() 
+                XLSX.utils.book_append_sheet(wb, invoicesWS, 'PruchecLink') 
+                XLSX.writeFile(wb, 'PruchecLink.xlsx')
       }
   },
   startCountdown: function () {
