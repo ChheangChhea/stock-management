@@ -389,8 +389,8 @@
                   <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
                     <span class="ui-icon ui-icon-closethick">close</span></a>
                 </div>
-                <div id="purchaseorder">
-                  <div class="card">
+                <div class="ui-dialog-content" id="purchaseorder">
+                            <div class="card">
   <div class="card-body">
     <div class="container mb-5 mt-3">
       <div class="row d-flex align-items-baseline">
