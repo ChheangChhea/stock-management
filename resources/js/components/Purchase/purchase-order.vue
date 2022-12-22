@@ -691,6 +691,7 @@ export default {
         curency_code: "",
         inactived: "",
       },
+      checkexcel:[],
       items :[{
             id:'',
             document_no:'',
@@ -920,19 +921,26 @@ export default {
       readXlsxFile(xlsxfile).then((rows) => {
         var x=0;
         rows.forEach(element => {
-            if(x>0){
-                this.items.push({
-                  id:x,
-                  document_no: this.form.document_no,
-                  document_type: this.form.document_type,
-                  product_no: element[1],
-                  description: element[2],
-                  unit_of_measure_code: element[3],
-                  inventory: element[4],
-                  unit_price: element[5],
-                  total_amount: element[6], 
-                  curency_code: this.form.curency_code,
-              })
+            if(x>=0){
+                if(x==0){
+                  this.checkexcel = element;
+                  console.log(this.checkexcel);
+                }else{
+                    if(checkexcel[0]=='id' && checkexcel[1]=='product_no' && checkexcel[2]=='description' && checkexcel[3]=='unit_of_measure_code' && checkexcel[4]=='inventory' && checkexcel[5]=='unit_price' && checkexcel[6]=='total_amount'){
+                      this.items.push({
+                            id:x,
+                            document_no: this.form.document_no,
+                            document_type: this.form.document_type,
+                            product_no: element[1],
+                            description: element[2],
+                            unit_of_measure_code: element[3],
+                            inventory: element[4],
+                            unit_price: element[5],
+                            total_amount: element[6], 
+                            curency_code: this.form.curency_code,
+                        })
+                    }
+                }
             } 
             x++;
             this.sumTotal(this.items);
@@ -999,7 +1007,6 @@ export default {
       exportdataExcel(){
               const invoices = this.items.reduce((ac, element) => { 
                     ac.push({ 
-                      id:element.id,
                       document_no: element.document_no,
                       document_type: element.document_type,
                       product_no: element.product_no,
