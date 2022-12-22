@@ -924,9 +924,8 @@ export default {
             if(x>=0){
                 if(x==0){
                   this.checkexcel = element;
-                  console.log(this.checkexcel);
-                }else{
-                    if(checkexcel[0]=='id' && checkexcel[1]=='product_no' && checkexcel[2]=='description' && checkexcel[3]=='unit_of_measure_code' && checkexcel[4]=='inventory' && checkexcel[5]=='unit_price' && checkexcel[6]=='total_amount'){
+                 }else{
+                    if(this.checkexcel[0]=='id' && this.checkexcel[1]=='product_no' && this.checkexcel[2]=='description' && this.checkexcel[3]=='unit_of_measure_code' && this.checkexcel[4]=='inventory' && this.checkexcel[5]=='unit_price' && this.checkexcel[6]=='total_amount'){
                       this.items.push({
                             id:x,
                             document_no: this.form.document_no,
@@ -938,11 +937,13 @@ export default {
                             unit_price: element[5],
                             total_amount: element[6], 
                             curency_code: this.form.curency_code,
-                        })
+                        });
+                       
                     }
                 }
             } 
             x++;
+            console.log(this.checkexcel);
             this.sumTotal(this.items);
         });
       })
