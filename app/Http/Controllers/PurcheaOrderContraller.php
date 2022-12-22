@@ -234,14 +234,32 @@ class PurcheaOrderContraller extends Controller
             return ['msg :' => 'hmmm'];
         }
     }
-    // public function uploadPhoto(Request $request)
-    // {
-    //     $dir = 'img' . DIRECTORY_SEPARATOR . 'profile' . DIRECTORY_SEPARATOR;
-    //     $this->makeDirectory($dir);
-    //     $img = time() . '.' . explode(';', explode('/', $request->photo)[1])[0];
-    //     image::make($request->photo)->save(public_path($dir) . $img);
-    //     return $img;
-    // }
+
+    public function PrulinkeSave(Request $request)
+    {
+        $brand = purchealine::create([
+            'document_no' => $request['document_no'],
+            'product_no' => $request['product_no'],
+            'document_type' => $request['document_type'],
+            'description' => $request['description'],
+            'unit_of_measure_code' => $request['unit_of_measure_code'],
+            'inventory' => $request['inventory'],
+            'unit_price' => $request['unit_price'],
+            'total_amount' => $request['total_amount'],
+            'curency_code' => $request['curency_code'],
+            'statue'       => 'open',
+            'created_by'   => 'Chhin Pov',
+            'statue'       => 'open',
+        ]);
+        if($brand){
+            $purline = purchealine::find($brand->id);
+            $purline->product_no = $request->product_no;
+            $purline->save();
+            return ['statue :' => "success full"];
+        }else{
+            return ['statue :'=>"faile"];
+        }
+    }
     public function getPrulinkUnit($id)
     {
                 $productvariantcode = productvariantcode::groupBy('variant_unit_of_measure_code','unit_price','curency_code')

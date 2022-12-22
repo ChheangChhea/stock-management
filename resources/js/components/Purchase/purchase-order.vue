@@ -213,6 +213,14 @@
             </div>
           </div>
         </div>
+        <div class="search-box-footer" style=" background: #094e59e0; border: 1px #e6e1e16e solid;">
+              <div class="button type2" id="uniform-undefined">
+                <span  data-bs-toggle="modal" data-bs-target="#statiex-import" tabindex="10028" @click="save()"><input @click="save()" type="button" value="display" class="type2" style="opacity: 0; width: 54px" tabindex="10025"  /><i class='fas fa-file-import'></i> Import From Excel</span>
+              </div>
+              <div class="button type2" id="uniform-undefined">
+                <span  data-bs-toggle="modal" data-bs-target="#statiex-import" tabindex="10028" @click="exportSheet()"><input @click="exportSheet()" type="button" value="display" class="type2" style="opacity: 0; width: 54px" tabindex="10025"  /><i class='fas fa-file-import'></i> Export To Excel</span>
+              </div>
+            </div>
         <div class="box">
           <div class="box-content">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_list">
@@ -536,6 +544,116 @@
               </div>
             </div>
     </div>
+    <div class="modal fade ui-modal" id="statiex-import" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticboomId" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content ui-dialog">
+                <div class="ui-widget-header">
+                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> {{ exefile }} to Docutment: {{ form.document_no }} , {{ form.description }}</h5>
+                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
+                    <span class="ui-icon ui-icon-closethick">close</span></a>
+                </div>
+                <div id="purchaseorder">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="container mb-5 mt-3">
+                        <div class="row d-flex align-items-baseline">
+                          <div class="col-xl-9">
+                          </div>
+                            <hr>
+                        </div>
+
+                        <div class="container">
+                          <div class="col-md-12">
+                            <div class="text-center">
+                              <h3 v-if="excel=='Import'" class="title-purchase">{{excel}} from Excel</h3>
+                              <h3 v-else class="title-purchase">{{excel}} To Excel</h3>
+                            </div>
+                          </div>
+                          <div class="row my-2 mx-1 justify-content-center table-padding-bot customsroll">
+                            <table class="table table-striped table-borderless" id="exceldata">
+                              <thead style="background-color:#84B0CA ;" class="text-white">
+                                <tr>
+                                  <th style="width: 5%">No</th>
+                                  <th style="width: 10%">Document No</th>
+                                  <th style="width: 10%">Document Type</th>
+                                  <th style="width: 7%">Product No</th>
+                                  <th style="width: 7%">Description</th>
+                                  <th style="width: 7%">Unit Price</th>
+                                  <th style="width: 7%">Inventory</th>
+                                  <th style="width: 7%">Unit Code</th>
+                                  <th style="width: 7%">Total</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr v-for="(purchaseLine,index) in items" :key="items.index">
+                                  <th v-if="index>=1" style="width: 5%">{{index}}</th>
+                                  <th v-if="index>=1" style="width: 10%">{{purchaseLine.document_no}}</th>
+                                  <th v-if="index>=1" style="width: 10%">{{purchaseLine.document_type}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.product_no}}</th>
+                                  <th v-if="index>=1" style="width: 10%">{{purchaseLine.description}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.unit_price}}{{purchaseLine.curency_code}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.inventory}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.unit_of_measure_code}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.total_amount}}{{purchaseLine.curency_code}}</th>
+                                </tr>
+                              </tbody>
+
+                            </table>
+                          </div>
+                          <div class="row">
+                            <div class="col-xl-8 supplier-padding">
+                              <p class="ms-3">Payment Information</p>
+                              <ul class="list-unstyled">
+                                <li class="text-muted">ABA BANK<span class="text--color">Mr. Master</span></li>
+                                <li class="text-muted">Bank Name:<span class="text--color">Mr. Master</span></li>
+                                <li class="text-muted">Bank Account Number: <span class="text--color">001 025 025</span></li>
+                              </ul>
+                            </div>
+
+                            <div class="col-xl-8 supplier-padding">
+                              <ul class="list-unstyled">
+                                <tr>
+                                  <td class="th-font-bold text-right">Products :</td>
+                                  <td class="th-font-bold">{{ productline }}</td>
+                                </tr>
+                                <tr>
+                                  <td class="th-font-bold text-right" >Inventory : </td>
+                                  <td class="th-font-bold">{{ item }}</td>
+                                </tr>
+                                <tr>
+                                  <td class="th-font-bold table-th-width text-right">Total Amount : </td>
+                                  <td class="th-font-bold">{{total}}{{form.curency_code}}</td>
+                                </tr>
+                              </ul>
+                            </div>
+                          </div>
+                          <hr>
+                      
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                     <a v-if="excel=='Import'" class="btn-purchase btn-light text-capitalize" data-bs-dismiss="modal" data-mdb-ripple-color="dark" @click="saveprulink()"><i class="fas fa-save"></i> Save Date</a>
+                     <a v-if="excel=='Import'" class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i class="fa-solid fa-file-import"></i> {{ excel }} Form excel</a>
+                     <input v-if="excel=='Import'"  type="file" @change="getExcelData" name="select_file" />
+                     <a v-else class="btn-purchase btn-light text-capitalize" data-bs-dismiss="modal" data-mdb-ripple-color="dark" @click="exportdataExcel()"><i class="fas fa-save"></i> Save Date</a>
+                     </div>
+              </div>
+            </div>
+    </div>
+    <div id="myModal" class="lskymodal">
+      <div class="lskymodal-content">
+         <p><i class="fa fa-check" aria-hidden="true"></i> {{ massege }}</p>
+      </div>
+    </div>
+    <div id="myModalauto" class="lsky">
+      <div class="lsky-content">
+         <p>{{ massege }}</p>
+      </div>
+    </div>
 </template>
 <script>
 
@@ -543,13 +661,16 @@ import axios from "axios";
 export default {
   data() {
     return {
+      massege:'',
       pending: false,
+      file:null,
       img: "",
       code: "",
       confirm: "",
       title: "",
       message: "",
       purchases: "",
+      exefile:'Import ',
       purchasesCode: "",
       suppliyer: [],
       purchases_lines: [],
@@ -569,6 +690,22 @@ export default {
         curency_code: "",
         inactived: "",
       },
+      items :[{
+            id:'',
+            document_no:'',
+            document_type:'',
+            product_no:'',
+            description:'',
+            unit_of_measure_code:'',
+            inventory:0,
+            unit_price:0,
+            total_amount:0, 
+            curency_code:'',
+        }],
+        checkarray:1,
+        excel:'Import',
+        head :["id","document_no","document_type","product_no","description","unit_of_measure_code","inventory","unit_price","total_amount", "curency_code"],
+        fileName : "PrucheseLine.xlsx",
     };
   },
   async mounted() {
@@ -777,6 +914,95 @@ export default {
         window.print();
         window.location.reload();
     },
+    getExcelData(event){
+      let xlsxfile = event.target.files ? event.target.files[0] : null;
+      readXlsxFile(xlsxfile).then((rows) => {
+        var x=0;
+        rows.forEach(element => {
+            if(x>0){
+                this.items.push({
+                  id:x,
+                  document_no: this.form.document_no,
+                  document_type: this.form.document_type,
+                  product_no: element[1],
+                  description: element[2],
+                  unit_of_measure_code: element[3],
+                  inventory: element[4],
+                  unit_price: element[5],
+                  total_amount: element[6], 
+                  curency_code: this.form.curency_code,
+              })
+            } 
+            x++;
+            this.sumTotal(this.items);
+        });
+      })
+      
+    },
+    saveprulink(){
+      if(this.items.length > 0){ setTimeout(() => this.savepru(), 500);}
+    },
+  savepru(){
+            axios.post('/api/v1/purchase/PrulinkeSave/',this.items[this.checkarray]).then((response) => { 
+              this.massege = this.items[this.checkarray-1].product_no + ' / '+ this.items[this.checkarray-1].description;
+              this.massege +=" : "+ this.items[this.checkarray].product_no + ' / '+ this.items[this.checkarray].description;
+              this.massege +=" : "+ this.items[this.checkarray+1].product_no + ' / '+ this.items[this.checkarray+1].description;
+             });
+        if(this.checkarray < this.items.length ){
+              this.saveprulink();
+              this.checkarray++;
+              this.meassagechek('open');
+        }else{
+          this.meassagechek('close');
+          this.checkarray = 0;
+        }
+     },
+    save(){
+      this.excel = 'Import';
+      this.productline =0;
+      this.total = 0;
+      this.items = [];
+      this.item = 0;
+    },
+     meassagechek(check){
+      var modal = document.getElementById("myModalauto");
+        if(check =='open'){
+          modal.style.display = "block";
+        }else{
+          axios.post("api/v1/purchase/addrow/purchaseline/" + this.purchases)
+                  .then((response) => {
+                    this.purchases_lines = response.data;
+                    modal.style.display = "none";
+              });
+        }
+      },
+      exportSheet() { 
+          this.items = [];
+          this.purchases_lines.forEach(element => {
+          console.log(element);
+          this.items.push({
+                  id:element.id,
+                  document_no: element.document_no,
+                  document_type: element.document_type,
+                  product_no: element.product_no,
+                  description: element.description,
+                  unit_of_measure_code: element.unit_of_measure_code,
+                  inventory: element.inventory,
+                  unit_price: element.unit_price,
+                  total_amount: element.total_amount, 
+                  curency_code: element.curency_code,
+              })
+        });
+        this.excel = 'Export';
+      },
+      exportdataExcel(){
+                var tbl = document.getElementById('exceldata');
+                var ws = XLSX.utils.json_to_sheet(tbl);
+                console.log(ws);
+                // var wb = XLSX.utils.book_new();
+                // XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+                // XLSX.writeFile(wb,"sheetjs.xlsx");
+      }
   },
   startCountdown: function () {
     this.counting = true;

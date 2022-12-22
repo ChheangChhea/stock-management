@@ -321,16 +321,15 @@ class ProductContraller extends Controller
     {
         $product_view = product::orderBy('product_no', 'asc')
         ->addSelect('id','product_no','product_barcode', 'description', 'description_2','image_url', 'stock_unit_of_measure_code','purche_unit_of_measure_code','bom_no','reorder_point', 'sup_code', 'brand_code', 'group_code', 'cat_code','variant_code', 'unit_price', 'inactived', 'is_deleted','created_by','updete_by', 'delete_by', 'created_at', 'updated_at')
-        ->whereIn('product_no',product::select('product_no')
-        ->where('product_barcode','LIKE',"%{$request->product_barcode}")
-        ->where('description','LIKE',"%{$request->description}")
-        ->where('description_2','LIKE',"%{$request->description_2}")
-        ->where('stock_unit_of_measure_code','LIKE',"%{$request->stock_unit_of_measure_code}")
-        ->where('purche_unit_of_measure_code','LIKE',"%{$request->purche_unit_of_measure_code}")
-        ->where('group_code','LIKE',"%{$request->group_code}")
-        ->where('cat_code','LIKE',"%{$request->cat_code}")
-        ->where('inactived','LIKE',"%{$request->inactived}")
-        ->get())->paginate(9);
+         ->whereIn('product_no',product::select('product_no')
+         ->where('description','LIKE',"%{$request->description}%")
+         ->where('description_2','LIKE',"%{$request->description_2}%")
+         ->where('stock_unit_of_measure_code','LIKE',"%{$request->stock_unit_of_measure_code}%")
+         ->where('purche_unit_of_measure_code','LIKE',"%{$request->purche_unit_of_measure_code}%")
+         ->where('group_code','LIKE',"%{$request->group_code}%")
+         ->where('cat_code','LIKE',"%{$request->cat_code}%")
+         ->where('inactived','LIKE',"%{$request->inactived}%")
+         ->get())->paginate(9);
         return $product_view;
     }
 

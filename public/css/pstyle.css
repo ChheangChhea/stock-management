@@ -93,3 +93,64 @@ margin-bottom: -50px!important;
     overflow: auto;
     zoom: 1;
 }
+.smallpopup {
+    max-width: 62vh !important;
+    margin: 1.75rem auto !important;
+}
+.customsroll{
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+.ui-dialog .ui-dialog-titlebar-close span {
+    display: block;
+    margin: 1px;
+    position: absolute;
+    top: -47px !important;
+}
+.modal-footer input{
+    position: absolute;
+    right: 297px;
+    height: 30px;
+     opacity: 0.01;
+}
+.modal-footer input,.modal-footer a{
+   cursor: pointer;
+}
+
+.lsky-content {
+    /* background-image: url(image/stockhealthy-08.png); */
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 2px solid #000000ba;
+    top: 0;
+    background-color: #17a2b8;
+    width: 890px;
+    object-fit: contain;
+    right: 0;
+    position: absolute;
+    color: #edf0ed;
+    border-radius: 9px;
+    font-weight: bold;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    padding-left: 20px;
+    height: 66px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.lsky {
+    display: none; 
+    position: fixed;
+    z-index: 100;
+    right: 15px;
+    top: 13px;
+    background-color: rgb(0, 0, 0);
+    background-color: rgb(0 0 0 / 0%);
+    position: absolute;
+}
+#purchase .search-box-footer{
+    padding: 10px;
+}

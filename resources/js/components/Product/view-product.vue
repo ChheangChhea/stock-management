@@ -211,7 +211,7 @@
         </tr>
     </thead>
     <tbody>
-      <tr v-for="(product, index) in products" :key="index" >
+      <tr v-for="(product, index) in products.data" :key="index" >
             <td v-if="(index)%2==0" style="background-color: #dbdee1; border: medium none;">
                <img alt="タックシール印刷" height="40" src="pichture/para.png" width="40" >
             </td>
@@ -317,14 +317,17 @@ import { exportDefaultSpecifier } from '@babel/types';
               if(page > 0 && page <= this.last_page){
               axios.get('/api/v1/products/viewpro').then(({data})=>{
               this.links = data.links
-              this.last_page = data.last_page       
+              this.last_page = data.last_page  
+              console.log(data.data);    
+             
               this.links.forEach(element => {
                  if(element.label == page){
                    this.perPage = "/api/v1/products/viewpro?page="+page
                    axios.get(this.perPage).then(({data})=>{
                     this.currentPage = data.current_page
                     console.log(data.data);
-                    this.products = data.data
+                    this.products = data 
+                   
                   })
                  }
               });
@@ -370,15 +373,15 @@ import { exportDefaultSpecifier } from '@babel/types';
 
          async searchProduct(page=1) {
                if(page > 0 && page <= this.last_page){
-              axios.post('/api/v1/products/productsearch/',this.form).then(({data})=>{
+              axios.get('/api/v1/products/productsearch/',this.form).then(({data})=>{
               console.log(data.links);
               this.links = data.links
-              this.products=data.data;
               this.last_page = data.last_page       
               this.links.forEach(element => {
                  if(element.label == page){
                    this.perPage = "/api/v1/products/productsearch?page="+page
-                   axios.post(this.perPage).then(({data})=>{
+                   axios.get(this.perPage , {form:this.form}).then(({data})=>{
+                    this.products=data;
                     this.currentPage = data.current_page
                   })
                  }

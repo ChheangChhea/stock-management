@@ -80,7 +80,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('products/updateProductLinke/{product}',[ProductContraller::class,'updateProductLinke']);
     Route::post('products/getlinkunit/{product}',[ProductContraller::class,'getlinkunit']);
     Route::post('products/getboomline/{product}',[ProductContraller::class,'getboomline']);
-    Route::post('products/productsearch/',[ProductContraller::class,'productsearch']);
+    Route::get('products/productsearch/',[ProductContraller::class,'productsearch']);
     Route::post('purchase/delete/getPrulinkUnit/{purchase}', [PurcheaOrderContraller::class, 'getPrulinkUnit']);
 
 
@@ -135,6 +135,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('purchase/update/purchaseline/{purchase}', [PurcheaOrderContraller::class, 'updatePurchaseline']);
     Route::post('purchase/delete/purchaseorder/{purchase}', [PurcheaOrderContraller::class, 'deletePurchaseorder']);
     Route::post('purchase/delete/getPrulinkUnit/{purchase}', [PurcheaOrderContraller::class, 'getPrulinkUnit']);
+    Route::post('purchase/PrulinkeSave/', [PurcheaOrderContraller::class, 'PrulinkeSave']);
     // ReceiveOrderContraller
     Route::get('receive/getpurchea', [ReceiveOrderContraller::class, 'getshowpurchea']);
     Route::post('receive/receptlink/', [ReceiveOrderContraller::class, 'receptlink']);
