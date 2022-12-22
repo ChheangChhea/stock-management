@@ -26,6 +26,7 @@ import MenuMedical from './components/MenuMedical.vue'
 import Receptorder from './components/Recept/Recept-order.vue'
 import viewRecept from './components/Recept/view-Recept.vue'
 import unitcode from './components/unitcode/unitcode.vue'
+import StockTransection from './components/StockTransection/stock-transection.vue'
 
 const app = createApp({
   components:{
@@ -48,6 +49,7 @@ const app = createApp({
     Receptorder,
     viewRecept,
     unitcode,
+    StockTransection,
   }
 })
 Alpine.start()

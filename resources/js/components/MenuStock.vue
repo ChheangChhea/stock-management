@@ -43,7 +43,7 @@
           <li>
             <dl>
               <dt>
-                <router-link to="/category">
+                <router-link to="/stocktransection">
                   <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
                 </router-link>
               </dt>
@@ -56,7 +56,7 @@
             <dl>
               <dt>
                 <router-link to="/stockalert">
-                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                  <img alt="タックシール印刷" height="168" src="img/icon-stockalert.png" width="168">
                 </router-link>
               </dt>
               <dd>

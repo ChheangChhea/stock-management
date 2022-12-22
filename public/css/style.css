@@ -9063,12 +9063,13 @@ input[name="nav-item"] {
 }
 
 a img {
-	opacity: 0.8;
+	opacity: 0.75;
 }
 a img:hover{
 	opacity: 1;
 }
 .cate-td td {
 	padding: 7px ;
+	word-break: break-all;
 }
 

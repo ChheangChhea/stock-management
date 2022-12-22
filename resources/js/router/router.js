@@ -19,6 +19,7 @@ import MenuMedical from '../components/MenuMedical.vue'
 import Receptorder from '../components/Recept/Recept-order.vue'
 import viewRecept from '../components/Recept/view-Recept.vue'
 import unitcode from '../components/unitcode/unitcode.vue'
+import StockTransection from '../components/StockTransection/stock-transection.vue'
 
 const routes = [
     { path: '/', component: App },
@@ -39,7 +40,8 @@ const routes = [
     { path: '/menumedical', component: MenuMedical},
     { path: '/receptorder', component: Receptorder},
     { path: '/viewrecept', component: viewRecept},
-    { path: '/unitcode', component: unitcode}
+    { path: '/unitcode', component: unitcode},
+    {path: '/stocktransection', component: StockTransection} ,
   ]
 
 export default  createRouter({

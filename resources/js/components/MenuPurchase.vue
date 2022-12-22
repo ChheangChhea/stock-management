@@ -33,7 +33,7 @@
             <dl>
               <dt>
                 <router-link to="/Purchasview">
-                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                  <img alt="タックシール印刷" height="168" src="img/icon-procheseorder.png" width="168">
                 </router-link>
               </dt>
               <dd>
