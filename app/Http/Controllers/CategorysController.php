@@ -14,7 +14,7 @@ class CategorysController extends Controller
         $category =  category::where('cat_name', "LIKE", '%' . $request->search . '%')
             ->orwhere('cat_name_2', "LIKE", '%' . $request->search . '%')
             ->orwhere('inactived', "LIKE", '%' . $request->search . '%')
-            ->orderBy('id', 'desc')->paginate(2);
+            ->orderBy('id', 'desc')->paginate(5);
         return $category;
     }
 
