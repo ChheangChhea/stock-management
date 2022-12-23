@@ -65,7 +65,7 @@
       <div id="product">
         <!--#contents -->
         <div class="search-box mb-4">
-          <div class="search-box-title" style="height: 36px">
+          <div class="search-box-title">
             <router-link to="product"
               ><a
                 class="btn-radius btn btn-sm"

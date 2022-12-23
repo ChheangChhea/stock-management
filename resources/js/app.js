@@ -27,6 +27,8 @@ import Receptorder from './components/Recept/Recept-order.vue'
 import viewRecept from './components/Recept/view-Recept.vue'
 import unitcode from './components/unitcode/unitcode.vue'
 import StockTransection from './components/StockTransection/stock-transection.vue'
+import Currency from './components/Currency/currency.vue'
+import ExchangeRate from './components/ExchangeRate/ExchangeRate.vue'
 
 const app = createApp({
   components:{
@@ -50,6 +52,8 @@ const app = createApp({
     viewRecept,
     unitcode,
     StockTransection,
+    Currency,
+    ExchangeRate,
   }
 })
 Alpine.start()

@@ -20,6 +20,8 @@ import Receptorder from '../components/Recept/Recept-order.vue'
 import viewRecept from '../components/Recept/view-Recept.vue'
 import unitcode from '../components/unitcode/unitcode.vue'
 import StockTransection from '../components/StockTransection/stock-transection.vue'
+import Currency from '../components/Currency/currency.vue'
+import ExchangeRate from '../components/ExchangeRate/ExchangeRate.vue'
 
 const routes = [
     { path: '/', component: App },
@@ -41,7 +43,9 @@ const routes = [
     { path: '/receptorder', component: Receptorder},
     { path: '/viewrecept', component: viewRecept},
     { path: '/unitcode', component: unitcode},
-    {path: '/stocktransection', component: StockTransection} ,
+    {path: '/stocktransection', component: StockTransection},
+    {path: '/currency', component: Currency},
+    {path: '/exchangerate', component: ExchangeRate},
   ]
 
 export default  createRouter({

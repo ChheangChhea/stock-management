@@ -94,7 +94,7 @@
               >
             </li>
           </ul>
-          <div class="search-box-title" style="height: 36px">
+          <div class="search-box-title">
             <a
               class="btn-radius bt-pn btn btn-sm"
               href="#"

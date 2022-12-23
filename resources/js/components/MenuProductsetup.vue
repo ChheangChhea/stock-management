@@ -91,6 +91,30 @@
           <li>
             <dl>
               <dt>
+                <router-link to="/currency">
+                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                </router-link>
+              </dt>
+              <dd>
+                <span>Currency</span>
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>
+                <router-link to="/exchangerate">
+                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                </router-link>
+              </dt>
+              <dd>
+                <span>Exchange Rate</span>
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>
                 <router-link to="/serailcode">
                   <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
                 </router-link>

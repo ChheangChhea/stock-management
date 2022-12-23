@@ -63,7 +63,7 @@
       <div id="product">
         <!--#contents -->
         <div class="search-box mb-4">
-          <div class="search-box-title" style="height: 36px">
+          <div class="search-box-title">
             <router-link to="purchase"><a class="btn-radius btn btn-sm" href="#"
                 style="color: #f8f5b4; margin-top: -2px">
                 <i class="fas fa-plus" style="padding-right: 5px"> </i>
