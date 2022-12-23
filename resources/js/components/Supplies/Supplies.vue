@@ -400,7 +400,7 @@
                 <td width="12%">{{ suppliyer.email }}</td>
                 <td width="6%">{{ suppliyer.contact_name }}</td>
                 <td width="6%">{{ suppliyer.contact_phone }}</td>
-                <td width="10%">
+                <td width="11%">
                   <div class="button" id="uniform-undefined">
                     <span
                       >Delete<input

@@ -178,15 +178,17 @@ margin-bottom: -50px!important;
 }
 
 
-
+.tbl_list tbody td {
+      word-break: break-all;
+}
 
 
 @media screen and (max-width:1076px) {
 .table td, .table th {
       font-size: 11px;
-}
+    }
 div.button span {
-    font-size: 10px;
+    font-size: 11px;
 }
 .tbl_list tbody td {
     padding: 2px 4px;
