@@ -18,6 +18,11 @@ class ProductgroupController extends Controller
         return $productgroup;
     }
 
+    public function getdatagroup()
+    {
+        $productgroup = productgroup::get();
+        return $productgroup;
+    }
     /**
      * Show the form for creating a new resource.
      *

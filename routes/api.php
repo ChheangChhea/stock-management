@@ -103,6 +103,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('suppliyers/delete/{suppliyers}', [SuppliyerController::class, 'destroy']);
 
     //Units code
+    Route::get('getunite/',[UnitofMeasureContraller::class,'getunite']);
     Route::get('units/', [UnitofMeasureContraller::class, 'index']);
     Route::post('units/store', [UnitofMeasureContraller::class, 'store']);
     Route::post('units/update/{units}', [UnitofMeasureContraller::class, 'update']);

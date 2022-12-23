@@ -271,9 +271,9 @@
                       class="form"
                       style="width: 385px"
                     >
-                      <!-- <option v-for="uint in uints" :value="uint.unit_code">
+                      <option v-for="uint in uints" :value="uint.unit_code">
                         {{ uint.unit_of_measure }}
-                      </option> -->
+                      </option>
                     </select>
                   </td>
                 </tr>
@@ -286,9 +286,9 @@
                       class="form"
                       style="width: 385px"
                     >
-                      <!-- <option v-for="uint in uints" :value="uint.unit_code">
+                      <option v-for="uint in uints" :value="uint.unit_code">
                         {{ uint.unit_of_measure }}
-                      </option> -->
+                      </option>
                     </select>
                   </td>
                 </tr>
@@ -1632,10 +1632,10 @@ export default {
           });
       }
     },
-
     getunite() {
-      axios.get("/api/v1/units").then((response) => {
+      axios.get("/api/v1/getunite").then((response) => {
         this.uints = response.data;
+        console.log(this.uints);
       });
     },
     getbrands() {
@@ -1755,6 +1755,8 @@ export default {
       };
     },
     autoUpdate(product_link) {
+      product_link.stock_unit_of_measure_code = this.form.stock_unit_of_measure_code;
+      if(this.form.stock_unit_of_measure_code == product_link.variant_unit_of_measure_code) product_link.quantity_per_unit =1;
       if (product_link.product_no != "") {
         axios
           .post(
@@ -1762,7 +1764,6 @@ export default {
             product_link
           )
           .then((response) => {
-            //  this.form_lines = response.data
             this.messagebox();
           });
       }

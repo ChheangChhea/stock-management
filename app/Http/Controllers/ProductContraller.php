@@ -235,6 +235,7 @@ class ProductContraller extends Controller
         $productvariantcode ->description_2 = $request -> description_2; 
         $productvariantcode ->image_url = $request -> image_url; 
         $productvariantcode ->variant_unit_of_measure_code = $request -> variant_unit_of_measure_code; 
+        $productvariantcode ->stock_unit_of_measure_code = $request -> stock_unit_of_measure_code; 
         $productvariantcode ->quantity_per_unit = $request -> quantity_per_unit; 
         $productvariantcode ->unit_price = $request -> unit_price; 
         $productvariantcode ->curency_code = $request -> curency_code; 

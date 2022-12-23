@@ -20,6 +20,7 @@ class ProductVariantCode extends Migration
             $table->string("description_2", 100)->nullable();
             $table->string("image_url",255)->nullable();
             $table->string("variant_unit_of_measure_code",255)->nullable();
+            $table->string("stock_unit_of_measure_code",255)->nullable();
             $table->string("quantity_per_unit",255)->nullable();
             $table->string("unit_price",255)->nullable();
             $table->string("curency_code",255)->nullable();

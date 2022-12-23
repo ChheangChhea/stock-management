@@ -7,6 +7,8 @@ use App\Models\purcheaorder;
 use App\Models\receiveorderline;
 use App\Models\stockkeeping;
 use App\Models\purchealine;
+use App\Models\stocktransaction;
+use App\Models\product_vavaincode_view;
 use Illuminate\Http\Request;
 
 class ReceiveOrderContraller extends Controller
@@ -84,12 +86,14 @@ class ReceiveOrderContraller extends Controller
         if ($receiveorder) {
             if(1){
                 $stockkeeping = stockkeeping::where('product_no', '=',$request->product_no)->first();
-                $purchealine = purchealine::where('document_no', '=',$request->document_no)->where('product_no', '=',$request->product_no)->first();
+                $purchealine = purchealine::where('document_no', '=',$request->document_no)->where('product_no','=',$request->product_no)->first();
                 $inventorynew =  floatval($purchealine->inventory)-floatval($request->inventory_recetive);
                 $inventoryres =  $request->inventory_recetive;
                 $purOrder = purcheaorder::where('document_no', '=',$request->document_no)->first(); $purOrder->statue = 'close'; $purOrder->save();  
+                $productvariantcode = product_vavaincode_view::where('product_no','=',$request->product_no)->where('variant_unit_of_measure_code','=',$request->unit_of_measure_code)->get();
+                
+                if($productvariantcode){}
                 if($stockkeeping){
-
                  }else{
                         $inventory_order = 0;
                         $inventory = $inventory_order + floatval($request['inventory_recetive']);
@@ -111,8 +115,28 @@ class ReceiveOrderContraller extends Controller
                             'remark'                => $request['remark'],
                             'created_by'            => "Chhin Pov",
                             ]);
-                            if($purchealine->inventory != $request->inventory_recetive){
-                              $check = false;
+                            if($receiveorder){
+                                if($purchealine->inventory != $request->inventory_recetive){
+                                    $check = false;
+                                  }
+                                  $stocktransaction = stocktransaction::create([
+                                    'document_no'          => $receiveorder['document_no'],
+                                    'document_type'        => 'Order Recpt Invoince',
+                                    'product_no'           => $receiveorder['product_no'],
+                                    'description'          => $receiveorder['description'],
+                                    'unit_of_measure_code' => $receiveorder['unit_of_measure_code'],
+                                    'unit_price'           => $receiveorder['unit_price'],
+                                    'inventory'            => $receiveorder['inventory'],
+                                    'total_amount'         => $receiveorder['total_amount'],
+                                    'curency_code'         => $receiveorder['curency_code'],
+                                    'remark'               => $receiveorder['remark'],
+                                    'created_by'           => $receiveorder['created_by']
+                                    ]);
+                                   if($stocktransaction){
+
+                                   }else{
+
+                                   }
                             }
                    }
                 
@@ -159,9 +183,9 @@ class ReceiveOrderContraller extends Controller
      */
     public function getshowpurchea(Request $request)
     {
-        $purcheas_order_view = purcheaorder::where('statue', '=',"open")->get();
-        if ($purcheas_order_view) {
-            return $purcheas_order_view;
+       $productvariantcode = purcheaorder::where('statue', '=',"open")->get();      
+        if ($productvariantcode) {
+            return $productvariantcode;
         } else {
             return ['statue :' => "Note Date"];
         }

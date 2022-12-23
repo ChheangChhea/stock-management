@@ -18,6 +18,11 @@ class UnitofMeasureContraller extends Controller
         $unitofmeasure = unitofmeasure::orderBy('id')->paginate(5);
         return $unitofmeasure;
     }
+    public function getunite()
+    {
+        $unitofmeasure = unitofmeasure::get();
+        return $unitofmeasure;
+    }
     /**
      * Show the form for creating a new resource.
      *
