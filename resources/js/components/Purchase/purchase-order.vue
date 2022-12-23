@@ -172,7 +172,7 @@
                   <th width="10%">Suppliyer</th>
                   <td width="50%">
                     <select :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.suppliyer_code"
-                      class="form"   style="width: 370px" > 
+                      class="form"   style="width: 385px" > 
                       
                       <option value="">Selete Suppliyer</option>
                       <option v-for="suppliye in suppliyer" :value="suppliye.sup_code" :key="suppliye.id">
@@ -222,19 +222,19 @@
               </div>
             </div>
         <div class="box">
-          <div class="box-content">
+          <div class="box-content" id="excell">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_list">
               <thead>
-                <tr>
-                  <th style="width: 7%">Product No</th>
-                  <th style="width: 10%">Description</th>
-                  <th style="width: 7%">Unit Price</th>
-                  <th style="width: 7%">Inventory</th>
-                  <th style="width: 7%">Unit Code</th>
-                  <th style="width: 7%">Total Amount</th>
-                  <th style="width: 7%">Curency Code</th>
-                  <th style="width: 10%">Remark</th>
-                  <th style="width: 7%"></th>
+                <tr class="excellcolor-trhead">
+                  <th class="excellcolor-trhead" style="width: 7%">Product No</th>
+                  <th class="excellcolor-trhead" style="width: 10%">Description</th>
+                  <th class="excellcolor-trhead" style="width: 7%">Unit Price</th>
+                  <th class="excellcolor-trhead" style="width: 7%">Inventory</th>
+                  <th class="excellcolor-trhead" style="width: 7%">Unit Code</th>
+                  <th class="excellcolor-trhead" style="width: 7%">Total Amount</th>
+                  <th class="excellcolor-trhead" style="width: 7%">Curency Code</th>
+                  <th class="excellcolor-trhead" style="width: 10%">Remark</th>
+                  <th class="excellcolor-trhead" style="width: 7%"></th>
                 </tr>
                 <tr v-for="purchaseLine in purchases_lines" :key="purchaseLine.index">
                   <th >
@@ -637,7 +637,7 @@
                 </div>
                 <div class="modal-footer">
                      <a v-if="excel=='Import'" class="btn-purchase btn-light text-capitalize" data-bs-dismiss="modal" data-mdb-ripple-color="dark" @click="saveprulink()"><i class="fas fa-save"></i> Save Date</a>
-                     <a v-if="excel=='Import'" class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i class="fa-solid fa-file-import"></i> {{ excel }} Form excel</a>
+                     <a v-if="excel=='Import'" class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i class="fas fa-file-excel"></i> {{ excel }} Form excel</a>
                      <input v-if="excel=='Import'"  type="file" @change="getExcelData" name="select_file" />
                      <a v-else class="btn-purchase btn-light text-capitalize" data-bs-dismiss="modal" data-mdb-ripple-color="dark" @click="exportdataExcel()"><i class="fas fa-save"></i> Save Date</a>
                      </div>
