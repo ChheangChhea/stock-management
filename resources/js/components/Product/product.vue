@@ -408,7 +408,7 @@
               <img
                 src="img/icon-img_upload.png"
                 alt="Upload Image.."
-                style="width: 170px; height: auto"
+                style="width: 240px; height: 180px"
                 @click="choosePhoto"
               />
               <p class="text-upload">
@@ -482,13 +482,13 @@
                     <img
                       v-if="form_line.image_url == null"
                       src="img/icon-img_upload.png"
-                      style="width: 50px;"
+                      style="width: 50px; height: 40px"
                       @click="choosePhoto"
                     />
                     <img
                       v-else
                       :src="photo_path + form_line.image_url"
-                      style="width: 50px;"
+                      style="width: 60px; height: 40px"
                       @click="choosePhoto"
                     />
                     <input
@@ -1755,24 +1755,38 @@ export default {
       };
     },
     autoUpdate(product_link) {
-      product_link.stock_unit_of_measure_code = this.form.stock_unit_of_measure_code;
-      if(this.form.stock_unit_of_measure_code == product_link.variant_unit_of_measure_code) product_link.quantity_per_unit =1;
+      
       if (product_link.product_no != "") {
-        axios
-          .post(
-            "/api/v1/products/updateProductLinke/" + product_link.id,
-            product_link
-          )
-          .then((response) => {
+        if(product_link.status =='stock'){ 
+           product_link.stock_unit_of_measure_code =  product_link.variant_unit_of_measure_code;
+           product_link.quantity_per_unit =1
+          }
+        axios.post("/api/v1/products/updateProductLinke/" + product_link.id, product_link ).then((response) => {
+            if(this.form.stock_unit_of_measure_code != product_link.variant_unit_of_measure_code){
+              if(product_link.status =='stock'){
+                 this.form.stock_unit_of_measure_code = product_link.variant_unit_of_measure_code;
+                 this.autoUpdateProduct(this.form);
+              }
+            } 
             this.messagebox();
           });
       }
+    },
+    checkUnitcode(){
+      this.form_lines.forEach(element => {
+           if(element.status =='stock' & this.form.stock_unit_of_measure_code !=element.stock_unit_of_measure_code){
+              element.stock_unit_of_measure_code = this.form.stock_unit_of_measure_code;
+              element.variant_unit_of_measure_code = this.form.stock_unit_of_measure_code;
+              this.autoUpdate(element);
+           }
+       });
     },
     autoUpdateProduct(product) {
       if (product.product_no != "") {
         axios
           .post("/api/v1/products/update/" + product.product_no, product)
           .then((response) => {
+            this. checkUnitcode();
             this.messagebox();
           });
       }

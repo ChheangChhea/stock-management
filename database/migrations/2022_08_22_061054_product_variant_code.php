@@ -24,6 +24,7 @@ class ProductVariantCode extends Migration
             $table->string("quantity_per_unit",255)->nullable();
             $table->string("unit_price",255)->nullable();
             $table->string("curency_code",255)->nullable();
+            $table->string("status", 50)->nullable();
             $table->string("inactived", 50)->nullable();
             $table->tinyInteger('is_deleted')->default(0);
             $table->string("created_by",50)->nullable();

@@ -48,11 +48,22 @@ class ProductContraller extends Controller
         ]);
         if($product){
                  for($i=0;$i<2;$i++){
-                    $productvariantcode = productvariantcode::create([
-                        'product_no' => $serail_no,
-                        'description' => 'Medichince Product',
-                        'created_by' => 'Chhin Pov'
-                    ]);
+                    if($i==0){
+                        $productvariantcode = productvariantcode::create([
+                            'product_no' => $serail_no,
+                            'description' => 'Medichince Product',
+                            'created_by' => 'Chhin Pov',
+                            'status'     => 'stock'
+                        ]);
+                    }else{
+                        $productvariantcode = productvariantcode::create([
+                            'product_no' => $serail_no,
+                            'description' => 'Medichince Product',
+                            'created_by' => 'Chhin Pov',
+                            'status'     => 'unit'
+                        ]);
+                    }
+                   
                  }
                 if($productvariantcode){
                       $serilano = Serail::where('id', '=','Products')->first();
@@ -81,11 +92,22 @@ class ProductContraller extends Controller
     public function crateUnite($id){
         $serail_no = product::where('product_no','=',$id)->first();
         $decrip =  $serail_no ->description;
-        $productvariantcode = productvariantcode::create([
-            'product_no' => $id,
-            'description' => $decrip,
-            'created_by' => 'Chhin Pov'
-        ]);
+        $checkVarcode = productvariantcode::where('product_no','=',$id)->get();
+        if(count($checkVarcode)>0){
+            $productvariantcode = productvariantcode::create([
+                'product_no' => $id,
+                'description' => $decrip,
+                'created_by' => 'Chhin Pov',
+                'status'     => 'unit'
+            ]);
+        }else{
+            $productvariantcode = productvariantcode::create([
+                'product_no' => $id,
+                'description' => $decrip,
+                'created_by' => 'Chhin Pov',
+                'status'     => 'stock'
+            ]);
+        }
         if($productvariantcode){
             $serail_no = productvariantcode::where('product_no','=',$id)->get();
              return $serail_no;
@@ -268,7 +290,7 @@ class ProductContraller extends Controller
      */
     public function destLink($id)
     {
-        $productvariantcode = productvariantcode::find($id); 
+        $productvariantcode = productvariantcode::where('id','=',$id)->where('status','=','unit')->first(); 
         $product_no =  $productvariantcode ->product_no;
         $productvariantcode -> delete();
         if($productvariantcode){

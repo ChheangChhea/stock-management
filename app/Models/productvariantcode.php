@@ -20,6 +20,7 @@ class productvariantcode extends Model
         'quantity_per_unit',
         'unit_price',
         'curency_code',
+        'status',
         'inactived',
         'is_deleted',
         'created_by',
