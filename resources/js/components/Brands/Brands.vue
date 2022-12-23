@@ -71,10 +71,6 @@
           </a>
              <ul class="dropdown-menu">
             <li>
-              <a @click="getproductboom()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#staticboomId" tabindex="10028"><i class="fa-solid fa-circle-b"></i> Boom Product</a>
-            </li>
-            <li>
               <a @click="getsuppliyerview()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#staticboomId" tabindex="10028"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
             </li>

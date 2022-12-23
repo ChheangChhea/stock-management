@@ -8980,6 +8980,8 @@ input[name="nav-item"] {
 	vertical-align: top;
 	border-top: 1px solid #dee2e6;
 	text-align: center;
+	word-break: break-all;
+	line-height: 1.5;
 }
 
 .box-img_porder img {
