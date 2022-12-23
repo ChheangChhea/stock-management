@@ -125,7 +125,7 @@
                   <th width="20%">Suppliyer</th>
                   <td width="80%">
                     <select :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.suppliyer_code"
-                      class="form" style="width: 362px">
+                      class="form" style="width: 385px">
                       <option value="">Selete Suppliyer</option>
                       <option v-for="suppliye in suppliyer" :value="suppliye.sup_code" :key="suppliye.id">
                         {{ suppliye.sup_name }}
