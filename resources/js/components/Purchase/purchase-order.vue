@@ -84,7 +84,7 @@
             </li>
           </ul>
 
-          <div class="search-box-title" style="height: 36px">
+          <div class="search-box-title">
             <a class="btn-radius bt-pn btn btn-sm" href="#" data-bs-toggle="dropdown" aria-expanded="false"
               style="float: left; color: #f8f5b4; margin-top: -2px">
               <i class="fas fa-plus" style="padding-right: 5px; margin-top: -2px">
@@ -144,7 +144,7 @@
               </div>
             </div>
           </div>
-          <div class="search-box-content col-md-8 search-box02 flo02">
+          <div class="search-box-content  search-box02">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
               <tbody>
                 <tr>
@@ -203,14 +203,6 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-          <div class="col-md-4 search-box02 flo02">
-            <div class="box-img_porder">
-              <img alt="upload" src="img/icon-img_upload.png" />
-              <p class="text-upload01">
-                Drop an image or<br /><span><a href="#">upload file</a></span>
-              </p>
-            </div>
           </div>
         </div>
         <div class="search-box-footer" style=" background: #094e59e0; border: 1px #e6e1e16e solid;">
