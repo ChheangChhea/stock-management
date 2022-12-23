@@ -55,7 +55,7 @@
             </li>
           </ul>
 
-          <div class="search-box-title" style="height: 36px">
+          <div class="search-box-title">
             <a class="btn-radius bt-pn btn btn-sm" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdropss"
               tabindex="10028" style="float: left; color: #f8f5b4; margin-top: -2px">
               <i class="fas fa-plus" style="padding-right: 5px; margin-top: -2px">
