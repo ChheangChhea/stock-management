@@ -554,6 +554,7 @@
     </div> -->
 </template>
 <script setup>
+import Header from "..//Header.vue"
 import { ref, reactive, watch, computed, onMounted } from "vue";
 import pagination from "laravel-vue-pagination";
 import useCategory from "../../componentJS/category";
