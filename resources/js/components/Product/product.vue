@@ -78,7 +78,7 @@
                 @click="getproductboom()"
                 class="dropdown-item btn btn-primary"
                 data-bs-toggle="modal"
-                data-bs-target="#staticboomId"
+                data-bs-target="#staticBackdropss"
                 tabindex="10028"
                 ><i class="fa-solid fa-circle-b"></i> Boom Product</a
               >
@@ -691,7 +691,7 @@
     </div>
   </div>
   <div
-    class="modal fade"
+    class="modal fade ui-modal"
     id="staticBackdropss"
     data-bs-backdrop="static"
     data-bs-keyboard="false"
@@ -700,19 +700,262 @@
     aria-hidden="true"
   >
     <div class="modal-dialog">
+      <div class="modal-content ui-dialog">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">
+            Boom Products : {{ form.product_no }} , {{ form.description }}
+          </h5>
+          <span
+            class="ui-icon ui-icon-closethick"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></span>
+        </div>
+        <!-- ///////////////////////////////////////////// -->
+        <div class="box-content">
+          <table
+            width="100%"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            class="tbl_list tbl_stripe"
+            id="myTable"
+          >
+            <thead>
+              <tr>
+                <th width="10%">Product Code</th>
+                <th width="20%">Description</th>
+                <th width="9%">QTY in Unit</th>
+                <th width="9%">Quantity</th>
+                <th width="9%">Unit Code</th>
+                <th width="9%">Inactived</th>
+                <th width="9%"></th>
+              </tr>
+              <tr v-for="form_line in boomproducts">
+                <th>
+                  <div class="dropdown">
+                    <button
+                      @onmouseout="prooductboom(form_line)"
+                      class="dropdown-toggle string_zen clear_text text"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      size="50"
+                      style="
+                        width: 80% !important;
+                        padding-left: 11px;
+                        padding-right: 19px;
+                        border: none;
+                      "
+                    >
+                      {{ form_line.boom_product_id }}
+                    </button>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton1"
+                      style="
+                        max-height: 400px;
+                        width: 250px;
+                        scroll-behavior: smooth;
+                        padding: 5px;
+                        margin: 5px;
+                        box-shadow: 1px 1px 5px #141417;
+                      "
+                    >
+                      <p>
+                        <input
+                          v-model="txtsearch"
+                          @input="searchproduct(txtsearch)"
+                          class="string_zen clear_text text"
+                          size="50"
+                          type="text"
+                          style="
+                            width: 98% !important;
+                            border: 1px teal solid;
+                            border-radius: 1px;
+                            height: 30px;
+                          "
+                        />
+                      </p>
+                      <ul style="list-style: none" class="scrollable-menu">
+                        <li
+                          v-for="boompro in boompros"
+                          @click="getproduct(boompro, form_line, 'boomproducr')"
+                        >
+                          <div class="menu-item">
+                            <p style="color: blue">{{ boompro.product_no }}</p>
+                            <p>{{ boompro.description }}</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </th>
+                <th>
+                  <input
+                    v-model="form_line.description"
+                    @change="proboomAutoSave(form_line)"
+                    class="string_zen clear_text text"
+                    size="50"
+                    type="text"
+                    style="width: 80% !important"
+                  />
+                </th>
+                <th>
+                  <input
+                    v-model="form_line.quantity_per_unit"
+                    @change="proboomAutoSave(form_line)"
+                    class="string_zen clear_text text"
+                    size="50"
+                    type="text"
+                    style="width: 80% !important"
+                  />
+                </th>
+                <th>
+                  <input
+                    v-model="form_line.quantity"
+                    @change="proboomAutoSave(form_line)"
+                    class="string_zen clear_text text"
+                    size="50"
+                    type="text"
+                    style="width: 80% !important"
+                  />
+                </th>
+                <th>
+                  <div class="dropdown">
+                    <button
+                      @click="getboomnit(form_line.product_no)"
+                      @onmouseout="prooductboom(form_line)"
+                      class="dropdown-toggle string_zen clear_text text"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      size="50"
+                      style="
+                        width: 80% !important;
+                        padding-left: 11px;
+                        padding-right: 19px;
+                        border: none;
+                      "
+                    >
+                      {{ form_line.bom_unit_of_measure_code }}
+                    </button>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton1"
+                      style="
+                        max-height: 400px;
+                        width: 250px;
+                        scroll-behavior: smooth;
+                        padding: 5px;
+                        margin: 5px;
+                        box-shadow: 1px 1px 5px #141417;
+                        border: none;
+                      "
+                    >
+                      <p>
+                        <input
+                          v-model="txtsearch"
+                          @input="searchproduct(txtsearch)"
+                          class="string_zen clear_text text"
+                          size="50"
+                          type="text"
+                          style="
+                            width: 98% !important;
+                            border: 1px teal solid;
+                            border-radius: 1px;
+                            height: 30px;
+                          "
+                        />
+                      </p>
+                      <ul style="list-style: none" class="scrollable-menu">
+                        <li
+                          v-for="boompro in uints"
+                          @click="getproduct(boompro, form_line, 'boomunit')"
+                        >
+                          <div class="menu-item">
+                            <!-- <p>{{ boompro.variant_unit_of_measure_code }}</p> -->
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </th>
+                <th>
+                  <select
+                    v-model="form_line.inactived"
+                    @change="proboomAutoSave(form_line)"
+                    class="form"
+                    style="width: 80%"
+                  >
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+                </th>
+                <th class="bnt-02">
+                  <div
+                    class="button type2"
+                    id="uniform-undefined"
+                    @click="deletboomlink(form_line.id)"
+                  >
+                    <span
+                      ><input
+                        type="button"
+                        class="type2"
+                        style="opacity: 0; width: 54px"
+                        tabindex="10025"
+                        value="display"
+                      /><i class="fa fa-trash" aria-hidden="true"></i>
+                      Delete</span
+                    >
+                  </div>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <a
+            @click="boomcratenew()"
+            class="btn-radius bt-pn btn btn-sm show"
+            href="#"
+            data-bs-toggle="dropdown"
+            aria-expanded="true"
+            style="float: left; color: rgb(248, 245, 180); margin-top: -2px"
+            ><i
+              class="fas fa-plus"
+              style="padding-right: 5px; margin-top: -2px"
+            ></i
+            >Add New</a
+          >
+          <div class="button type2" id="uniform-undefined"></div>
+          <div class="button type2" id="uniform-undefined"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div
+    id="staticBackdropss"
+    aria-labelledby="staticBackdropss"
+    class="modal fade ui-modal"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
       <div class="modal-contents">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">
             Boom Products : {{ form.product_no }} , {{ form.description }}
           </h5>
-          <button
-            type="button"
-            class="btn-close"
+          <span
+            class="ui-icon ui-icon-closethick"
             data-bs-dismiss="modal"
             aria-label="Close"
-          >
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </button>
+          ></span>
         </div>
         <div class="box-content">
           <table
@@ -937,7 +1180,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div
     class="modal fade ui-modal"

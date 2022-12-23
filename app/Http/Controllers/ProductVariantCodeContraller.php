@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\product;
@@ -31,10 +32,10 @@ class ProductVariantCodeContraller extends Controller
             'inactived' => $request['inactived'],
             'created_by' => 'Chhin Pov'
         ]);
-        if($brand){
-            return ['delete statue :'=> "Succes full"];
-        }else{
-            return ['delete statue :'=>"faile Delete"];
+        if ($brand) {
+            return ['delete statue :' => "Succes full"];
+        } else {
+            return ['delete statue :' => "faile Delete"];
         }
     }
 
@@ -58,7 +59,7 @@ class ProductVariantCodeContraller extends Controller
     public function show($id)
     {
         $productvariantcode = productvariantcode::find($id);
-        $productvariantcode ->product_no = $request -> product_no; 
+        $productvariantcode->product_no = $request->product_no;
     }
 
     /**
