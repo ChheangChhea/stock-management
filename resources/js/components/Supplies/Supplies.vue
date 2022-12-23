@@ -169,14 +169,14 @@
                           <tr>
                             <th>Image</th>
                             <td>
-                              <input
+                              <!-- <input
                                 id="image"
-                                ref="choose"
                                 name="image"
                                 type="file"
                                 tabindex="10029"
-                                @change="imgUplaod"
-                              />
+                               
+                              /> -->
+                              <input type="file" id="myfile" name="myfile" @change="imgUplaod" />
                               <!-- <img
                                   :src="photo_path + form.image_url"
                                   style="width: 300px; height: 250px"
@@ -360,17 +360,15 @@
             >
               <thead>
                 <tr>
-                  <th width="8%">Suppliyer Code</th>
-                  <th width="8%">Suppliyer Name</th>
-                  <th width="8%">Image</th>
-                  <th width="8%">Addresss</th>
+                  <th width="5%">Image</th>
+                  <th width="7%">Suppliyer Code</th>
+                  <th width="7%">Suppliyer Name</th>
+                  <th width="10%">Addresss</th>
                   <th width="8%">Phone Number</th>
                   <th width="8%">Fax Number</th>
-                  <th width="10%">Email</th>
+                  <th width="12%">Email</th>
                   <th width="8%">Contact Name</th>
                   <th width="8%">Contact Phone</th>
-                  <th width="8%">status</th>
-                  <th width="8%">In Active</th>
                   <th width="8%">
                     <div class="button" id="uniform-undefined">
                       <span
@@ -386,34 +384,72 @@
                   </th>
                 </tr>
               </thead>
-            </table>
-          </div>
-
-          <table
-            width="100%"
-            border="0"
-            cellpadding="0"
-            cellspacing="0"
-            class="table table-striped table-bordered"
-          >
-            <tbody>
+              <tbody>
               <tr v-for="(suppliyer, index) in suppliyers.data" :key="index">
-                <td width="8%">{{ suppliyer.sup_code }}</td>
-                <td width="8%">{{ suppliyer.sup_name }}</td>
-                <td width="8%">
+                <td width="5%">
                   <img
                     class="direct-chat-img"
                     :src="'img/suppliyer/' + suppliyer.image_url"
                   />
                 </td>
-                <td width="8%">{{ suppliyer.address }}</td>
+                <td width="7%">{{ suppliyer.sup_code }}</td>
+                <td width="7%">{{ suppliyer.sup_name }}</td>
+                <td width="12%">{{ suppliyer.address }}</td>
+                <td width="7%">{{ suppliyer.phone_no }}</td>
+                <td width="8%">{{ suppliyer.fax_no }}</td>
+                <td width="12%">{{ suppliyer.email }}</td>
+                <td width="6%">{{ suppliyer.contact_name }}</td>
+                <td width="6%">{{ suppliyer.contact_phone }}</td>
+                <td width="10%">
+                  <div class="button" id="uniform-undefined">
+                    <span
+                      >Delete<input
+                        type="button"
+                        @click="btnDelete(suppliyer.sup_code)"
+                        tabindex="10028"
+                        style="opacity: 0; width: 40px"
+                    /></span>
+                  </div>
+                  <div class="button" id="uniform-undefined">
+                    <span
+                      >Edit<input
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                        @click="btnEdit(suppliyer)"
+                        tabindex="10028"
+                        style="opacity: 0; width: 40px"
+                    /></span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+
+          <!-- <table
+            width="100%"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            class="table table-striped table-bordered"
+          > 
+            <tbody>
+              <tr v-for="(suppliyer, index) in suppliyers.data" :key="index">
+                <td width="5%">
+                  <img
+                    class="direct-chat-img"
+                    :src="'img/suppliyer/' + suppliyer.image_url"
+                  />
+                </td>
+                <td width="7%">{{ suppliyer.sup_code }}</td>
+                <td width="7%">{{ suppliyer.sup_name }}</td>
+                <td width="10%">{{ suppliyer.address }}</td>
                 <td width="8%">{{ suppliyer.phone_no }}</td>
                 <td width="8%">{{ suppliyer.fax_no }}</td>
-                <td width="10%">{{ suppliyer.email }}</td>
+                <td width="12%">{{ suppliyer.email }}</td>
                 <td width="8%">{{ suppliyer.contact_name }}</td>
                 <td width="8%">{{ suppliyer.contact_phone }}</td>
-                <td width="8%">{{ suppliyer.status }}</td>
-                <td width="8%">{{ suppliyer.inactived }}</td>
                 <td width="8%">
                   <div class="button" id="uniform-undefined">
                     <span
@@ -437,8 +473,8 @@
                   </div>
                 </td>
               </tr>
-            </tbody>
-          </table>
+            </tbody> 
+           </table> -->
           <div class="box-footer-pagination">
             <div class="pagination">
               <span v-for="(link, index) in links" :key="index">
@@ -485,7 +521,9 @@
               <div class="modal-content ui-dialog">
                 <div class="ui-widget-header">
                   <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
-                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"></a>
+                  <!-- <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"></a> -->
+                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"><span
+                      class="ui-icon ui-icon-closethick">close</span></a>
                 </div>
                 <div class="ui-dialog-content height-modal" id="invoiceholder"> <!----set size for A4-->
                   
@@ -521,13 +559,13 @@
                             <tbody>
                               <!-- <tr v-for="(item, index) in items" :key="index"> -->
                                 <tr>
-                                <td width="3%">test</td>
-                                <td width="13%">test</td>
-                                <td width="13%">test</td>
-                                <td width="13%">test</td>
-                                <td width="6%">test</td>
-                                <td width="19%">test</td>
-                                <td width="9%">test</td>
+                                <td width="5%">test</td>
+                                <td width="10%">test</td>
+                                <td width="10%">test</td>
+                                <td width="10%">test</td>
+                                <td width="10%">test</td>
+                                <td width="10%">test</td>
+                                <td width="10%">test</td>
                             </tr> 
             </tbody>
           </table>

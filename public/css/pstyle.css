@@ -102,12 +102,13 @@ margin-bottom: -50px!important;
     max-height: 500px;
     overflow-y: auto;
     overflow-x: auto;
+    overflow: hidden;
 }
 .ui-dialog .ui-dialog-titlebar-close span {
     display: block;
     margin: 1px;
     position: absolute;
-    top: -47px !important;
+    top: -37px !important;
 }
 .modal-footer input{
     position: absolute;
@@ -155,3 +156,42 @@ margin-bottom: -50px!important;
 #purchase .search-box-footer{
     padding: 10px;
 }
+
+.excellcolor-trhead{
+    background-color: #326c7a!important;
+}
+#excell .tbl_list thead th {
+    padding: 5px 4px 5px 4px;
+    background: #ffffff url(image/bgimg_td_border_asagi2.png) no-repeat 0 0;
+    border: 1px solid #6eb3bf;
+    border-width: 0 0 1px 1px;
+    vertical-align: middle;
+    text-align: center;
+    color: #f8f5b4;
+}
+
+#staticboomId .ui-dialog .ui-dialog-titlebar-close span {
+    display: block;
+    margin: 1px;
+    position: absolute;
+    top: -67px !important;
+}
+
+
+
+
+
+@media screen and (max-width:1076px) {
+.table td, .table th {
+      font-size: 11px;
+}
+div.button span {
+    font-size: 10px;
+}
+.tbl_list tbody td {
+    padding: 2px 4px;
+   }
+}
+
+/* 
+#excellrow tr:nth-child(even) {background-color: #ff0000;} */
