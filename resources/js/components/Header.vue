@@ -28,10 +28,8 @@
       <div id="headInfo">
         <div id="date-info">
           <span class="icon"></span>
-          <p id="todays" original-title="PM12:13">
-            <font style="vertical-align: inherit"
-              ><font style="vertical-align: inherit">2022/08/25</font></font
-            >
+          <p id="todays">
+            {{ currentTime.toLocaleDateString() }}
           </p>
         </div>
         <div id="user-info">
@@ -51,5 +49,12 @@
     </div>
   </div>
 </template>
-<script setup>
+<script>
+import { useCurrentTime } from "../componentJS/date";
+export default {
+  setup() {
+    const { currentTime } = useCurrentTime();
+    return { currentTime };
+  },
+};
 </script>

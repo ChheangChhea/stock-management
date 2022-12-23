@@ -60,15 +60,7 @@
     </div>
   </div>
 </template>
-<script>
-import { useCurrentTime } from "../componentJS/date";
+<script setup>
 import Header from "../components/Header.vue";
-export default {
-  components: { Header },
-  setup() {
-    const { currentTime } = useCurrentTime();
-    return { currentTime };
-  },
-};
 </script>
 
