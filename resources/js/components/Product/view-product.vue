@@ -344,10 +344,10 @@
               <thead>
                 <tr>
                   <th width="5%">Image</th>
-                  <th width="9%" style="text-align: left">Product No</th>
-                  <th width="9%" style="text-align: left">Barcode</th>
-                  <th width="13%" style="text-align: left">Description</th>
-                  <th width="13%" style="text-align: left">Description2</th>
+                  <th width="9%" >Product No</th>
+                  <th width="9%" >Barcode</th>
+                  <th width="13%" >Description</th>
+                  <th width="13%" >Description2</th>
                   <th width="9%">Group</th>
                   <th width="9%">Categrory</th>
                   <th width="9%">Brand</th>
@@ -383,12 +383,12 @@
                     style="
                       background-color: #dbdee1;
                       border: medium none;
-                      text-align: left;
+                     ;
                     "
                   >
                     {{ product.product_no }}
                   </td>
-                  <td v-else style="border: medium none; text-align: left">
+                  <td v-else style="border: medium none;">
                     {{ product.product_no }}
                   </td>
                   <td
@@ -396,12 +396,12 @@
                     style="
                       background-color: #dbdee1;
                       border: medium none;
-                      text-align: left;
+                     
                     "
                   >
                     {{ product.product_barcode }}
                   </td>
-                  <td v-else style="border: medium none; text-align: left">
+                  <td v-else style="border: medium none;">
                     {{ product.product_barcode }}
                   </td>
                   <td
@@ -409,12 +409,12 @@
                     style="
                       background-color: #dbdee1;
                       border: medium none;
-                      text-align: left;
+                     ;
                     "
                   >
                     {{ product.description }}
                   </td>
-                  <td v-else style="border: medium none; text-align: left">
+                  <td v-else style="border: medium none;">
                     {{ product.description }}
                   </td>
                   <td
@@ -422,12 +422,12 @@
                     style="
                       background-color: #dbdee1;
                       border: medium none;
-                      text-align: left;
+                     ;
                     "
                   >
                     {{ product.description_2 }}
                   </td>
-                  <td v-else style="border: medium none; text-align: left">
+                  <td v-else style="border: medium none;">
                     {{ product.description_2 }}
                   </td>
 
@@ -436,12 +436,12 @@
                     style="
                       background-color: #dbdee1;
                       border: medium none;
-                      text-align: left;
+                     ;
                     "
                   >
                     {{ product.group_code }}
                   </td>
-                  <td v-else style="border: medium none; text-align: left">
+                  <td v-else style="border: medium none;">
                     {{ product.group_code }}
                   </td>
                   <td

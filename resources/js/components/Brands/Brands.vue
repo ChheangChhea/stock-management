@@ -324,7 +324,7 @@
                 </div>
                 <div class="ui-dialog-content height-modal" id="invoiceholder"> <!----set size for A4-->
                   
-                <div id="purchaseorder">
+                <div >
                   <div class="card">
                   <div class="card-body">
                     <div class=" mb-5 mt-3" >

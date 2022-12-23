@@ -150,21 +150,21 @@ table{
   border-collapse: collapse;
 }
 #invoiceholder td{
-    border-bottom: 1px solid black;
-    text-align: left;
+    /* border-bottom: 1px solid black; */
+    /* text-align: left; */
 }
 .bornon{
 	border-bottom: 1px solid #ddd;
 }
 .tabletitle th {
   border-bottom: 2px solid #ddd;
-  text-align: right;
+  /* text-align: right; */
 }
 .tabletitle th:nth-child(2) {
     text-align: left;
 }
 #invoiceholder th {
-    text-align: left;
+    /* text-align: left; */
     padding: 10px 0px;
 	
 }
@@ -8957,7 +8957,7 @@ input[name="nav-item"] {
 }
 
 .box-img02 img {
-	width: 350px;
+	/* width: 350px; */
     height: 240px;
    
 }
@@ -8965,7 +8965,7 @@ input[name="nav-item"] {
 	 left: 40px;
     position: absolute;
  	/* width: 350px; */
-	width:86%;
+	/* width:86%; */
     height: 250px;
     opacity: 0.01;
 	top: 20px;
@@ -8975,13 +8975,20 @@ input[name="nav-item"] {
 	margin: 0px !important;
 }
 
-.table td,
-.table th {
+.table td
+ {
 	padding: 7px;
 	vertical-align: top;
 	border-top: 1px solid #dee2e6;
 	text-align: center;
 	word-break: break-all;
+	line-height: 1.5;
+}
+.table th{
+	padding: 7px;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+	text-align: center;
 	line-height: 1.5;
 }
 
