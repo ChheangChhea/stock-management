@@ -4019,10 +4019,14 @@ input[class*="btn_ir_"] {
 
 .box-img02 {
 	text-align: center;
-	padding: 1.9em 5em;
-	margin: 1.8em 50px 0em;
+	/* padding: 1.9em 5em;
+	margin: 1.8em 50px 0em; */
 	border: dashed 2px #dee2e6;
 	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
 
 /* .box-img02 img {
@@ -8949,9 +8953,9 @@ input[name="nav-item"] {
 
 .box-img02 {
 	text-align: center;
-	padding: 1.9em 0;
-    margin: 0.5em auto;
-    height: 293px;
+	/* padding: 1.9em 0;
+    margin: 0.5em auto; */
+    height: 300px;
     border: dashed 2px #dee2e6f2;
   
 }
@@ -8965,7 +8969,7 @@ input[name="nav-item"] {
 	 left: 40px;
     position: absolute;
  	/* width: 350px; */
-	/* width:86%; */
+	 width:86%; 
     height: 250px;
     opacity: 0.01;
 	top: 20px;
@@ -9029,9 +9033,10 @@ input[name="nav-item"] {
 }
 
 .outline-input-img{
-	padding-bottom: 0px !important;
+	/* padding-bottom: 0px !important;
 	padding-left: 30px !important;
-	padding-right: 30px !important;
+	padding-right: 30px !important; */
+	padding: 14px !important;
 }
 
 .height-modal{
