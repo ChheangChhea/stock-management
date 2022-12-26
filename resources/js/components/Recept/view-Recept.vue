@@ -315,7 +315,7 @@
                       text-align: center;
                     "
                   >
-                    <div class="">
+                    <div class="up-del-btn">
                       <div class="button type2" id="uniform-undefined">
                         <span
                           ><input

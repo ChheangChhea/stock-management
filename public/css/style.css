@@ -9087,4 +9087,8 @@ a img:hover{
 	padding: 7px ;
 	word-break: break-all;
 }
+.up-del-btn{
+	display: flex;
+	justify-content: center;
+}
 
