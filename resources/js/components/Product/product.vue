@@ -408,7 +408,7 @@
               <img
                 src="img/icon-img_upload.png"
                 alt="Upload Image.."
-                style="width: 240px; height: 180px"
+                style="width: 170px; height: auto"
                 @click="choosePhoto"
               />
               <p class="text-upload">
@@ -482,13 +482,13 @@
                     <img
                       v-if="form_line.image_url == null"
                       src="img/icon-img_upload.png"
-                      style="width: 50px; height: 40px"
+                      style="width: 50px; height: auto;"
                       @click="choosePhoto"
                     />
                     <img
                       v-else
                       :src="photo_path + form_line.image_url"
-                      style="width: 60px; height: 40px"
+                      style="width: 50px; height: auto"
                       @click="choosePhoto"
                     />
                     <input
