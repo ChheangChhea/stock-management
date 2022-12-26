@@ -912,7 +912,7 @@ export default {
     getExcelData(event){
       this.exefile='';
      const titlered = document.getElementById("titlered");
-     titlered.style.color = 'ff0000';
+     titlered.style.color = '326c7a';
       this.items = [];
       let xlsxfile = event.target.files ? event.target.files[0] : null;
       readXlsxFile(xlsxfile).then((rows) => {
