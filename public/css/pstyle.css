@@ -12,6 +12,10 @@
     color: #326c7a;
     margin-bottom: 20px;
 }
+#titlered {
+    /* color: #ff0000!important; */
+    margin-bottom: 20px;
+   }
 .title-pur-sup{
    font-size: 18px;
    /* background-color: #84b0ca; */
@@ -174,7 +178,7 @@ margin-bottom: -50px!important;
     display: block;
     margin: 1px;
     position: absolute;
-    top: -67px !important;
+    top: -75px !important;
 }
 
 
@@ -192,6 +196,7 @@ div.button span {
 }
 .tbl_list tbody td {
     padding: 2px 4px;
+    font-size: 11px;
    }
 }
 

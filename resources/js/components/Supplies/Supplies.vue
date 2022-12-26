@@ -396,7 +396,7 @@
                 <td width="7%">{{ suppliyer.sup_name }}</td>
                 <td width="12%">{{ suppliyer.address }}</td>
                 <td width="7%">{{ suppliyer.phone_no }}</td>
-                <td width="8%">{{ suppliyer.fax_no }}</td>
+                <td width="6%">{{ suppliyer.fax_no }}</td>
                 <td width="12%">{{ suppliyer.email }}</td>
                 <td width="6%">{{ suppliyer.contact_name }}</td>
                 <td width="6%">{{ suppliyer.contact_phone }}</td>

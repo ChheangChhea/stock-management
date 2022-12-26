@@ -438,7 +438,7 @@
             </ul>
           </div>
           <div class="col-xl-6 supplier-padding">
-            <p class="text-muted title-pur-sup">SUPPLIER NAME</p>
+            <p class="text-muted title-pur-sup">Supply Person</p>
             <ul class="list-unstyled">
                <li class="text-muted">Phone No: <span style="color:#5d9fc5 ;">John Lorem</span></li>
               <li class="text-muted">Email: <span style="color:#5d9fc5 ;">John Lorem</span></li>
@@ -526,8 +526,8 @@
 </div>
                 </div>
                 <div class="modal-footer">
-                  <a class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i
-              class="far fa fa-times-circle text-danger"></i> Close</a>
+                  <!-- <a class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+              class="far fa fa-times-circle text-danger"></i> Close</a> -->
                   <a class="btn-purchase btn-light text-capitalize border-0" data-mdb-ripple-color="dark" @click="print()"><i
               class="fas fa-print text-primary"></i> Print</a>        
                     <!-- <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
@@ -557,8 +557,8 @@
                         <div class="container">
                           <div class="col-md-12">
                             <div class="text-center">
-                              <h3 v-if="excel=='Import'" class="title-purchase">{{excel}} {{ exefile }} from Excel</h3>
-                              <h3 v-else class="title-purchase">{{excel}} To Excel</h3>
+                              <h3 v-if="excel=='Import'" class="​title-purchase" id="titlered">{{excel}} {{ exefile }} from Excel</h3>
+                              <h3 v-else class="title-purchase" id="titlered">{{excel}} To Excel</h3>
                             </div>
                           </div>
                           <div class="row my-2 mx-1 justify-content-center table-padding-bot customsroll">
@@ -700,6 +700,7 @@ export default {
         excel:'Import',
         head :["id","document_no","document_type","product_no","description","unit_of_measure_code","inventory","unit_price","total_amount", "curency_code"],
         fileName : "PrucheseLine.xlsx",
+       
     };
   },
   async mounted() {
@@ -910,6 +911,9 @@ export default {
     },
     getExcelData(event){
       this.exefile='';
+     const titlered = document.getElementById("titlered");
+     titlered.style.color = 'ff0000';
+      this.items = [];
       let xlsxfile = event.target.files ? event.target.files[0] : null;
       readXlsxFile(xlsxfile).then((rows) => {
         var x=0;
@@ -931,8 +935,11 @@ export default {
                             total_amount: element[6], 
                             curency_code: this.form.curency_code,
                         });
-                    }else{
+                    }else{ console.log(element);
+
                       this.exefile=' fail data ';
+                      titlered.style.color = 'red';
+                    
                     }
                 }
             } 
