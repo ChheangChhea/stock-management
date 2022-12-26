@@ -68,7 +68,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
             style="float: right; color: #f8f5b4"
-            
+
           >
             <i class="fas fa-plus" style="padding-right: 5px"> </i>
             Menu
@@ -194,8 +194,7 @@
                     <div
                       class="button type2"
                       @click="messagegetconfirm(this.confirm)"
-                      data-bs-dismiss="modal"
-                    >
+                      data-bs-dismiss="modal">
                       <span>Yes</span>
                     </div>
                   </div>

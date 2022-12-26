@@ -576,6 +576,7 @@ export default {
           statue:"",
           delete_by:"",
       },
+      datetime : new Date(),
     };
   },
   mounted() {
