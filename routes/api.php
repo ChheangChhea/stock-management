@@ -136,6 +136,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('purchase/delete/purchaseorder/{purchase}', [PurcheaOrderContraller::class, 'deletePurchaseorder']);
     Route::post('purchase/delete/getPrulinkUnit/{purchase}', [PurcheaOrderContraller::class, 'getPrulinkUnit']);
     Route::post('purchase/PrulinkeSave/', [PurcheaOrderContraller::class, 'PrulinkeSave']);
+    Route::get('purchase/search/{search}', [PurcheaOrderContraller::class, 'search']);
     // ReceiveOrderContraller
     Route::get('receive/getpurchea', [ReceiveOrderContraller::class, 'getshowpurchea']);
     Route::post('receive/receptlink/', [ReceiveOrderContraller::class, 'receptlink']);

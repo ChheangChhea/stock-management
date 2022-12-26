@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\purcheaorder;
 use App\Models\Serail;
 use App\Models\purchealine;
-use App\Models\productvariantcode;
+use App\Models\product;
+use App\Models\productvariantcode;;
+
 class PurcheaOrderContraller extends Controller
 {
     public function index(Request $request)
@@ -280,5 +282,12 @@ class PurcheaOrderContraller extends Controller
         $product = product::whereNotIn('product_no',productbom::select('boom_product_id')->where('product_no', '=', $id)->get()) -> get();
         return $product;
     } 
+}
+
+public function search($id){
+    $search = $id;
+    $productbom = product::query()->where('product_no', 'LIKE', "%{$search}%")->orWhere('description', 'LIKE', "%{$search}%")
+                ->get();
+    return $productbom;
 }
 }

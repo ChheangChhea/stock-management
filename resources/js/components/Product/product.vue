@@ -68,6 +68,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
             style="float: right; color: #f8f5b4"
+            
           >
             <i class="fas fa-plus" style="padding-right: 5px"> </i>
             Menu
