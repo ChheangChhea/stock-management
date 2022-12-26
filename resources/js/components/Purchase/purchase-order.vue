@@ -841,7 +841,7 @@ export default {
       }
     },
     searchproduct(txt) {
-      axios.get('/api/v1/boomproduct/search/' + txt)
+      axios.get('/api/v1/purchase/search/' + txt)
         .then((response) => {
           this.boompros = response.data;
         });

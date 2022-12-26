@@ -89,9 +89,9 @@ class ReceiveOrderContraller extends Controller
                 $purchealine = purchealine::where('document_no', '=',$request->document_no)->where('product_no','=',$request->product_no)->first();
                 $inventorynew =  floatval($purchealine->inventory)-floatval($request->inventory_recetive);
                 $inventoryres =  $request->inventory_recetive;
-                $purOrder = purcheaorder::where('document_no', '=',$request->document_no)->first(); $purOrder->statue = 'close'; $purOrder->save();  
-                $productvariantcode = product_vavaincode_view::where('product_no','=',$request->product_no)->where('variant_unit_of_measure_code','=',$request->unit_of_measure_code)->get();
-                
+                $purOrder = purcheaorder::where('document_no', '=',$request->document_no)->first(); $purOrder->statue = 'close'; $purOrder->save();      
+                $productvariantcode = product_vavaincode_view::where('product_no','=',$request->product_no)->where('variant_unit_of_measure_code','=',$request->unit_of_measure_code)->get(); 
+                return $request->product_no;
                 if($productvariantcode){}
                 if($stockkeeping){
                  }else{
