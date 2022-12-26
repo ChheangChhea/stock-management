@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\stocktransaction;
 use Illuminate\Http\Request;
 
 class StockTransactionContraller extends Controller
@@ -13,7 +13,12 @@ class StockTransactionContraller extends Controller
      */
     public function index()
     {
-        //
+        $productvariantcode = stocktransaction::get();      
+        if ($productvariantcode) {
+            return $productvariantcode;
+        } else {
+            return ['statue :' => "Note Date"];
+        }
     }
 
     /**

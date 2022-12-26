@@ -13,7 +13,7 @@ use App\Http\Controllers\{
     SerailController,
     ProductBomContraller,
     PurcheaOrderContraller,
-    ReceiveOrderContraller
+    ReceiveOrderContraller,StockTransactionContraller
 };
 
 /*php
@@ -141,4 +141,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('receive/getpurchea', [ReceiveOrderContraller::class, 'getshowpurchea']);
     Route::post('receive/receptlink/', [ReceiveOrderContraller::class, 'receptlink']);
     Route::post('receive/recept/', [ReceiveOrderContraller::class, 'store']);
+
+    
+    Route::get('stocktraview/', [StockTransactionContraller::class, 'index']);
 });
