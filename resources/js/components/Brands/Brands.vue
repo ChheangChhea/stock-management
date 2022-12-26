@@ -84,9 +84,20 @@
             </li>
           </ul>
          
-          <router-link to=""><h2 class="search-box-title">Search</h2></router-link>
-          <input id="search" name="search" type="hidden" value="1" />
-          <div class="search-box-content">
+          <router-link to=""><h2 class="search-box-title">
+            Search
+
+            <input
+              name="search"
+              type="search"
+              id="search"
+              class="text"
+              v-model="search"
+            />
+          </h2>
+
+          <input id="search" name="search" type="hidden" value="1" /></router-link>
+             <div class="search-box-content">
 
             <div class="search-box-footer">
              
