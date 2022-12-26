@@ -84,7 +84,7 @@
             </li>
           </ul>
          
-          <router-link to=""><h2 class="search-box-title">
+          <h2 class="search-box-title">
             Search
 
             <input
@@ -96,7 +96,7 @@
             />
           </h2>
 
-          <input id="search" name="search" type="hidden" value="1" /></router-link>
+          <input id="search" name="search" type="hidden" value="1" />
              <div class="search-box-content">
 
             <div class="search-box-footer">

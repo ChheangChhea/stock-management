@@ -84,7 +84,10 @@
                 tabindex="10028"><i class="fas fa-edit"></i> Release</a>
             </li>
           </ul>
-                    <router-link to="/login"><h2 class="search-box-title">Search</h2></router-link>
+                    <h2 class="search-box-title">Search
+            <input name="search" type="search" id="search" class="text" v-model="search"/></h2>
+
+          <input id="search" name="search" type="hidden" value="1" />
                     <input id="search" name="search" type="hidden" value="1" />
                     <div class="search-box-content">
                         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
