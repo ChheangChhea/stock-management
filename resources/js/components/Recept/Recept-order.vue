@@ -55,7 +55,7 @@
             </li>
           </ul>
 
-          <div class="search-box-title">
+          <div class="search-box-title" style="height: 36px">
             <a class="btn-radius bt-pn btn btn-sm" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdropss"
               tabindex="10028" style="float: left; color: #f8f5b4; margin-top: -2px">
               <i class="fas fa-plus" style="padding-right: 5px; margin-top: -2px">
@@ -125,7 +125,7 @@
                   <th width="20%">Suppliyer</th>
                   <td width="80%">
                     <select :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.suppliyer_code"
-                      class="form" style="width: 385px">
+                      class="form" style="width: 362px">
                       <option value="">Selete Suppliyer</option>
                       <option v-for="suppliye in suppliyer" :value="suppliye.sup_code" :key="suppliye.id">
                         {{ suppliye.sup_name }}
@@ -605,10 +605,10 @@ export default {
             .then((response) => {
               this.purchases_lines = response.data;
               this.purchases_lines.forEach(element => {
-                element.inventory = element.inventory +'.00';
-                element.unit_price = element.unit_price +'.00';
-                element.inventory_order = element.inventory_order+'.00';
-                element.total_amount = element.total_amount+'.00';
+                element.inventory = element.inventory;
+                element.unit_price = element.unit_price;
+                element.inventory_order = element.inventory_order;
+                element.total_amount = element.total_amount;
                 element.inventory_recetive = element.inventory_order;
               });
               this.sumtotal();
@@ -631,7 +631,9 @@ export default {
            }
       });
     },
-   
+  formart2f (number){
+   return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 2 }).format(number);
+  },
    autoUpdatePurline(ProLink){
        if(parseInt(ProLink.inventory_order) < parseInt(ProLink.inventory_recetive)){
         if (confirm("Preasse Insert Your Recept valuse Small then Order Valuse \n Product Id : "+ProLink.product_no+" Order :"+ProLink.inventory_order+">= Recept: "+ ProLink.inventory_recetive)) {
@@ -640,24 +642,31 @@ export default {
               ProLink.inventory_recetive = ProLink.inventory_order;
           }
        }else{
-         ProLink.qty_balance = 0;
-         ProLink.amount_balance = 0;
-         ProLink.qty_balance = parseFloat(ProLink.inventory_order) - parseFloat(ProLink.inventory_recetive);
-         ProLink.total_amount = parseFloat(ProLink.unit_price)* parseFloat(ProLink.inventory_recetive);
-         ProLink.amount_balance = parseFloat(ProLink.unit_price)*parseFloat( ProLink.qty_balance);
-        //  const formatter = new Intl.NumberFormat('en-US', {style: 'currency',currency: ProLink.curency_code, });
-         ProLink.total_amount =  formatter.format(ProLink.total_amount);
-         ProLink.amount_balance =  formatter.format(ProLink.amount_balance );
-         ProLink.unit_price = formatter.format(ProLink.unit_price);
+         try {
+          ProLink.qty_balance = 0;
+          ProLink.amount_balance = 0;
+          ProLink.qty_balance = parseFloat(ProLink.inventory_order) - parseFloat(ProLink.inventory_recetive);
+          ProLink.total_amount = parseFloat(ProLink.unit_price)* parseFloat(ProLink.inventory_recetive);
+          ProLink.amount_balance = parseFloat(ProLink.unit_price)*parseFloat( ProLink.qty_balance);
+          ProLink.total_amount = formart2f(ProLink.total_amount);
+          ProLink.amount_balance = formart2f(ProLink.amount_balance);
+          ProLink.unit_price = formart2f(ProLink.unit_price);
+         } catch (error) {
+           console.log(error);
+         }
          this.sumtotal();
        }
   },
   sumtotal(){
     this.productline = 0; this.item = 0;   this.form.total_amount = 0;
     this.purchases_lines.forEach(element => {
-         this.productline += 1;
-         this.item += parseFloat(element.inventory_recetive);
-         this.form.total_amount += parseFloat(element.total_amount);
+          try {
+            this.productline += 1;
+            this.item += parseFloat(element.inventory_recetive);
+            this.form.total_amount += parseFloat(element.total_amount);
+          } catch (error) {
+            
+          }
         });  
       },
       print() {
@@ -668,6 +677,4 @@ export default {
     },
  }
 }
-
-
 </script>

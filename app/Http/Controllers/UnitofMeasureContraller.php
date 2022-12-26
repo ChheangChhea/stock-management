@@ -83,10 +83,10 @@ class UnitofMeasureContraller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id,Request $request)
     {
         //
-        $unitcode = unitofmeasure::find($id)->first();
+        $unitcode = unitofmeasure::find($id);
         $unitcode -> unit_code = $request -> unit_code;
         $unitcode -> unit_of_measure = $request -> unit_of_measure;
         $unitcode -> type = $request -> type;

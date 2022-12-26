@@ -85,18 +85,16 @@ class ReceiveOrderContraller extends Controller
         ]);
         if ($receiveorder) {
             if(1){
-                $stockkeeping = stockkeeping::where('product_no', '=',$request->product_no)->first();
                 $purchealine = purchealine::where('document_no', '=',$request->document_no)->where('product_no','=',$request->product_no)->first();
                 $inventorynew =  floatval($purchealine->inventory)-floatval($request->inventory_recetive);
                 $inventoryres =  $request->inventory_recetive;
                 $purOrder = purcheaorder::where('document_no', '=',$request->document_no)->first(); $purOrder->statue = 'close'; $purOrder->save();      
-                $productvariantcode = product_vavaincode_view::where('product_no','=',$request->product_no)->where('variant_unit_of_measure_code','=',$request->unit_of_measure_code)->get(); 
-                return $request->product_no;
+                $productvariantcode = product_vavaincode_view::addSelect ('product_no','stock_unit_of_measure_code','purche_unit_of_measure_code','variant_unit_of_measure_code','quantity_per_unit','unit_price','curency_code')
+                ->where('product_no','=',$request->product_no)->where('variant_unit_of_measure_code','=',$request->unit_of_measure_code)->first(); 
                 if($productvariantcode){}
-                if($stockkeeping){
-                 }else{
                         $inventory_order = 0;
-                        $inventory = $inventory_order + floatval($request['inventory_recetive']);
+                        $inventory =  $inventory_order + doubleval($request['inventory_recetive']);
+                        $inventory = (doubleval($inventory))* (doubleval($productvariantcode['quantity_per_unit']));
                         $receiveorder = stockkeeping::create([
                             'document_no'           => $request['document_no'],
                             'document_type'         => $request['document_type'],
@@ -105,7 +103,7 @@ class ReceiveOrderContraller extends Controller
                             'issu_date'             => $request['issu_date'],
                             'exprit_date'           => $request['exprit_date'],
                             'line_no'               => $request['line_no'],
-                            'unit_of_measure_code'  => $request['unit_of_measure_code'],
+                            'unit_of_measure_code'  => $productvariantcode['stock_unit_of_measure_code'],
                             'unit_price'            => $request['unit_price'],
                             'inventory'             => $inventory,
                             'inventory_order'       => $inventory_order,
@@ -137,8 +135,7 @@ class ReceiveOrderContraller extends Controller
                                    }else{
 
                                    }
-                            }
-                   }
+                        }
                 
                    if(!$check){
                         $statue ="open";

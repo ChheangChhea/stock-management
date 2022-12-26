@@ -105,8 +105,7 @@
                 <tr>
                   <th width="20%">UnitCode</th>
                   <td width="80%">
-                    <input class="string_zen_kana clear_text text" name="UnitCode" maxlength="50"
-                      v-model="form.unit_code" size="50" type="text" tabindex="10001" />
+                    <input class="string_zen_kana clear_text text" name="UnitCode" maxlength="50" v-model="form.unit_code" size="50" type="text" tabindex="10001" />
                   </td>
                 </tr>
 
@@ -361,10 +360,6 @@ export default {
       if (page > 0 && page <= this.last_page) {
         axios
           .get("api/v1/units")
-          // .then(({ data }) => {
-          //   this.serails = data;
-          //   console.log(data);
-          // })
           .then(({ data }) => {
                         this.links = data.links;
                         this.last_page = data.last_page;
@@ -401,11 +396,13 @@ export default {
     },
     btnEdit(serail) {
       this.form = serail;
+      alert(this.form.id)
     },
     btnUpdate() {
       axios
-        .post("api/v1/units/update/" + this.form.unit_code, this.form)
-        .then(() => {
+        .post("/api/v1/units/update/" + this.form.code, this.form)
+        .then((res) => {
+          console.log(res);
           this.getSerail();
           this.form = {};
         });

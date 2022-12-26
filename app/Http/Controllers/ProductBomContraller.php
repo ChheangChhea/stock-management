@@ -166,7 +166,7 @@ class ProductBomContraller extends Controller
 
    public function getproductboom($id){
             $proid = productbom::select('boom_product_id')->where('product_no', '=', $id)->get();
-            if(count($proid)==1){
+            if(count($proid)>1){
                 $product = product::get();
                 return $product;
             }else{
