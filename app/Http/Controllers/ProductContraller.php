@@ -304,7 +304,51 @@ class ProductContraller extends Controller
             return ['statue :'=>"Note Date"];
         }
     }
-    
+    public function saveDataFformexcel(Request $request){
+        $product = product::create([
+            'id' => $request['product_no'],
+            'product_no'  => $request['product_no'],
+            'description' => $request['description'],
+            'product_barcode'  => $request['product_barcode'],
+            'description_2'  => $request['description_2'],
+            'stock_unit_of_measure_code'  => $request['stock_unit_of_measure_code'],
+            'purche_unit_of_measure_code'  => $request['purche_unit_of_measure_code'],
+            'bom_no'  => $request['bom_no'],
+            'reorder_point'  => $request['reorder_point'],
+            'sup_code'  => $request['sup_code'],
+            'brand_code'  => $request['brand_code'],
+            'group_code'  => $request['group_code'],
+            'cat_code'  => $request['cat_code'],
+            'unit_price'  => $request['unit_price'],
+            'inactived'  => $request['inactived'],
+            'created_by'  => 'Chhin Pov'
+        ]);
+        if($product){
+            return ['statue :'=>"success"];
+        }else{
+            return ['statue :'=>"notsuccess"];
+        }
+    }
+    public function SaveDataLinkexcel(Request $request){
+        $productvariantcode = productvariantcode::create([
+            'product_no' => $request['product_no'],
+            'description' => $request['description'],
+            'description_2'=> $request['description_2'],
+            'variant_unit_of_measure_code'=> $request['variant_unit_of_measure_code'],
+            'stock_unit_of_measure_code'=> $request['stock_unit_of_measure_code'],
+            'quantity_per_unit'=> $request['quantity_per_unit'],
+            'unit_price'=> $request['unit_price'],
+            'curency_code'=> $request['curency_code'],
+            'status'=> $request['status'],
+            'inactived'=> $request['inactived'],
+            'created_by' => 'Chhin Pov',
+        ]);
+        if($productvariantcode){
+            return ['statue :'=>"success"];
+        }else{
+            return ['statue :'=>"notsuccess"];
+        }
+    }
     /**
      * Remove the specified resource from storage.
      * @param  int  $id

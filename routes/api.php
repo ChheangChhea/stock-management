@@ -84,6 +84,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('products/getboomline/{product}', [ProductContraller::class, 'getboomline']);
     Route::get('products/productsearch/', [ProductContraller::class, 'productsearch']);
     Route::post('purchase/delete/getPrulinkUnit/{purchase}', [PurcheaOrderContraller::class, 'getPrulinkUnit']);
+    Route::post('products/saveDataFformexcel/', [ProductContraller::class, 'saveDataFformexcel']);
+    Route::post('products/SaveDataLinkexcel/', [ProductContraller::class, 'SaveDataLinkexcel']);
 
 
     Route::get('category/', [CategorysController::class, 'index']);
