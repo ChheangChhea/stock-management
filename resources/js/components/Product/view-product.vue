@@ -707,11 +707,9 @@ export default {
                             stock_unit_price: element[8],
                         });
                         this.getLinkProduct(element);
-                    }else{ console.log(element);
-
+                    }else{ 
                       this.exefile=' fail data ';
                       titlered.style.color = 'red';
-                    
                     }
                 }
             } 
@@ -720,18 +718,21 @@ export default {
       })
       this.exefile='';
     },
-    getLinkProduct(x){
-        this.addtolinkProduct(x,x[7],1,x[8],'stock');
+    getLinkProduct(element){
+        this.addtolinkProduct(element,element[7],1,element[8],'stock');
         var y=9,z=1;
-        if(x.length >=9)
-          x.forEach(element => {
-            while ((y+3)<=x.length) {
-              if(this.checkexcel[y]=='quantity_unit'+z && this.checkexcel[y+1]=='unit_code'+z && this.checkexcel[y+2]=='unit_price'+z)
-                this.addtolinkProduct(x,element[y+1],element[y],element[y+2],'unit'); 
-                y=y+3;z++;
-              }
-          });  
-        },
+        var xz1 ='quantity_unit'+z;
+        var xz2 ='unit_code'+z;
+        var xz3 ='unit_price'+z;
+        if(element.length >=y){
+             while ((y+3)<=element.length) {
+                  if(this.checkexcel[y] == xz1 && this.checkexcel[y+1] == xz3 && this.checkexcel[y+2] == xz2){
+                     this.addtolinkProduct(element,element[y+2],element[y],element[y+1],'unit'); 
+                     y=y+3;z++;
+                  }
+             } 
+          }
+    },
     addtolinkProduct(element,measure_code,quantity,price,statuse){
       this.iteamLinks.push({
             product_no: element[0],
@@ -743,12 +744,10 @@ export default {
             curency_code: element[6],
             status: statuse,
       });
-      this.iteamLinks.forEach(element => {
-         console.log(element);
-      });
+      console.log(this.iteamLinks);
     },
     saveprulink(){
-      if(this.items.length > 0){ setTimeout(() => this.savepro(), 1000);}
+      if(this.items.length > 0){ setTimeout(() => this.savepro(), 3000);}
     },
   savepro(){
     this.items.forEach(element => {
@@ -771,7 +770,7 @@ export default {
      },
      savedataValincode(product_no){
       this.iteamLinks.forEach(element => {
-      if(element.product_no == product_no){
+      if(element.product_no == product_no && element.product_no !="" ){
         axios.post("api/v1/products/SaveDataLinkexcel/", element)
                   .then((response) => {
               });
