@@ -13,7 +13,8 @@ use App\Http\Controllers\{
     SerailController,
     ProductBomContraller,
     PurcheaOrderContraller,
-    ReceiveOrderContraller,StockTransactionContraller
+    ReceiveOrderContraller,
+    StockTransactionContraller
 };
 
 /*php
@@ -51,6 +52,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('category/delete/{category}', [CategorysController::class, 'destroy']);
     Route::get('category/', [CategorysController::class, 'index']);
     Route::get('category/getcat', [CategorysController::class, 'getcat']);
+    Route::post('category/excel', [CategorysController::class, 'storeExcel']);
+
 
     //Group product  
     Route::post('progroups/create', [ProductgroupController::class, 'create']);
@@ -103,7 +106,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('suppliyers/delete/{suppliyers}', [SuppliyerController::class, 'destroy']);
 
     //Units code
-    Route::get('getunite/',[UnitofMeasureContraller::class,'getunite']);
+    Route::get('getunite/', [UnitofMeasureContraller::class, 'getunite']);
     Route::get('units/', [UnitofMeasureContraller::class, 'index']);
     Route::post('units/store', [UnitofMeasureContraller::class, 'store']);
     Route::post('units/update/{units}', [UnitofMeasureContraller::class, 'update']);
@@ -142,6 +145,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('receive/receptlink/', [ReceiveOrderContraller::class, 'receptlink']);
     Route::post('receive/recept/', [ReceiveOrderContraller::class, 'store']);
 
-    
+
     Route::get('stocktraview/', [StockTransactionContraller::class, 'index']);
 });
