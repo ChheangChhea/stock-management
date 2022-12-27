@@ -99,15 +99,12 @@
                           :key="index"
                         >
                           <td scope="row">{{ index + 1 + "." }}</td>
-
                           <td>
                             {{ Category.cat_name }}
                           </td>
-
                           <td>
                             {{ Category.cat_name_2 }}
                           </td>
-
                           <td>
                             {{ Category.inactived }}
                           </td>
@@ -195,6 +192,7 @@
                       >
                         <tr>
                           <th scope="col">No</th>
+                          <th scope="col">Category Code</th>
                           <th scope="col">Category Name</th>
                           <th scope="col">Category Name 2</th>
                           <th scope="col">Inactivced</th>
@@ -204,6 +202,9 @@
                         <tr v-for="(CatExcel, index) in CatExcels" :key="index">
                           <th v-if="index >= 1" style="width: 5%">
                             {{ index }}
+                          </th>
+                          <th v-if="index >= 1" style="width: 5%">
+                            {{ CatExcel.cat_code }}
                           </th>
                           <th v-if="index >= 1" style="width: 10%">
                             {{ CatExcel.cat_name }}

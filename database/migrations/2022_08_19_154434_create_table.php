@@ -13,15 +13,15 @@ class CreateTable extends Migration
     public function up()
     {
         Schema::create('product_category', function (Blueprint $table) {
-            $table->string("id", 25)->primary();
+            $table->integer('id');
             $table->string("cat_code", 25)->nullable();
-            $table->string("cat_name",255)->nullable();
+            $table->string("cat_name", 255)->nullable();
             $table->string("cat_name_2", 255)->nullable();
             $table->string("inactived", 50)->nullable();
             $table->tinyInteger('is_deleted')->default(0);
-            $table->string("created_by",50)->nullable();
-            $table->string("updete_by",50)->nullable();
-            $table->string("delete_by",50)->nullable();
+            $table->string("created_by", 50)->nullable();
+            $table->string("updete_by", 50)->nullable();
+            $table->string("delete_by", 50)->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateTable extends Migration
      */
     public function down()
     {
-         Schema::drop('product_category');
+        Schema::drop('product_category');
     }
 }

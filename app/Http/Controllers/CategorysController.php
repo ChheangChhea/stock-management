@@ -14,7 +14,7 @@ class CategorysController extends Controller
         $category =  category::where('cat_name', "LIKE", '%' . $request->search . '%')
             ->orwhere('cat_name_2', "LIKE", '%' . $request->search . '%')
             ->orwhere('inactived', "LIKE", '%' . $request->search . '%')
-            ->orderBy('id', 'desc')->paginate(5);
+            ->orderBy('id', 'desc')->paginate(15);
         return $category;
     }
 
@@ -51,5 +51,26 @@ class CategorysController extends Controller
     {
         $category =  category::orderBy('cat_code')->get();
         return $category;
+    }
+    public function storeExcel(Request $request)
+    {
+
+        $brand = category::create([
+            'id' => $request->cat_code,
+            'cat_code' => $request->cat_code,
+            'cat_name' => $request->cat_name,
+            'cat_name_2' => $request->cat_name_2,
+            'inactived' => $request->inactived,
+            'is_deleted' => "0",
+            'created_by' => "Chhin Pov",
+        ]);
+        if ($brand) {
+            $purline = category::find($brand->id);
+            $purline->cat_code = $request->cat_code;
+            $purline->save();
+            return ['statue :' => "success full"];
+        } else {
+            return ['statue :' => "faile"];
+        }
     }
 }
