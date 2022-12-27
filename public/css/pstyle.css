@@ -6,7 +6,7 @@
 #purchaseorder td {
     text-align: left;
     border: 0px solid;
-    padding: 8px 8px;
+    padding: 8px 4px;
   }
 .title-purchase{
     color: #326c7a;
@@ -108,12 +108,12 @@ margin-bottom: -50px!important;
     overflow-x: auto;
     /* overflow: hidden; */
 }
-.ui-dialog .ui-dialog-titlebar-close span {
+/* .ui-dialog .ui-dialog-titlebar-close span{
     display: block;
     margin: 1px;
     position: absolute;
     top: -37px !important;
-}
+} */
 .modal-footer input{
     position: absolute;
     right: 297px;
@@ -160,7 +160,10 @@ margin-bottom: -50px!important;
 #purchase .search-box-footer{
     padding: 10px;
 }
+#stocktransction th {
+    text-align: center;
 
+}
 .excellcolor-trhead{
     background-color: #326c7a!important;
 }
@@ -185,6 +188,15 @@ margin-bottom: -50px!important;
 .tbl_list tbody td {
       word-break: break-all;
 }
+
+.color-trhead-stocktran{
+    background-color: #326c7a!important;
+    border: 1px solid #6eb3bf;
+}
+
+.thcorlortrans{
+    color: #ffffff!important;
+ }
 
 
 @media screen and (max-width:1076px) {

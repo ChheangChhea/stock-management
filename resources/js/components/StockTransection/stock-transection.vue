@@ -156,49 +156,49 @@
                             class="table table-striped br-table"
                         >
                             <thead>
-                                <tr>
-                                    <th scope="col">Document NO</th>
-                                    <th scope="col">Document_type</th>
-                                    <th scope="col">Product_no</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Unit Code</th>
-                                    <th scope="col">Unit Price</th>
-                                    <th scope="col">Inventory</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Curency</th>
-                                    <th scope="col">Remark</th>
+                                <tr class="color-trhead-stocktran">
+                                    <th class="thcorlortrans">Document No</th>
+                                    <th class="thcorlortrans">Document Type</th>
+                                    <th class="thcorlortrans">Product No</th>
+                                    <th class="thcorlortrans">Description</th>
+                                    <th class="thcorlortrans">Unit Code</th>
+                                    <th class="thcorlortrans">Price</th>
+                                    <th class="thcorlortrans">Inventory</th>
+                                    <th class="thcorlortrans">Amount</th>
+                                    <th class="thcorlortrans">Curency</th>
+                                    <th class="thcorlortrans">Remark</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="transtock in Categories">
-                                    <td width="12%">
+                                    <td width="8%">
                                         {{ transtock.document_no }}
                                     </td>
                                     <td width="12%">
                                         {{ transtock.document_type }}
                                     </td>
-                                    <td width="12%">
+                                    <td width="8%">
                                         {{ transtock.product_no }}
                                     </td>
-                                    <td width="12%">
+                                    <td width="10%">
                                         {{ transtock.description }}
                                     </td>
-                                    <td width="12%">
+                                    <td width="5%">
                                         {{ transtock.unit_of_measure_code }}
                                     </td>
-                                    <td width="12%">
+                                    <td width="5%">
                                         {{ transtock.unit_price }}
                                     </td>
-                                    <td width="12%">
+                                    <td width="6%">
                                         {{ transtock.inventory }}
                                     </td>
-                                    <td width="12%">
+                                    <td width="10%">
                                         {{ transtock.total_amount }}
                                     </td>
-                                    <td width="6%">
+                                    <td width="5%">
                                         {{ transtock.curency_code }}
                                     </td>
-                                    <td width="12%">{{ transtock.remark }}</td>
+                                    <td width="10%">{{ transtock.remark }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -258,7 +258,7 @@
                                         <div class="col-md-12">
                                             <div class="text-center">
                                                 <h3 class="title-purchase">
-                                                    CATEGORY REPORT
+                                                    STOCK TRANSECTION REPORT
                                                 </h3>
                                             </div>
                                         </div>
@@ -266,44 +266,42 @@
                                             class="row my-2 mx-1 justify-content-center table-padding-bot"
                                         >
                                             <table
-                                                class="table table-striped table-borderless"
+                                                class="table table-striped table-borderless" id="stocktransction"
                                             >
                                                 <thead
-                                                    style="
-                                                        background-color: #84b0ca;
-                                                    "
+                                                    style="background-color: #84b0ca;"
                                                     class="text-white"
                                                 >
                                                     <tr>
                                                         <th scope="col">
-                                                            Document NO
+                                                            Document No
                                                         </th>
                                                         <th scope="col">
-                                                            document_type
+                                                            Document Type
                                                         </th>
                                                         <th scope="col">
-                                                            product_no
+                                                            Product No
                                                         </th>
                                                         <th scope="col">
-                                                            description
+                                                            Description
                                                         </th>
                                                         <th scope="col">
-                                                            unit_of_measure_code
+                                                            Unit Code
                                                         </th>
                                                         <th scope="col">
-                                                            unit_price
+                                                            Unit Price
                                                         </th>
                                                         <th scope="col">
-                                                            inventory
+                                                            Inventory
                                                         </th>
                                                         <th scope="col">
-                                                            amount
+                                                            Amount
                                                         </th>
                                                         <th scope="col">
-                                                            curencY
+                                                            Curency
                                                         </th>
                                                         <th scope="col">
-                                                            remark
+                                                            Remark
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -312,7 +310,7 @@
                                                         v-for="Category in Categories"
                                                         :key="Category.index"
                                                     >
-                                                        <td width="12%">
+                                                        <td width="8%">
                                                             {{
                                                                 Category.document_no
                                                             }}
@@ -322,7 +320,7 @@
                                                                 Category.document_type
                                                             }}
                                                         </td>
-                                                        <td width="12%">
+                                                        <td width="8%">
                                                             {{
                                                                 Category.product_no
                                                             }}
@@ -332,34 +330,34 @@
                                                                 Category.description
                                                             }}
                                                         </td>
-                                                        <td width="12%">
+                                                        <td width="5%">
                                                             {{
                                                                 Category.unit_of_measure_code
                                                             }}
                                                         </td>
-                                                        <td width="12%">
+                                                        <td width="5%">
                                                             {{
                                                                 Category.unit_price
                                                             }}
                                                         </td>
-                                                        <td width="12%">
+                                                        <td width="6%">
                                                             {{
                                                                 Category.inventory
                                                             }}
                                                         </td>
-                                                        <td width="12%">
+                                                        <td width="5%">
                                                             {{
                                                                 Category.total_amount
                                                             }}
                                                         </td>
-                                                        <td width="12%">
+                                                        <td width="5%">
                                                             {{
-                                                                Category.curency_code
+                                                                Category.Curency
                                                             }}
                                                         </td>
-                                                        <td width="12%">
+                                                        <td width="10%">
                                                             {{
-                                                                Category.remark
+                                                                Category.Remark
                                                             }}
                                                         </td>
                                                     </tr>
