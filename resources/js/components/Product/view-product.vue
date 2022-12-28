@@ -725,11 +725,16 @@ export default {
         var xz2 ='unit_code'+z;
         var xz3 ='unit_price'+z;
         if(element.length >=y){
-             while ((y+3)<=element.length) {
-                  if(this.checkexcel[y] == xz1 && this.checkexcel[y+1] == xz3 && this.checkexcel[y+2] == xz2){
-                     this.addtolinkProduct(element,element[y+2],element[y],element[y+1],'unit'); 
-                     y=y+3;z++;
+              while ((y+3)<=element.length) {
+                   if(this.checkexcel[y] == xz1 && this.checkexcel[y+1] == xz3 && this.checkexcel[y+2] == xz2){
+                           this.addtolinkProduct(element,element[y+2],element[y],element[y+1],'unit'); 
+                            // console.log(this.checkexcel[y+2]+this.checkexcel[y]+this.checkexcel[y+1]); 
+                            z++;y=y+3;
+                            xz1 ='quantity_unit'+z;
+                            xz2 ='unit_code'+z;
+                            xz3 ='unit_price'+z;
                   }
+                 
              } 
           }
     },
@@ -744,7 +749,7 @@ export default {
             curency_code: element[6],
             status: statuse,
       });
-      console.log(this.iteamLinks);
+       console.log(this.iteamLinks);
     },
     saveprulink(){
       if(this.items.length > 0){ setTimeout(() => this.savepro(), 3000);}
