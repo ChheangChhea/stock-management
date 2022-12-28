@@ -432,64 +432,35 @@
                             <table class="table table-striped table-borderless" id="exceldata">
                               <thead style="background-color:#84B0CA ;" class="text-white">
                                 <tr>
-                                  <th style="width: 5%">No</th>
-                                  <th style="width: 5%">Barcode</th>
-                                  <th style="width: 10%">Description</th>
+                                  <th style="width: 12%">No</th>
+                                  <th style="width: 12%">Barcode</th>
+                                  <th style="width: 15%">Description</th>
                                   <th style="width: 7%">Prince</th>
                                   <th style="width: 7%">R.Point</th>
                                   <th style="width: 7%">Supplyer</th>
                                   <th style="width: 7%">Brand</th>
                                   <th style="width: 7%">Group</th>
-                                  <th style="width: 7%">inactived</th>
+                                  <th style="width: 12%">Category</th>
+                                  <th style="width: 7%">unitCode</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr v-for="(purchaseLine,index) in items" :key="items.index">
-                                  <th v-if="index>=1" style="width: 5%">{{purchaseLine.product_no}}</th>
-                                  <th v-if="index>=1" style="width: 5%">{{purchaseLine.product_barcode}}</th>
-                                  <th v-if="index>=1" style="width: 10%">{{purchaseLine.description}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.unit_price}}{{purchaseLine.curency_code}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.reorder_point}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.sup_code}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.brand_code}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.group_code}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.cat_code}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.inventory}}{{purchaseLine.purche_unit_of_measure_code}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 12%">{{purchaseLine.product_no}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 12%">{{purchaseLine.product_barcode}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 15%">{{purchaseLine.description}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 12%">{{purchaseLine.unit_price}}{{purchaseLine.curency_code}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 12%">{{purchaseLine.reorder_point}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 12%">{{purchaseLine.sup_code}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 12%">{{purchaseLine.brand_code}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 10%">{{purchaseLine.group_code}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 12%">{{purchaseLine.cat_code}}</th>
+                                  <th v-if="purchaseLine.product_no !=''" style="width: 12%">{{purchaseLine.stock_unit_of_measure_code}}</th>
                                 </tr>
                               </tbody>
-
                             </table>
                           </div>
-                          <div class="row">
-                            <div class="col-xl-8 supplier-padding">
-                              <p class="ms-3">Payment Information</p>
-                              <ul class="list-unstyled">
-                                <li class="text-muted">ABA BANK<span class="text--color">Mr. Master</span></li>
-                                <li class="text-muted">Bank Name:<span class="text--color">Mr. Master</span></li>
-                                <li class="text-muted">Bank Account Number: <span class="text--color">001 025 025</span></li>
-                              </ul>
-                            </div>
-
-                            <div class="col-xl-8 supplier-padding">
-                              <ul class="list-unstyled">
-                                <tr>
-                                  <td class="th-font-bold text-right">Products :</td>
-                                  <td class="th-font-bold">{{ productline }}</td>
-                                </tr>
-                                <tr>
-                                  <td class="th-font-bold text-right" >Inventory : </td>
-                                  <td class="th-font-bold">{{ item }}</td>
-                                </tr>
-                                <tr>
-                                  <td class="th-font-bold table-th-width text-right">Total Amount : </td>
-                                  <td class="th-font-bold">{{total}}{{form.curency_code}}</td>
-                                </tr>
-                              </ul>
-                            </div>
-                          </div>
                           <hr>
-                      
-
                         </div>
                       </div>
                     </div>
@@ -702,8 +673,9 @@ export default {
                             suppliyer_code: element[6],
                             curency_code: element[7],
                             stock_unit_of_measure_code: element[8],
-                            stock_unit_price: element[9],
+                            unit_price: element[9],
                             reorder_point: element[10],
+                            inactived: 'No'
                         });
                         this.getLinkProduct(element);
                     }else{ 
@@ -747,9 +719,8 @@ export default {
             unit_price: price,
             curency_code: element[7],
             status: statuse,
-            inactived: 'NO'
+            inactived: 'No'
       });
-       console.log(this.iteamLinks);
     },
     saveprulink(){
       if(this.items.length > 0){ setTimeout(() => this.savepro(), 2000);}
@@ -759,7 +730,10 @@ export default {
       if(element.product_no !="" && element.description !=""){
         axios.post("api/v1/products/saveDataFformexcel/", element)
                   .then((response) => {
-                    this.purchases_lines = response.data;
+                    this.massege = this.items[this.checkarray-1].product_no + ' / '+ this.items[this.checkarray-1].description;
+                    this.massege +=" : "+ this.items[this.checkarray].product_no + ' / '+ this.items[this.checkarray].description;
+                    this.massege +=" : "+ this.items[this.checkarray+1].product_no + ' / '+ this.items[this.checkarray+1].description;
+                    this.products = response.data;
                     this.savedataValincode(element.product_no);
               });
          }
@@ -773,14 +747,22 @@ export default {
           this.checkarray = 0;
         }
      },
+     meassagechek(check){
+      var modal = document.getElementById("myModalauto");
+        if(check =='open'){
+          modal.style.display = "block";
+        }else{
+          modal.style.display = "none";
+        }
+      },
      savedataValincode(product_no){
       this.iteamLinks.forEach(element => {
-      if(element.product_no == product_no && element.product_no !="" ){
-        axios.post("api/v1/products/SaveDataLinkexcel/", element)
-                  .then((response) => {
-              });
-         }
-    });
+          if(element.product_no == product_no && element.product_no !="" ){
+            axios.post("api/v1/products/SaveDataLinkexcel/", element)
+                      .then((response) => {
+                  });
+            }
+          });
      },
     save(){
       this.excel = 'Import';
@@ -789,24 +771,31 @@ export default {
       this.items = [];
       this.item = 0;
     },
-     meassagechek(check){
-      var modal = document.getElementById("myModalauto");
-        if(check =='open'){
-          modal.style.display = "block";
-        }else{
-          axios.post("api/v1/purchase/addrow/purchaseline/" + this.purchases)
-                  .then((response) => {
-                    this.purchases_lines = response.data;
-                    modal.style.display = "none";
-              });
-        }
-      },
-      exportSheet() { 
+    exportSheet() { 
           this.items = [];
-          this.purchases_lines.forEach(element => {
+          this.products.data.forEach(element => {
           this.items.push({
                             product_no: element.product_no,
-                            product_barcode:el.product_barcode,
+                            product_barcode:element.product_barcode,
+                            description: element.description,
+                            brand_code: element.brand_code,
+                            group_code: element.group_code,
+                            cat_code: element.cat_code,
+                            suppliyer_code: element.suppliyer_code,
+                            curency_code: element.curency_code,
+                            stock_unit_of_measure_code: element.stock_unit_of_measure_code,
+                            unit_price: element.unit_price,
+                            inactived: element.inactived,
+                             reorder_point: element.reorder_point,
+              })
+        });
+        this.excel = 'Export';
+      },
+      exportdataExcel(){
+              const invoices = this.items.reduce((ac, element) => { 
+                    ac.push({ 
+                      product_no: element.product_no,
+                            product_barcode:element.product_barcode,
                             description: element.description,
                             brand_code: element.brand_code,
                             group_code: element.group_code,
@@ -817,29 +806,13 @@ export default {
                             stock_unit_price: element.stock_unit_price,
                             inactived: element.inactived,
                              reorder_point: element.reorder_point,
-              })
-        });
-        this.excel = 'Export';
-      },
-      exportdataExcel(){
-              const invoices = this.items.reduce((ac, element) => { 
-                    ac.push({ 
-                      document_no: element.document_no,
-                      document_type: element.document_type,
-                      product_no: element.product_no,
-                      description: element.description,
-                      unit_of_measure_code: element.unit_of_measure_code,
-                      inventory: element.inventory,
-                      unit_price: element.unit_price,
-                      total_amount: element.total_amount, 
-                      curency_code: element.curency_code,
                     }); 
                     return ac;
                 }, []);
                 var invoicesWS = XLSX.utils.json_to_sheet(invoices)
                 var wb = XLSX.utils.book_new() 
-                XLSX.utils.book_append_sheet(wb, invoicesWS, 'PruchecLink') 
-                XLSX.writeFile(wb, 'PruchecLink.xlsx')
+                XLSX.utils.book_append_sheet(wb, invoicesWS, 'Product') 
+                XLSX.writeFile(wb, 'Products.xlsx')
       }
      }
     }

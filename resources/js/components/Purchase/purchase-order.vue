@@ -991,16 +991,15 @@ export default {
           this.purchases_lines.forEach(element => {
           console.log(element);
           this.items.push({
-                  id:element.id,
-                  document_no: element.document_no,
-                  document_type: element.document_type,
-                  product_no: element.product_no,
-                  description: element.description,
-                  unit_of_measure_code: element.unit_of_measure_code,
-                  inventory: element.inventory,
-                  unit_price: element.unit_price,
-                  total_amount: element.total_amount, 
-                  curency_code: element.curency_code,
+                      document_no: element.document_no,
+                      document_type: element.document_type,
+                      product_no: element.product_no,
+                      description: element.description,
+                      unit_of_measure_code: element.unit_of_measure_code,
+                      inventory: element.inventory,
+                      unit_price: element.unit_price,
+                      total_amount: element.total_amount, 
+                      curency_code: element.curency_code,
               })
         });
         this.excel = 'Export';

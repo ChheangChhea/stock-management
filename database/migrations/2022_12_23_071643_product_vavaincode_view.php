@@ -15,7 +15,7 @@ class ProductVavaincodeView extends Migration
     {
         DB::statement("
         CREATE VIEW product_vavaincode_view AS (
-            select p.product_no,p.stock_unit_of_measure_code,p.purche_unit_of_measure_code,pv.variant_unit_of_measure_code,pv.quantity_per_unit,pv.unit_price,curency_code from product p INNER JOIN product_variant_code pv on p.product_no = pv.product_no
+            select p.product_no,p.stock_unit_of_measure_code,p.purche_unit_of_measure_code,pv.variant_unit_of_measure_code,pv.quantity_per_unit,pv.unit_price,pv.status,curency_code from product p INNER JOIN product_variant_code pv on p.product_no = pv.product_no
          )");
     }
 

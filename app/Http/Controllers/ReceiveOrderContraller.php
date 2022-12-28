@@ -90,7 +90,8 @@ class ReceiveOrderContraller extends Controller
                 $inventoryres =  $request->inventory_recetive;
                 $purOrder = purcheaorder::where('document_no', '=',$request->document_no)->first(); $purOrder->statue = 'close'; $purOrder->save();      
                 $productvariantcode = product_vavaincode_view::addSelect ('product_no','stock_unit_of_measure_code','purche_unit_of_measure_code','variant_unit_of_measure_code','quantity_per_unit','unit_price','curency_code')
-                ->where('product_no','=',$request->product_no)->where('variant_unit_of_measure_code','=',$request->unit_of_measure_code)->first(); 
+                ->where('product_no','=',$request->product_no)->where('variant_unit_of_measure_code','=',$request->unit_of_measure_code)->first();
+                $PrinceLink  = product_vavaincode_view::addSelect ('unit_price')->where('product_no','=',$request->product_no)->where('status','=','stock')->first();
                 if($productvariantcode){}
                         $inventory_order = 0;
                         $inventory =  $inventory_order + doubleval($request['inventory_recetive']);
@@ -104,7 +105,7 @@ class ReceiveOrderContraller extends Controller
                             'exprit_date'           => $request['exprit_date'],
                             'line_no'               => $request['line_no'],
                             'unit_of_measure_code'  => $productvariantcode['stock_unit_of_measure_code'],
-                            'unit_price'            => $request['unit_price'],
+                            'unit_price'            => $PrinceLink['unit_price'],
                             'inventory'             => $inventory,
                             'inventory_order'       => $inventory_order,
                             'inventory_new'         => $inventorynew,
@@ -125,7 +126,7 @@ class ReceiveOrderContraller extends Controller
                                     'unit_of_measure_code' => $receiveorder['unit_of_measure_code'],
                                     'unit_price'           => $receiveorder['unit_price'],
                                     'inventory'            => $receiveorder['inventory'],
-                                    'total_amount'         => $receiveorder['total_amount'],
+                                    'total_amount'         => $request['total_amount'],
                                     'curency_code'         => $receiveorder['curency_code'],
                                     'remark'               => $receiveorder['remark'],
                                     'created_by'           => $receiveorder['created_by']
