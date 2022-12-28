@@ -231,7 +231,7 @@ class ProductContraller extends Controller
             $product->group_code = $request->group_code;
             $product->cat_code = $request->cat_code;
             $product->unit_price = $request->unit_price;
-            $product->inactived = $request->inactived;
+            $product->inactived = 'No';
             $product->variant_code = 'Yes';
             $product->updete_by = 'chhin pov';
             $product->save();
@@ -261,7 +261,7 @@ class ProductContraller extends Controller
         $productvariantcode ->quantity_per_unit = $request -> quantity_per_unit; 
         $productvariantcode ->unit_price = $request -> unit_price; 
         $productvariantcode ->curency_code = $request -> curency_code; 
-        $productvariantcode ->inactived = $request -> inactived; 
+        $productvariantcode ->inactived='No' ;
         $productvariantcode ->updete_by = 'chhin pov'; 
         $productvariantcode->save();
         if($productvariantcode){
