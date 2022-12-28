@@ -126,22 +126,17 @@
                     <select :disabled="isDisabled" v-model="form.stock_unit_of_measure_code" class="form"
                       style="width: 385px">
                       <option value=""></option>
-                      <!-- <option v-for="uint in uints" :value="uint.unit_code">
+                      <option v-for="uint in uints" :value="uint.unit_code">
                         {{ uint.unit_of_measure }}
-                      </option> -->
+                      </option>
                     </select>
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Purche Unit</th>
+                  <th width="10%">ReOrder Point</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" v-model="form.purche_unit_of_measure_code" class="form"
-                      style="width: 385px">
-                      <option value=""></option>
-                      <!-- <option v-for="uint in uints" :value="uint.unit_code">
-                        {{ uint.unit_of_measure }}
-                      </option> -->
-                    </select>
+                    <input :disabled="isDisabled" v-model="form.reorder_point"
+                      class="string_zen clear_text text input_text" size="50" type="text" />
                   </td>
                 </tr>
                 <tr>
@@ -566,7 +561,7 @@ export default {
           group_code: "",
           cat_code: "",
           unit_price: "",
-          inactived: "",
+          inactived: "No",
         }],
         iteamLinks:[{
             product_no: "",
@@ -622,7 +617,7 @@ export default {
     },
 
     getunite() {
-      axios.get("/api/v1/units").then((response) => {
+      axios.get("/api/v1/getunite").then((response) => {
         this.uints = response.data;
       });
     },
@@ -731,7 +726,7 @@ export default {
         if(element.length >=y){
               while ((y+3)<=element.length) {
                    if(this.checkexcel[y] == xz1 && this.checkexcel[y+1] == xz3 && this.checkexcel[y+2] == xz2){
-                           if(this.items.length > 0){ setTimeout(() => this.addtolinkProduct(element,element[y+2],element[y],element[y+1],'unit'), 1000);}
+                           this.addtolinkProduct(element,element[y+2],element[y],element[y+1],'unit');
                             z++;
                             xz1 ='quantity_unit'+z;
                             xz2 ='unit_code'+z;
@@ -752,12 +747,12 @@ export default {
             unit_price: price,
             curency_code: element[7],
             status: statuse,
-            inactived: '1'
+            inactived: 'NO'
       });
        console.log(this.iteamLinks);
     },
     saveprulink(){
-      if(this.items.length > 0){ setTimeout(() => this.savepro(), 5000);}
+      if(this.items.length > 0){ setTimeout(() => this.savepro(), 2000);}
     },
   savepro(){
     this.items.forEach(element => {

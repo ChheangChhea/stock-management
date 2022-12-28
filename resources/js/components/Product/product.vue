@@ -278,18 +278,10 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Purche Unit</th>
+                  <th width="10%">Reorder Point</th>
                   <td width="50%">
-                    <select
-                      @change="autoUpdateProduct(form)"
-                      v-model="form.purche_unit_of_measure_code"
-                      class="form"
-                      style="width: 385px"
-                    >
-                      <option v-for="uint in uints" :value="uint.unit_code">
-                        {{ uint.unit_of_measure }}
-                      </option>
-                    </select>
+                    <input :disabled="isDisabled" v-model="form.reorder_point"
+                      class="string_zen clear_text text input_text" size="50" type="text" />
                   </td>
                 </tr>
                 <tr>
@@ -873,10 +865,9 @@
                       <ul style="list-style: none" class="scrollable-menu">
                         <li
                           v-for="boompro in uints"
-                          @click="getproduct(boompro, form_line, 'boomunit')"
-                        >
+                          @click="getproduct(boompro, form_line, 'boomunit')" >
                           <div class="menu-item">
-                            <!-- <p>{{ boompro.variant_unit_of_measure_code }}</p> -->
+                           <p>{{ boompro.variant_unit_of_measure_code }}</p> 
                           </div>
                         </li>
                       </ul>
@@ -1635,7 +1626,6 @@ export default {
     getunite() {
       axios.get("/api/v1/getunite").then((response) => {
         this.uints = response.data;
-        console.log(this.uints);
       });
     },
     getbrands() {
