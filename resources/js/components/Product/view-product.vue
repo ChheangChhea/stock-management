@@ -438,27 +438,28 @@
                               <thead style="background-color:#84B0CA ;" class="text-white">
                                 <tr>
                                   <th style="width: 5%">No</th>
-                                  <th style="width: 10%">Document No</th>
-                                  <th style="width: 10%">Document Type</th>
-                                  <th style="width: 7%">Product No</th>
-                                  <th style="width: 7%">Description</th>
-                                  <th style="width: 7%">Unit Price</th>
-                                  <th style="width: 7%">Inventory</th>
-                                  <th style="width: 7%">Unit Code</th>
-                                  <th style="width: 7%">Total</th>
+                                  <th style="width: 5%">Barcode</th>
+                                  <th style="width: 10%">Description</th>
+                                  <th style="width: 7%">Prince</th>
+                                  <th style="width: 7%">R.Point</th>
+                                  <th style="width: 7%">Supplyer</th>
+                                  <th style="width: 7%">Brand</th>
+                                  <th style="width: 7%">Group</th>
+                                  <th style="width: 7%">inactived</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr v-for="(purchaseLine,index) in items" :key="items.index">
-                                  <th v-if="index>=1" style="width: 5%">{{index}}</th>
-                                  <th v-if="index>=1" style="width: 10%">{{purchaseLine.document_no}}</th>
-                                  <th v-if="index>=1" style="width: 10%">{{purchaseLine.document_type}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.product_no}}</th>
+                                  <th v-if="index>=1" style="width: 5%">{{purchaseLine.product_no}}</th>
+                                  <th v-if="index>=1" style="width: 5%">{{purchaseLine.product_barcode}}</th>
                                   <th v-if="index>=1" style="width: 10%">{{purchaseLine.description}}</th>
                                   <th v-if="index>=1" style="width: 7%">{{purchaseLine.unit_price}}{{purchaseLine.curency_code}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.inventory}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.unit_of_measure_code}}</th>
-                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.total_amount}}{{purchaseLine.curency_code}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.reorder_point}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.sup_code}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.brand_code}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.group_code}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.cat_code}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.inventory}}{{purchaseLine.purche_unit_of_measure_code}}</th>
                                 </tr>
                               </tbody>
 
@@ -689,22 +690,25 @@ export default {
             if(x>=0){
                 if(x==0){
                   this.checkexcel = element;
+                  console.log(element);
                  }else{
-                    if(this.checkexcel[0]=='product_no' && this.checkexcel[1]=='description' 
-                    && this.checkexcel[2]=='brand_code' && this.checkexcel[3]=='group_code' 
-                    && this.checkexcel[4]=='cat_code' && this.checkexcel[5]=='suppliyer_code' 
-                    && this.checkexcel[6]=='curency_code' && this.checkexcel[7]=='stock_unit_of_measure_code' 
-                    && this.checkexcel[8]=='stock_unit_price'){
+                    if(this.checkexcel[0]=='product_no' && this.checkexcel[2]=='description' 
+                    && this.checkexcel[3]=='brand_code' && this.checkexcel[4]=='group_code' 
+                    && this.checkexcel[5]=='cat_code' && this.checkexcel[6]=='suppliyer_code' 
+                    && this.checkexcel[7]=='curency_code' && this.checkexcel[8]=='stock_unit_of_measure_code' 
+                    && this.checkexcel[9]=='stock_unit_price' && this.checkexcel[10] =='reorder_point'){
                       this.items.push({
                             product_no: element[0],
-                            description: element[1],
-                            brand_code: element[2],
-                            group_code: element[3],
-                            cat_code: element[4],
-                            suppliyer_code: element[5],
-                            curency_code: element[6],
-                            stock_unit_of_measure_code: element[7],
-                            stock_unit_price: element[8],
+                            product_barcode:element[1],
+                            description: element[2],
+                            brand_code: element[3],
+                            group_code: element[4],
+                            cat_code: element[5],
+                            suppliyer_code: element[6],
+                            curency_code: element[7],
+                            stock_unit_of_measure_code: element[8],
+                            stock_unit_price: element[9],
+                            reorder_point: element[10],
                         });
                         this.getLinkProduct(element);
                     }else{ 
@@ -719,40 +723,41 @@ export default {
       this.exefile='';
     },
     getLinkProduct(element){
-        this.addtolinkProduct(element,element[7],1,element[8],'stock');
-        var y=9,z=1;
+        this.addtolinkProduct(element,element[8],1,element[9],'stock');
+        var y=11,z=1;
         var xz1 ='quantity_unit'+z;
         var xz2 ='unit_code'+z;
         var xz3 ='unit_price'+z;
         if(element.length >=y){
               while ((y+3)<=element.length) {
                    if(this.checkexcel[y] == xz1 && this.checkexcel[y+1] == xz3 && this.checkexcel[y+2] == xz2){
-                           this.addtolinkProduct(element,element[y+2],element[y],element[y+1],'unit'); 
-                            // console.log(this.checkexcel[y+2]+this.checkexcel[y]+this.checkexcel[y+1]); 
+                           if(this.items.length > 0){ setTimeout(() => this.addtolinkProduct(element,element[y+2],element[y],element[y+1],'unit'), 1000);}
                             z++;
                             xz1 ='quantity_unit'+z;
                             xz2 ='unit_code'+z;
                             xz3 ='unit_price'+z;
                   }
-                  y=y+3;
+                  y=y+3; 
              } 
           }
     },
     addtolinkProduct(element,measure_code,quantity,price,statuse){
       this.iteamLinks.push({
             product_no: element[0],
-            description: element[1],
+            product_barcode:element[1],
+            description: element[2],
             variant_unit_of_measure_code: measure_code,
             stock_unit_of_measure_code: element[7],
             quantity_per_unit: quantity,
             unit_price: price,
-            curency_code: element[6],
+            curency_code: element[7],
             status: statuse,
+            inactived: '1'
       });
        console.log(this.iteamLinks);
     },
     saveprulink(){
-      if(this.items.length > 0){ setTimeout(() => this.savepro(), 3000);}
+      if(this.items.length > 0){ setTimeout(() => this.savepro(), 5000);}
     },
   savepro(){
     this.items.forEach(element => {
@@ -804,18 +809,19 @@ export default {
       exportSheet() { 
           this.items = [];
           this.purchases_lines.forEach(element => {
-          console.log(element);
           this.items.push({
-                  id:element.id,
-                  document_no: element.document_no,
-                  document_type: element.document_type,
-                  product_no: element.product_no,
-                  description: element.description,
-                  unit_of_measure_code: element.unit_of_measure_code,
-                  inventory: element.inventory,
-                  unit_price: element.unit_price,
-                  total_amount: element.total_amount, 
-                  curency_code: element.curency_code,
+                            product_no: element.product_no,
+                            product_barcode:el.product_barcode,
+                            description: element.description,
+                            brand_code: element.brand_code,
+                            group_code: element.group_code,
+                            cat_code: element.cat_code,
+                            suppliyer_code: element.suppliyer_code,
+                            curency_code: element.curency_code,
+                            stock_unit_of_measure_code: element.stock_unit_of_measure_code,
+                            stock_unit_price: element.stock_unit_price,
+                            inactived: element.inactived,
+                             reorder_point: element.reorder_point,
               })
         });
         this.excel = 'Export';
