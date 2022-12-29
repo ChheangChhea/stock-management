@@ -55,7 +55,7 @@ class CategorysController extends Controller
     public function storeExcel(Request $request)
     {
 
-        $brand = category::create([
+        $category = category::create([
             'id' => $request->cat_code,
             'cat_code' => $request->cat_code,
             'cat_name' => $request->cat_name,
@@ -64,11 +64,8 @@ class CategorysController extends Controller
             'is_deleted' => "0",
             'created_by' => "Chhin Pov",
         ]);
-        if ($brand) {
-            $purline = category::find($brand->id);
-            $purline->cat_code = $request->cat_code;
-            $purline->save();
-            return ['statue :' => "success full"];
+        if ($category) {
+            return category::get()->all();
         } else {
             return ['statue :' => "faile"];
         }

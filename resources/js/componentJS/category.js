@@ -3,7 +3,7 @@ import axios from "axios";
 import readXlsxFile from "read-excel-file";
 import * as XLSX from "xlsx/xlsx.mjs";
 export default function useCategory() {
-    const Categories = ref([])
+    const Categories = ref([{}])
     const search = ref('')
     const checkexcel = ref([])
     const exefile = ref('')
@@ -27,7 +27,7 @@ export default function useCategory() {
     watch(search, () => {
         getCategory();
     });
-    const getCategory = async (p = 1) => {
+    var getCategory = async (p = 1) => {
         axios.get("api/v1/category?page=" + p, { params: { search: search.value } }).then(({ data }) => {
             Categories.value = data;
         })
@@ -81,20 +81,29 @@ export default function useCategory() {
         exefile.value = "";
     }
     const savexcelCategoy = async () => {
-        saveimportExcel()
-    }
-    const saveimportExcel = async () => {
         var x = 0
-        CatExcels.forEach(element => {
+        CatExcels.forEach(e => {
             if (x != 0) {
-                axios.post('api/v1/category/excel', element).then(({ data }) => {
-                    console.log(element);
+                axios.post('api/v1/category/excel', e).then((data) => {
                     CatExcels.values = data.data
+                    Categories.value = CatExcels.values
+                    console.log(data);
                 })
-            }
-            x++
-        });
+            } x++
+        })
     }
+    // const saveimportExcel = async () => {
+    //     // var x = 0
+    //     // CatExcels.forEach(element => {
+    //     //     if (x != 0) {
+    //     //         axios.post('api/v1/category/storeExcel', element).then((res) => {
+    //     //             element = res.data
+    //     //         });
+    //     //     }
+    //     //     x++
+    //     // });
+    //     axios.post('api/v1/category/storeExcel', CatExcels)
+    // }
 
     return {
         Categories,

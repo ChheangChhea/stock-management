@@ -227,6 +227,8 @@
         <div class="modal-footer">
           <div
             @click="btnSaveExcel"
+            data-bs-dismiss="modal"
+            aria-label="Close"
             class="btn-purchase btn-light text-capitalize"
           >
             <input type="button" /><i class="fas fa-save"></i> Save Data
@@ -249,6 +251,7 @@ const {
   savexcelCategoy,
   dataexcelCategory,
   printCategory,
+  getCategory,
   checkexcel,
   exefile,
   CatExcels,
@@ -261,8 +264,10 @@ const print = async () => {
 };
 const btnSaveExcel = async () => {
   savexcelCategoy();
+  getCategory();
 };
 const excelCategory = async (event) => {
   dataexcelCategory(event);
+  getCategory();
 };
 </script>
