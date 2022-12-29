@@ -112,6 +112,7 @@ class ReceiveOrderContraller extends Controller
                             'total_amount'          => $request['total_amount'],
                             'curency_code'          => $request['curency_code'],
                             'remark'                => $request['remark'],
+                            'statuse'               => 'open',
                             'created_by'            => "Chhin Pov",
                             ]);
                             if($receiveorder){
@@ -181,7 +182,7 @@ class ReceiveOrderContraller extends Controller
      */
     public function getshowpurchea(Request $request)
     {
-       $productvariantcode = purcheaorder::where('statue', '=',"open")->get();      
+       $productvariantcode = purcheaorder::orderBy('id', 'asc')->where('statue', '=',"open")->get();      
         if ($productvariantcode) {
             return $productvariantcode;
         } else {

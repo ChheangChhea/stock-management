@@ -67,32 +67,6 @@ class PurcheaOrderContraller extends Controller
         }
     }
 
-    // public function createUnit($id)
-    // {
-    //     $serail_no = purcheaorder::where('document_no', '=', $id)->first();
-    //     $decrip =  $serail_no->description;
-    //     $purline = purchealine::create([
-    //         'document_no' => $id,
-    //         'description' => $decrip,
-    //         'created_by' => 'Chhin Pov'
-    //     ]);
-    //     if ($purline) {
-    //         $serail_no = purchealine::where('document_no', '=', $id)->get();
-    //         return $serail_no;
-    //     } else {
-    //         return ['statue :' => "faile Create"];
-    //     }
-    // }
-    // public function getUnit($id)
-    // {
-    //     $purline = purchealine::where('document_no', '=', $id)->first();
-    //     if ($purline) {
-    //         return $purline;
-    //     } else {
-    //         return ['statue :' => "Note Date"];
-    //     }
-    // }
-
     public function savelink($id)
     {
         $purline = purchealine::where('id', '=', $id)->get();
@@ -106,7 +80,7 @@ class PurcheaOrderContraller extends Controller
 
     public function purchaseorderView(Request $request)
     {
-        $purchase_view = purcheaorder::orderBy('document_no', 'asc')->paginate(10);
+        $purchase_view = purcheaorder::orderBy('id', 'asc')->orderBy('document_no', 'asc')->paginate(10);
         if ($purchase_view) {
             return $purchase_view;
         } else {
@@ -124,7 +98,7 @@ class PurcheaOrderContraller extends Controller
     }
     public function editPurchaseline($id)
     {
-        $purline = purchealine::where('document_no', '=', $id)->get();
+        $purline = purchealine::orderBy('id', 'asc')->where('document_no', '=', $id)->get();
         if ($purline) {
             return $purline;
         } else {
@@ -176,7 +150,7 @@ class PurcheaOrderContraller extends Controller
         $purline->save();
 
         if ($purline) {
-            $purline = purchealine::where('document_no', '=', $x)->get();
+            $purline = purchealine::orderBy('id', 'asc')->where('document_no', '=', $x)->get();
             return $purline;
         } else {
             return ['statue :' => "Note Date"];
@@ -190,7 +164,7 @@ class PurcheaOrderContraller extends Controller
         $document =  $purline->document_no;
         $purline->delete();
         if ($purline) {
-            $purline = purchealine::where('document_no', '=', $document)->get();
+            $purline = purchealine::orderBy('id', 'asc')->where('document_no', '=', $document)->get();
             if ($purline) {
                 return $purline;
             } else {
@@ -205,7 +179,6 @@ class PurcheaOrderContraller extends Controller
     {
         $purline = purchealine::create([
             'document_no' => $id,
-            'description' => 'Medichince Product',
             'total_amount' => '1',
             'inventory' => '1',
             'unit_price' => '1',

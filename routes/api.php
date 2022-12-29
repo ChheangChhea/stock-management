@@ -14,7 +14,8 @@ use App\Http\Controllers\{
     ProductBomContraller,
     PurcheaOrderContraller,
     ReceiveOrderContraller,
-    StockTransactionContraller
+    StockTransactionContraller,
+    StockCountController
 };
 
 /*php
@@ -149,4 +150,14 @@ Route::group(['prefix' => 'v1'], function () {
 
 
     Route::get('stocktraview/', [StockTransactionContraller::class, 'index']);
+
+    //Stock count
+    Route::get('stockcout/create/', [StockCountController::class, 'store']);
+    Route::get('stockcout/stockview/{stockcout}', [StockCountController::class, 'stockview']);
+    Route::get('stockcout/stocklineview/{stockcout}', [StockCountController::class, 'stocklineview']);
+    Route::get('stockcout/editStocklineview/{stockcout}', [StockCountController::class, 'editStocklineview']);
+    Route::post('stockcout/updatestockline/{stockcout}', [StockCountController::class, 'updatestockline']);
+    Route::post('stockcout/addrowstockline/{stockcout}', [StockCountController::class, 'addrowstockline']);
+    Route::post('stockcout/getValicode/{stockcout}', [StockCountController::class, 'getValicode']);
+    Route::get('stockcout/getStock/{stockcout}', [StockCountController::class, 'getStock']);
 });

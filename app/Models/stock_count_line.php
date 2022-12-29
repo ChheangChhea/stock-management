@@ -5,31 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class stockkeeping extends Model
+class stock_count_line extends Model
 {
     use HasFactory;
-    protected $table = 'product_stock_keeping_units';
+    protected $table = "stock_line_count";
     protected $fillable = [
         'id',
         'document_no',
         'document_type',
         'product_no',
         'description',
-        'issu_date',
-        'exprit_date',
         'line_no',
         'unit_of_measure_code',
         'unit_price',
         'inventory',
+        'inventory_count',
         'inventory_new',
-        'inventory_old',
+        'qty_balance',
+        'amount_balance',
+        'total_amount',
         'curency_code',
         'remark',
-        'statuse',
         'created_by',
         'delete_by',
         'created_at',
-        'updated_at'
-
+        'updated_at'    
     ];
 }
