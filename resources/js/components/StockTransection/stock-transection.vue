@@ -248,7 +248,7 @@
                         class="ui-dialog-titlebar-close ui-corner-all"
                         role="button"
                         data-bs-dismiss="modal"
-                    ></a>
+                    ><span class="ui-icon ui-icon-closethick">close</span></a>
                 </div>
                 <div class="ui-dialog-content height-modal" id="invoiceholder">
                     <!----set size for A4-->
@@ -326,7 +326,7 @@
                                                                 Category.document_no
                                                             }}
                                                         </td>
-                                                        <td width="12%">
+                                                        <td width="14%">
                                                             {{
                                                                 Category.document_type
                                                             }}
@@ -366,7 +366,7 @@
                                                                 Category.Curency
                                                             }}
                                                         </td>
-                                                        <td width="10%">
+                                                        <td width="8%">
                                                             {{
                                                                 Category.Remark
                                                             }}

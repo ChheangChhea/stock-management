@@ -1046,10 +1046,11 @@ body {
 
 .ui-widget-header {
 	border: 1px solid #aaaaaa;
-	background: #326c7a url(images/ui-bg_flat_75_326c7a_40x100.png) 50% 50% repeat-x;
+	/* background: #326c7a url(images/ui-bg_flat_75_326c7a_40x100.png) 50% 50% repeat-x; */
 	color: #ffffff;
 	font-weight: bold;
 	padding: 12px 0;
+	background: linear-gradient(#127993, #6db7bf);
 }
 
 .ui-widget-header a {
@@ -2410,7 +2411,7 @@ h5 {
 
 .ui-dialog .ui-dialog-titlebar-close span {
 	display: block;
-	margin: 1px;
+	margin-top: -16px;
 }
 
 .ui-dialog .ui-dialog-titlebar-close:hover,
@@ -2432,9 +2433,10 @@ h5 {
 	clear: both;
 	position: relative;
 	padding: 13px 10px;
-	background: #2e6c7b;
+	/* background: #2e6c7b; */
 	text-align: center;
 	display: block !important;
+	background: #6db7bf;
 }
 
 .ui-dialog-content {
@@ -2447,7 +2449,7 @@ h5 {
 }
 
 .modal-body {
-	padding: 1rem 0rem !important;
+	padding: 1rem 1rem !important;
 }
 
 .ui-dialog .ui-dialog-buttonpane {
@@ -9044,7 +9046,7 @@ input[name="nav-item"] {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgb(219, 222, 225) !important;
+    background-color: rgb(245, 245, 245) !important;
 }
 .page-link {
     position: relative;

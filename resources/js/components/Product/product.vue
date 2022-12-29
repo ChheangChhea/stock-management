@@ -116,7 +116,7 @@
                   @click="
                     getMessage(
                       'Message Confirm',
-                      'Do you want to create new product.',
+                      'Do you want to create new product?',
                       'crate',
                       code
                     )
@@ -691,7 +691,7 @@
     aria-labelledby="staticBackdropss"
     aria-hidden="true"
   >
-    <div class="modal-dialog">
+    <div class="modal-dialog" id="nonbackgroundboom">
       <div class="modal-content ui-dialog">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">
@@ -1194,7 +1194,7 @@
             class="ui-dialog-titlebar-close ui-corner-all"
             role="button"
             data-bs-dismiss="modal"
-          ></a>
+          ><span class="ui-icon ui-icon-closethick">close</span></a>
         </div>
         <div class="ui-dialog-content" id="invoiceholder">
           <!----set size for A4-->
@@ -1367,7 +1367,7 @@
                     >
                       <td
                         v-if="index % 2 == 0"
-                        style="background-color: #dbdee1; border: medium none"
+                        style="background-color: rgb(245, 245, 245); border: medium none"
                       >
                         <img
                           alt="タックシール印刷"
@@ -1387,7 +1387,7 @@
                       <td
                         v-if="index % 2 == 0"
                         style="
-                          background-color: #dbdee1;
+                          background-color: rgb(245, 245, 245);
                           border: medium none;
                           text-align: left;
                           vertical-align: middle;
@@ -1408,7 +1408,7 @@
                       <td
                         v-if="index % 2 == 0"
                         style="
-                          background-color: #dbdee1;
+                          background-color: rgb(245, 245, 245);
                           border: medium none;
                           text-align: left;
                           vertical-align: middle;
@@ -1429,7 +1429,7 @@
                       <td
                         v-if="index % 2 == 0"
                         style="
-                          background-color: #dbdee1;
+                          background-color: rgb(245, 245, 245);
                           border: medium none;
                           text-align: left;
                           vertical-align: middle;
@@ -1456,7 +1456,7 @@
                       <td
                         v-if="index % 2 == 0"
                         style="
-                          background-color: #dbdee1;
+                          background-color: rgb(245, 245, 245);
                           border: medium none;
                           text-align: left;
                           vertical-align: middle;
@@ -1477,7 +1477,7 @@
                       <td
                         v-if="index % 2 == 0"
                         style="
-                          background-color: #dbdee1;
+                          background-color: rgb(245, 245, 245);
                           border: medium none;
                           text-align: left;
                           vertical-align: middle;
