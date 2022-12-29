@@ -83,7 +83,7 @@
                 </div>
                 <!-- / #header -->
             </div>
-        </div>
+        </div>g
         <div class="search-box">
             <div id="product">
                 <!--#contents -->
@@ -145,8 +145,19 @@
                             </a>
                         </li>
                     </ul>
-                    <h2 class="search-box-title">Search</h2>
-                    <input id="search" name="search" type="hidden" value="1" />
+                    <h2 class="search-box-title">
+            Search
+
+            <input
+              name="search"
+              type="search"
+              id="search"
+              class="text"
+              v-model="search"
+            />
+          </h2>
+
+          <input id="search" name="search" type="hidden" value="1" />
                     <div class="box">
                         <table
                             width="100%"
