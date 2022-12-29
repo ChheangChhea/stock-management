@@ -7,7 +7,6 @@ export default function useCategory() {
     const search = ref('')
     const checkexcel = ref([])
     const exefile = ref('')
-    const checkarray = ref(1)
     const excel = ref('Import')
     const form = reactive({
         cat_code: "",
@@ -113,7 +112,6 @@ export default function useCategory() {
         checkexcel,
         exefile,
         excel,
-        checkarray,
         getCategory,
         createCategory,
         DeleteCategory,

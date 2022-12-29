@@ -8,9 +8,9 @@
 
         <div class="search-box mb-4">
           <Menu />
+
           <h2 class="search-box-title">
             Search
-
             <input
               name="search"
               type="search"
