@@ -23,6 +23,7 @@ import StockTransection from '../components/StockTransection/stock-transection.v
 import Currency from '../components/Currency/currency.vue'
 import ExchangeRate from '../components/ExchangeRate/ExchangeRate.vue'
 import StockCount from '../components/StockCount/stock-count.vue'
+import Viewstockcount from '../components/StockCount/view-stock-count.vue'
 
 const routes = [
     { path: '/', component: App },
@@ -48,6 +49,7 @@ const routes = [
     {path: '/currency', component: Currency},
     {path: '/exchangerate', component: ExchangeRate},
     {path: '/stockcount', component: StockCount,name:'stockcount'},
+    {path: '/viewstockcount', component: Viewstockcount},
   ]
 
 export default  createRouter({

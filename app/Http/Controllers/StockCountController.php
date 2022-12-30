@@ -7,7 +7,10 @@ use App\Models\stock_count_line;
 use App\Models\stock_count;
 use App\Models\stock_store;
 use App\Models\Serail;
+use App\Models\stocktransaction;
+use App\Models\stockkeeping;
 use App\Models\product_vavaincode_view;
+
 
 class StockCountController extends Controller
 {
@@ -118,7 +121,22 @@ class StockCountController extends Controller
             return ['statue :' => "Note Date"];
         }
     }
-
+    public function updatestock($id, Request $request)
+    {
+        $purline = stock_count::find($id);
+        $purline->document_type = $request->document_type;
+        $purline->description = $request->description;
+        $purline->total_amount = $request->total_amount;
+        $purline->curency_code = $request->curency_code;
+        $purline->statue = $request->statue;
+        $purline->created_by = 'chhin pov';
+        $purline->save();
+        if($purline) {
+            return $purline;
+        } else {
+            return ['statue :' => "Note Date"];
+        }
+    }
 
     public function updatestockline($id, Request $request)
     {
@@ -147,7 +165,78 @@ class StockCountController extends Controller
             return ['statue :' => "Note Date"];
         }
     }
+    public function bookingcountstock($id){
+            $stock_count = stock_count::where('document_no','=',$id)->where('statue','=','open')->first();
+            $stock_count->statue = 'close'; 
+            $stock_count->save();   
+            if($stock_count){
+                $stock_count_line = stock_count_line::where('document_no', '=',$id)->get();
+                foreach ($stock_count_line as $stockkeeping) {
+                    $stockkeep = stockkeeping::orderBy('id', 'asc')->where('product_no', '=',$stockkeeping->product_no)->where('statuse', '=','open')->first();                         
+                    $id = $stockkeep ->id;
+                    $count = $stockkeeping->inventory_count;
+                    $instock = $stockkeep->inventory;
+                    if(doubleval($count)<doubleval($instock)){
+                        $instock = doubleval($instock) - doubleval($count);
+                        $stockkeep = stockkeeping::find($id);
+                        $stockkeep->inventory = $count;
+                        $stockkeep->save();
+                    }else{
+                        while (doubleval($count) >= doubleval($instock)) {
+                            $instock = doubleval($count) - doubleval($instock);
+                            if($instock == 0){
+                                $stockkeep->inventory = $instock;
+                                $stockkeep->statuse = 'close';
+                                $stockkeep->save();
+                            }else{
+                                $stockkeep->inventory = 0;
+                                $stockkeep = stockkeeping::find($id);
+                                $stockkeep->statuse = 'close';
+                                $stockkeep->save();
+                                if($stockkeep){
+                                    $count = doubleval($count) - doubleval($instock);
+                                    $stockkeep = stockkeeping::orderBy('id', 'asc')->where('product_no', '=',$stockkeeping->product_no)->where('statuse', '=','open')->first();                                             
+                                    $id = $stockkeep ->id;
+                                    $instock = $stockkeep->inventory;
+                                    if(doubleval($count)<doubleval($instock)){
+                                        $instock = doubleval($instock) - doubleval($count);
+                                        $stockkeep = stockkeeping::find($id);
+                                        $stockkeep->inventory = $count;
+                                        $stockkeep->save();
+                                    }
+                            }
+                        }
+                    }
+                }
+                $debit = '0';
+                if(doubleval($stockkeeping['credit_balance']) == 0){
 
+                     $debit = $stockkeeping->debit_balance;
+
+                }else{
+
+                     $debit = $stockkeeping->credit_balance;
+                }
+                $stocktransaction = stocktransaction::create([
+                    'document_no'          => $stockkeeping['document_no'],
+                    'document_type'        => $stockkeeping['document_type'],
+                    'product_no'           => $stockkeeping['product_no'],
+                    'description'          => $stockkeeping['description'],
+                    'unit_of_measure_code' => $stockkeeping['unit_of_measure_code'],
+                    'unit_price'           => $stockkeeping['unit_price'],
+                    'inventory'            => $debit,
+                    'total_amount'         => $stockkeeping['total_amount'],
+                    'curency_code'         => $stockkeeping['curency_code'],
+                    'remark'               => $stockkeeping['document_type']
+                    ]);
+                   if($stocktransaction){
+
+                   }else{
+
+                   }
+            }
+        }
+    }
     public function addrowstockline($id)
     {
         $purline = stock_count_line::create([
@@ -181,6 +270,11 @@ class StockCountController extends Controller
         return  $PrinceLink;
     }
 
+
+    public function getviewscockcount(){
+        $purchase_view = stock_count::orderBy('id', 'asc')->orderBy('document_no', 'asc')->paginate(16);
+        return $purchase_view;
+    }
     /**
      * Update the specified resource in storage.
      *

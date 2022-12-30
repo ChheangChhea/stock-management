@@ -67,20 +67,11 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropss"
-                tabindex="10028"><i class="fas fa-edit"></i> Release</a>
-            </li>
-            <li>
-              <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropss" tabindex="10028"
-                href="#"> <i class="fas fa-save"></i> Booking</a>
+              <a class="dropdown-item" @click="booking()" > <i class="fas fa-save"></i> Booking</a>
             </li>
             <li>
               <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticboomId" tabindex="10028"
                 href="#"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
-            </li>
-            <li>
-              <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropss" tabindex="10028"
-                href="#"><i class="fas fa-file-excel"></i> To Excel</a>
             </li>
           </ul>
 
@@ -107,7 +98,7 @@
                 <a class="dropdown-item" href="#"> Code</a>
               </li>
             </ul>
-            <router-link to="/Purchasview"><a class="btn-radius btn btn-sm" href="#"
+            <router-link to="/viewstockcount"><a class="btn-radius btn btn-sm" href="#"
                 style="color: #f8f5b4; margin-top: -2px">
                 <i class="fas fa-eye" style="padding-right: 5px"> </i>
                 View
@@ -216,7 +207,7 @@
                 <tr v-for="purchaseLine in purchases_lines" :key="purchaseLine.index">
                   <th >
                     <div class="dropdown">
-                      <button @onmouseout="prooductboom(purchaseLine)"
+                      <button :disabled="isDisabled" @onmouseout=""
                         class="dropdown-toggle string_zen clear_text text" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false" size="50">
                         <i class="fa fa-caret-down" aria-hidden="true"></i>{{ purchaseLine.product_no }}
@@ -253,7 +244,7 @@
                       style="min-width: 4em; width:90%" />
                   </th>
                   <th >
-                    <input v-model="purchaseLine.inventory_count" @change="autoUpdatePurline(purchaseLine)"
+                    <input :disabled="isDisabled" v-model="purchaseLine.inventory_count" @change="autoUpdatePurline(purchaseLine)"
                       class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008"
                       style="min-width: 4em; width:90%" />
                   </th>
@@ -287,8 +278,8 @@
                       @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"
                       name="jusinsya_code" type="text" tabindex="10008" style="width: 95%" />
                   </th>
-                  <th style="padding:5px 0px !important">
-                    <div class="button type2" id="uniform-undefined" data-bs-toggle="modal"
+                  <th v-if="isDisabled ==false" style="padding:5px 0px !important">
+                    <div :disabled="isDisabled" class="button type2" id="uniform-undefined" data-bs-toggle="modal"
                       data-bs-target="#staticBackdrop" @click="
                         getMessage(
                           'Message',
@@ -302,6 +293,23 @@
                       <span><input type="button" class="type2" style="opacity: 0; width: 54px" tabindex="10025"
                           value="display" /><i class="fa fa-trash" aria-hidden="true"></i> Delete</span>
                     </div>
+                    
+                  </th>
+                  <th v-if="isDisabled ==true" style="padding:5px 0px !important">
+                    <div :disabled="isDisabled" class="button type2" id="uniform-undefined"  @click="
+                        getMessage(
+                          'Message',
+                          'Do yout want to Delete this recode. [' +
+                          purchaseLine.id +
+                          ']',
+                          'delelink',
+                          purchaseLine.id
+                        )
+                      ">
+                      <span><input type="button" class="type2" style="opacity: 0; width: 54px" tabindex="10025"
+                          value="display" /><i class="fa fa-trash" aria-hidden="true"></i> Delete</span>
+                    </div>
+                    
                   </th>
                 </tr>
               </thead>
@@ -639,6 +647,7 @@ export default {
       massege:'',
       pending: false,
       file:null,
+      isDisabled:false,
       img: "",
       code: "",
       confirm: "",
@@ -693,12 +702,7 @@ export default {
     } catch (error) {
       this.purchases = "undefined";
     }
-    this.getUnit();
-    this.getsuppliyer();
-    this.getProduct();
-    this.getPurchaseoOrder();
     this.getEdite();
-    this.prooductboom();
     this.purchases_lines = null;
   },
   methods: {
@@ -712,51 +716,29 @@ export default {
         this.total += parseFloat(element.total_amount);
       });
     },
-    getPurchaseoOrder() {
-      axios.get("api/v1/purchase").then((res) => {
-        this.form = res.data;
-      });
-    },
     btnGenerate_code($status) {
       this.isDisabled = false;
       this.btnGenerate = true;
       this.crateNewsProduct();
     },
     myFunction(val) {
-      axios
-        .post("api/v1/stockcout/addrowstockline/" + this.purchases)
-        .then((response) => {
-          this.purchases_lines = response.data;
-        });
-      let i = this.purchases_lines.findIndex((x) => x.id === val.id);
-      if (i != -1) {
-        this.purchases_lines[i].document_no += 1;
-      } else {
-        var plus = this.purchases_lines.document_no;
-        this.purchases_lines.push(plus);
+      if(this.form.statue == "open"){
+        axios.post("api/v1/stockcout/addrowstockline/" + this.purchases)
+            .then((response) => {
+              this.purchases_lines = response.data;
+            });
+          let i = this.purchases_lines.findIndex((x) => x.id === val.id);
+          if (i != -1) {
+            this.purchases_lines[i].document_no += 1;
+          } else {
+            var plus = this.purchases_lines.document_no;
+            this.purchases_lines.push(plus);
+          }
+      }else{
+
       }
     },
-    getProduct() {
-      axios.get("api/v1/products/getdataPro/").then((res) => {
-        this.products = res.data;
-      });
-    },
-    getUnit() {
-      axios.get("/api/v1/unitcode/getData").then((response) => {
-        this.units = response.data;
-      });
-    },
-    getsuppliyer() {
-      axios.get("/api/v1/suppliyers/getdatasub").then((response) => {
-        this.suppliyer = response.data;
-      });
-    },
-    prooductboom() {
-      axios.get('/api/v1/getproductboom/' + this.products)
-        .then((response) => {
-          this.boompros = response.data;
-        })
-    },
+
     crateNewsProduct() {
       axios.get("/api/v1/stockcout/create/").then((response) => {
         this.form = response.data;
@@ -777,7 +759,16 @@ export default {
           .get("api/v1/stockcout/stockview/" + this.purchases)
           .then((response) => {
             this.form = response.data;
-            this.isDisabled = false;
+            if(this.form.statue =='close'){
+
+              this.isDisabled = true;
+              this.btnGenerate = true;
+
+             } else{
+
+               this.isDisabled = false;
+
+            }
           }),
           axios
             .get("api/v1/stockcout/editStocklineview/" + this.purchases)
@@ -808,7 +799,7 @@ export default {
         this.btnGenerate_code("crate");
       }
       if (confirm == "delelink") {
-        this.deleteUnit(this.code);
+        if(this.isDisabled == false) this.deleteUnit(this.code);
       }
     },
     autoUpdate(purline) {
@@ -859,12 +850,6 @@ export default {
         });
       }
     },
-    prooductboom() {
-      axios.get('/api/v1/getproductboom/' + this.products)
-        .then((response) => {
-          this.boompros = response.data;
-        })
-    },
     autoUpdatePurline(purline) {
       purline.credit_balance = parseFloat(purline.inventory)-parseFloat(purline.inventory_count);
       purline.total_amount = parseFloat(purline.credit_balance)-parseFloat(purline.unit_price);
@@ -884,25 +869,15 @@ export default {
           this.sumTotal(this.purchases_lines)
         });
     },
-    autoUpdateProduct(purform) {
+  async  autoUpdateProduct(purform) {
       if (purform.document_no != "") {
-        axios
-          .post(
-            "api/v1/purchase/update/purchaseorder/" + purform.document_no,
-            purform
-          )
+        axios.post("/api/v1/stockcout/updatestock/" + purform.id, purform)
           .then((response) => {
             this.purchases_lines = response.data;
           });
       }
     },
-    getboomnit(proid) {
-      axios.post('/api/v1/products/getboomline/' + proid)
-        .then((response) => {
-          this.uints = response.data;
-          console.log(response.data);
-        })
-    },   
+    
      getunit(proid){
       axios.post('/api/v1/purchase/delete/getPrulinkUnit/'+proid)
                   .then((response)=>{        
@@ -992,10 +967,12 @@ export default {
               });
         }
       },
+      booking(){
+        if(this.isDisabled == false) axios.post("api/v1/stockcout/bookingcountstock/"+this.purchases).then(() => { });
+      },
       exportSheet() { 
           this.items = [];
           this.purchases_lines.forEach(element => {
-          console.log(element);
           this.items.push({
                       document_no: element.document_no,
                       document_type: element.document_type,
