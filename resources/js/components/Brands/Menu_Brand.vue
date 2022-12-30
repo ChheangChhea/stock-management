@@ -46,15 +46,11 @@
   >
     <div class="modal-dialog">
       <div class="modal-content ui-dialog">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">
+        <div class="ui-widget-header">
+          <h5 class="modal-title in-header" id="staticBackdropLabel">
             <i class="fa fa-print" aria-hidden="true"></i>Print
           </h5>
-          <span
-            class="ui-icon ui-icon-closethick"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></span>
+          <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
         </div>
 
         <div class="ui-dialog-content" id="categoryprint">
@@ -115,13 +111,6 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a
-            data-bs-dismiss="modal"
-            aria-label="Close"
-            class="btn-purchase btn-light text-capitalize"
-            data-mdb-ripple-color="dark"
-            ><i class="far fa fa-times-circle text-danger"></i> Close</a
-          >
           <a
             class="btn-purchase btn-light text-capitalize border-0"
             data-mdb-ripple-color="dark"

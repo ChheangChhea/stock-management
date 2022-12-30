@@ -59,8 +59,8 @@
 	width: 400px;
 }
 .in-header{
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	padding-left: 63px;
 }
 /* inv-hd-table */
@@ -1051,6 +1051,8 @@ body {
 	font-weight: bold;
 	padding: 12px 0;
 	background: linear-gradient(#127993, #6db7bf);
+	display: flex;
+	justify-content: space-between;
 }
 
 .ui-widget-header a {
@@ -1224,6 +1226,7 @@ body {
 
 .ui-widget-header .ui-icon {
 	background-image: url(../css/image/ui-icons_ffffff_256x240.png);
+	margin-right: 15px;
 }
 
 .ui-state-default .ui-icon {

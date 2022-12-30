@@ -293,7 +293,7 @@
               <div class="modal-content ui-dialog">
                 <div class="ui-widget-header">
                   <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
-                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"></a>
+                  <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
                 </div>
                 <div class="ui-dialog-content height-modal" id="invoiceholder"> <!----set size for A4-->
                   
@@ -352,8 +352,10 @@
                 </div>
                 </div>
                 <div class="modal-footer">
-                    <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
-                    <div class="button type2" @click="print()" :value="G_code" data-bs-dismiss="modal"><span>Yes</span></div>
+                    <a class="btn-purchase btn-light text-capitalize border-0" data-mdb-ripple-color="dark" @click="print()">
+                        <i class="fas fa-print text-primary"></i>
+                        Print
+                    </a>
                 </div>
               </div>
             </div>
@@ -485,6 +487,12 @@ export default {
                 this.Cats = res.data
         }) 
    },
+   print() {
+      var printContents = document.getElementById("invoiceholder").outerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      window.location.reload();
+    },
   },
 };
 
