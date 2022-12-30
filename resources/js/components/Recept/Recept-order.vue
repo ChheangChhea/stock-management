@@ -177,43 +177,43 @@
                 </tr>
                 <tr v-for="purchaseLine in purchases_lines" :key="purchaseLine.index">
                   <th style="padding: 10px">
-                    <input :disabled="true" v-model="purchaseLine.document_no" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008"  style="width: 7em"/>                 
+                    <input :disabled="true" v-model="purchaseLine.document_no" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008"  style="width: 100%"/>                 
                   </th>
                   <th style="padding: 10px">
-                    <input :disabled="true" v-model="purchaseLine.description" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008" />
+                    <input :disabled="true" v-model="purchaseLine.description" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008" style="width: 100%"/>
                   </th>
                   <th style="padding: 10px">
                     <input :disabled="true" v-model="purchaseLine.inventory_order"
-                      @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008" style="width: 7em" />
+                      @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008" style="width: 100%" />
                   </th>
                   <th style="padding: 10px">
                     <input v-model="purchaseLine.inventory_recetive" @change="autoUpdatePurline(purchaseLine)"
                       class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008"
-                      style="width: 7em" />
+                      style="width: 100%" />
                   </th>
                   <th style="padding: 10px">
                     <div class="dropdown">
                       <button @click="getunit(purchaseLine.product_no)" @onmouseout="prooductboom(purchaseLine)"
-                        class="dropdown-toggle string_zen clear_text text" type="button" id="dropdownMenuButton1" style="width: 7em"
+                        class="dropdown-toggle string_zen clear_text text" type="button" id="dropdownMenuButton1" style="width: 100%"
                         data-bs-toggle="dropdown" aria-expanded="false" size="50"> {{ purchaseLine.unit_of_measure_code }}
                       </button>
                     </div>
                   </th>
                   <th style="padding: 10px">
-                    <input :disabled="false" v-model="purchaseLine.unit_price" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code" type="text" tabindex="10008" style="width: 7em" />
+                    <input :disabled="false" v-model="purchaseLine.unit_price" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code" type="text" tabindex="10008" style="width: 100%" />
                   </th>
 
                   <th style="padding: 10px">
-                    <input :disabled="true" v-model="purchaseLine.curency_code"  @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008" style="width: 7em" />
+                    <input :disabled="true" v-model="purchaseLine.curency_code"  @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code" name="jusinsya_code" type="text" tabindex="10008" style="width: 100%" />
                   </th>
                   <th style="padding: 10px">
-                    <input :disabled="true" v-model="purchaseLine.qty_balance" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code" type="text" tabindex="10008" style="width: 7em" />
+                    <input :disabled="true" v-model="purchaseLine.qty_balance" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code" type="text" tabindex="10008" style="width: 100%" />
                   </th>
                   <th style="padding: 10px">
-                    <input :disabled="true" v-model="purchaseLine.total_amount" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code" type="text" tabindex="10008"  style="width: 7em"/>
+                    <input :disabled="true" v-model="purchaseLine.total_amount" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code" type="text" tabindex="10008"  style="width: 100%"/>
                   </th>
                   <th style="padding: 10px">
-                    <input :disabled="false" type="date" v-model="(purchaseLine.issu_date)" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code"  tabindex="10008" >
+                    <input :disabled="false" type="date" v-model="(purchaseLine.issu_date)" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code"  tabindex="10008" />
                   </th>
                   <th style="padding: 10px">
                       <input :disabled="false" type="date" v-model="purchaseLine.exprit_date" @change="autoUpdatePurline(purchaseLine)" class="clear_text code text" id="jusinsya_code"  name="jusinsya_code" tabindex="10008"/>
@@ -358,7 +358,7 @@
                 <div class="container">
                   <div class="col-md-12">
                     <div class="text-center">
-                      <h3 class="title-purchase">ORDER RECEPT</h3>
+                      <h3 class="title-purchase">RECEPT ORDER</h3>
                       <!-- <p class="pt-0">MDBootstrap.com</p> -->
                     </div>
   

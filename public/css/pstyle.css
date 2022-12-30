@@ -72,6 +72,9 @@ color: #5d9fc5;
     box-shadow: 0 0 0px rgb(0 0 0 / 0%), 0 1px 3px rgb(0 0 0 / 0%);
     margin-bottom: 1rem;
 }
+.custom-control-label {
+    padding-top: 3px;
+}
 
 #purchaseorder .row {
     display: -ms-flexbox;
