@@ -76,8 +76,8 @@
                   <h5 class="modal-title" id="staticBackdropLabel">
                     <span class="ui-dialog-title" id="ui-dialog-title-modal-edit-dialog">{{ this.title }}</span>
                   </h5>
-                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"><span
-                      class="ui-icon ui-icon-closethick">close</span></a>
+                  <span
+                      class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
                 </div>
                 <div class="ui-dialog-content">
                   <div class="modal-body">
@@ -342,8 +342,7 @@
         <div class="ui-widget-header">
           <h5 class="modal-title in-header" id="staticBackdropLabel"><i class="fa fa-print" aria-hidden="true"></i> Print
             : {{ form.product_no }} , {{ form.description }}</h5>
-          <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
-            <span class="ui-icon ui-icon-closethick">close</span></a>
+                     <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
         </div>
         <div class="ui-dialog-content" id="purchaseorder">
           <div class="card">
@@ -513,8 +512,8 @@
         </div>
   
         <div class="modal-footer">
-          <a class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i
-              class="far fa fa-times-circle text-danger"></i> Close</a>
+          <!-- <a class="btn-purchase btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+              class="far fa fa-times-circle text-danger"></i> Close</a> -->
           <a class="btn-purchase btn-light text-capitalize border-0" data-mdb-ripple-color="dark" @click="print()"><i
               class="fas fa-print text-primary"></i> Print</a>
           <!-- <div class="button type2" id="uniform-undefined" data-bs-dismiss="modal"><span>No<input  type="button" class="type2" value="No" style="width: 89px; opacity: 0;" onclick="edit_cancel()" tabindex="10008"></span></div>
