@@ -386,8 +386,7 @@
               <div class="modal-content ui-dialog">
                 <div class="ui-widget-header">
                   <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
-                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
-                    <span class="ui-icon ui-icon-closethick">close</span></a>
+                  <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
                 </div>
                 <div class="ui-dialog-content" id="purchaseorder">
                             <div class="card">
