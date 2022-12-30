@@ -55,7 +55,7 @@
             </li>
           </ul>
 
-          <div class="search-box-title" style="height: 36px">
+          <div class="search-box-title">
             <a class="btn-radius bt-pn btn btn-sm" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdropss"
               tabindex="10028" style="float: left; color: #f8f5b4; margin-top: -2px">
               <i class="fas fa-plus" style="padding-right: 5px; margin-top: -2px">
@@ -125,7 +125,7 @@
                   <th width="20%">Suppliyer</th>
                   <td width="80%">
                     <select :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.suppliyer_code"
-                      class="form" style="width: 362px">
+                      class="form" style="width: 385px">
                       <option value="">Selete Suppliyer</option>
                       <option v-for="suppliye in suppliyer" :value="suppliye.sup_code" :key="suppliye.id">
                         {{ suppliye.sup_name }}
