@@ -127,6 +127,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::put('boomproduct/update/{broid}', [ProductBomContraller::class, 'update']);
     Route::get('boomproduct/search/{broid}', [ProductBomContraller::class, 'search']);
     Route::get('boomproduct/destroy/{broid}', [ProductBomContraller::class, 'destroy']);
+    Route::get('boomproduct/show/{broid}', [ProductBomContraller::class, 'show']);
+
 
     //Purchase Order and Purchase Line 
     Route::get('purchase/', [PurcheaOrderContraller::class, 'index']);

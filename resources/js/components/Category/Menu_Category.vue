@@ -119,18 +119,11 @@
         </div>
         <div class="modal-footer">
           <a
-            data-bs-dismiss="modal"
-            aria-label="Close"
-            class="btn-purchase btn-light text-capitalize"
-            data-mdb-ripple-color="dark"
-            ><i class="far fa fa-times-circle text-danger"></i> Close</a
-          >
-          <a
             class="btn-purchase btn-light text-capitalize border-0"
             data-mdb-ripple-color="dark"
             @click="print()"
-            ><i class="fas fa-print text-primary"></i> Print</a
-          >
+            ><i class="fas fa-print text-primary"></i> Print
+          </a>
         </div>
       </div>
     </div>

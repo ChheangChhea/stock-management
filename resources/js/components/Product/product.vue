@@ -76,7 +76,7 @@
           <ul class="dropdown-menu">
             <li>
               <a
-                @click="getproductboom()"
+                @click="showboom()"
                 class="dropdown-item btn btn-primary"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdropss"
@@ -1189,12 +1189,7 @@
             <i class="fa fa-print" aria-hidden="true"></i> Print :
             {{ form.product_no }} , {{ form.description }}
           </h5>
-          <a
-            href="#"
-            class="ui-dialog-titlebar-close ui-corner-all"
-            role="button"
-            data-bs-dismiss="modal"
-          ><span class="ui-icon ui-icon-closethick">close</span></a>
+          <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
         </div>
         <div class="ui-dialog-content" id="invoiceholder">
           <!----set size for A4-->
@@ -1349,7 +1344,7 @@
             <div id="invoice-bot">
               <div id="table">
                 <table class="table-main">
-                  <thead class="inv-hd-table">
+                  <thead class="text-white">
                     <tr class="tabletitle">
                       <th width="5%" style="padding-left: 5px">Image</th>
                       <th width="10%">Product Code</th>
@@ -1385,8 +1380,7 @@
                         />
                       </td>
                       <td
-                        v-if="index % 2 == 0"
-                        style="
+                        v-if="index % 2 == 0" style="
                           background-color: rgb(245, 245, 245);
                           border: medium none;
                           text-align: left;
@@ -1503,24 +1497,9 @@
           </div>
         </div>
         <div class="modal-footer">
-          <div
-            class="button type2"
-            id="uniform-undefined"
-            data-bs-dismiss="modal"
-          >
-            <span
-              >No<input
-                type="button"
-                class="type2"
-                value="No"
-                style="width: 89px; opacity: 0"
-                onclick="edit_cancel()"
-                tabindex="10008"
-            /></span>
-          </div>
-          <div class="button type2" @click="print()" data-bs-dismiss="modal">
-            <span>Yes</span>
-          </div>
+          <a class="btn-purchase btn-light text-capitalize border-0" data-mdb-ripple-color="dark" @click="print()">
+            <i class="fas fa-print text-primary"></i> Print
+          </a>
         </div>
       </div>
     </div>
@@ -1536,6 +1515,8 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -1786,22 +1767,33 @@ export default {
         this.boomproducts = response.data;
       });
     },
-    getproductboom() {
-      if (this.products.toString().trim() != "undefined") {
-        axios.post("/api/v1/boomproduct/" + this.products).then((response) => {
-          this.boomproducts = response.data;
-          if (this.length > 0) {
-          } else {
-            axios
-              .post("/api/v1/boomcreate/" + this.products)
-              .then((response) => {
-                this.boomproducts = response.data;
-              });
-          }
-        });
-      } else {
-      }
+    // getproductboom() {
+
+    //   if (this.products.toString().trim() != "undefined") {
+    //     axios.post("/api/v1/boomproduct/" + this.products).then((response) => {
+    //       this.boomproducts = response.data;
+    //       if (this.length > 0) {
+           
+
+    //       }
+    //       else {
+    //         axios
+    //           .post("/api/v1/boomcreate/" + this.products)
+    //           .then((response) => {
+    //             this.boomproducts = response.data;
+    //           });
+    //       }
+    //     });
+    //   } 
+    //   else {
+    //   }
+    // },
+    showboom(){
+      axios.get("/api/v1/boomproduct/show/" + this.products).then((response) => {
+        this.boomproducts = response.data;
+      });
     },
+
     prooductboom() {
       axios.get("/api/v1/getproductboom/" + this.products).then((response) => {
         this.boompros = response.data;

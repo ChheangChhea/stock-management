@@ -167,17 +167,17 @@
                             class="table table-striped br-table"
                         >
                             <thead>
-                                <tr class="color-trhead-stocktran">
-                                    <th class="thcorlortrans">Document No</th>
-                                    <th class="thcorlortrans">Document Type</th>
-                                    <th class="thcorlortrans">Product No</th>
-                                    <th class="thcorlortrans">Description</th>
-                                    <th class="thcorlortrans">Unit Code</th>
-                                    <th class="thcorlortrans">Price</th>
-                                    <th class="thcorlortrans">Inventory</th>
-                                    <th class="thcorlortrans">Amount</th>
-                                    <th class="thcorlortrans">Curency</th>
-                                    <th class="thcorlortrans">Remark</th>
+                                <tr class="header-table">
+                                    <th >Document No</th>
+                                    <th >Document Type</th>
+                                    <th >Product No</th>
+                                    <th >Description</th>
+                                    <th >Unit Code</th>
+                                    <th >Price</th>
+                                    <th >Inventory</th>
+                                    <th >Amount</th>
+                                    <th >Curency</th>
+                                    <th >Remark</th>
                                 </tr>
                             </thead>
                             <tbody>
