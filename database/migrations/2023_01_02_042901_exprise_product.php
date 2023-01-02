@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ProductStockExpritDate extends Migration
+class ExpriseProduct extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,7 @@ class ProductStockExpritDate extends Migration
      */
     public function up()
     {
-        DB::statement("
-        CREATE VIEW product_exprit_date AS (
-            SELECT*FROM product_stock_exprit_date WHERE CAST (reorder_point AS INT) >= CAST (inventorys AS INT)
-        )"
-    );
+        //
     }
 
     /**
@@ -27,6 +23,6 @@ class ProductStockExpritDate extends Migration
      */
     public function down()
     {
-        DB::statement('DROP VIEW IF EXISTS product_exprit_date');
+        //
     }
 }

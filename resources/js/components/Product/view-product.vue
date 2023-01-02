@@ -88,12 +88,7 @@
                 style="color: #f8f5b4; margin-top: -2px">
                 <i class="fas fa-bell"></i>
                 Products stock alert
-                <span style="
-                    background-color: red;
-                    border-radius: 5px;
-                    padding: 3px;
-                    box-shadow: 1px 1px;
-                  ">10 item</span>
+                <span style="background-color: red;border-radius: 5px; padding: 3px;box-shadow: 1px 1px;">{{ stockcount }} item</span>
               </a></router-link>
           </div>
           <div class="search-box-content">
@@ -501,6 +496,7 @@ export default {
       perPage: "",
       currentPage: 0,
       last_page: 1,
+      stockcount:0,
       form: {
         product_no: "",
         product_barcode: "",
@@ -552,7 +548,9 @@ export default {
         fileName : "PrucheseLine.xlsx",
     };
   },
-  async mounted() {
+   mounted() {
+    
+    this.getstockalert();
     this.getproduct();
     this.getunite();
     this.getdatagroup();
@@ -586,7 +584,12 @@ export default {
           });
       }
     },
-
+    getstockalert(){
+            axios.get("api/v1/stockcheck/checkOptionstock")
+           .then((response) => {
+             this.stockcount = response.data.length
+          });
+     }, 
     getunite() {
       axios.get("/api/v1/getunite").then((response) => {
         this.uints = response.data;

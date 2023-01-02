@@ -49,6 +49,11 @@
                         <li>
                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropss" tabindex="10028"
                                 href="#">
+                             <span style="width: 14px;height: 14px; adding: 2px;color: red;">{{ item }}</span> To Purchese</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropss" tabindex="10028"
+                                href="#">
                                 <i class="fas fa-file-excel"></i> To Excel</a>
                         </li>
                         <li>
@@ -58,81 +63,7 @@
                     </ul>
                     <router-link to=""><h2 class="search-box-title">Search</h2></router-link>
                     <input id="search" name="search" type="hidden" value="1"/>
-                    <div class="search-box-content">
-                        <div class="search-box-footer">
-                            <div class="button type2" id="uniform-undefined" >
-                                <span> Search</span>
-                                <input type="button" value="save" class="type2" @click="save()" style="opacity: 0; width: 63px" tabindex="10026"/>
-                            </div>        
-                                
-                            <div class="button type2" id="uniform-undefined">
-                                <span>Clear</span>
-                                <input type="button" value="clear" class="type2" @click="clear()" style="opacity: 0; width: 63px" tabindex="10026"/>
-                            </div>
-                                <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog smallpopup">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Brand</h5>
-                                            <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
-                                        </div>
-                                        <div style="margin:0;padding:10px;display:inline">
-                                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
-                                                <tbody>
-                                                    <tr>
-                                                        <th width="30%">Brand Code</th>
-                                                        <td width="70%">
-                                                            <input :disabled="isDisabled" class="string_zen_kana clear_text text" :key="index" id="brand_code" v-model="form.brand_code" maxlength="8"  name="brand_code" type="text" tabindex="10000"/>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th width="30%">Brand Name</th>
-                                                        <td width="70%">
-                                                            <input class="string_zen_kana clear_text text" id="brand_name" maxlength="50" name="brand_name" v-model="form.brand_name" type="text" tabindex="10001"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th width="30%">Brand Name 2</th>
-                                                        <td width="70%">
-                                                            <input class="string_zen_kana clear_text text" id="brand_name_2" maxlength="50" name="brand_name_2" v-model="form.brand_name_2" type="text" tabindex="10001"/>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th width="30%">Inactived</th>
-                                                        <td width="70%">
-                                                            <div class="selector" id="inactivced"><span>{{form.inactived}}</span>
-                                                                <select id="inactivced" name="inactivced" v-model="form.inactived" tabindex="10003" style="min-width: 51px; opacity: 0; width: 80px;">
-                                                                    <option value="Yes" >Yes</option>
-                                                                    <option value="No">No</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <div class="button type2" id="uniform-undefined">
-                                                <span>{{this.bt1}}</span>
-                                                <input type="button" value="save" class="type2" @click="save()" data-bs-dismiss="modal" update style="opacity: 0; width: 63px" tabindex="10026"/>
-                                            </div>        
-                                        
-                                            <div class="button type2" id="uniform-undefined">
-                                                <span>{{this.bt2}}</span>
-                                                <input type="button" value="clear" class="type2" data-bs-dismiss="modal" aria-label="Close" @click="clear()" style="opacity: 0; width: 63px" tabindex="10026"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="marker"></span>
-                        </div>
-                    </div>
                 </div>
-
                 <div class="box">
                     <div class="box-footer-pagination">
                         <div class="pagination">
@@ -145,51 +76,33 @@
                         <thead>
                             <tr class="header-table">
                                 <th width="3%">No</th>
-                                <th width="13%">Brand Code</th>
-                                <th width="13%">Brand Name</th>
-                                <th width="13%">Brand Name 2</th>
-                                <th width="6%">Inactived</th>
-                                <th width="14%">Create By</th>
-                                <th width="9%">Update By</th>
-                                <th width="12%">
-                                <div class="button" id="uniform-undefined"  @click="checkActionForm('save','Save','Close')">
-                                    <span>Add New<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
-                                </div>
-                                </th>
+                                <th width="13%">Product Code</th>
+                                <th width="13%">Product Name</th>
+                                <th width="13%">Re-Order</th>
+                                <th width="9%">Inventory</th>
+                                <th width="6%">Unit</th>
+                                <th width="14%">Price</th>
+                                <th width="7%"></th>
                             </tr>
                         </thead>
                         <tbody>
-                                <tr v-for="(item,index ) in items.data" :key="index">
+                                <tr v-for="(item,index ) in items.data" :key="index" style="color: red !important;">
                                     <td width="3%">{{index+1}}</td>
-                                    <td width="13%">{{item.brand_code}}</td>
-                                    <td width="13%">{{item.brand_name}}</td>
-                                    <td width="13%">{{item.brand_name_2}}</td>
-                                    <td width="6%">{{item.inactived}}</td>
-                                    <td width="14%">{{item.created_by}}</td>
-                                    <td width="9%">{{item.updete_by}}</td>
-                                    <td width="12%" style="padding-left: 0;">
-                                    <div class="button" @click="checkActionForm('update','Update','Close',item)" id="uniform-undefined">
-                                        <span><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
-                                    </div>
-                                    <div class="button" @click="dalete(item.brand_code)" id="uniform">
-                                        <span><i class="fa fa-trash-o" aria-hidden="true"></i> Delete<input type="button" style="opacity: 0; width: 76px;" ></span>
-                                    </div>
-                                   </td>
+                                    <td width="13%">{{item.product_no}}</td>
+                                    <td width="13%">{{item.description}}</td>
+                                    <td width="13%">{{item.reorder_point}}</td>
+                                    <td width="13%">{{item.inventorys}}</td>
+                                    <td width="6%">{{item.unit_of_measure_code}}</td>
+                                    <td width="14%">{{item.unit_price}}</td>
+                                    <td width="7%">
+                                        <div class="button type2" id="uniform-undefined">
+                                           <span><input @click="getEdit(item)" type="button" value="display" class="type2" style="opacity: 0; width: 54px" /><i class="fa fa-edit"></i>Purchase</span>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                     </table>
                     <div class="box-footer-pagination">
-                      <!-- <div class="pagination">
-                            <div class="pagination">
-                                <span v-for="(link, index) in links" :key="index">
-                                <div v-if="index==0" @click=" "><i class="fa fa-arrow-left" aria-hidden="true" style="padding-top: 11;"></i></div>
-                                <div v-else-if="(index-1) == this.last_page" @click="getBrands(this.currentPage +1)"><i class="fa fa-arrow-right" aria-hidden="true" style="padding-top: 11;"></i></div>
-                                <div v-else-if="this.currentPage == index" class="page current" @click="getBrands(index)">{{index}}</div>
-                                <div v-else class="page" @click="getBrands(index)">{{index}}</div>
-                            </span>
-                          </div>
-                        </div> -->
-                        <pagination :data="items" @paginaton-change-page="getBrands"/>
                     </div>
                 </div>
             </div>
@@ -199,7 +112,6 @@
             <div class="modal-dialog">
               <div class="modal-content ui-dialog">
                 <div class="ui-widget-header">
-                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa fa-print" aria-hidden="true"></i> Print : {{ form.product_no }} , {{ form.description }}</h5>
                   <span
                       class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
                 </div>
@@ -237,12 +149,12 @@
                             <tbody>
                               <tr v-for="(item, index) in items.data" :key="index">
                                 <td width="3%">{{ index + 1 }}</td>
-                                <td width="13%">{{ item.brand_code }}</td>
-                                <td width="13%">{{ item.brand_name }}</td>
-                                <td width="13%">{{ item.brand_name_2 }}</td>
-                                <td width="6%">{{ item.inactived }}</td>
-                                <td width="19%">{{ item.created_by }}</td>
-                                <td width="9%">{{ item.updete_by }}</td>
+                                <td width="13%">{{ item.product_no }}</td>
+                                <td width="13%">{{ item.description }}</td>
+                                <td width="13%">{{ item.reorder_point }}</td>
+                                <td width="6%">{{ item.unit_of_measure_code }}</td>
+                                <td width="19%">{{ item.unit_price }}</td>
+                                <td width="9%">{{ item.inventorys }}</td>
                             </tr> 
                             </tbody>
                           </table>
@@ -263,11 +175,8 @@
 </template>
 
 <script>
-import {exportDefaultSpecifier} from '@babel/types';
 import axios from "axios";
-import pagination from "laravel-vue-pagination";
 export default {
-    components: {pagination},
     data() {
         return {
             issave:'',
@@ -276,33 +185,12 @@ export default {
             items:{},
             links:[],
             products:[],
+            purche:[{}],
             perPage: '',
             currentPage: 0,
             last_page: 1,
-            form: {
-                id: "",
-                brand_code: "",
-                brand_name: "",
-                brand_name_2: "",
-                inactived: "Yes",
-                is_deleted: "",
-            },
-            forms: {
-                id: "",
-                brand_code: "",
-                brand_name: "",
-                brand_name_2: "",
-                inactived: "Yes",
-                is_deleted: "",
-            },
-            serchform: {
-                id: "",
-                brand_code: "",
-                brand_name: "",
-                brand_name_2: "",
-                inactived: "",
-                is_deleted: "",
-            },
+            item:'0',
+            datasave:[{}],
         };
     },
 
@@ -311,34 +199,37 @@ export default {
     },
     
     methods: {
-        // getBrands(page=1) {
-        //             axios.get("api/v1/brands?page=" + page).then(({data})=>{
-        //             this.items = data
-        //           })
-        //    }
-        getBrands(page = 1) {
-        if (page > 0 && page <= this.last_page) {
-        axios
-          .get("/api/v1/brands")
-          .then(({ data }) => {
-            this.links = data.links;
-            this.last_page = data.last_page;
-            this.links.forEach((element) => {
-              if (element.label == page) {
-                this.perPage = "api/v1/brands?page=" + page;
-                axios.get(this.perPage).then(({ data }) => {
-                  this.currentPage = data.current_page;
-                  this.items = data;
-                });
-              }
-            });
+        getBrands() {
+        axios.get("/api/v1/stockcheck/checkOptionstock/")
+          .then(( data ) => {
+             this.items = data
           })
-          .catch(({ response }) => {
-            console.error(response);
-          });
-      }
     }, 
-      save() {
+    getEdit(Product){
+       
+           if(this.purche.length == 0){
+
+            this.purche = Product;
+
+           }else{
+            var check = false;
+            this.purche.forEach(element => {
+                if(Product == element){
+                   check = true;
+                }
+            });
+            if(!check){
+                this.purche.push(Product);
+            }
+           } 
+           this.item = this.purche.length-1;
+          if( parseFloat(this.item)> 1 || parseFloat(this.item)< 10 ){ this.item = '0'+ this.item;}
+    },
+    createPurches(){
+        axios.post("/api/v1/purchase/store/").then((response) => {
+      });
+    },
+    save() {
       if(this.issave =="save"){
             this.isDisabled = false;
            axios.post('api/v1/brands/create',this.form).then(res => {
@@ -358,12 +249,8 @@ export default {
       window.print();
       window.location.reload();
     },
-   edit(test){
-            this.form = test;
-   },
    dalete(brand){  
       axios.get('api/v1/brands/delete/'+brand).then(res => {
-                this.form = res.data
                 this.getBrands(1);
         })
       },
@@ -381,8 +268,7 @@ export default {
         }
      },
     serchdata(){
-        axios.post('api/v1/brands/search').then(res => {
-            console.log(res.data);       
+        axios.post('api/v1/brands/search').then(res => {     
         })
      }
     }

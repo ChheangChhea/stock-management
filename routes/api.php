@@ -15,7 +15,8 @@ use App\Http\Controllers\{
     PurcheaOrderContraller,
     ReceiveOrderContraller,
     StockTransactionContraller,
-    StockCountController
+    StockCountController,
+    StockalertController
 };
 
 /*php
@@ -127,6 +128,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::put('boomproduct/update/{broid}', [ProductBomContraller::class, 'update']);
     Route::get('boomproduct/search/{broid}', [ProductBomContraller::class, 'search']);
     Route::get('boomproduct/destroy/{broid}', [ProductBomContraller::class, 'destroy']);
+    Route::get('boomproduct/show/{broid}', [ProductBomContraller::class, 'show']);
 
     //Purchase Order and Purchase Line 
     Route::get('purchase/', [PurcheaOrderContraller::class, 'index']);
@@ -163,4 +165,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('stockcout/updatestock/{stockcout}', [StockCountController::class, 'updatestock']);
     Route::get('stockcout/getviewscockcount/', [StockCountController::class, 'getviewscockcount']);
     Route::post('stockcout/bookingcountstock/{stockcout}', [StockCountController::class, 'bookingcountstock']);
+
+    Route::get('stockcheck/checkOptionstock/', [StockalertController::class, 'checkOption_stock']);
+
 });
