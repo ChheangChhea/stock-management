@@ -575,10 +575,19 @@ export default {
           statue:"",
           delete_by:"",
       },
+      purchases:'',
       datetime : new Date(),
     };
   },
   mounted() {
+    try {
+      if (this.$route.query.id.trim() != "undefined") {
+        this.purchases = this.$route.query.id;
+      }
+    } catch (error) {
+      this.purchases = "undefined";
+    }
+    this.getEdit(this.purchases);
     this.getPurchase();
     this.getsuppliyer();
   },

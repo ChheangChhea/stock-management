@@ -103,15 +103,15 @@
                 " class="dropdown-item btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop">Generate Code</a>
               </li>
-              <li>
-                <a class="dropdown-item" href="#"> Code</a>
-              </li>
             </ul>
             <router-link to="/Purchasview"><a class="btn-radius btn btn-sm" href="#"
                 style="color: #f8f5b4; margin-top: -2px">
                 <i class="fas fa-eye" style="padding-right: 5px"> </i>
                 View
               </a></router-link>
+              <a @click="gettoRecpt()" class="btn-radius btn btn-sm" href="#" style="color: #f8f5b4; margin-top: -2px">
+                <i class="fas fa-edit"></i> Recept: {{ this.form.document_no }}
+              </a>
           </div>
           <!-- Button trigger modal -->
           <!-- Modal -->
@@ -728,6 +728,12 @@ export default {
         this.item += parseFloat(element.inventory);
         this.total += parseFloat(element.total_amount);
       });
+    },
+    gettoRecpt(){
+      this.$router.push({
+          name: "recept",
+          query: { id: this.form.document_no },
+        });
     },
     getPurchaseoOrder() {
       axios.get("api/v1/purchase").then((res) => {

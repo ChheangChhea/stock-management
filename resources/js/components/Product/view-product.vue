@@ -186,7 +186,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>Inactived</th>
+                  <th>inventory</th>
                   <td width="90%">
                     <div class="selector" id="inactivced">
                       <span>{{ form.inactived }}</span>
@@ -235,12 +235,12 @@
                   <th width="9%">Brand</th>
                   <th width="9%">Stock Unit</th>
                   <th width="9%">Purche Unit</th>
-                  <th width="9%">Inactived</th>
+                  <th width="9%">Inventory</th>
                   <th width="9%"></th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(product, index) in products.data" :key="index">
+                <tr v-for="(product, index) in products" :key="index">
                   <td v-if="index % 2 == 0" style="background-color: #dbdee1; border: medium none">
                     <img alt="タックシール印刷" height="40" src="pichture/para.png" width="40" />
                   </td>
@@ -324,21 +324,19 @@
                     {{ product.purche_unit_of_measure_code }}
                   </td>
                   <td v-if="index % 2 == 0" style="background-color: #dbdee1; border: medium none">
-                    {{ product.inactived }}
+                    {{ product.inventory }}
                   </td>
                   <td v-else style="border: medium none">
-                    {{ product.inactived }}
+                    {{ product.inventory }}
                   </td>
                   <td v-if="index % 2 == 0" style="
                       background-color: #dbdee1;
-                      border: medium none;
-                      text-align: center;
+                      border: medium none; text-align: center;
                     ">
                     <div style="
                         display: flex;
                         flex-direction: row;
-                        justify-content: space-around;
-                        align-items: center;
+                        justify-content: space-around;align-items: center;
                       ">
                       <div class="button type2" id="uniform-undefined">
                         <span><input @click="getEdit(product.product_no)" type="button" value="display" class="type2"
@@ -574,7 +572,17 @@ export default {
                 axios.get(this.perPage).then(({ data }) => {
                   this.currentPage = data.current_page;
                   console.log(data);
-                  this.products = data;
+                  this.products = data.data;
+                  this.products.forEach(element => {
+                    element.inventory ='0.00';
+                    axios.get("/api/v1/stockcout/getStock/"+element.product_no)
+                      .then((response) => {
+                        element.inventory = response.data.inventorys;
+                        if(element.inventory ==null){
+                          element.inventory ='0.00';
+                        }
+                      });
+                  });
                 });
               }
             });

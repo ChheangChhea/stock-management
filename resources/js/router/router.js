@@ -42,7 +42,7 @@ const routes = [
     { path: '/stockalert', component: Stockalert},
     { path: '/menuclinic', component: MenuClinic},
     { path: '/menumedical', component: MenuMedical},
-    { path: '/receptorder', component: Receptorder},
+    { path: '/receptorder', component: Receptorder,name:'recept'},
     { path: '/viewrecept', component: viewRecept},
     { path: '/unitcode', component: unitcode},
     {path: '/stocktransection', component: StockTransection},
