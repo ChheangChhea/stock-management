@@ -279,89 +279,101 @@
                                                     class="text-white"
                                                 >
                                                     <tr>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:12%">
                                                             Document No
                                                         </th>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:14%">
                                                             Document Type
                                                         </th>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:10%">
                                                             Product No
                                                         </th>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:10%">
                                                             Description
                                                         </th>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:10%">
                                                             Unit Code
                                                         </th>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:10%">
                                                             Unit Price
                                                         </th>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:8%">
                                                             Inventory
                                                         </th>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:8%">
                                                             Amount
                                                         </th>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:8%">
                                                             Curency
                                                         </th>
-                                                        <th scope="col">
+                                                        <th scope="col" style="width:10%">
                                                             Remark
                                                         </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <tr>
+                                                        <td>PRO000068</td>
+                                                        <td>Order Recpt Invoince</td>
+                                                        <td>8848003000502</td>
+                                                        <td>Actoux</td>
+                                                        <td>PCS</td>
+                                                        <td>500</td>
+                                                        <td>8000</td>
+                                                        <td>8000</td>
+                                                        <td>USA</td>
+                                                        <td>pay by credit card</td>
+                                                    </tr>
                                                     <tr
                                                         v-for="Category in Categories"
                                                         :key="Category.index"
                                                     >
-                                                        <td width="8%">
+                                                        <td >
                                                             {{
                                                                 Category.document_no
                                                             }}
                                                         </td>
-                                                        <td width="14%">
+                                                        <td >
                                                             {{
                                                                 Category.document_type
                                                             }}
                                                         </td>
-                                                        <td width="8%">
+                                                        <td >
                                                             {{
                                                                 Category.product_no
                                                             }}
                                                         </td>
-                                                        <td width="12%">
+                                                        <td >
                                                             {{
                                                                 Category.description
                                                             }}
                                                         </td>
-                                                        <td width="5%">
+                                                        <td >
                                                             {{
                                                                 Category.unit_of_measure_code
                                                             }}
                                                         </td>
-                                                        <td width="5%">
+                                                        <td >
                                                             {{
                                                                 Category.unit_price
                                                             }}
                                                         </td>
-                                                        <td width="6%">
+                                                        <td >
                                                             {{
                                                                 Category.inventory
                                                             }}
                                                         </td>
-                                                        <td width="5%">
+                                                        <td >
                                                             {{
                                                                 Category.total_amount
                                                             }}
                                                         </td>
-                                                        <td width="5%">
+                                                        <td >
                                                             {{
                                                                 Category.Curency
                                                             }}
                                                         </td>
-                                                        <td width="8%">
+                                                        <td >
                                                             {{
                                                                 Category.Remark
                                                             }}

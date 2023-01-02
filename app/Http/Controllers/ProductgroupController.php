@@ -14,7 +14,7 @@ class ProductgroupController extends Controller
      */
     public function index()
     {
-        $productgroup = productgroup::orderBy('group_code')->paginate(3);
+        $productgroup = productgroup::orderBy('group_code')->paginate(10);
         return $productgroup;
     }
 

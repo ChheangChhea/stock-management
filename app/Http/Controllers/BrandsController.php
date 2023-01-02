@@ -15,7 +15,7 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        $brand =  brand::orderBy('brand_code')->paginate(5);
+        $brand =  brand::orderBy('brand_code')->paginate(10);
         return $brand;
     }
 

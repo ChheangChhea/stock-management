@@ -9,6 +9,19 @@
     padding: 8px 4px;
   }
 
+  #purchaseorder{
+    overflow-y: scroll;
+  }
+  #purchaseorder::-webkit-scrollbar{
+    display: none;
+  }
+  #purchaseorder{
+    -ms-overflow-style: none;
+	scrollbar-width: none;
+  }
+
+
+
 #stocktransction td {
     text-align: left;
     border: 0px solid;

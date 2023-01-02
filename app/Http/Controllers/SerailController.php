@@ -10,7 +10,7 @@ class SerailController extends Controller
 {
     public function index()
     {
-        $serails = Serail::orderBy('id')->paginate(2);
+        $serails = Serail::orderBy('id')->paginate(10);
         return $serails;
     }
     public function store(Request $request)
