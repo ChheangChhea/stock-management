@@ -46,6 +46,14 @@
 	scrollbar-width: none;
 }
 
+#categoryprint{
+	overflow-y: scroll !important;
+}
+#categoryprint::-webkit-scrollbar{
+	display: none;
+}
+
+
 #invoice{
   position: relative;
   margin: 0 auto;

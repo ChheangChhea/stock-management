@@ -246,12 +246,12 @@
                                 <th width="13%">Group Code</th>
                                 <th width="13%">Group Name</th>
                                 <th width="10%">Group Name 2</th>
-                                <th width="6%">Brand Code</th>
-                                <th width="6%">Cat Code</th>
-                                <th width="6%">Inactived</th>
-                                <th width="6%">Create By</th>
-                                <th width="6%">Update By</th>
-                                <th width="7%">
+                                <th width="8%">Brand Code</th>
+                                <th width="7%">Cat Code</th>
+                                <th width="7%">Inactived</th>
+                                <th width="7%">Create By</th>
+                                <th width="7%">Update By</th>
+                                <th width="12%">
                                  <div class="button" @click="checkActionForm('save','Save','Close','')">
                                     <span >Add New<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
                                  </div>
@@ -270,12 +270,14 @@
                                     <td>{{item.created_by}}</td>
                                     <td>{{item.updete_by}}</td>
                                     <td>
+                                      <div style="display:flex; flex-direction:row; justify-content:center; align-items: center">
                                      <div class="button" @click="checkActionForm('update','Update','Close',item)">
                                         <span><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
                                      </div>
                                      <div class="button" @click="deleteData(item.group_code)" id="uniform">
                                         <span><i class="fa fa-trash-o" aria-hidden="true"></i> Delete<input type="button" style="opacity: 0; width: 76px;" ></span>
                                      </div>
+                                    </div>
                                    </td>
                           </tr>
                         </tbody>

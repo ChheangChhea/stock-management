@@ -285,28 +285,28 @@
                                                         <th scope="col" style="width:14%">
                                                             Document Type
                                                         </th>
-                                                        <th scope="col" style="width:10%">
+                                                        <th scope="col" style="width:10%" >
                                                             Product No
                                                         </th>
-                                                        <th scope="col" style="width:10%">
+                                                        <th scope="col" style="width:12%">
                                                             Description
                                                         </th>
-                                                        <th scope="col" style="width:10%">
+                                                        <th scope="col" style="width:9%">
                                                             Unit Code
                                                         </th>
-                                                        <th scope="col" style="width:10%">
+                                                        <th scope="col" style="width:9%" >
                                                             Unit Price
                                                         </th>
-                                                        <th scope="col" style="width:8%">
+                                                        <th scope="col"  style="width:8%">
                                                             Inventory
                                                         </th>
-                                                        <th scope="col" style="width:8%">
+                                                        <th scope="col" style="width:7%">
                                                             Amount
                                                         </th>
-                                                        <th scope="col" style="width:8%">
+                                                        <th scope="col" style="width:6%">
                                                             Curency
                                                         </th>
-                                                        <th scope="col" style="width:10%">
+                                                        <th scope="col" style="width:8%" >
                                                             Remark
                                                         </th>
                                                     </tr>

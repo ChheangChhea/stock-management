@@ -1,6 +1,6 @@
 #purchaseorder th {
-    text-align: left;
-    padding: 8px 8px;
+    text-align: left !important;
+    padding: 8px 5px;
     /* border: 1px solid #000; */
 }
 #purchaseorder td {
