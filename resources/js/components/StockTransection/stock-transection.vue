@@ -312,18 +312,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>PRO000068</td>
-                                                        <td>Order Recpt Invoince</td>
-                                                        <td>8848003000502</td>
-                                                        <td>Actoux</td>
-                                                        <td>PCS</td>
-                                                        <td>500</td>
-                                                        <td>8000</td>
-                                                        <td>8000</td>
-                                                        <td>USA</td>
-                                                        <td>pay by credit card</td>
-                                                    </tr>
                                                     <tr
                                                         v-for="Category in Categories"
                                                         :key="Category.index"
