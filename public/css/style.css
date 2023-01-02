@@ -35,7 +35,17 @@
 }
 #invoiceholder{
  background-color: white;
+ overflow-y: scroll !important;
+
 }
+#invoiceholder::-webkit-scrollbar{
+	display: none;
+}
+#invoiceholder{
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
 #invoice{
   position: relative;
   margin: 0 auto;
