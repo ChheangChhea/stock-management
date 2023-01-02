@@ -280,7 +280,7 @@
                 <tr>
                   <th width="10%">Reorder Point</th>
                   <td width="50%">
-                    <input :disabled="isDisabled" v-model="form.reorder_point"
+                    <input  @change="autoUpdateProduct(form)" :disabled="isDisabled" v-model="form.reorder_point"
                       class="string_zen clear_text text input_text" size="50" type="text" />
                   </td>
                 </tr>
