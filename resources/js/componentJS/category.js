@@ -86,24 +86,10 @@ export default function useCategory() {
                 axios.post('api/v1/category/excel', e).then((data) => {
                     CatExcels.values = data.data
                     Categories.value = CatExcels.values
-                    console.log(data);
                 })
             } x++
         })
     }
-    // const saveimportExcel = async () => {
-    //     // var x = 0
-    //     // CatExcels.forEach(element => {
-    //     //     if (x != 0) {
-    //     //         axios.post('api/v1/category/storeExcel', element).then((res) => {
-    //     //             element = res.data
-    //     //         });
-    //     //     }
-    //     //     x++
-    //     // });
-    //     axios.post('api/v1/category/storeExcel', CatExcels)
-    // }
-
     return {
         Categories,
         form,

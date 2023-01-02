@@ -50,7 +50,11 @@
           <h5 class="modal-title in-header" id="staticBackdropLabel">
             <i class="fa fa-print" aria-hidden="true"></i>Print
           </h5>
-          <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
+          <span
+            class="ui-icon ui-icon-closethick"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></span>
         </div>
 
         <div class="ui-dialog-content" id="categoryprint">
@@ -186,21 +190,24 @@
                           </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(BraExcel, index) in BraExcels" :key="index">
+                          <tr
+                            v-for="(braExcel, index) in braExcels"
+                            :key="index"
+                          >
                             <th v-if="index >= 1" style="width: 5%">
                               {{ index }}
                             </th>
                             <th v-if="index >= 1" style="width: 5%">
-                              {{ BraExcel.brand_code }}
+                              {{ braExcel.brand_code }}
                             </th>
                             <th v-if="index >= 1" style="width: 10%">
-                              {{ BraExcel.brand_name }}
+                              {{ braExcel.brand_name }}
                             </th>
                             <th v-if="index >= 1" style="width: 10%">
-                              {{ BraExcel.brand_name_2 }}
+                              {{ braExcel.brand_name_2 }}
                             </th>
                             <th v-if="index >= 1" style="width: 7%">
-                              {{ BraExcel.inactived }}
+                              {{ braExcel.inactived }}
                             </th>
                           </tr>
                         </tbody>
@@ -239,7 +246,8 @@ const {
   printBrand,
   getBrand,
   dataexcelBrand,
-  BraExcels,
+  savexcelBrand,
+  braExcels,
   items,
   checkexcel,
   exefile,
@@ -248,7 +256,9 @@ const {
 const print = async () => {
   printBrand();
 };
-const btnSaveExcel = async () => {};
+const btnSaveExcel = async () => {
+  savexcelBrand();
+};
 const excelBrand = async (event) => {
   dataexcelBrand(event);
   getBrand();

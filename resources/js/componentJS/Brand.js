@@ -15,7 +15,7 @@ export default function useBrand() {
         brand_name_2: "",
         inactived: "Yes",
     })
-    const BraExcels = reactive([{
+    const braExcels = ref([{
         brand_code: "",
         brand_name: "",
         brand_name_2: "",
@@ -53,7 +53,7 @@ export default function useBrand() {
         readXlsxFile(xlsxfile).then((rows) => {
             var x = 0;
             rows.forEach((element) => {
-                console.log(element);
+                // console.log(element);
                 if (x >= 0) {
                     if (x == 0) {
                         checkexcel.value = element;
@@ -64,14 +64,13 @@ export default function useBrand() {
                             checkexcel.value[2] == "brand_name_2" &&
                             checkexcel.value[3] == "inactived"
                         ) {
-
-                            BraExcels.push({
+                            braExcels.value.push({
                                 brand_code: element[0],
                                 brand_name: element[1],
                                 brand_name_2: element[2],
                                 inactived: element[3],
                             });
-                            console.log(BraExcels);
+                            console.log(braExcels);
                         } else {
                             exefile.value = " Fail Data";
                         }
@@ -82,6 +81,18 @@ export default function useBrand() {
         });
         exefile.value = "";
     }
+    const savexcelBrand = async () => {
+        var b = 0
+        braExcels.value.forEach(el => {
+            if (b != 0) {
+                axios.post('api/v1/brands/create/', el).then((data) => {
+                    console.log(data);
+                })
+            }
+            b++
+        })
+
+    }
     return {
         items,
         search,
@@ -89,11 +100,13 @@ export default function useBrand() {
         checkexcel,
         exefile,
         excel,
+        braExcels,
         getBrand,
         deleteBrand,
         saveBrand,
         updateBrand,
         printBrand,
-        dataexcelBrand
+        dataexcelBrand,
+        savexcelBrand
     }
 }
