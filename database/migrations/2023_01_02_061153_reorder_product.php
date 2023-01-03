@@ -15,7 +15,8 @@ class ReorderProduct extends Migration
     {
         DB::statement("
         CREATE VIEW product_reorder_point AS (
-            SELECT*FROM product_reoderpoint_view WHERE CAST (reorder_point AS INT) >= CAST (inventorys AS INT)
+            SELECT * FROM allproductinstock
+            WHERE CAST(reorder_point AS iNT) >= CAST( inventorys AS iNT)
         )"
     );
     }

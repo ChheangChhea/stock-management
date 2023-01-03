@@ -58,7 +58,7 @@ class StockalertController extends Controller
         $setup = setup::first();
         $checkStop = $setup->product_check;
         if($checkStop == "All-Check"){
-           $expristock = product_exprit_date::get();
+           $expristock = product_reorder::get();
            return $expristock;
         }else{
             $expristock = product_reorder::get();
