@@ -36,7 +36,7 @@ class AllProductinstock extends Migration
             P .description,
             P .stock_unit_of_measure_code,
             P .reorder_point,
-            P .unit_price
+            P .unit_price 
         )"
       );
     }
