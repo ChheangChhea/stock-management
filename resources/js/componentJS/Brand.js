@@ -42,7 +42,7 @@ export default function useBrand() {
         axios.post('api/v1/brands/update/' + x, form)
     }
     const printBrand = async () => {
-        var printContents = document.getElementById("excelBrand").outerHTML;
+        var printContents = document.getElementById("categoryprint").outerHTML;
         document.body.innerHTML = printContents;
         window.print();
         window.location.reload();
