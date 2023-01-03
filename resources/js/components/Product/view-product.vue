@@ -98,28 +98,28 @@
                   <th width="10%">Barcode</th>
                   <td width="50%">
                     <input :disabled="isDisabled" v-model="form.product_barcode"
-                      class="string_zen_kana clear_text text input_text" maxlength="50" size="50" type="text" />
+                      class="string_zen_kana clear_text text input_text"  style="width:360px" type="text" />
                   </td>
                 </tr>
                 <tr>
                   <th width="10%">Description.1</th>
                   <td width="50%">
                     <input :disabled="isDisabled" v-model="form.description"
-                      class="string_zen clear_text text input_text" size="50" type="text" />
+                      class="string_zen clear_text text input_text"   style="width:360px" type="text" />
                   </td>
                 </tr>
                 <tr>
                   <th width="10%">Description.2</th>
                   <td width="50%">
                     <input :disabled="isDisabled" v-model="form.description_2"
-                      class="string_zen clear_text text input_text" size="50" type="text" />
+                      class="string_zen clear_text text input_text"  type="text"  style="width:360px"/>
                   </td>
                 </tr>
                 <tr>
                   <th width="10%">Stock Unit</th>
                   <td width="50%">
                     <select :disabled="isDisabled" v-model="form.stock_unit_of_measure_code" class="form"
-                      style="width: 385px">
+                      style="width: 360px">
                       <option value=""></option>
                       <option v-for="uint in uints" :value="uint.unit_code">
                         {{ uint.unit_of_measure }}
@@ -131,13 +131,13 @@
                   <th width="10%">ReOrder Point</th>
                   <td width="50%">
                     <input :disabled="isDisabled" v-model="form.reorder_point"
-                      class="string_zen clear_text text input_text" size="50" type="text" />
+                      class="string_zen clear_text text input_text"    style="width:360px" type="text" />
                   </td>
                 </tr>
                 <tr>
                   <th width="10%">Suppliyer</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" v-model="form.sup_code" class="form" style="width: 385px">
+                    <select :disabled="isDisabled" v-model="form.sup_code" class="form" style="width: 360px">
                       <option value=""></option>
                       <option v-for="suppliyer in suppliyers" :value="suppliyer.sup_code">
                         {{ suppliyer.sup_name }}
@@ -148,7 +148,7 @@
                 <tr>
                   <th width="10%">Group Product</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" v-model="form.group_code" class="form" style="width: 385px">
+                    <select :disabled="isDisabled" v-model="form.group_code" class="form" style="width: 360px">
                       <option value=""></option>
                       <option v-for="graoup in graoups" :value="graoup.group_code">
                         {{ graoup.group_name }}
@@ -159,7 +159,7 @@
                 <tr>
                   <th width="10%">Category</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" v-model="form.cat_code" class="form" style="width: 385px">
+                    <select :disabled="isDisabled" v-model="form.cat_code" class="form" style="width: 360px">
                       <option value=""></option>
                       <option v-for="categor in category" :value="categor.cat_code">
                         {{ categor.cat_name }}
@@ -170,7 +170,7 @@
                 <tr>
                   <th width="10%">Brand Name</th>
                   <td width="50%">
-                    <select :disabled="isDisabled" v-model="form.brand_code" class="form" style="width: 385px">
+                    <select :disabled="isDisabled" v-model="form.brand_code" class="form" style="width: 360px">
                       <option value=""></option>
                       <option v-for="brand in brands" :value="brand.brand_code">
                         {{ brand.brand_name }}
@@ -182,7 +182,7 @@
                   <th width="10%">Unit Price</th>
                   <td width="50%">
                     <input :disabled="isDisabled" v-model="form.unit_price"
-                      class="string_zen clear_text text input_text" size="50" type="text" />
+                      class="string_zen clear_text text input_text"  type="text" style="width: 360px"/>
                   </td>
                 </tr>
                 <tr>

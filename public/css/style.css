@@ -74,7 +74,7 @@
 
 
 #invoice{
-	height: 75%;
+	height: 540px;
 }
 .border{
 	width: 400px;
@@ -9067,7 +9067,7 @@ input[name="nav-item"] {
 }
 
 .height-modal{
-	height: 595px;
+	height: 540px;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {

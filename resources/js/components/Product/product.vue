@@ -219,8 +219,7 @@
                       @change="autoUpdateProduct(form)"
                       v-model="form.product_no"
                       class="string_zen_kana clear_text text input_text"
-                      maxlength="50"
-                      size="50"
+                      style="width: 360px"
                       type="text"
                     />
                   </td>
@@ -232,8 +231,7 @@
                       @change="autoUpdateProduct(form)"
                       v-model="form.product_barcode"
                       class="string_zen_kana clear_text text input_text"
-                      maxlength="50"
-                      size="50"
+                      style="width: 360px"
                       type="text"
                     />
                   </td>
@@ -245,7 +243,7 @@
                       @change="autoUpdateProduct(form)"
                       v-model="form.description"
                       class="string_zen clear_text text input_text"
-                      size="50"
+                      style="width: 360px"
                       type="text"
                     />
                   </td>
@@ -257,7 +255,7 @@
                       @change="autoUpdateProduct(form)"
                       v-model="form.description_2"
                       class="string_zen clear_text text input_text"
-                      size="50"
+                      style="width: 360px"
                       type="text"
                     />
                   </td>
@@ -269,7 +267,7 @@
                       @change="autoUpdateProduct(form)"
                       v-model="form.stock_unit_of_measure_code"
                       class="form"
-                      style="width: 385px"
+                      style="width: 360px"
                     >
                       <option v-for="uint in uints" :value="uint.unit_code">
                         {{ uint.unit_of_measure }}
@@ -281,7 +279,7 @@
                   <th width="20%">Reorder Point</th>
                   <td width="50%">
                     <input  @change="autoUpdateProduct(form)" :disabled="isDisabled" v-model="form.reorder_point"
-                      class="string_zen clear_text text input_text" size="50" type="text" />
+                      class="string_zen clear_text text input_text" style="width: 360px" type="text" />
                   </td>
                 </tr>
                 <tr>
@@ -291,7 +289,7 @@
                       v-model="form.sup_code"
                       @change="autoUpdateProduct(form)"
                       class="form"
-                      style="width: 385px"
+                      style="width: 360px"
                     >
                       <option value="">Selete Suppliyer</option>
                       <option
@@ -310,7 +308,7 @@
                       v-model="form.group_code"
                       @change="autoUpdateProduct(form)"
                       class="form"
-                      style="width: 385px"
+                      style="width: 360px"
                     >
                       <option value="">Selete Suppliyer</option>
                       <option
@@ -329,7 +327,7 @@
                       v-model="form.cat_code"
                       @change="autoUpdateProduct(form)"
                       class="form"
-                      style="width: 385px"
+                      style="width: 360px"
                     >
                       <option value="">Selete Suppliyer</option>
                       <option
@@ -348,7 +346,7 @@
                       v-model="form.brand_code"
                       @change="autoUpdateProduct(form)"
                       class="form"
-                      style="width: 385px"
+                      style="width: 360px"
                     >
                       <option value="">Selete Suppliyer</option>
                       <option v-for="brand in brands" :value="brand.brand_code">
@@ -364,7 +362,7 @@
                       @change="autoUpdateProduct(form)"
                       v-model="form.unit_price"
                       class="string_zen clear_text text input_text"
-                      size="50"
+                      style="width: 360px"
                       type="text"
                     />
                   </td>
