@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class curency extends Model
 {
     use HasFactory;
+    protected $table ="curency";
+    protected $fillable = [
+        'id',
+        'curency_no',
+        'curency',
+        'inactived',
+        'is_deleted',
+        'created_by',
+        'delete_by',
+        'created_at',
+        'updated_at'
+    ];
 }
+

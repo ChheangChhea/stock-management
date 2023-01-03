@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\curency;
 use Illuminate\Http\Request;
 
 class CurencyController extends Controller
@@ -13,7 +14,8 @@ class CurencyController extends Controller
      */
     public function index()
     {
-        //
+        $curency = curency::get();
+        return $curency;
     }
 
     /**
@@ -21,11 +23,22 @@ class CurencyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( Request $request)
     {
-        //
+        $brand = curency::create([
+            'id' => $request['curency_no'],
+            'curency_no' => $request['curency_no'],
+            'curency' => $request['curency'],
+            'inactived' => $request['inactived'],
+            'created_by' => 'Chhin Pov'
+        ]);
+        if($brand){
+            return curency::get();
+        }else{
+            return ['statue :'=>"faile"];
+        }
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -66,9 +79,18 @@ class CurencyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        $curency = curency::find($id);
+        $curency->curency = $request->curency;
+        $curency->inactived = $request->inactived;
+        $curency->updete_by = "Chhin Pov";
+        $curency->save();
+        if($curency){
+            return ['statue :'=> "Succesfull"];
+        }else{
+           return ['statue :'=>"faile "];
+        }
     }
 
     /**
@@ -79,6 +101,12 @@ class CurencyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $curency = curency::find($id);
+        $curency -> delete();
+        if($curency){
+            return ['statue :'=> "Succes full"];
+        }else{
+           return ['statue :'=>"faile Delete"];
+        }
     }
 }

@@ -16,7 +16,8 @@ use App\Http\Controllers\{
     ReceiveOrderContraller,
     StockTransactionContraller,
     StockCountController,
-    StockalertController
+    StockalertController,
+    CurencyController
 };
 
 /*php
@@ -168,4 +169,10 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::get('stockcheck/checkOptionstock/', [StockalertController::class, 'checkOption_stock']);
 
+
+    // currency
+    Route::get('curency/getdata/', [CurencyController::class, 'index']);
+    Route::post('curency/create/{curency}', [CurencyController::class, 'create']);
+    Route::get('curency/update/{curency}', [CurencyController::class,'update']);
+    Route::post('curency/delete/{curency}', [CurencyController::class, 'destroy']);
 });
