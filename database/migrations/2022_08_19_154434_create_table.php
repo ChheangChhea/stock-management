@@ -13,7 +13,7 @@ class CreateTable extends Migration
     public function up()
     {
         Schema::create('product_category', function (Blueprint $table) {
-            $table->integer('id');
+            $table->id();
             $table->string("cat_code", 25)->nullable();
             $table->string("cat_name", 255)->nullable();
             $table->string("cat_name_2", 255)->nullable();

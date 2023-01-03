@@ -17,7 +17,8 @@ use App\Http\Controllers\{
     StockTransactionContraller,
     StockCountController,
     StockalertController,
-    CurencyController
+    CurencyController,
+    ExchangeRateController
 };
 
 /*php
@@ -175,4 +176,11 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('curency/create/{curency}', [CurencyController::class, 'create']);
     Route::get('curency/update/{curency}', [CurencyController::class,'update']);
     Route::post('curency/delete/{curency}', [CurencyController::class, 'destroy']);
+
+    //getSetupExchangeRateController
+    Route::get('getSetup/', [CurencyController::class, 'getSetup']);
+
+    
+    Route::get('getcurency', [ExchangeRateController::class, 'getcurency']);
+    
 });

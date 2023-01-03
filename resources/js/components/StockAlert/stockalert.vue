@@ -47,7 +47,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropss" tabindex="10028"
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#statiex-import" tabindex="10028"
                                 href="#">
                              <span style="width: 14px;height: 14px; adding: 2px;color: red;">{{ item }}</span> To Purchese</a>
                         </li>
@@ -172,6 +172,79 @@
               </div>
             </div>
     </div>
+
+    <div class="modal fade ui-modal" id="statiex-import" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticboomId" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content ui-dialog">
+                <div class="ui-widget-header">
+                  <h5 class="modal-title in-header" id="staticBackdropLabel" ><i class="fa-solid fa-file"></i> Create Product Order: {{ purche.length-1 }}items</h5>
+                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal">
+                    <span class="ui-icon ui-icon-closethick">close</span></a>
+                </div>
+                <div id="purchaseorder">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="container mb-5 mt-3">
+                        <div class="row d-flex align-items-baseline">
+                          <div class="col-xl-9">
+                          </div>
+                            <hr>
+                        </div>
+
+                        <div class="container">
+                          <div class="col-md-12">
+                            <div class="text-center">
+                              <h3  class="title-purchase" id="titlered">Add Product Purchese</h3>
+                            </div>
+                          </div>
+                          <div class="row my-2 mx-1 justify-content-center table-padding-bot customsroll">
+                            <table class="table table-striped table-borderless" id="exceldata">
+                              <thead style="background-color:#84B0CA ;" class="text-white">
+                                <tr>
+                                  <th style="width: 5%">No</th>
+                                  <th style="width: 7%">Product No</th>
+                                  <th style="width: 7%">Description</th>
+                                  <th style="width: 7%">Unit Price</th>
+                                  <th style="width: 7%">Inventory</th>
+                                  <th style="width: 7%">Unit Code</th>
+                                  <th style="width: 7%">Unit Code</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr v-for="(purchaseLine,index) in purche" :key="items.index">
+                                  <th v-if="index>=1" style="width: 5%">{{index}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.product_no}}</th>
+                                  <th v-if="index>=1" style="width: 10%">{{purchaseLine.description}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.unit_price}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.inventorys}}</th>
+                                  <th v-if="index>=1" style="width: 7%">{{purchaseLine.stock_unit_of_measure_code}}</th>
+                                  <th v-if="index>=1" style="width: 7%">
+                                    <div class="button type2" id="uniform-undefined">
+                                      <span><input @click="RemoveItem(purchaseLine.product_no)" type="button" value="display" class="type2" style="opacity: 0; width: 54px" tabindex="10025" /><i class="fa fa-edit"></i> Remove</span>
+                                    </div>
+                                  </th>
+                                </tr>
+                              </tbody>
+
+                            </table>
+                          </div>
+                          <div class="row">
+                          </div>
+                          <hr>
+                      
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                     <input v-if="excel=='Import'"  type="file" @change="getExcelData" name="select_file" /> 
+                      <a v-else class="btn-purchase btn-light text-capitalize" data-bs-dismiss="modal" data-mdb-ripple-color="dark" @click="exportdataExcel()"><i class="fas fa-save"></i> Add Purchese Order</a> 
+                     </div>
+              </div>
+            </div>
+    </div>
 </template>
 
 <script>
@@ -191,6 +264,8 @@ export default {
             last_page: 1,
             item:'0',
             datasave:[{}],
+            form:[{}],
+            getProduct:[],
         };
     },
 
@@ -208,7 +283,6 @@ export default {
     getEdit(Product){
        
            if(this.purche.length == 0){
-
             this.purche = Product;
 
            }else{
@@ -224,10 +298,22 @@ export default {
            } 
            this.item = this.purche.length-1;
           if( parseFloat(this.item)> 1 || parseFloat(this.item)< 10 ){ this.item = '0'+ this.item;}
+          console.log(this.purche);
     },
     createPurches(){
         axios.post("/api/v1/purchase/store/").then((response) => {
       });
+    },
+    RemoveItem(id){
+      var newArray  = [];
+      this.purche.forEach(element => {
+        if(element.product_no !=id){
+          newArray.push(element);
+        }
+      });
+      this.purche = newArray;
+      this.item = this.purche.length-1;
+      if(this.item < 0) this.item = 0;
     },
     save() {
       if(this.issave =="save"){
@@ -270,8 +356,34 @@ export default {
     serchdata(){
         axios.post('api/v1/brands/search').then(res => {     
         })
-     }
+     },
+   exportdataExcel(){
+      axios.post("/api/v1/purchase/store/").then((response) => {
+        this.form = response.data;
+        this.purche.forEach(element => {
+           this.form.forEach(elementdat => {
+            elementdat.document_no =  element.document_no;
+            elementdat.document_type =  element.document_type;
+            elementdat.product_no =  element.product_no;
+            elementdat.description =  element.description;
+            elementdat.unit_of_measure_code =  element.stock_unit_of_measure_code;
+            elementdat.unit_price =  element.unit_price;
+            elementdat.inventory =  element.inventorys;
+            setTimeout(() => this.get(elementdat), 100);
+           });          
+         });
+      });
+    // if (this.getProduct.document_no != "") { this.$router.push({name: "Purchase",query: { id: this.getProduct.document_no },}); }
+    },
+    get(Product){
+      axios.post("api/v1/purchase/addrow/purchaseline/" + Product.document_no)
+            .then((res) => {
+                this.getProduct.id = res.data[0].id;
+                axios.post("/api/v1/purchase/update/purchaseline/"+ Product.id,Product).then((res) => { });
+         });
+         console.log(Product);
     }
+  }
 };
  
 </script>

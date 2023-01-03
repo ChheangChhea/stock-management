@@ -21,18 +21,17 @@ class CategorysController extends Controller
     public function store(Request $request)
     {
         return category::create([
-            'id' => $request->cat_code,
-            'cat_code' => $request->cat_code,
-            'cat_name' => $request->cat_name,
-            'cat_name_2' => $request->cat_name_2,
-            'inactived' => $request->inactived,
+            'cat_code' => $request['cat_code'],
+            'cat_name' => $request['cat_name'],
+            'cat_name_2' => $request['cat_name_2'],
+            'inactived' => $request['inactived'],
             'is_deleted' => "0",
             'created_by' => "Chhin Pov",
         ]);
     }
     public function update($id, Request $request)
     {
-        $category = category::findorFail($id);
+        $category =  category::where('cat_code','=',$id)->first();
         $category->cat_name = $request->cat_name;
         $category->cat_name_2 = $request->cat_name_2;
         $category->inactived = $request->inactived;
@@ -49,14 +48,13 @@ class CategorysController extends Controller
 
     public function getCatName()
     {
-        $category =  category::orderBy('cat_code')->get();
+        $category =  category::orderBy('id','DESC')->get();
         return $category;
     }
     public function storeExcel(Request $request)
     {
 
         $category = category::create([
-            'id' => $request->cat_code,
             'cat_code' => $request->cat_code,
             'cat_name' => $request->cat_name,
             'cat_name_2' => $request->cat_name_2,
