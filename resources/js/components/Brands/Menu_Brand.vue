@@ -59,7 +59,7 @@
 
         <div class="ui-dialog-content" id="categoryprint">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body height-modal">
               <div class="container mb-5 mt-3">
                 <div class="row d-flex align-items-baseline">
                   <div class="col-xl-9"></div>
