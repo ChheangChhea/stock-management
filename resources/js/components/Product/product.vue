@@ -212,7 +212,7 @@
             >
               <tbody>
                 <tr>
-                  <th width="10%">No</th>
+                  <th width="20%">No</th>
                   <td width="50%">
                     <input
                       :disabled="true"
@@ -226,7 +226,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Barcode</th>
+                  <th width="20%">Barcode</th>
                   <td width="50%">
                     <input
                       @change="autoUpdateProduct(form)"
@@ -239,7 +239,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Description.1</th>
+                  <th width="20%">Description.1</th>
                   <td width="50%">
                     <input
                       @change="autoUpdateProduct(form)"
@@ -251,7 +251,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Description.2</th>
+                  <th width="20%">Description.2</th>
                   <td width="50%">
                     <input
                       @change="autoUpdateProduct(form)"
@@ -263,7 +263,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Stock Unit</th>
+                  <th width="20%">Stock Unit</th>
                   <td width="50%">
                     <select
                       @change="autoUpdateProduct(form)"
@@ -278,14 +278,14 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Reorder Point</th>
+                  <th width="20%">Reorder Point</th>
                   <td width="50%">
                     <input  @change="autoUpdateProduct(form)" :disabled="isDisabled" v-model="form.reorder_point"
                       class="string_zen clear_text text input_text" size="50" type="text" />
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Suppliyer</th>
+                  <th width="20%">Suppliyer</th>
                   <td width="50%">
                     <select
                       v-model="form.sup_code"
@@ -304,7 +304,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Group Product</th>
+                  <th width="20%">Group Product</th>
                   <td width="50%">
                     <select
                       v-model="form.group_code"
@@ -323,7 +323,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Category</th>
+                  <th width="20%">Category</th>
                   <td width="50%">
                     <select
                       v-model="form.cat_code"
@@ -342,7 +342,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Brand Name</th>
+                  <th width="20%">Brand Name</th>
                   <td width="50%">
                     <select
                       v-model="form.brand_code"
@@ -358,7 +358,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th width="10%">Unit Price</th>
+                  <th width="20%">Unit Price</th>
                   <td width="50%">
                     <input
                       @change="autoUpdateProduct(form)"
