@@ -22,14 +22,6 @@ class SuppliyerController extends Controller
     }
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'sup_name' => 'required',
-        //     'image_url' => 'required',
-        //     'address' => 'required',
-        //     'phone_no' => 'required',
-        //     'contact_phone' => 'required'
-        // ]);
-
         $photo = $this->uploadPhoto($request);
         $sup = suppliyer::create([
             'id' => $request->sup_code,
@@ -85,7 +77,7 @@ class SuppliyerController extends Controller
         $sup->delete();
         return response()->json(['msg' => 'delete success']);
     }
-    
+
     public function makeDirectory($directory)
     {
         if (!is_dir($directory)) {

@@ -42,12 +42,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function () {
     //brand api
     Route::post('brands/create', [BrandsController::class, 'create']);
-    Route::get('brands/edit/{brand}', [BrandsController::class, 'edit']);
     Route::post('brands/update/{brand}', [BrandsController::class, 'update']);
     Route::get('brands/delete/{brand}', [BrandsController::class, 'destroy']);
-    Route::get('brands/show/{brand}', [BrandsController::class, 'show']);
     Route::get('brands/', [BrandsController::class, 'index']);
-    Route::post('brands/search/', [BrandsController::class, 'search']);
     Route::get('brands/getdata/', [BrandsController::class, 'getdata']);
 
     //category
@@ -174,13 +171,12 @@ Route::group(['prefix' => 'v1'], function () {
     // currency
     Route::get('curency/getdata/', [CurencyController::class, 'index']);
     Route::post('curency/create/{curency}', [CurencyController::class, 'create']);
-    Route::get('curency/update/{curency}', [CurencyController::class,'update']);
+    Route::get('curency/update/{curency}', [CurencyController::class, 'update']);
     Route::post('curency/delete/{curency}', [CurencyController::class, 'destroy']);
 
     //getSetupExchangeRateController
     Route::get('getSetup/', [CurencyController::class, 'getSetup']);
 
-    
+
     Route::get('getcurency', [ExchangeRateController::class, 'getcurency']);
-    
 });
