@@ -43,6 +43,7 @@ class ProductContraller extends Controller
         $product = product::create([
             'id' => $serail_no,
             'product_no'  => $serail_no,
+            'reorder_point'=>'100',
             'description' => 'Medichince Product',
             'created_by'  => 'Chhin Pov'
         ]);

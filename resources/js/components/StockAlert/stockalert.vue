@@ -360,6 +360,8 @@ export default {
      },
    exportdataExcel(){
       axios.post("/api/v1/purchase/store/").then((response) => {
+        var x =1000;
+        var i = 1;
         this.form = response.data;
         this.purche.forEach(element => {
           if(element.product_no != null){
@@ -367,23 +369,24 @@ export default {
                 element.document_no = elementdata.document_no;
                 element.document_type = elementdata.document_type;
               });
-              setTimeout(() => this.get(element), 100);
+              setTimeout(() => this.get(element), x);
+              i++;
             } 
          });
+         setTimeout(() => this.getRoud(this.form[0].document_no), x*i);
       });
-    this.getRoud(this.docId)
+     
     },
     get(Product){
       axios.post("api/v1/purchase/update/Purchaselinealert/" + Product.document_no)
             .then((res) => {
-                
                 this.getProduct = res.data[0];
                 this.getProduct.description = Product.description;
                 this.getProduct.product_no = Product.product_no;
                 this.getProduct.unit_of_measure_code = Product.stock_unit_of_measure_code;
                 Product = this.getProduct;
-                this.docId = Product.document_no;
-               axios.post("/api/v1/purchase/update/purchaseline/"+ Product.document_no,Product).then((res) => { }); 
+                if(Product.document_no != ""){this.docId = Product.document_no;} 
+                axios.post("/api/v1/purchase/update/purchaseline/"+ Product.document_no,Product).then((res) => { }); 
          });
     },    
     getRoud(id) {
