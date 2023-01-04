@@ -14,7 +14,7 @@ class AllProductinstock extends Migration
     public function up()
     {
         DB::statement("
-        CREATE VIEW allproductinstock AS (
+        CREATE  VIEW allproductinstock AS (
             SELECT
             P .product_no,
             P .description,

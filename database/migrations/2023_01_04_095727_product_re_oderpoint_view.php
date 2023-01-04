@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ProductStockReorderPoint extends Migration
+class ProductReOderpointView extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class ProductStockReorderPoint extends Migration
     {
         DB::statement("
         CREATE VIEW product_reoderpoint_view AS (
-               SELECT ps.product_no,	ps.description,P .reorder_point, ps.unit_of_measure_code,ps.unit_price, SUM(TO_NUMBER(inventory, '999999999')) as inventorys FROM product_stock_keeping_units ps INNER JOIN product P ON ps.product_no = P.product_no  WHERE ps.statuse ='open' GROUP BY ps.product_no,ps.description,P .reorder_point,ps.unit_price, ps.unit_of_measure_code
+               SELECT ps.product_no,ps.description,P .reorder_point, ps.unit_of_measure_code,ps.unit_price, SUM(TO_NUMBER(inventory, '999999999')) as inventorys FROM product_stock_keeping_units ps INNER JOIN product P ON ps.product_no = P.product_no  WHERE ps.statuse ='open' GROUP BY ps.product_no,ps.description,P .reorder_point,ps.unit_price, ps.unit_of_measure_code
          )");
     }
 
