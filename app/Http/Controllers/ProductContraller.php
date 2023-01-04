@@ -159,7 +159,7 @@ class ProductContraller extends Controller
      */
     public function viewpro(Request $request)
     {
-        $product_view = product::orderBy('product_no', 'asc')->paginate(9);
+        $product_view = product::orderBy('description', 'asc')->paginate(9);
          if($product_view){
             return $product_view;
          }else{
