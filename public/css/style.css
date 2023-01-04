@@ -6091,7 +6091,11 @@ tbody td.tokkijiko_ari {
 	border-color: #d7edfc;
 	border-bottom-color: #fff;
 }
-
+#inspection_call_statusdisplay .main.status_tested tbody th {
+	background-color: #4397ab;
+	border-color: #1d313f;
+	border-bottom-color: #fff;
+}
 #inspection_call_statusdisplay .main.status_tested tbody td {
 	background-color: #d7edfc;
 	border-color: #d7edfc;
