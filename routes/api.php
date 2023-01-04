@@ -42,9 +42,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function () {
     //brand api
     Route::post('brands/create', [BrandsController::class, 'create']);
+    Route::get('brands/edit/{brand}', [BrandsController::class, 'edit']);
     Route::post('brands/update/{brand}', [BrandsController::class, 'update']);
     Route::get('brands/delete/{brand}', [BrandsController::class, 'destroy']);
+    Route::get('brands/show/{brand}', [BrandsController::class, 'show']);
     Route::get('brands/', [BrandsController::class, 'index']);
+    Route::post('brands/search/', [BrandsController::class, 'search']);
     Route::get('brands/getdata/', [BrandsController::class, 'getdata']);
 
     //category
@@ -140,10 +143,12 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('purchase/edit/purchaseline/{purchase}', [PurcheaOrderContraller::class, 'editPurchaseline']);
     Route::post('purchase/delete/purchaseline/{purchase}', [PurcheaOrderContraller::class, 'deletePurchaseline']);
     Route::post('purchase/update/purchaseline/{purchase}', [PurcheaOrderContraller::class, 'updatePurchaseline']);
+    Route::post('purchase/update/Purchaselinealert/{purchase}', [PurcheaOrderContraller::class, 'Purchaselinealert']);
     Route::post('purchase/delete/purchaseorder/{purchase}', [PurcheaOrderContraller::class, 'deletePurchaseorder']);
     Route::post('purchase/delete/getPrulinkUnit/{purchase}', [PurcheaOrderContraller::class, 'getPrulinkUnit']);
     Route::post('purchase/PrulinkeSave/', [PurcheaOrderContraller::class, 'PrulinkeSave']);
     Route::get('purchase/search/{search}', [PurcheaOrderContraller::class, 'search']);
+
     // ReceiveOrderContraller
     Route::get('receive/getpurchea', [ReceiveOrderContraller::class, 'getshowpurchea']);
     Route::post('receive/receptlink/', [ReceiveOrderContraller::class, 'receptlink']);
@@ -171,13 +176,19 @@ Route::group(['prefix' => 'v1'], function () {
     // currency
     Route::get('curency/getdata/', [CurencyController::class, 'index']);
     Route::post('curency/create/{curency}', [CurencyController::class, 'create']);
-    Route::get('curency/update/{curency}', [CurencyController::class, 'update']);
+    Route::get('curency/update/{curency}', [CurencyController::class,'update']);
     Route::post('curency/delete/{curency}', [CurencyController::class, 'destroy']);
 
     //getSetupExchangeRateController
+    Route::get('getSetup/', [CurencyController::class, 'getSetup']);
+
+    
+    Route::get('getcurency', [ExchangeRateController::class, 'getcurency']);
+    
+    //getSetupExchangeRateController
     Route::get('exchangerate/getSetup/', [CurencyController::class, 'getSetup']);
-    Route::get('exchangerate/getcurency/{exchangerate}', [ExchangeRateController::class, 'getcurency']);
-    Route::get('exchangerate/create/{exchangerate}', [ExchangeRateController::class, 'create']);
-    Route::get('exchangerate/update/{exchangerate}', [ExchangeRateController::class, 'update']);
+    Route::post('exchangerate/getcurency/{exchangerate}', [ExchangeRateController::class, 'getcurency']);
+    Route::post('exchangerate/create/{exchangerate}', [ExchangeRateController::class, 'create']);
+    Route::post('exchangerate/update/{exchangerate}', [ExchangeRateController::class, 'update']);
     Route::get('exchangerate/destroy/{exchangerate}', [ExchangeRateController::class, ' destroy']);
 });

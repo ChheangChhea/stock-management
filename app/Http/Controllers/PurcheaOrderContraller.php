@@ -157,6 +157,23 @@ class PurcheaOrderContraller extends Controller
         }
     }
 
+    public function Purchaselinealert($id, Request $request)
+    {
+        $purline = purchealine::create([
+            'document_no' => $id,
+            'total_amount' => '1',
+            'inventory' => '1',
+            'unit_price' => '1',
+            'created_by' => 'Chhin Pov',
+            'statue'     => 'open',
+        ]);
+        if ($purline) {
+            return purchealine::where('id', '=', $purline->id)->get();
+        } else {
+            return ['statue :' => "Note Date"];
+        }
+    }
+
 
     public function deletePurchaseline($id)
     {

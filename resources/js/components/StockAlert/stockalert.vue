@@ -264,8 +264,9 @@ export default {
             last_page: 1,
             item:'0',
             datasave:[{}],
-            form:[{}],
+            form:null,
             getProduct:[],
+            docId:'',
         };
     },
 
@@ -361,29 +362,31 @@ export default {
       axios.post("/api/v1/purchase/store/").then((response) => {
         this.form = response.data;
         this.purche.forEach(element => {
-           this.form.forEach(elementdat => {
-            elementdat.document_no =  element.document_no;
-            elementdat.document_type =  element.document_type;
-            elementdat.product_no =  element.product_no;
-            elementdat.description =  element.description;
-            elementdat.unit_of_measure_code =  element.stock_unit_of_measure_code;
-            elementdat.unit_price =  element.unit_price;
-            elementdat.inventory =  element.inventorys;
-            setTimeout(() => this.get(elementdat), 100);
-           });          
+          if(element.product_no != null){
+            this.form.forEach(elementdata => {
+                element.document_no = elementdata.document_no;
+                element.document_type = elementdata.document_type;
+              });
+              setTimeout(() => this.get(element), 100);
+            } 
          });
       });
-    // if (this.getProduct.document_no != "") { this.$router.push({name: "Purchase",query: { id: this.getProduct.document_no },}); }
+      console.log(this.docId);
+      this.$router.push({name: "Purchase",query: { id: this.docId },}); 
     },
     get(Product){
-      axios.post("api/v1/purchase/addrow/purchaseline/" + Product.document_no)
+      axios.post("api/v1/purchase/update/Purchaselinealert/" + Product.document_no)
             .then((res) => {
-                this.getProduct.id = res.data[0].id;
-                axios.post("/api/v1/purchase/update/purchaseline/"+ Product.id,Product).then((res) => { });
+                this.getProduct = res.data[0];
+                this.getProduct.description = Product.description;
+                this.getProduct.product_no = Product.product_no;
+                this.getProduct.unit_of_measure_code = Product.stock_unit_of_measure_code;
+                Product = this.getProduct;
+                this.docId = Product.document_no;
+               axios.post("/api/v1/purchase/update/purchaseline/"+ Product.document_no,Product).then((res) => { }); 
          });
-         console.log(Product);
     }
   }
 };
- 
+
 </script>
