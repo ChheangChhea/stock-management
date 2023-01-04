@@ -371,12 +371,12 @@ export default {
             } 
          });
       });
-      console.log(this.docId);
-      this.$router.push({name: "Purchase",query: { id: this.docId },}); 
+    this.getRoud(this.docId)
     },
     get(Product){
       axios.post("api/v1/purchase/update/Purchaselinealert/" + Product.document_no)
             .then((res) => {
+                
                 this.getProduct = res.data[0];
                 this.getProduct.description = Product.description;
                 this.getProduct.product_no = Product.product_no;
@@ -385,7 +385,16 @@ export default {
                 this.docId = Product.document_no;
                axios.post("/api/v1/purchase/update/purchaseline/"+ Product.document_no,Product).then((res) => { }); 
          });
-    }
+    },    
+    getRoud(id) {
+      console.log(id);
+      if (id != "") {
+        this.$router.push({
+          name: "Purchase",
+          query: { id: id },
+        });
+      }
+    },
   }
 };
 
