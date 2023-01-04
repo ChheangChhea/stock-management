@@ -123,8 +123,14 @@
                   <h5 class="modal-title" id="staticBackdropLabel">
                     <span class="ui-dialog-title" id="ui-dialog-title-modal-edit-dialog">{{ this.title }}</span>
                   </h5>
-                  <a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button" data-bs-dismiss="modal"><span
-                      class="ui-icon ui-icon-closethick">close</span></a>
+
+
+                  <span class="ui-icon ui-icon-closethick btn-cancel" 
+                          data-bs-dismiss="modal"
+                          aria-label="Close">
+                    </span>
+
+
                 </div>
                 <div class="ui-dialog-content">
                   <div class="modal-body">
@@ -151,28 +157,28 @@
                   <th width="10%">Document Number</th>
                   <td width="50%">
                     <input :disabled="true" @change="autoUpdateProduct(form)" v-model="form.document_no"
-                      class="string_zen_kana clear_text text input_text" maxlength="50" size="50" type="text" />
+                      class="string_zen_kana clear_text text input_text" style="width:380px" type="text" />
                   </td>
                 </tr>
                 <tr>
                   <th width="10%">Document Type</th>
                   <td width="50%">
                     <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.document_type"
-                      class="string_zen_kana clear_text text input_text" maxlength="50" size="50" type="text" />
+                      class="string_zen_kana clear_text text input_text" style="width:380px" type="text" />
                   </td>
                 </tr>
                 <tr>
                   <th width="10%">Description</th>
                   <td width="50%">
                     <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.description"
-                      class="string_zen clear_text text input_text" size="50" type="text" />
+                      class="string_zen clear_text text input_text" style ="width:380px" type="text" />
                   </td>
                 </tr>
                 <tr>
                   <th width="10%">Suppliyer</th>
                   <td width="50%">
                     <select :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.suppliyer_code"
-                      class="form"   style="width: 380px" > 
+                      class="form"   style="width:380px" > 
                       
                       <option value="">Selete Suppliyer</option>
                       <option v-for="suppliye in suppliyer" :value="suppliye.sup_code" :key="suppliye.id">
@@ -186,7 +192,7 @@
                   <th width="10%">Curency Code</th>
                   <td width="50%">
                     <input :disabled="isDisabled" @change="autoUpdateProduct(form)" v-model="form.curency_code"
-                      class="string_zen clear_text text input_text" size="50" type="text" />
+                      class="string_zen clear_text text input_text" style = "width : 380px" type="text" />
                   </td>
                 </tr>
              
