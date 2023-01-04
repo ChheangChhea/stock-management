@@ -120,7 +120,7 @@ class ExchangeRateController extends Controller
      */
     public function destroy($id)
     {
-        $curency = exchange_rate::find($id);
+        $curency = exchangerate::find($id);
         $curency -> delete();
         if($curency){
             return ['statue :'=> "Succes full"];
