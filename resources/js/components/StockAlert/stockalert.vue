@@ -38,6 +38,9 @@
                         <i class="fas fa-plus" style="padding-right: 5px"></i>
                         Menu
                     </a>
+                    <a v-if="item > 0" class="btn-radius bt-pn btn btn-sm" data-bs-toggle="modal" data-bs-target="#statiex-import" tabindex="10028" style="float: right; color: #f8f5b4">
+                        <span style="width: 14px;height: 14px; adding: 2px;color: white; font-weight: bold;">{{ item }}</span> To Purchese
+                    </a>
                     <ul class="dropdown-menu">
                         <li>
                             <a @click="getsuppliyerview()"  class="dropdown-item btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticboomId"
@@ -45,11 +48,6 @@
                                 <i class="fa fa-print" aria-hidden="true"></i>
                                 Print
                             </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#statiex-import" tabindex="10028"
-                                href="#">
-                             <span style="width: 14px;height: 14px; adding: 2px;color: red;">{{ item }}</span> To Purchese</a>
                         </li>
                         <li>
                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropss" tabindex="10028"
@@ -298,8 +296,6 @@ export default {
             }
            } 
            this.item = this.purche.length-1;
-          if( parseFloat(this.item)> 1 || parseFloat(this.item)< 10 ){ this.item = '0'+ this.item;}
-          console.log(this.purche);
     },
     createPurches(){
         axios.post("/api/v1/purchase/store/").then((response) => {
@@ -331,12 +327,12 @@ export default {
             }
         },
         print() {
-      var printContents = document.getElementById("invoiceholder").outerHTML;
-      document.body.innerHTML = printContents;
-      window.print();
-      window.location.reload();
-    },
-   dalete(brand){  
+          var printContents = document.getElementById("invoiceholder").innerHTML;
+          document.body.innerHTML = printContents;
+          window.print();
+          window.location.reload();
+       },
+     dalete(brand){  
       axios.get('api/v1/brands/delete/'+brand).then(res => {
                 this.getBrands(1);
         })

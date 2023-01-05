@@ -419,12 +419,12 @@ export default {
                 this.getSerail();
             });
         },
-        print() {
-      var printContents = document.getElementById("invoiceholder").outerHTML;
+     print() {
+      var printContents = document.getElementById("invoiceholder").innerHTML;
       document.body.innerHTML = printContents;
       window.print();
       window.location.reload();
-    },
+     },
     },
 };
 </script>

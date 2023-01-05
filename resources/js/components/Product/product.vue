@@ -1847,7 +1847,7 @@ export default {
       setTimeout(() => (modal.style.display = "none"), 1500);
     },
     print() {
-      var printContents = document.getElementById("invoiceholder").outerHTML;
+      var printContents = document.getElementById("invoiceholder").innerHTML;
       document.body.innerHTML = printContents;
       window.print();
       window.location.reload();

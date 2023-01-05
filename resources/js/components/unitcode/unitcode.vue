@@ -70,11 +70,7 @@
             </i>
             Menu
           </a>
-             <ul class="dropdown-menu">
-            <li>
-              <a @click="getproductboom()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#staticboomId" tabindex="10028"><i class="fa-solid fa-circle-b"></i> Boom Product</a>
-            </li>
+            <ul class="dropdown-menu">
             <li>
               <a @click="getsuppliyerview()" class="dropdown-item btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#staticboomId" tabindex="10028"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
@@ -398,7 +394,6 @@ export default {
     },
     btnEdit(serail) {
       this.form = serail;
-      alert(this.form.id)
     },
     btnUpdate() {
       axios
@@ -415,7 +410,7 @@ export default {
       });
     },
     print() {
-      var printContents = document.getElementById("invoiceholder").outerHTML;
+      var printContents = document.getElementById("invoiceholder").innerHTML;
       document.body.innerHTML = printContents;
       window.print();
       window.location.reload();
