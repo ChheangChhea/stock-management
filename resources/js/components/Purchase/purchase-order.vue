@@ -660,6 +660,14 @@
          <p>{{ massege }}</p>
       </div>
     </div>
+
+    <div id="myModal" class="lskymodal">
+      <div class="lskymodal-content">
+         <p><i class="fa fa-check" aria-hidden="false"></i> {{ massege }}</p>
+      </div>
+    </div>
+
+
 </template>
 <script>
 import readXlsxFile from 'read-excel-file';
