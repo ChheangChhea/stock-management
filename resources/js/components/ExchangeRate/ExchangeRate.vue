@@ -108,9 +108,9 @@
                           <tr>
                             <th width="30%">Currency code</th>
                             <td width="70%">
-                              <select @change="autoUpdateProduct(form)" v-model="form.stock_unit_of_measure_code" class="form" style="width: 177px" >
-                                <option v-for="uint in uints" :value="uint.unit_code">
-                                  {{ uint.unit_of_measure }}
+                              <select @change="autoUpdateProduct(form)" v-model="form.curency_no" class="form" style="width: 177px" >
+                                <option v-for="unit in Currencys" :value="unit.curency_no">
+                                  {{ unit.curency_no }}
                                 </option>
                               </select>
                             </td>
@@ -291,6 +291,7 @@ export default {
       bt2: "",
       items: {},
       links: [],
+      Currencys: [],
       products: [],
       perPage: "",
       currentPage: 0,
@@ -313,6 +314,7 @@ export default {
 
   mounted() {
     this.getBrands();
+    this.getcurrency();
   },
 
   methods: {
@@ -321,6 +323,10 @@ export default {
           .then((data) => {
             this.items = data;
          })
+    },
+    getcurrency(){
+      axios.get("/api/v1/getcurency").then((data) => this.Currencys = data.data);
+
     },
     save() {
       if (this.issave == "save") {

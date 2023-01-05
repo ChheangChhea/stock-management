@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class ExchangeRateController extends Controller
 {
-   /**
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -28,9 +28,9 @@ class ExchangeRateController extends Controller
     public function getcurency()
     {
         $setup = setup::first();
-        $exchane = exchangerate::get();
+        $exchane = exchangerate::addSelect('curency_no')->get();
         $curency = curency::where('curency_no', '!=', $setup->main_Currency)
-        ->whereNotIn('curency_no', $exchane->curency_no)
+        ->whereNotIn('curency_no',$exchane)
         ->get();
         return $curency;
     }
@@ -97,18 +97,17 @@ class ExchangeRateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update($id,Request $request)
     {
-        $curency = exchangerate::find($id);
-        $curency->curency_no = $request->curency_no;
-        $curency->exchange_rate = $request->exchange_rate;
-        $curency->inactived = $request->inactived;
-        $curency->updete_by = "Chhin Pov";
-        $curency->save();
-        if($curency){
-            return ['statue :'=> "Succesfull"];
+        $exchangerate = exchangerate::find($id);  
+        $exchangerate -> curency_no = $request ->curency_no;
+        $exchangerate -> exchange_rate = $request ->exchange_rate;
+        $exchangerate -> inactived = $request ->inactived;
+        $exchangerate->save();
+        if($exchangerate){
+            return $exchangerate;
         }else{
-           return ['statue :'=>"faile "];
+           return ['statue :'=>"faile"];
         }
     }
 
@@ -121,11 +120,7 @@ class ExchangeRateController extends Controller
     public function destroy($id)
     {
         $curency = exchangerate::find($id);
-        $curency -> delete();
-        if($curency){
-            return ['statue :'=> "Succes full"];
-        }else{
-           return ['statue :'=>"faile Delete"];
-        }
+        $curency->delete();
+        return exchangerate::get();
     }
 }
