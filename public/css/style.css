@@ -4242,9 +4242,9 @@ h2.box-title,
 
 .search-box-footer {
 	position: relative;
-	/* padding: 3px 10px; */
-	background: #eee;
-	text-align: center;
+    padding:6px;
+    background: #eee;
+    text-align: center;
 }
 
 .search-box-footer .marker {
