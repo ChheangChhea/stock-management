@@ -176,15 +176,15 @@ Route::group(['prefix' => 'v1'], function () {
     // currency
     Route::get('curency/getdata/', [CurencyController::class, 'index']);
     Route::post('curency/create/{curency}', [CurencyController::class, 'create']);
-    Route::get('curency/update/{curency}', [CurencyController::class,'update']);
+    Route::get('curency/update/{curency}', [CurencyController::class, 'update']);
     Route::post('curency/delete/{curency}', [CurencyController::class, 'destroy']);
 
     //getSetupExchangeRateController
     Route::get('getSetup/', [CurencyController::class, 'getSetup']);
 
-    
+
     Route::get('getcurency', [ExchangeRateController::class, 'getcurency']);
-    
+
     //getSetupExchangeRateController
     Route::get('exchangerate/getSetup/', [CurencyController::class, 'getSetup']);
     Route::post('exchangerate/getcurency/{exchangerate}', [ExchangeRateController::class, 'getcurency']);

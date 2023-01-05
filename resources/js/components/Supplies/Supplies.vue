@@ -3,6 +3,16 @@
     <Header />
     <div class="search-box">
       <div id="product">
+        <h2 class="search-box-title">
+          Search
+          <input
+            name="search"
+            type="search"
+            id="search"
+            class="text"
+            v-model="search"
+          />
+        </h2>
         <div class="box">
           <div class="box-content">
             <table
@@ -58,22 +68,28 @@
                   <td width="6%">{{ suppliyer.contact_phone }}</td>
                   <td width="6%">{{ suppliyer.inactived }}</td>
                   <td width="11%">
-                    <div class="button" id="uniform-undefined">
+                    <div
+                      @click="btnEdit(suppliyer)"
+                      class="button"
+                      id="uniform-undefined"
+                    >
                       <span
                         >Edit<input
                           type="button"
                           data-bs-toggle="modal"
                           data-bs-target="#staticBackdrop"
-                          @click="btnEdit(suppliyer)"
                           tabindex="10028"
                           style="opacity: 0; width: 40px"
                       /></span>
                     </div>
-                    <div class="button" id="uniform-undefined">
+                    <div
+                      @click="btnDelete(suppliyer.id)"
+                      class="button"
+                      id="uniform-undefined"
+                    >
                       <span
                         >Delete<input
                           type="button"
-                          @click="btnDelete(suppliyer.sup_code)"
                           tabindex="10028"
                           style="opacity: 0; width: 40px"
                       /></span>
@@ -310,7 +326,7 @@
                 v-show="btnValue2"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-                @click="btnUpdate(form.sup_code)"
+                @click="btnUpdate(form.id)"
                 class="button type2"
                 id="uniform-undefined"
               >
@@ -322,13 +338,16 @@
                   tabindex="10026"
                 />
               </div>
-              <div class="button type2" id="uniform-undefined">
+              <div
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                class="button type2"
+                id="uniform-undefined"
+              >
                 <span>Close</span>
                 <input
                   type="button"
                   value="clear"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
                   class="type2"
                   style="opacity: 0; width: 63px"
                   tabindex="10026"
@@ -380,6 +399,7 @@ const btnAdd = async () => {
   btnValue2.value = false;
 };
 const btnEdit = async (sup) => {
+  form.id = sup.id;
   form.sup_code = sup.sup_code;
   form.sup_name = sup.sup_name;
   // form.sup_name_2 = sup.sup_name_2;
@@ -402,8 +422,8 @@ const btnSave = async () => {
   saveSup(form);
   getSuppliyer();
 };
-const btnUpdate = async (sup, form) => {
-  updateSup(sup, form);
+const btnUpdate = async (x) => {
+  updateSup(x, form);
   getSuppliyer();
 };
 const imgUplaod = async (e) => {

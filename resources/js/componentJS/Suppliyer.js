@@ -36,8 +36,8 @@ export default function useSuppliyer() {
     const saveSup = async (form) => {
         axios.post('api/v1/suppliyers/store/', form)
     }
-    const updateSup = async (sup, form) => {
-        axios.post('api/v1/suppliyers/update/' + sup, form)
+    const updateSup = async (x, form) => {
+        axios.post('api/v1/suppliyers/update/' + x, form)
     }
     const supImage = async (e) => {
         const image = e.target.files[0];
@@ -59,6 +59,6 @@ export default function useSuppliyer() {
         updateSup,
         supImage,
         photo_path,
-        deleteSup,
+        deleteSup
     }
 }

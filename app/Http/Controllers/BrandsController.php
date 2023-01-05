@@ -21,7 +21,6 @@ class BrandsController extends Controller
     public function create(Request $request)
     {
         $brand = brand::create([
-            'id' => $request['brand_code'],
             'brand_code' => $request['brand_code'],
             'brand_name' => $request['brand_name'],
             'brand_name_2' => $request['brand_name_2'],
