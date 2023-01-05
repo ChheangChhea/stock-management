@@ -163,13 +163,10 @@
                       >{{ this.title }}</span
                     >
                   </h5>
-                  <a
-                    href="#"
-                    class="ui-dialog-titlebar-close ui-corner-all"
-                    role="button"
-                    data-bs-dismiss="modal"
-                    ><span class="ui-icon ui-icon-closethick">close</span></a
-                  >
+                  <span class="ui-icon ui-icon-closethick btn-cancel" 
+                          data-bs-dismiss="modal"
+                          aria-label="Close">
+                    </span>
                 </div>
                 <div class="ui-dialog-content">
                   <div class="modal-body">

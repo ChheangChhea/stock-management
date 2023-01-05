@@ -287,9 +287,20 @@ div.button span {
     background-color:#326c7a!important;
     border-color:#5d9fc5!important;
 }
-
-
 .btn-cancel
 {
     margin-top:7px !important;
+}
+
+#staticBackdrop.modal
+{
+    position: fixed;
+    top: 28px;
+    left: 650px;
+    z-index: 1050;
+    display: none;
+    width: 30%;
+    height: 400px;
+    overflow: hidden;
+    outline:0;
 }
