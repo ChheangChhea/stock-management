@@ -108,9 +108,7 @@
                                   style="
                                     min-width: 51px;
                                     opacity: 0;
-                                    width: 80px;
-                                  "
-                                >
+                                    width: 80px;">
                                   <option value="Yes">Yes</option>
                                   <option value="No">No</option>
                                 </select>
@@ -137,7 +135,7 @@
                         />
                       </div>
                       <div
-                        @click="btnUpdate(form.brand_code)"
+                        @click="btnUpdate(form.id)"
                         class="button type2"
                         id="uniform-undefined"
                         data-bs-dismiss="modal"
@@ -229,7 +227,7 @@
                   </div>
                   <div
                     class="button"
-                    @click="btnDelete(item.brand_code)"
+                    @click="btnDelete(item.id)"
                     id="uniform"
                   >
                     <span
@@ -273,6 +271,7 @@ const btnAdd = async () => {
   btnValue2.value = false;
 };
 const btnEdit = async (item) => {
+  form.id = item.id;
   form.brand_code = item.brand_code;
   form.brand_name = item.brand_name;
   form.brand_name_2 = item.brand_name_2;

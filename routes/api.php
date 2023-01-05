@@ -41,7 +41,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'v1'], function () {
     //brand api
-    Route::post('brands/create', [BrandsController::class, 'create']);
+    Route::post('brands/create/', [BrandsController::class, 'create']);
     Route::get('brands/edit/{brand}', [BrandsController::class, 'edit']);
     Route::post('brands/update/{brand}', [BrandsController::class, 'update']);
     Route::get('brands/delete/{brand}', [BrandsController::class, 'destroy']);
@@ -181,6 +181,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     //getSetupExchangeRateController
     Route::get('getSetup/', [ExchangeRateController::class, 'getSetup']);
+    Route::get('exchangerate/index/', [ExchangeRateController::class, 'index']);
     Route::get('getcurency/', [ExchangeRateController::class, 'getcurency']);
     Route::post('exchangerate/create/', [ExchangeRateController::class, 'create']);
     Route::post('exchangerate/update/{exchangerate}', [ExchangeRateController::class, 'update']);

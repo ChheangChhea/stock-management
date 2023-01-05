@@ -53,7 +53,6 @@ export default function useBrand() {
         readXlsxFile(xlsxfile).then((rows) => {
             var x = 0;
             rows.forEach((element) => {
-                // console.log(element);
                 if (x >= 0) {
                     if (x == 0) {
                         checkexcel.value = element;
