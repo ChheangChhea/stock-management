@@ -180,15 +180,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('curency/delete/{curency}', [CurencyController::class, 'destroy']);
 
     //getSetupExchangeRateController
-    Route::get('getSetup/', [CurencyController::class, 'getSetup']);
-
-
-    Route::get('getcurency', [ExchangeRateController::class, 'getcurency']);
-
-    //getSetupExchangeRateController
-    Route::get('exchangerate/getSetup/', [CurencyController::class, 'getSetup']);
-    Route::post('exchangerate/getcurency/{exchangerate}', [ExchangeRateController::class, 'getcurency']);
-    Route::post('exchangerate/create/{exchangerate}', [ExchangeRateController::class, 'create']);
+    Route::get('getSetup/', [ExchangeRateController::class, 'getSetup']);
+    Route::get('getcurency/', [ExchangeRateController::class, 'getcurency']);
+    Route::post('exchangerate/create/', [ExchangeRateController::class, 'create']);
     Route::post('exchangerate/update/{exchangerate}', [ExchangeRateController::class, 'update']);
-    Route::get('exchangerate/destroy/{exchangerate}', [ExchangeRateController::class, ' destroy']);
+    Route::get('exchangerate/destroy/{exchangerate}', [ExchangeRateController::class, 'destroy']);
 });
