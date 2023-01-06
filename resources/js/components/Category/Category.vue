@@ -43,7 +43,7 @@
                   <th width="12%">
                     <div class="button" id="uniform-undefined">
                       <span
-                        >Add New<input
+                        ><i class="fa fa-plus" aria-hidden="true"></i> Add New<input
                           @click="btnAdd()"
                           type="button"
                           data-bs-toggle="modal"
@@ -81,7 +81,7 @@
                   <td width="12%">
                     <div class="button" id="uniform-undefined">
                       <span
-                        >Edit<input
+                        ><i class="fa fa-edit"></i> Edit<input
                           type="button"
                           @click="btnEdit(Category)"
                           data-bs-toggle="modal"
@@ -93,7 +93,7 @@
 
                     <div class="button" id="uniform-undefined">
                       <span
-                        >Delete<input
+                        ><i class="fa fa-trash"></i> Delete<input
                           type="button"
                           @click="btnDelete(Category.cat_code)"
                           tabindex="10028"

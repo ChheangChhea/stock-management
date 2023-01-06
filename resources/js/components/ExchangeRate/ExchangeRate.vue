@@ -173,7 +173,7 @@
                 <th width="20%%">Inactived</th>
                 <th width="15%">
                   <div class="button" id="uniform-undefined" @click="checkActionForm('save', 'Save', 'Close')">
-                    <span>Add New
+                    <span><i class="fa fa-plus" aria-hidden="true"></i> Add New
                       <input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px"/>
                     </span>
                   </div>
@@ -189,7 +189,7 @@
                     <td width="12%">
                     <div class="button" id="uniform-undefined">
                       <span
-                        >Edit<input
+                        > <i class="fa fa-edit"></i> Edit<input
                           type="button"
                           @click="checkActionForm('Update', 'Update', 'Close',item)"
                           data-bs-toggle="modal"
@@ -201,7 +201,7 @@
 
                     <div class="button" id="uniform-undefined">
                       <span
-                        >Delete<input
+                        ><i class="fa fa-trash"></i> Delete<input
                           type="button"
                           @click="dalete(item.curency_no)"
                           tabindex="10028"

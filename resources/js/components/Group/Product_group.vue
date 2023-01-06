@@ -253,7 +253,7 @@
                                 <th width="7%">Update By</th>
                                 <th width="12%">
                                  <div class="button" @click="checkActionForm('save','Save','Close','')">
-                                    <span >Add New<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
+                                    <span ><i class="fa fa-plus" aria-hidden="true"></i> Add New<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
                                  </div>
                                 </th>
                             </tr>
@@ -272,10 +272,10 @@
                                     <td>
                                       <div style="display:flex; flex-direction:row; justify-content:center; align-items: center">
                                      <div class="button" @click="checkActionForm('update','Update','Close',item)">
-                                        <span><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
+                                        <span><i class="fa fa-edit" aria-hidden="true"></i> Edit<input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px;" ></span>
                                      </div>
                                      <div class="button" @click="deleteData(item.group_code)" id="uniform">
-                                        <span><i class="fa fa-trash-o" aria-hidden="true"></i> Delete<input type="button" style="opacity: 0; width: 76px;" ></span>
+                                        <span><i class="fa fa-trash" aria-hidden="true"></i> Delete<input type="button" style="opacity: 0; width: 76px;" ></span>
                                      </div>
                                     </div>
                                    </td>

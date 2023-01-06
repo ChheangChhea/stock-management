@@ -190,8 +190,7 @@
                 <th width="11%">Inactived</th>
                 <th width="13%">
                   <div @click="btnAdd" class="button" id="uniform-undefined">
-                    <span
-                      >Add New<input
+                    <span><i class="fa fa-plus" aria-hidden="true"></i> Add New<input
                         type="button"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop"
@@ -215,9 +214,7 @@
                     class="button"
                     id="uniform-undefined"
                   >
-                    <span
-                      ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                      Edit<input
+                    <span><i class="fa fa-edit"></i> Edit<input
                         type="button"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop"
@@ -231,7 +228,7 @@
                     id="uniform"
                   >
                     <span
-                      ><i class="fa fa-trash-o" aria-hidden="true"></i>
+                      ><i class="fa fa-trash" aria-hidden="true"></i>
                       Delete<input
                         type="button"
                         style="opacity: 0; width: 76px"
