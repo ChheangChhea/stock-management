@@ -96,7 +96,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="staticBackdropLabel">
-                        Currency
+                        Payment Method
                       </h5>
                       <!-- <span class="ui-dialog-title" id="ui-dialog-title-dialog-modal">Brand</span> -->
                       <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
@@ -105,7 +105,7 @@
                       <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
                         <tbody>
                           <tr>
-                            <th width="30%">Currency No</th>
+                            <th width="30%">Paymentmethod Code</th>
                             <td width="70%">
                               <input class="string_zen_kana clear_text text" id="brand_name" maxlength="50"
                               name="brand_name" v-model="form.curency_no" type="text" tabindex="10001"/>
@@ -113,7 +113,15 @@
                           </tr>
 
                           <tr>
-                            <th width="30%">Currency</th>
+                            <th width="30%">Paymentmethod</th>
+                            <td width="70%">
+                              <input class="string_zen_kana clear_text text" id="brand_name_2"
+                                maxlength="50" name="brand_name_2" v-model="form.curency"
+                                type="text" tabindex="10001"/>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Description</th>
                             <td width="70%">
                               <input class="string_zen_kana clear_text text" id="brand_name_2"
                                 maxlength="50" name="brand_name_2" v-model="form.curency"
@@ -167,6 +175,7 @@
                 <th width="20%">Paymentmethod Code</th>
                 <th width="20%">Paymentmethod </th>
                 <th width="20%%">Description</th>
+                <th width="20%">Inactived </th>
                 <th width="15%">
                   <div class="button" id="uniform-undefined" @click="checkActionForm('save', 'Save', 'Close')">
                     <span>Add New
@@ -179,8 +188,9 @@
             <tbody>
                <tr v-for="(item, index) in items.data" :key="index">
                     <td width="3%">{{ index + 1 }}</td>
-                    <td width="13%">{{ item.curency_no }}</td>
-                    <td width="13%">{{ item.curency }}</td>
+                    <td width="13%">{{ item.paymentmethod_code }}</td>
+                    <td width="13%">{{ item.paymentmethod }}</td>
+                    <td width="13%">{{ item.description }}</td>
                     <td width="6%">{{ item.inactived }}</td>
                     <td width="12%">
                     <div class="button" id="uniform-undefined">
@@ -198,7 +208,7 @@
                       <span
                         >Delete<input
                           type="button"
-                          @click="dalete(item.curency_no)"
+                          @click="dalete(item.id)"
                           tabindex="10028"
                           style="opacity: 0; width: 76px"
                       /></span>
@@ -306,7 +316,7 @@ export default {
 
   methods: {
     getBrands() {
-        axios.get("/api/v1/curency/getdata/")
+        axios.get("/api/v1/payment/index/")
           .then((data) => {
             this.items = data;
          })
