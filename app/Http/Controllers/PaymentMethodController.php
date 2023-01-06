@@ -20,8 +20,6 @@ class PaymentMethodController extends Controller
 
     public function create( Request $request)
     {
-        $setup = setup::first();
-        $main_curency_no = $setup->main_Currency;
         $exchangerate = paymentMethod::create([
             'paymentmethod_code' => $request['paymentmethod_code'],
             'paymentmethod' => $request['paymentmethod'],
@@ -31,7 +29,7 @@ class PaymentMethodController extends Controller
             'created_by' => 'Chhin Pov'
         ]);
         if($exchangerate){
-            return exchangerate::get();
+            return paymentMethod::get();
         }else{
             return ['statue :'=>"faile"];
         }
@@ -40,11 +38,11 @@ class PaymentMethodController extends Controller
     public function update($id,Request $request)
     {
         $exchangerate = paymentMethod::find($id);  
-        $exchangerate -> paymentmethod_code = $request ->paymentmethod_code;
-        $exchangerate -> paymentmethod = $request ->paymentmethod;
-        $exchangerate -> description = $request ->description;
-        $exchangerate -> statue = $request ->statue;
-        $exchangerate -> inactived = $request ->inactived;
+        $exchangerate -> paymentmethod_code = $request -> paymentmethod_code;
+        $exchangerate -> paymentmethod = $request -> paymentmethod;
+        $exchangerate -> description = $request->description;
+        $exchangerate -> statue = $request -> statue;
+        $exchangerate -> inactived = $request -> inactived;
         $exchangerate->save();
         if($exchangerate){
             return $exchangerate;

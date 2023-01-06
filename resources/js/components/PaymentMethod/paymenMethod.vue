@@ -108,7 +108,7 @@
                             <th width="30%">Paymentmethod Code</th>
                             <td width="70%">
                               <input class="string_zen_kana clear_text text" id="brand_name" maxlength="50"
-                              name="brand_name" v-model="form.curency_no" type="text" tabindex="10001"/>
+                              name="brand_name" v-model="form.paymentmethod_code" type="text" tabindex="10001"/>
                             </td>
                           </tr>
 
@@ -116,7 +116,7 @@
                             <th width="30%">Paymentmethod</th>
                             <td width="70%">
                               <input class="string_zen_kana clear_text text" id="brand_name_2"
-                                maxlength="50" name="brand_name_2" v-model="form.curency"
+                                maxlength="50" name="brand_name_2" v-model="form.paymentmethod"
                                 type="text" tabindex="10001"/>
                             </td>
                           </tr>
@@ -124,11 +124,10 @@
                             <th width="30%">Description</th>
                             <td width="70%">
                               <input class="string_zen_kana clear_text text" id="brand_name_2"
-                                maxlength="50" name="brand_name_2" v-model="form.curency"
+                                maxlength="50" name="brand_name_2" v-model="form.description"
                                 type="text" tabindex="10001"/>
                             </td>
                           </tr>
-
                           <tr>
                             <th width="30%">Inactived</th>
                             <td width="70%">
@@ -172,11 +171,11 @@
             <thead>
               <tr class="header-table">
                 <th width="15%">Id</th>
-                <th width="20%">Paymentmethod Code</th>
-                <th width="20%">Paymentmethod </th>
+                <th width="15%">Paymentmethod Code</th>
+                <th width="15%">Paymentmethod </th>
                 <th width="20%%">Description</th>
-                <th width="20%">Inactived </th>
-                <th width="15%">
+                <th width="10%">Inactived </th>
+                <th width="20%">
                   <div class="button" id="uniform-undefined" @click="checkActionForm('save', 'Save', 'Close')">
                     <span>Add New
                       <input type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" tabindex="10028" style="opacity: 0; width: 76px"/>
@@ -192,7 +191,7 @@
                     <td width="13%">{{ item.paymentmethod }}</td>
                     <td width="13%">{{ item.description }}</td>
                     <td width="6%">{{ item.inactived }}</td>
-                    <td width="12%">
+                    <td width="20%">
                     <div class="button" id="uniform-undefined">
                       <span
                         >Edit<input
@@ -261,7 +260,7 @@
                                     <td width="3%">{{ index + 1 }}</td>
                                     <td width="13%">{{ item.curency_no }}</td>
                                     <td width="13%">{{ item.curency }}</td>
-                                    <td width="6%">{{ item.inactived }}</td>
+                                    <td width="6%">{{  item.inactived }}</td>
                               </tr> 
                             </tbody>
                           </table>
@@ -324,28 +323,33 @@ export default {
     save() {
       if (this.issave == "save") {
         this.isDisabled = false;
-        axios.post("/api/v1/curency/create/"+this.form.curency_no, this.form).then((res) => {
+        axios.post("/api/v1/payment/create/"+this.form.id, this.form).then((res) => {
           this.getBrands();
         });
       } else {
         this.isDisabled = true;
         axios
-          .post("/api/v1/curency/update/" + this.issave, this.form)
+          .post("/api/v1/payment/update/" + this.form.id, this.form)
           .then((res) => {
             this.getBrands();
           });
       }
+    
     },
     edit(test) {
       this.form = test;
     },
+    clear(){
+      this.form =[];
+    },
     dalete(brand) {
-      axios.get("api/v1/curency/delete/" + brand).then((res) => {
+      axios.get("api/v1/payment/destroy/" + brand).then((res) => {
         this.form = res.data;
         this.getBrands(1);
       });
     },
     checkActionForm(checkform, bt1, bt2, brandId) {
+      this.clear();
       if (checkform == "save") {
         this.bt1 = bt1;
         this.bt2 = bt2;

@@ -18,7 +18,8 @@ use App\Http\Controllers\{
     StockCountController,
     StockalertController,
     CurencyController,
-    ExchangeRateController
+    ExchangeRateController,
+    PaymentMethodController
 };
 
 /*php
@@ -188,8 +189,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('exchangerate/destroy/{exchangerate}', [ExchangeRateController::class, 'destroy']);
 
     //Payment Method
-    Route::get('payment/index/', [ExchangeRateController::class, 'index']);
-    Route::post('payment/create/', [ExchangeRateController::class, 'create']);
-    Route::post('payment/update/{payment}', [ExchangeRateController::class, 'update']);
-    Route::get('payment/destroy/{payment}', [ExchangeRateController::class, 'destroy']);
+    Route::get('payment/index/', [PaymentMethodController::class, 'index']);
+    Route::post('payment/create/', [PaymentMethodController::class, 'create']);
+    Route::post('payment/update/{payment}', [PaymentMethodController::class, 'update']);
+    Route::get('payment/destroy/{payment}', [PaymentMethodController::class, 'destroy']);
 });

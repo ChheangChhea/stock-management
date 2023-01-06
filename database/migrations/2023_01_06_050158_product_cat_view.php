@@ -13,7 +13,7 @@ class ProductCatView extends Migration
      */
     public function up()
     {
-        DB::statement("
+    DB::statement("
         CREATE VIEW product_cat_view AS (
             SELECT pr.product_no , sub.* from suppliyer sub INNER JOIN product pr on sub.sup_code = pr.sup_code
         )"
@@ -26,6 +26,7 @@ class ProductCatView extends Migration
      * @return void
      */
     public function down()
-    {  DB::statement('DROP VIEW IF EXISTS product_cat_view'); //
+    { 
+         DB::statement('DROP VIEW IF EXISTS product_cat_view'); //
     }
 }
