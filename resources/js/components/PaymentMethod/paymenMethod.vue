@@ -334,7 +334,7 @@ export default {
             this.getBrands();
           });
       }
-    
+      this.clear();
     },
     edit(test) {
       this.form = test;
@@ -349,7 +349,6 @@ export default {
       });
     },
     checkActionForm(checkform, bt1, bt2, brandId) {
-      this.clear();
       if (checkform == "save") {
         this.bt1 = bt1;
         this.bt2 = bt2;
