@@ -115,6 +115,18 @@
           <li>
             <dl>
               <dt>
+                <router-link to="/paymenMethod">
+                  <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
+                </router-link>
+              </dt>
+              <dd>
+                <span>Payment Method</span>
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>
                 <router-link to="/serailcode">
                   <img alt="タックシール印刷" height="168" src="img/tuck_seal.png" width="168">
                 </router-link>

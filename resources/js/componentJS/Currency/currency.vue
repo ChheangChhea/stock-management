@@ -27,7 +27,7 @@
             <span>
               <font style="vertical-align: inherit">
                 <font style="vertical-align: inherit">
-                  Exchage Rate
+                  Currency
                 </font>
               </font>
             </span>
@@ -97,7 +97,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="staticBackdropLabel">
-                        ExChange Rate : {{ MainCurrency }}
+                        Currency
                       </h5>
                       <!-- <span class="ui-dialog-title" id="ui-dialog-title-dialog-modal">Brand</span> -->
                       <span class="ui-icon ui-icon-closethick" data-bs-dismiss="modal" aria-label="Close"></span>
@@ -106,21 +106,18 @@
                       <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tbl_search">
                         <tbody>
                           <tr>
-                            <th width="30%">Currency code</th>
+                            <th width="30%">Currency No</th>
                             <td width="70%">
-                              <select @change="autoUpdateProduct(form)" v-model="form.curency_no" class="form" style="width: 177px" >
-                                <option v-for="unit in Currencys" :value="unit.curency_no">
-                                  {{ unit.curency_no }}
-                                </option>
-                              </select>
+                              <input class="string_zen_kana clear_text text" id="brand_name" maxlength="50"
+                              name="brand_name" v-model="form.curency_no" type="text" tabindex="10001"/>
                             </td>
                           </tr>
 
                           <tr>
-                            <th width="30%">Exchange rate</th>
+                            <th width="30%">Currency</th>
                             <td width="70%">
                               <input class="string_zen_kana clear_text text" id="brand_name_2"
-                                maxlength="50" name="brand_name_2" v-model="form.exchange_rate"
+                                maxlength="50" name="brand_name_2" v-model="form.curency"
                                 type="text" tabindex="10001"/>
                             </td>
                           </tr>
@@ -169,7 +166,7 @@
               <tr class="header-table">
                 <th width="15%">Id</th>
                 <th width="20%">Currency Code</th>
-                <th width="20%">Exchange Rate</th>
+                <th width="20%">Currency Name</th>
                 <th width="20%%">Inactived</th>
                 <th width="15%">
                   <div class="button" id="uniform-undefined" @click="checkActionForm('save', 'Save', 'Close')">
@@ -182,10 +179,10 @@
             </thead>
             <tbody>
                <tr v-for="(item, index) in items.data" :key="index">
-                                    <td width="15%">{{ index + 1 }}</td>
-                                    <td width="20%">{{ item.curency_no }}</td>
-                                    <td width="20%">{{item.exchange_rate}}.00{{ item.curency_no }} / 1.00{{item.main_curency_no }}</td>
-                                    <td width="15%">{{ item.inactived }}</td>
+                    <td width="3%">{{ index + 1 }}</td>
+                    <td width="13%">{{ item.curency_no }}</td>
+                    <td width="13%">{{ item.curency }}</td>
+                    <td width="6%">{{ item.inactived }}</td>
                     <td width="12%">
                     <div class="button" id="uniform-undefined">
                       <span
@@ -246,17 +243,17 @@
                             <thead style="background-color:#84B0CA ;" class="text-white">
                               <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Currency Code</th>
-                                <th scope="col">Exchange Rate</th>
+                                <th scope="col">Currency No</th>
+                                <th scope="col">Currency</th>
                                 <th scope="col">Inactived</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr v-for="(item, index) in items.data" :key="index">
-                                <td width="15%">{{ index + 1 }}</td>
-                                    <td width="20%">{{ item.curency_no }}</td>
-                                    <td width="20%">{{item.exchange_rate}}.00{{ item.curency_no }} / 1.00{{item.main_curency_no }}</td>
-                                    <td width="15%">{{ item.inactived }}</td>
+                                    <td width="3%">{{ index + 1 }}</td>
+                                    <td width="13%">{{ item.curency_no }}</td>
+                                    <td width="13%">{{ item.curency }}</td>
+                                    <td width="6%">{{ item.inactived }}</td>
                               </tr> 
                             </tbody>
                           </table>
@@ -287,19 +284,16 @@ export default {
     return {
       issave: "",
       bt1: "",
-      MainCurrency:"USA",
       bt2: "",
       items: {},
       links: [],
-      Currencys: [],
       products: [],
       perPage: "",
       currentPage: 0,
       last_page: 1,
       form: {
         curency_no: "",
-        main_curency_no:'',
-        exchange_rate: "",
+        curency: "",
         inactived: "Yes",
       },
       serchform: {
@@ -315,31 +309,25 @@ export default {
 
   mounted() {
     this.getBrands();
-    this.getcurrency();
   },
 
   methods: {
     getBrands() {
-        axios.get("/api/v1/exchangerate/index/")
+        axios.get("/api/v1/curency/getdata/")
           .then((data) => {
             this.items = data;
          })
     },
-    getcurrency(){
-      axios.get("/api/v1/getcurency").then((data) => this.Currencys = data.data);
-
-    },
     save() {
       if (this.issave == "save") {
         this.isDisabled = false;
-        axios.post("/api/v1/exchangerate/create/", this.form).then((res) => {
+        axios.post("/api/v1/curency/create/"+this.form.curency_no, this.form).then((res) => {
           this.getBrands();
-          this.getcurrency();
         });
       } else {
         this.isDisabled = true;
         axios
-          .post("/api/v1/exchangerate/update/" + this.form.id, this.form)
+          .post("/api/v1/curency/update/" + this.issave, this.form)
           .then((res) => {
             this.getBrands();
           });

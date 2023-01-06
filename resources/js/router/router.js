@@ -24,6 +24,7 @@ import Currency from '../components/Currency/currency.vue'
 import ExchangeRate from '../components/ExchangeRate/ExchangeRate.vue'
 import StockCount from '../components/StockCount/stock-count.vue'
 import Viewstockcount from '../components/StockCount/view-stock-count.vue'
+import paymenMethod from '../components/PaymentMethod/paymenMethod.vue'
 
 const routes = [
     { path: '/', component: App },
@@ -50,6 +51,8 @@ const routes = [
     {path: '/exchangerate', component: ExchangeRate},
     {path: '/stockcount', component: StockCount,name:'stockcount'},
     {path: '/viewstockcount', component: Viewstockcount},
+    {path: '/paymenMethod', component: paymenMethod},
+
   ]
 
 export default  createRouter({

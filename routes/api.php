@@ -186,4 +186,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('exchangerate/create/', [ExchangeRateController::class, 'create']);
     Route::post('exchangerate/update/{exchangerate}', [ExchangeRateController::class, 'update']);
     Route::get('exchangerate/destroy/{exchangerate}', [ExchangeRateController::class, 'destroy']);
+
+    //Payment Method
+    Route::get('payment/index/', [ExchangeRateController::class, 'index']);
+    Route::post('payment/create/', [ExchangeRateController::class, 'create']);
+    Route::post('payment/update/{payment}', [ExchangeRateController::class, 'update']);
+    Route::get('payment/destroy/{payment}', [ExchangeRateController::class, 'destroy']);
 });

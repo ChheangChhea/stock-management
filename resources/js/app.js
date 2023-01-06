@@ -32,6 +32,7 @@ import StockTransection from './components/StockTransection/stock-transection.vu
 import Currency from './components/Currency/currency.vue'
 import ExchangeRate from './components/ExchangeRate/ExchangeRate.vue'
 import StockCount from './components/StockCount/stock-count.vue'
+import paymenMethod from './components/PaymentMethod/paymenMethod.vue'
 
 const app = createApp({
   components: {
@@ -58,6 +59,7 @@ const app = createApp({
     Currency,
     ExchangeRate,
     StockCount,
+    paymenMethod,
   }
 })
 Alpine.start()
