@@ -3,6 +3,7 @@
     <Header />
     <div class="search-box">
       <div id="product">
+        <MenuSup />
         <h2 class="search-box-title">
           Search
           <input
@@ -108,7 +109,6 @@
         </div>
       </div>
     </div>
-
     <div class="search-box-content">
       <div
         class="modal fade"
@@ -309,10 +309,8 @@
               <div
                 v-show="btnValue1"
                 @click="btnSave"
-                data-bs-dismiss="modal"
-                aria-label="Close"
+                data-bs-toggle="modal"
                 class="button type2"
-                id="uniform-undefined"
               >
                 <span> Save</span>
                 <input
@@ -365,6 +363,7 @@
 import Header from "../Header.vue";
 import pagination from "laravel-vue-pagination";
 import useSuppliyer from "../../componentJS/Suppliyer";
+import MenuSup from "./Menu_Sup.vue";
 import { ref } from "vue";
 const disabled = ref(true);
 const btnValue1 = ref(false);
@@ -402,21 +401,20 @@ const btnEdit = async (sup) => {
   form.id = sup.id;
   form.sup_code = sup.sup_code;
   form.sup_name = sup.sup_name;
-  // form.sup_name_2 = sup.sup_name_2;
+  form.sup_name_2 = sup.sup_name_2;
   form.image_url = sup.image_url;
   form.address = sup.address;
   form.phone_no = sup.phone_no;
-  // form.phone_no_2 = sup.phone_no_2;
+  form.phone_no_2 = sup.phone_no_2;
   form.fax_no = sup.fax_no;
   form.email = sup.email;
   form.contact_name = sup.contact_name;
   form.contact_phone = sup.contact_phone;
-  // form.status = sup.status;
+  form.status = sup.status;
   form.inactived = sup.inactived;
   disabled.value = true;
   btnValue2.value = true;
   btnValue1.value = false;
-  console.log(form.image_url);
 };
 const btnSave = async () => {
   saveSup(form);
@@ -433,107 +431,5 @@ const btnDelete = async (id) => {
   deleteSup(id);
   getSuppliyer();
 };
-//       forms: {
-//         id: "",
-//         sup_code: "",
-//         sup_name: "",
-//         sup_name_2: "",
-//         image_url: "",
-//         address: "",
-//         phone_no: "",
-//         phone_no_2: "",
-//         fax_no: "",
-//         email: "",
-//         contact_name: "",
-//         contact_phone: "",
-//         status: "",
-//         inactived: "",
-//       },
-//     };
-//   },
-
-//   mounted() {
-//     this.getSuppliyer();
-//   },
-
-//   methods: {
-//     getSuppliyer(page = 1) {
-//       //   axios.get("api/v1/suppliyers").then((res) => {
-//       //     this.suppliyers = res;
-//       //   });
-//       if (page > 0 && page <= this.last_page) {
-//         axios
-//           .get("api/v1/suppliyers")
-//           .then(({ data }) => {
-//             this.links = data.links;
-//             this.last_page = data.last_page;
-//             this.links.forEach((element) => {
-//               if (element.label == page) {
-//                 this.perPage = "api/v1/suppliyers?page=" + page;
-//                 axios.get(this.perPage).then(({ data }) => {
-//                   this.currentPage = data.current_page;
-//                   this.suppliyers = data;
-//                 });
-//               }
-//             });
-//           })
-//           .catch(({ response }) => {
-//             console.error(response);
-//           });
-//       }
-//     },
-//     imgUplaod(event) {
-//       const image = event.target.files[0];
-//       const reader = new FileReader();
-//       reader.readAsDataURL(image);
-//       reader.onload = (event) => {
-//         (this.photo_path = ""), (this.form.image_url = event.target.result);
-//       };
-//     },
-//     choosePhoto() {
-//       this.$refs.choose.click();
-//     },
-//     btnAdd() {
-//       this.form = {};
-//       this.routeSup = "api/v1/suppliyers/store/";
-//       this.isdisabled = false;
-//       this.add = 1;
-//     },
-//     btnClose() {
-//       this.form = {};
-//     },
-//     btnSave() {
-//       axios.post(this.routeSup, this.form).then((res) => {
-//         this.getSuppliyer();
-//         this.form = {};
-//       });
-//     },
-//     btnEdit(suppliyer) {
-//       this.isdisabled = true;
-//       this.photo_path = "img/suppliyer/";
-//       this.routeSup = "api/v1/suppliyers/update/";
-//       this.form = JSON.parse(JSON.stringify(suppliyer));
-//       this.add = 2;
-//     },
-//     btnUpdate(y) {
-//       axios.post(this.routeSup + y, this.form).then((res) => {
-//         this.getSuppliyer();
-//         this.form = Object.assign({}, this.form);
-//       });
-//     },
-//     btnDelete(x) {
-//       console.log(x);
-//       axios.post("api/v1/suppliyers/delete/" + x).then((res) => {
-//         this.getSuppliyer();
-//       });
-//     },
-//     print() {
-//       var printContents = document.getElementById("invoiceholder").outerHTML;
-//       document.body.innerHTML = printContents;
-//       window.print();
-//       window.location.reload();
-//     },
-//   },
-// };
 </script>
     

@@ -5,6 +5,8 @@ window.Alpine = Alpine
 import { createApp } from 'vue'
 import router from './router/router';
 import { Form } from 'vform'
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 window.Form = Form;
 import axios from 'axios';
 import App from './components/App.vue'
@@ -32,7 +34,7 @@ import ExchangeRate from './components/ExchangeRate/ExchangeRate.vue'
 import StockCount from './components/StockCount/stock-count.vue'
 
 const app = createApp({
-  components:{
+  components: {
     App,
     Brands,
     Product,
@@ -59,7 +61,7 @@ const app = createApp({
   }
 })
 Alpine.start()
-app.use(router, axios)
+app.use(router, axios, VueSweetalert2)
 app.mount('#app')
 
 

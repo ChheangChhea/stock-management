@@ -50,6 +50,12 @@ export default function useSuppliyer() {
     const deleteSup = async (id) => {
         axios.post("api/v1/suppliyers/delete/" + id)
     }
+    const printSup = async () => {
+        var printContents = document.getElementById("printSup").outerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        window.location.reload();
+    }
     return {
         form,
         suppliyers,
@@ -59,6 +65,7 @@ export default function useSuppliyer() {
         updateSup,
         supImage,
         photo_path,
-        deleteSup
+        deleteSup,
+        printSup
     }
 }
