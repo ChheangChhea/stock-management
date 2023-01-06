@@ -153,7 +153,7 @@
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
           >
-            <div class="modal-dialog">
+            <div class="modal-dialog smallpopup">
               <div class="modal-content ui-dialog">
                 <div class="ui-widget-header">
                   <h5 class="modal-title" id="staticBackdropLabel">
