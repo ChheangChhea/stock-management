@@ -164,9 +164,9 @@
             <thead>
               <tr class="header-table">
                 <th width="15%">Id</th>
-                <th width="20%">Currency Code</th>
-                <th width="20%">Currency Name</th>
-                <th width="20%%">Inactived</th>
+                <th width="20%">Paymentmethod Code</th>
+                <th width="20%">Paymentmethod </th>
+                <th width="20%%">Description</th>
                 <th width="15%">
                   <div class="button" id="uniform-undefined" @click="checkActionForm('save', 'Save', 'Close')">
                     <span>Add New
@@ -194,7 +194,6 @@
                           style="opacity: 0; width: 76px"
                       /></span>
                     </div>
-
                     <div class="button" id="uniform-undefined">
                       <span
                         >Delete<input
@@ -291,17 +290,12 @@ export default {
       currentPage: 0,
       last_page: 1,
       form: {
-        curency_no: "",
-        curency: "",
-        inactived: "Yes",
-      },
-      serchform: {
         id: "",
-        brand_code: "",
-        brand_name: "",
-        brand_name_2: "",
+        paymentmethod_code: "",
+        paymentmethod: "",
+        description: "",
         inactived: "",
-        is_deleted: "",
+        statue: ""
       },
     };
   },
